@@ -1,3 +1,11 @@
 <template>
-    <h1 class="text-4xl text-blue-500">Hello KOLD Festival</h1>
+    <section id="page-index">
+
+    </section>
 </template>
+
+<style>
+#page-index{
+    @apply h-screen w-full bg-indigo-400;
+}
+</style>
