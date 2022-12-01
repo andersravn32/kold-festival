@@ -8,6 +8,10 @@ module.exports = {
     extend: {
       backgroundImage: {
         'hero-pattern': "url('/src/assets/img/bg.jpg')"
+      },
+      fontFamily: {
+        'header': ['roc-grotesk', 'sans-serif'],
+        'body': ['open-sans', 'sans-serif']
       }
     },
   },
