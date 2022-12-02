@@ -3,9 +3,3 @@
 
     </footer>
 </template>
-
-<style>
-footer{
-    
-}
-</style>
