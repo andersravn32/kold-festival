@@ -10,6 +10,10 @@ const router = createRouter({
         {
             path: "/about",
             component: () => import("../pages/about.vue")
+        },
+        {
+            path: "/artist/:identifier",
+            component: () => import("../pages/artist.vue")
         }
     ]
 })
