@@ -1,0 +1,15 @@
+{
+    "artists": [
+        {
+            "name": "Ude af Kontrol",
+            "identifier": "ude-af-kontrol",
+            "date": 1669975549317,
+            "some": {
+                "instagram": "",
+                "facebook": "",
+                "website": ""
+            },
+            "body": "<hello>" 
+        }
+    ]
+}
