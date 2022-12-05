@@ -26,7 +26,8 @@ import bg from "../assets/video/bg-video.mp4";
           <span class="text-8xl font-header text-zinc-100 mb-4">Festival</span>
           <h3 class="flex items-center text-4xl font-header space-x-8 text-zinc-100">
             <span>24D</span><span>/</span><span>12T</span><span>/</span
-            ><span>02M</span>
+            ><span>02M</span><span>/</span
+            ><span>33S</span>
           </h3>
         </div>
       </div>
