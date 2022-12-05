@@ -17,14 +17,16 @@ defineProps({
 
 <template>
   <div class="accordion">
-    <div class="accordion-title" @click="(opened = !opened)">
+    <div
+      class="accordion-title"
+      @click="opened = !opened"
+    >
       <p>{{ title }}</p>
       <PlusIcon v-if="!opened" class="h-6 w-6 cursor-pointer" />
       <MinusIcon v-if="opened" class="h-6 w-6 cursor-pointer" />
     </div>
-
     <div v-if="opened" class="accordion-content">
-        <slot/>
+      <slot />
     </div>
   </div>
 </template>
