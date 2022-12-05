@@ -5,5 +5,9 @@
 @tailwind utilities;
 
 body {
-    @apply bg-blue-900;
+  @apply bg-blue-900;
+}
+
+.gradient-backdrop {
+  @apply h-full w-full bg-gradient-to-b from-blue-600/75 to-indigo-600/75 backdrop-blur;
 }

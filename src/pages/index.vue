@@ -45,10 +45,6 @@ import bg from "../assets/video/bg-video.mp4";
   animation: hero-logo 120s infinite linear;
 }
 
-.gradient-backdrop {
-  @apply h-full w-full bg-gradient-to-b from-blue-600/75 to-indigo-600/75 backdrop-blur;
-}
-
 @keyframes hero-logo {
   0% {
     transform: rotate(0deg);
