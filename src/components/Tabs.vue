@@ -27,19 +27,23 @@ const titles = tabs.value.map((tab) => tab.props.title);
 const selectedTitle = ref(titles[props.index]);
 
 // Provide selectedTitle data to component children
-provide("selectedTitle", selectedTitle)
+provide("selectedTitle", selectedTitle);
 </script>
 
 <template>
   <div class="tabs">
     <ul v-if="showTitles" class="tabs-titles">
-      <li v-for="title in titles" @click="selectedTitle = title">
+      <li
+        v-for="title in titles"
+        @click="selectedTitle = title"
+        :class="{ 'tab-active': title == selectedTitle }"
+      >
         {{ title }}
       </li>
     </ul>
 
     <div class="tabs-content">
-        <slot/>
+      <slot />
     </div>
   </div>
 </template>
