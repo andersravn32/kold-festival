@@ -9,18 +9,22 @@ const router = createRouter({
         },
         {
             path: "/about",
+            name: 'About',
             component: () => import("../pages/about.vue")
         },
         {
             path: "/program",
+            name: 'Program',
             component: () => import("../pages/program.vue")
         },
         {
             path: "/faq",
+            name: 'FAQ',
             component: () => import("../pages/faq.vue")
         },
         {
             path: "/contact",
+            name: 'Contact',
             component: () => import("../pages/contact.vue")
         },
         {
