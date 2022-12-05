@@ -13,7 +13,7 @@ const router = createRouter({
         },
         {
             path: "/program",
-            component: () => import("../pages/contact.vue")
+            component: () => import("../pages/program.vue")
         },
         {
             path: "/faq",
