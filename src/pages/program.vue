@@ -28,17 +28,17 @@ import bg from "../assets/img/bg.jpg";
                 <span>Sted</span>
                 <span>Tidspunkt</span>
               </li>
-              <li class="grid grid-cols-4 font-body text-zinc-100/75 py-2">
+              <li class="grid grid-cols-4 font-body py-2">
                 <span class="col-span-2">Ude af Kontrol</span>
                 <span>Pitstop</span>
                 <span>kl 23:30</span>
               </li>
-              <li class="grid grid-cols-4 font-body text-zinc-100/75 py-2">
+              <li class="grid grid-cols-4 font-body py-2">
                 <span class="col-span-2">Ude af Kontrol</span>
                 <span>Pitstop</span>
                 <span>kl 23:30</span>
               </li>
-              <li class="grid grid-cols-4 font-body text-zinc-100/75 py-2">
+              <li class="grid grid-cols-4 font-body py-2">
                 <span class="col-span-2">Ude af Kontrol</span>
                 <span>Pitstop</span>
                 <span>kl 23:30</span>
