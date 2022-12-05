@@ -36,6 +36,7 @@ provide("selectedTitle", selectedTitle);
       <li
         v-for="title in titles"
         @click="selectedTitle = title"
+        class="tab-title"
         :class="{ 'tab-active': title == selectedTitle }"
       >
         {{ title }}
