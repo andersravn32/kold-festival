@@ -1,5 +1,5 @@
 <script setup>
-import { PlusIcon } from "@heroicons/vue/24/outline";
+import { PlusIcon, MinusIcon } from "@heroicons/vue/24/outline";
 
 defineProps({
   opened: {
@@ -19,7 +19,8 @@ defineProps({
   <div class="accordion">
     <div class="accordion-title" @click="(opened = !opened)">
       <p>{{ title }}</p>
-      <PlusIcon class="h-6 w-6" />
+      <PlusIcon v-if="!opened" class="h-6 w-6 cursor-pointer" />
+      <MinusIcon v-if="opened" class="h-6 w-6 cursor-pointer" />
     </div>
 
     <div v-if="opened" class="accordion-content">
