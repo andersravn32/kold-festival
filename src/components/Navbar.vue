@@ -1,5 +1,11 @@
 <script setup>
+import MobileMenu from '../components/MobileMenu.vue';
 import { Bars3Icon } from "@heroicons/vue/24/outline";
+import { ref } from 'vue'
+
+
+let navToggle = ref(false)
+
 </script>
 
 <template>
@@ -13,7 +19,7 @@ import { Bars3Icon } from "@heroicons/vue/24/outline";
         />
       </router-link>
       <ul
-        class="flex items-center space-x-8 text-lg font-bold font-header text-zinc-100 uppercase"
+        class="hidden lg:flex items-center space-x-6 text-lg font-bold font-header text-zinc-100 uppercase"
       >
         <li>
           <router-link to="/program">Program</router-link>
@@ -27,10 +33,15 @@ import { Bars3Icon } from "@heroicons/vue/24/outline";
           <router-link to="/contact">Kontakt</router-link>
         </li>
       </ul>
-      <button class="hidden">
-        <Bars3Icon class="h-12 w-12 text-zinc-100" />
+      <button @click="navToggle = !navToggle" class="lg:hidden burgerMenu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-16 h-16">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+        </svg>
       </button>
     </nav>
+    <transition name="fade">
+      <MobileMenu v-if="navToggle" @close="navToggle = !navToggle" />
+    </transition>
   </header>
 </template>
 
@@ -46,5 +57,15 @@ import { Bars3Icon } from "@heroicons/vue/24/outline";
 #navbar .router-link-active,
 #navbar .router-link-exact-active {
   @apply text-zinc-100;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 200ms ease-in;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
