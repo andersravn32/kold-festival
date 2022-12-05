@@ -6,7 +6,11 @@ import { Bars3Icon } from "@heroicons/vue/24/outline";
   <header id="navbar">
     <nav class="flex items-center justify-between p-4">
       <router-link to="/" class="flex flex-col items-center">
-        <img class="h-24 w-24 hover:rotate-90 transition-transform duration-300" src="../assets/img/logo.svg" alt="KOLD Icon" />
+        <img
+          class="h-24 w-24 hover:rotate-90 transition-transform duration-300"
+          src="../assets/img/logo.svg"
+          alt="KOLD Icon"
+        />
       </router-link>
       <ul
         class="flex items-center space-x-8 text-lg font-bold font-header text-zinc-100 uppercase"
@@ -15,9 +19,13 @@ import { Bars3Icon } from "@heroicons/vue/24/outline";
           <router-link to="/program">Program</router-link>
         </li>
         <li>/</li>
-        <router-link to="/faq">F.A.Q</router-link>
+        <li>
+          <router-link to="/faq">F.A.Q</router-link>
+        </li>
         <li>/</li>
-        <router-link to="/contact">Kontakt</router-link>
+        <li>
+          <router-link to="/contact">Kontakt</router-link>
+        </li>
       </ul>
       <button class="hidden">
         <Bars3Icon class="h-12 w-12 text-zinc-100" />
