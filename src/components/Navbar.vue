@@ -58,14 +58,4 @@ let navToggle = ref(false)
 #navbar .router-link-exact-active {
   @apply text-zinc-100;
 }
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 200ms ease-in;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
 </style>
