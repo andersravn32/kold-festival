@@ -37,7 +37,7 @@ let navToggle = ref(false)
       </button>
     </nav>
     <transition name="fade">
-      <MobileMenu class="mobileMenu shadow-md" :class="navToggle ? 'active' : ''" @close="navToggle = !navToggle" />
+      <MobileMenu  :activeClass='navToggle' class="mobileMenu shadow-md" :class="navToggle ? 'active' : ''" @close="navToggle = !navToggle" />
     </transition>
   </header>
 </template>
