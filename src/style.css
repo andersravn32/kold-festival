@@ -39,12 +39,11 @@ body {
 
 .bubble-enter-active,
 .bubble-leave-active {
-  @apply transition-all duration-500 opacity-100;
-  clip-path: circle(200% at 92% 10%);
+  @apply transition-all duration-500;
+  clip-path: circle(200% at 100% 0%);
 }
 
 .bubble-enter-from,
 .bubble-leave-to {
-  clip-path: circle(0.1% at 92% 10%);
-  @apply opacity-50;
+  clip-path: circle(0.1% at 100% 0%);
 }

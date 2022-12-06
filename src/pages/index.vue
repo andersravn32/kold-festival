@@ -10,14 +10,16 @@ onMounted(() => {
   // Floating Banner Effect
   const banner = gsap.timeline();
 
-  banner.from("#floating-text", { x: "-100%" });
+  banner
+  .fromTo("#floating-text", { x: "-130%" }, { x: '-105%' })
+  .from('.extraSpan', { opacity: 1 })
 
   ScrollTrigger.create({
     animation: banner,
     trigger: "#floating-text",
     scrub: 1,
     start: "top 80% ",
-    end: "bottom -40%",
+    end: "bottom 60%",
     toggleActions: "restart none none none",
   });
 });
@@ -71,49 +73,53 @@ timeline.from('#img-pop', {opacity: '0', y: '-2%', stagger: .2
         </h3>
       </div>
     </section>
-    <section id="artist" class="h-screen flex flex-col">
+
+    <!-- sliding text -->
       <div class="overflow-hidden w-full">
-        <span
-          class="block whitespace-nowrap py-4 font-bold text-[12rem] font-header text-zinc-100"
+        <div
+          class="flex py-4 font-bold text-[12rem] font-header text-zinc-100 space-x-16"
           id="floating-text"
-          >KUNSTNERE KUNSTNERE KUNSTNERE KUNSTNERE KUNSTNERE</span
-        >
+          >
+          <span class="opacity-50 extraSpan">KUNSTNERE</span>
+          <span class="opacity-50 extraSpan">KUNSTNERE</span>
+          <span>KUNSTNERE</span>
+          <span class="opacity-50 extraSpan">KUNSTNERE</span>
+          <span class="opacity-50 extraSpan">KUNSTNERE</span>
+        </div>
       </div>
-      <!-- Artist Container 1 -->
+
+      <!-- Artist Container -->
+    <section id="artist" class="h-screen">
       <div
-        class="container mx-auto grid place-center gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+        class="container mx-auto grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-full"
       >
-        <span class="relative">
-          <img id="img-pop" src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-          <h3 class="absolute text-white inset-0 uppercase w-32">Ude af kontrol</h3>
-        </span>
-        <span class="relative">
-          <img id="img-pop"  src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-          <h3 class="absolute text-white text-xl z-50 inset-0 uppercase w-32">Ude af kontrol</h3>
-        </span>
-        <span class="relative">
-          <img id="img-pop"  src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-          <h3 class="absolute text-white inset-0 uppercase w-32">Ude af kontrol</h3>
-        </span>
-      </div>
-      <!-- Artist Container 2 -->
-      <div
-        class="container mx-auto grid place-center gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-      >
-        <span class="relative">
-          <img id="img-pop" src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-          <h3 class="absolute text-white inset-0 uppercase w-32">Ude af kontrol</h3>
-        </span>
-        <span class="relative">
-          <img id="img-pop"  src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-          <h3 class="absolute text-white text-xl z-50 inset-0 uppercase w-32">Ude af kontrol</h3>
-        </span>
-        <span class="relative">
-          <img id="img-pop"  src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
-          <h3 class="absolute text-white inset-0 uppercase w-32">Ude af kontrol</h3>
-        </span>
+        <div class="relative flex justify-center items-center">
+          <img id="img-pop" class="absolute -z-10 h-full w-full object-cover" src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+          <h3 class="cardText">Ude af kontrol</h3>
+        </div>
+        <div class="relative flex justify-center items-center">
+          <img id="img-pop" class="absolute -z-10 h-full w-full object-cover" src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+          <h3 class="cardText">Ude af kontrol</h3>
+        </div>
+        <div class="relative flex justify-center items-center">
+          <img id="img-pop" class="absolute -z-10 h-full w-full object-cover" src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+          <h3 class="cardText">Ude af kontrol</h3>
+        </div>
+        <div class=" relative flex justify-center items-center">
+          <img id="img-pop" class="absolute -z-10 h-full w-full object-cover" src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+          <h3 class="cardText">Ude af kontrol</h3>
+        </div>
+        <div class="relative flex justify-center items-center">
+          <img id="img-pop" class="absolute -z-10 h-full w-full object-cover" src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+          <h3 class="cardText">Ude af kontrol</h3>
+        </div>
+        <div class="relative flex justify-center items-center">
+          <img id="img-pop" class="absolute -z-10 h-full w-full object-cover" src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+          <h3 class="cardText">Ude af kontrol</h3>
+        </div>
       </div>
     </section>
+      
 
     <!-- 
 
@@ -164,5 +170,9 @@ timeline.from('#img-pop', {opacity: '0', y: '-2%', stagger: .2
   100% {
     transform: rotate(360deg);
   }
+}
+
+.cardText {
+  @apply font-bold font-header text-4xl text-center w-3/5 uppercase text-white;
 }
 </style>
