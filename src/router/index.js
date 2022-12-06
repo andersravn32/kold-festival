@@ -5,11 +5,12 @@ const router = createRouter({
     routes: [
         {
             path: "/",
+            name: "Hjem",
             component: () => import("../pages/index.vue")
         },
         {
             path: "/about",
-            name: 'About',
+            name: 'Om os',
             component: () => import("../pages/about.vue")
         },
         {
@@ -19,12 +20,12 @@ const router = createRouter({
         },
         {
             path: "/faq",
-            name: 'FAQ',
+            name: 'F.A.Q',
             component: () => import("../pages/faq.vue")
         },
         {
             path: "/contact",
-            name: 'Contact',
+            name: 'Kontakt',
             component: () => import("../pages/contact.vue")
         },
         {
