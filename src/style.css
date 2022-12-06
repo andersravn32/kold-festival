@@ -8,8 +8,20 @@ body {
   @apply bg-blue-900;
 }
 
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gradient-to-t from-blue-600/50 to-indigo-600/50
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-indigo-500;
+}
+
 .gradient-backdrop {
-  @apply h-full w-full bg-gradient-to-b from-blue-600/75 to-indigo-600/75 backdrop-blur;
+  @apply h-full w-full bg-gradient-to-b from-blue-600/50 to-indigo-600/50 backdrop-blur-sm;
 }
 
 /* Vue transition classes */
@@ -22,4 +34,17 @@ body {
 .fade-enter-from,
 .fade-leave-to {
   @apply opacity-0;
+}
+
+
+.bubble-enter-active,
+.bubble-leave-active {
+  @apply transition-all duration-500 opacity-100;
+  clip-path: circle(200% at 92% 10%);
+}
+
+.bubble-enter-from,
+.bubble-leave-to {
+  clip-path: circle(0.1% at 92% 10%);
+  @apply opacity-50;
 }
