@@ -24,6 +24,10 @@ body {
   @apply h-full w-full bg-gradient-to-b from-blue-600/50 to-indigo-600/50 backdrop-blur-sm;
 }
 
+.hero-fade {
+  mask-image: linear-gradient(black, transparent)
+}
+
 /* Vue transition classes */
 
 .fade-enter-active,

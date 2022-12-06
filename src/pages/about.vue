@@ -1,5 +1,27 @@
 <script setup>
 import bg from '../assets/img/bg.jpg'
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { onMounted } from "vue";
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Floating Banner Effect
+  const images = gsap.timeline();
+
+  images
+  .from(".imageScroll", { y: "-5%" })
+
+  ScrollTrigger.create({
+    animation: images,
+    trigger: ".imageScroll",
+    scrub: 1,
+    start: "top 50% ",
+    end: "bottom 20%",
+    toggleActions: "restart none none none",
+  });
+});
 
 </script>
 
@@ -7,7 +29,7 @@ import bg from '../assets/img/bg.jpg'
     <div id="page-about">
         <!-- hero section -->
         <section class="hero flex flex-col justify-center items-center relative overflow-hidden">
-            <div class="gradient-backdrop absolute w-full z-20"></div>
+            <div class="gradient-backdrop absolute w-full z-20 hero-fade"></div>
             <img class="hero-logo absolute m-auto z-30" src="../assets/img/logo.svg" alt="KOLD Icon" />
             <div class="z-40">
                 <div class="flex flex-col items-center justify-center">
@@ -17,7 +39,7 @@ import bg from '../assets/img/bg.jpg'
                     <span class="text-[4rem] text-center font-header text-zinc-100">KOLD Festival</span>
                 </div>
             </div>
-            <div class="w-full h-full bg-cover bg-center absolute origin-bottom"
+            <div class="w-full h-full bg-cover bg-center absolute origin-bottom hero-fade"
                 :style="{ 'background-image': `url(${bg})` }"></div>
         </section>
 
@@ -35,7 +57,7 @@ import bg from '../assets/img/bg.jpg'
                 </h3>
             </span>
             <span class="relative px-12 m-auto">
-                <img class="relative ;"
+                <img class="relative imageScroll"
                     src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt="">
                 <!-- SVG 1 -->
@@ -104,7 +126,7 @@ import bg from '../assets/img/bg.jpg'
                 </h3>
             </span>
             <span class="block px-12 m-auto">
-                <img class=""
+                <img class="relative imageScroll"
                     src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt="">
 
