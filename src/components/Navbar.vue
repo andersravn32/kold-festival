@@ -1,5 +1,5 @@
 <script setup>
-import MobileMenu from '../components/MobileMenu.vue';
+import MobileMenu from './NavMenu.vue';
 import { Bars3Icon } from "@heroicons/vue/24/outline";
 import { ref } from 'vue'
 
