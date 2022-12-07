@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-[#00132F];
+  @apply bg-midnight;
 }
 
 ::-webkit-scrollbar {
@@ -13,7 +13,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gradient-to-t from-blue-600/50 to-indigo-600/50
+  @apply bg-gradient-to-t bg-midnight/50 to-indigo-600/50
 }
 
 ::-webkit-scrollbar-thumb {
@@ -21,7 +21,7 @@ body {
 }
 
 .gradient-backdrop {
-  @apply h-full w-full bg-gradient-to-b from-blue-600/50 to-indigo-600/50 backdrop-blur-sm;
+  @apply h-full w-full bg-gradient-to-b bg-blue-600/50 to-indigo-600/50 backdrop-blur-sm;
 }
 
 .hero-fade {
