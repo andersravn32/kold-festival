@@ -12,7 +12,10 @@ module.exports = {
       fontFamily: {
         'header': ['roc-grotesk', 'sans-serif'],
         'body': ['open-sans', 'sans-serif']
-      }
+      },
+      colors: {
+        'midnight': '#00132F'
+      },
     },
   },
   plugins: [],
