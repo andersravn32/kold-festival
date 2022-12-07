@@ -72,7 +72,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div id="page-index">
+  <div id="page-index" class="overflow-hidden">
     <section
       id="hero"
       class="relative w-full h-full z-20 flex flex-col items-center justify-center p-4"

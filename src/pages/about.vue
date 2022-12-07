@@ -61,7 +61,7 @@ const hovering = gsap.timeline();
                     src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt="">
                 <!-- SVG 1 -->
-                <svg class="absolute w-40 -top-16 lg:-top-24 left-0 z-99 symbolEffect z-50" width="242" height="274" viewBox="0 0 242 274"
+                <svg class="absolute w-40 -top-16 lg:-top-24 left-0 z-99 symbolEffect z-40" width="242" height="274" viewBox="0 0 242 274"
                     fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M143.966 85.8044L96.6457 31.0934L29.1523 101.29L116.481 202.261L50.8197 270.549L25.089 269.8L91.1165 201.131L4.06693 100.479L97.6048 3.19951L168.998 85.7492L143.966 85.8044Z"
@@ -75,7 +75,7 @@ const hovering = gsap.timeline();
                 </svg>
 
                 <!-- SVG 2 -->
-                <svg class="absolute w-40 -bottom-32 right-8 z-99 symbolEffect2 z-50" width="269" height="269" viewBox="0 0 269 269"
+                <svg class="absolute w-40 -bottom-32 right-8 z-99 symbolEffect2 z-40" width="269" height="269" viewBox="0 0 269 269"
                     fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_101_131)">
                         <path

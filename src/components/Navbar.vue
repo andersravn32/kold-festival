@@ -3,7 +3,11 @@ import NavMenu from "./NavMenu.vue";
 import { Bars3Icon } from "@heroicons/vue/24/outline";
 import { ref } from "vue";
 
-const showMenu = ref(false);
+let showMenu = ref(false);
+
+defineEmits(['blockScroll']);
+
+
 </script>
 
 <template>
@@ -25,14 +29,14 @@ const showMenu = ref(false);
           <router-link to="/program">Program</router-link>
         </li>
         <li>
-          <button @click="showMenu = !showMenu">
+          <button @click="showMenu = !showMenu; $emit('blockScroll');">
             <Bars3Icon class="h-16 w-16 transition-all duration-150 text-zinc-100/75 hover:text-zinc-100" />
           </button>
         </li>
       </ul>
     </nav>
     <Transition name="bubble">
-      <NavMenu v-if="showMenu" @close="showMenu = false" />
+      <NavMenu @scroll.prevent v-if="showMenu" @close="showMenu = !showMenu" />
     </Transition>
   </header>
 </template>

@@ -35,5 +35,21 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div id="page-artist"></div>
+  <div id="page-artist">
+    <section class="hero flex flex-col justify-center items-center relative overflow-hidden">
+            <div class="z-40">
+                <div class="flex flex-col items-center justify-center">
+
+                </div>
+            </div>
+            <div class="gradient-backdrop absolute w-full z-20 hero-fade"></div>
+            <div class="w-full h-full bg-cover bg-center absolute origin-bottom hero-fade"
+                :style="{ 'background-image': `url(${bg})` }"></div>
+        </section>
+
+
+
+
+
+  </div>
 </template>
