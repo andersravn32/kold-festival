@@ -71,7 +71,7 @@ onMounted(async () => {
       ></video>
 
       <img
-        class="hero-logo h-1/2"
+        class="hero-logo h-2/3"
         src="../assets/img/logo.svg"
         alt="KOLD Icon"
       />
@@ -116,6 +116,7 @@ onMounted(async () => {
           :name="artist.name"
           :artist-image="artist.image"
           :artist-cover="artist.header"
+          @click="router.push(`/artist/${artist.identifier}`)"
         />
       </div>
     </section>
