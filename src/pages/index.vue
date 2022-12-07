@@ -47,9 +47,16 @@ onMounted(async () => {
     .from("#artist-banner", { x: "-50%" })
     .from(".extraSpan", { opacity: 1 });
 
-  // Enterings effect tickets 
-  tickets.to('.priceBox', { y: 0, opacity: 1, duration: 0.5, ease: 'ease-out', stagger: 0.3 })
-  .to('.warning', { y: 0, opacity: 1, duration: 0.5, ease: 'ease-out'}, 0.8)
+  // Enterings effect tickets
+  tickets
+    .to(".priceBox", {
+      y: 0,
+      opacity: 1,
+      duration: 0.5,
+      ease: "ease-out",
+      stagger: 0.3,
+    })
+    .to(".warning", { y: 0, opacity: 1, duration: 0.5, ease: "ease-out" }, 0.8);
 
   // Create scrolltrigger
   ScrollTrigger.create({
@@ -63,10 +70,10 @@ onMounted(async () => {
 
   ScrollTrigger.create({
     animation: tickets,
-    trigger: '.priceBox',
-    start: 'top 70%',
-    end: 'bottom 40%',
-    toggleActions: 'play none none none'
+    trigger: ".priceBox",
+    start: "top 70%",
+    end: "bottom 40%",
+    toggleActions: "play none none none",
   });
 });
 </script>
@@ -140,47 +147,61 @@ onMounted(async () => {
     <!-- Tickets -->
     <section id="tickets">
       <div id="ticketBoxes">
-      <div class="priceBox">
-        <h3 class="font-header font-bold text-4xl text-white">PARTOUT</h3>
-        <div class=" text-white font-body flex flex-col justify-center items-center">
-          <p class="font-normal text-2xl">Student / Ung pris</p>
-          <h4 class="font-bold text-6xl">150 KR.</h4>
+        <div class="priceBox">
+          <h3 class="font-header font-bold text-4xl text-white">PARTOUT</h3>
+          <div
+            class="text-white font-body flex flex-col justify-center items-center"
+          >
+            <p class="font-normal text-2xl">Student / Ung pris</p>
+            <h4 class="font-bold text-6xl">150 KR.</h4>
+          </div>
+          <div
+            class="text-white font-body flex flex-col justify-center items-center"
+          >
+            <p class="font-normal text-2xl">Normal pris</p>
+            <h4 class="font-bold text-6xl">300 KR.</h4>
+          </div>
         </div>
-        <div class=" text-white font-body flex flex-col justify-center items-center">
-          <p class="font-normal text-2xl">Normal pris</p>
-          <h4 class="font-bold text-6xl">300 KR.</h4>
-        </div>
-      </div>
 
-      <div class="priceBox">
-        <h3 class="font-header font-bold text-4xl text-white">FREDAG</h3>
-        <div class=" text-white font-body flex flex-col justify-center items-center">
-          <p class="font-normal text-2xl">Student / Ung pris</p>
-          <h4 class="font-bold text-6xl">175 KR.</h4>
+        <div class="priceBox">
+          <h3 class="font-header font-bold text-4xl text-white">FREDAG</h3>
+          <div
+            class="text-white font-body flex flex-col justify-center items-center"
+          >
+            <p class="font-normal text-2xl">Student / Ung pris</p>
+            <h4 class="font-bold text-6xl">175 KR.</h4>
+          </div>
+          <div
+            class="text-white font-body flex flex-col justify-center items-center"
+          >
+            <p class="font-normal text-2xl">Normal pris</p>
+            <h4 class="font-bold text-6xl">350 KR.</h4>
+          </div>
         </div>
-        <div class=" text-white font-body flex flex-col justify-center items-center">
-          <p class="font-normal text-2xl">Normal pris</p>
-          <h4 class="font-bold text-6xl">350 KR.</h4>
-        </div>
-      </div>
 
-      <div class="priceBox">
-        <h3 class="font-header font-bold text-4xl text-white">LØRDAG</h3>
-        <div class=" text-white font-body flex flex-col justify-center items-center">
-          <p class="font-normal text-2xl">Student / Ung pris</p>
-          <h4 class="font-bold text-6xl">175 KR.</h4>
+        <div class="priceBox">
+          <h3 class="font-header font-bold text-4xl text-white">LØRDAG</h3>
+          <div
+            class="text-white font-body flex flex-col justify-center items-center"
+          >
+            <p class="font-normal text-2xl">Student / Ung pris</p>
+            <h4 class="font-bold text-6xl">175 KR.</h4>
+          </div>
+          <div
+            class="text-white font-body flex flex-col justify-center items-center"
+          >
+            <p class="font-normal text-2xl">Normal pris</p>
+            <h4 class="font-bold text-6xl">350 KR.</h4>
+          </div>
         </div>
-        <div class=" text-white font-body flex flex-col justify-center items-center">
-          <p class="font-normal text-2xl">Normal pris</p>
-          <h4 class="font-bold text-6xl">350 KR.</h4>
-        </div>
+        <article class="warning">
+          <i><BellAlertIcon class="w-16 h-16"></BellAlertIcon></i>
+          <p>
+            For at opnå student / ung pris skal man være under 22 år eller have
+            et gyldigt studiekort
+          </p>
+        </article>
       </div>
-      <article class="warning">
-      <i><BellAlertIcon class="w-16 h-16"></BellAlertIcon></i>
-      <p>For at opnå student / ung pris skal man være under 22 år eller have et gyldigt studiekort</p>
-    </article>
-    </div>
-
     </section>
   </div>
 </template>
@@ -207,15 +228,15 @@ onMounted(async () => {
 /* tickets */
 
 #tickets {
-  @apply container mx-auto flex flex-col
+  @apply container mx-auto flex flex-col;
 }
 
 #ticketBoxes {
-  @apply gap-8 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4; 
+  @apply gap-8 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4;
 }
 
 .priceBox {
-@apply relative translate-y-8 opacity-0 flex flex-col justify-center items-center gap-8 py-8 border-2 mx-8 sm:mx-0;
+  @apply relative translate-y-8 opacity-0 flex flex-col justify-center items-center gap-8 py-8 border-2 mx-8 sm:mx-0;
 }
 
 .warning {
