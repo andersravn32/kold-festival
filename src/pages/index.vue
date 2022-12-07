@@ -12,23 +12,18 @@ onMounted(() => {
   const banner = gsap.timeline();
 
   banner
-  .fromTo("#floating-text", { x: "-130%" }, { x: '-105%' })
+  .from("#floating-text", { x: "-50%" })
   .from('.extraSpan', { opacity: 1 })
 
   ScrollTrigger.create({
     animation: banner,
     trigger: "#floating-text",
     scrub: 1,
-    start: "top 80% ",
-    end: "bottom 60%",
+    start: "top 90% ",
+    end: "bottom 40%",
     toggleActions: "restart none none none",
   });
 });
-
-// Image pop effect
-const timeline = gsap.timeline({defaults: {duration: 1}})
-timeline.from('#img-pop', {opacity: '0', y: '-2%', stagger: .2
-        })
 
 </script>
 
@@ -78,26 +73,26 @@ timeline.from('#img-pop', {opacity: '0', y: '-2%', stagger: .2
     <!-- sliding text -->
       <div class="overflow-hidden w-full">
         <div
-          class="flex py-4 font-bold text-[12rem] font-header text-zinc-100 space-x-16"
+          class="flex justify-center items-center py-4 font-bold text-[4rem] lg:text-[8rem] xl:text-[12rem] font-header text-zinc-100 space-x-8 lg:space-x-16"
           id="floating-text"
           >
-          <span class="opacity-50 extraSpan">KUNSTNERE</span>
-          <span class="opacity-50 extraSpan">KUNSTNERE</span>
+          <span class="opacity-25 extraSpan">KUNSTNERE</span>
+          <span class="opacity-25 extraSpan">KUNSTNERE</span>
           <span>KUNSTNERE</span>
-          <span class="opacity-50 extraSpan">KUNSTNERE</span>
-          <span class="opacity-50 extraSpan">KUNSTNERE</span>
+          <span class="opacity-25 extraSpan">KUNSTNERE</span>
+          <span class="opacity-25 extraSpan">KUNSTNERE</span>
         </div>
       </div>
 
       <!-- Artist Container -->
     <section id="artist" class="h-screen">
       <div
-        class="container mx-auto grid gap-8 grid-cols-1 auto-rows-min md:grid-cols-2 lg:grid-cols-3 h-full"
+        class="container mx-auto grid gap-16 grid-cols-1 auto-rows-min md:grid-cols-2 lg:grid-cols-3 h-full"
       >
         <div class="artistGridBox">
           <h3 class="cardText">Ude af kontrol</h3>
           <div class=" overflow-hidden h-full w-full absolute flex justify-center items-end">
-          <img :src="uak" class=" w-2/5 md:w-2/4 lg:w-3/5 2xl:w-3/4 relative -bottom-2 -right-44 md:-right-24 lg:right-0 artistMiniature transition-all duration-150 ease-out">
+          <img :src="uak" class="artistMiniature">
           </div>
           <div class=" absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"></div>
           <img id="img-pop" class="absolute -z-20 h-full w-full object-cover" src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
@@ -105,7 +100,7 @@ timeline.from('#img-pop', {opacity: '0', y: '-2%', stagger: .2
         <div class="artistGridBox">
           <h3 class="cardText">Ude af kontrol</h3>
           <div class=" overflow-hidden h-full w-full absolute flex justify-center items-end">
-          <img :src="uak" class=" w-2/5 md:w-2/4 lg:w-3/5 2xl:w-3/4 relative -bottom-2 -right-44 md:-right-24 lg:right-0 artistMiniature transition-all duration-150 ease-out">
+          <img :src="uak" class="artistMiniature">
           </div>
           <div class=" absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"></div>
           <img id="img-pop" class="absolute -z-20 h-full w-full object-cover" src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
@@ -113,7 +108,7 @@ timeline.from('#img-pop', {opacity: '0', y: '-2%', stagger: .2
         <div class="artistGridBox">
           <h3 class="cardText">Ude af kontrol</h3>
           <div class=" overflow-hidden h-full w-full absolute flex justify-center items-end">
-          <img :src="uak" class=" w-2/5 md:w-2/4 lg:w-3/5 2xl:w-3/4 relative -bottom-2 -right-44 md:-right-24 lg:right-0 artistMiniature transition-all duration-150 ease-out">
+          <img :src="uak" class="artistMiniature">
           </div>
           <div class=" absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"></div>
           <img id="img-pop" class="absolute -z-20 h-full w-full object-cover" src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
@@ -121,7 +116,7 @@ timeline.from('#img-pop', {opacity: '0', y: '-2%', stagger: .2
         <div class="artistGridBox">
           <h3 class="cardText">Ude af kontrol</h3>
           <div class=" overflow-hidden h-full w-full absolute flex justify-center items-end">
-          <img :src="uak" class=" w-2/5 md:w-2/4 lg:w-3/5 2xl:w-3/4 relative -bottom-2 -right-44 md:-right-24 lg:right-0 artistMiniature transition-all duration-150 ease-out">
+          <img :src="uak" class="artistMiniature">
           </div>
           <div class=" absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"></div>
           <img id="img-pop" class="absolute -z-20 h-full w-full object-cover" src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
@@ -129,7 +124,7 @@ timeline.from('#img-pop', {opacity: '0', y: '-2%', stagger: .2
         <div class="artistGridBox">
           <h3 class="cardText">Ude af kontrol</h3>
           <div class=" overflow-hidden h-full w-full absolute flex justify-center items-end">
-          <img :src="uak" class=" w-2/5 md:w-2/4 lg:w-3/5 2xl:w-3/4 relative -bottom-2 -right-44 md:-right-24 lg:right-0 artistMiniature transition-all duration-150 ease-out">
+          <img :src="uak" class="artistMiniature">
           </div>
           <div class=" absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"></div>
           <img id="img-pop" class="absolute -z-20 h-full w-full object-cover" src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
@@ -137,7 +132,7 @@ timeline.from('#img-pop', {opacity: '0', y: '-2%', stagger: .2
         <div class="artistGridBox">
           <h3 class="cardText">Ude af kontrol</h3>
           <div class=" overflow-hidden h-full w-full absolute flex justify-center items-end">
-          <img :src="uak" class=" w-2/5 md:w-2/4 lg:w-3/5 2xl:w-3/4 relative -bottom-2 -right-44 md:-right-24 lg:right-0 artistMiniature transition-all duration-150 ease-out">
+          <img :src="uak" class="artistMiniature">
           </div>
           <div class=" absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"></div>
           <img id="img-pop" class="absolute -z-20 h-full w-full object-cover" src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
@@ -199,16 +194,19 @@ timeline.from('#img-pop', {opacity: '0', y: '-2%', stagger: .2
 }
 
 .artistGridBox {
-  transform-style: preserve-3d;
   @apply relative flex justify-start items-center lg:justify-center lg:items-start h-[200px] lg:h-[300px] 2xl:h-[400px] transition-all duration-150 ease-in-out hover:shadow-xl cursor-pointer;
 
-  @apply before:content-[''] before:bg-indigo-600/50 before:h-full before:w-full before:absolute before:-z-30 before:-translate-x-3 before:-translate-y-3;
+  @apply transition-all duration-150 ease-out before:content-[''] before:bg-indigo-600/50 before:h-full before:w-full before:absolute before:-z-30 before:-translate-x-3 before:-translate-y-3 hover:before:-translate-y-4 hover:before:-translate-x-4;
 
-  @apply after:content-[''] after:bg-blue-600/50 after:h-full after:w-full after:absolute after:-z-30 after:translate-x-2 after:translate-y-2;
+  @apply transition-all duration-150 ease-out after:content-[''] after:bg-blue-600/50 after:h-full after:w-full after:absolute after:-z-30 after:translate-x-2 after:translate-y-2 hover:after:translate-y-3 hover:after:translate-x-3;
+}
+
+.artistMiniature {
+  @apply w-2/5 md:w-2/4 lg:w-3/5 2xl:w-3/4 relative -bottom-2 -right-36 sm:-right-44 md:-right-24 lg:right-0 transition-all duration-150 ease-out;
 }
 
 .artistGridBox:hover {
-  transform: translateZ(20px) scale(1.02);
+  transform: scale(1.02);
 }
 
 .artistGridBox:hover .gradient-backdrop {
@@ -216,10 +214,10 @@ timeline.from('#img-pop', {opacity: '0', y: '-2%', stagger: .2
 }
 
 .artistGridBox:hover .artistMiniature {
-  @apply bottom-0 scale-105;
+  @apply -bottom-0;
 }
 
 .cardText {
-  @apply font-bold font-header text-4xl 2xl:text-6xl text-left lg:text-center w-3/5 uppercase text-white py-12 px-4;
+  @apply font-bold font-header text-4xl 2xl:text-6xl text-left lg:text-center w-3/5 uppercase text-white py-12 px-4 lg:w-full;
 }
 </style>
