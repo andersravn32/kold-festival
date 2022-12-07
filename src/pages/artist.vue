@@ -29,6 +29,8 @@ onMounted(async () => {
   if (!artist.value) {
     return router.push("/");
   }
+
+  console.log(artist.value)
 });
 </script>
 
