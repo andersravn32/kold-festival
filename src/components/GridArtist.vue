@@ -23,7 +23,7 @@ defineProps({
     <div
       class="artist-image"
     >
-      <img :src="artistImage" class="w-3/4 " />
+      <img :src="artistImage" class="w-3/5 " />
     </div>
     <div
       class="absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"
@@ -39,7 +39,7 @@ defineProps({
 
 <style>
 .artist {
-  @apply h-72 relative flex justify-center items-center w-full transition-all duration-150 ease-in-out cursor-pointer;
+  @apply h-96 relative flex justify-center w-full transition-all duration-150 ease-in-out cursor-pointer hover:scale-[1.02];
   @apply hover:before:-translate-y-4 hover:before:-translate-x-4;
   @apply hover:after:translate-y-4 hover:after:translate-x-4;
 }
@@ -52,12 +52,8 @@ defineProps({
     @apply transition-all duration-150 content-[''] bg-blue-600/50 h-full w-full absolute -z-30 translate-x-3 translate-y-3;
 }
 
-.artist {
-    @apply hover:scale-[1.02];
-}
-
 .artist-name {
-  @apply font-bold font-header text-6xl text-center uppercase text-white z-40;
+  @apply font-bold font-header text-6xl text-center uppercase text-white z-40 p-16;
 }
 
 .artist-image{
