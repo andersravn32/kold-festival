@@ -15,7 +15,7 @@ defineEmits(["close"]);
 </script>
 <template>
   <div
-    class="gradient-backdrop bg-blue-600 fixed top-0 bottom-0 left-0 right-0 flex flex-col items-center justify-center"
+    class=" bg-midnight fixed top-0 bottom-0 left-0 right-0 flex flex-col items-center justify-center"
   >
     <button @click="$emit('close')" class="absolute top-8 right-4">
       <XMarkIcon class="h-16 w-16 text-zinc-100" />

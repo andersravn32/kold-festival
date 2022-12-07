@@ -134,44 +134,11 @@ onMounted(() => {
           <div class=" overflow-hidden h-full w-full absolute flex justify-center items-end">
           <img :src="uak" class="artistMiniature">
           </div>
-          <div class=" absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"></div>
+          <div class="absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"></div>
           <img id="img-pop" class="absolute -z-20 h-full w-full object-cover" src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
         </div>
-
       </div>
     </section>
-      
-    
-
-    <!-- 
-
- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-<span>
-  <img class='relative w-64' src="shorturl.at/aopF7" alt="" />
-  <h3 class='absolute inset-0 uppercase w-32'>Ude af kontrol</h3>
-</span>
-  <span>
-  <img class='relative w-64' src="shorturl.at/aopF7" alt="" />
-  <h3 class='absolute inset-0 uppercase w-32'>Ude af kontrol</h3>
-</span>
-<span>
-  <img class='relative w-64' src="shorturl.at/aopF7" alt="" />
-  <h3 class='absolute inset-0 uppercase w-32'>Ude af kontrol</h3>
-</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        <img src="shorturl.at/aopF7" alt="" />
-        <img src="shorturl.at/aopF7" alt="" />
-        <img src="shorturl.at/aopF7" alt="" />
-        <img src="shorturl.at/aopF7" alt="" />
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-        <img src="shorturl.at/aopF7" alt="" />
-        <img src="shorturl.at/aopF7" alt="" />
-        <img src="shorturl.at/aopF7" alt="" />
-      </div>
-
- -->
   </div>
 </template>
 
@@ -207,11 +174,11 @@ onMounted(() => {
 }
 
 .artistGridBox:hover {
-  transform: scale(1.02);
+  @apply scale-105; 
 }
 
 .artistGridBox:hover .gradient-backdrop {
-  backdrop-filter: blur(1px);
+  @apply backdrop-blur-[1px]
 }
 
 .artistGridBox:hover .artistMiniature {
