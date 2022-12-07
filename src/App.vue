@@ -1,26 +1,22 @@
 <script setup>
-import Navbar from './components/Navbar.vue';
+import Navbar from "./components/Navbar.vue";
 import CTA from "./components/CTA.vue";
 import Footer from "./components/Footer.vue";
-import { ref } from 'vue'
 
-const preventScroll = ref(false);
-
-const changeScroll = () => {
-  preventScroll = !preventScroll;
-}
+// Controls scroll behavior
+const toggleScroll = () => {
+  document.querySelector('body').classList.toggle('overflow-hidden');
+};
 
 </script>
 
 <template>
-  <div :class="(preventScroll) ? 'overflow-hidden' : 'overflow-auto'" @blockScroll="changeScroll">
-  <Navbar />
+  <Navbar @toggleScroll="toggleScroll"/>
   <CTA />
   <router-view v-slot="{ Component }">
     <Transition name="fade" mode="out-in">
-      <component :is="Component" />
+      <component :is="Component"/>
     </Transition>
   </router-view>
   <Footer />
-  </div>
 </template>
