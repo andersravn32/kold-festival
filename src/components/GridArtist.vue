@@ -45,11 +45,11 @@ defineProps({
 }
 
 .artist::before{
-    @apply transition-all duration-150 content-[''] bg-indigo-600/50 h-full w-full absolute -z-30 -translate-x-3 -translate-y-3;
+    @apply transition-all duration-150 content-[''] bg-indigo-600 h-full w-full absolute -z-30 -translate-x-3 -translate-y-3;
 }
 
 .artist::after{
-    @apply transition-all duration-150 content-[''] bg-blue-600/50 h-full w-full absolute -z-30 translate-x-3 translate-y-3;
+    @apply transition-all duration-150 content-[''] bg-blue-600 h-full w-full absolute -z-30 translate-x-3 translate-y-3;
 }
 
 .artist-name {
