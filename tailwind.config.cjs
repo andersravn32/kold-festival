@@ -14,7 +14,8 @@ module.exports = {
         'body': ['open-sans', 'sans-serif']
       },
       colors: {
-        'midnight': '#00132F'
+        'midnight': '#00132F',
+        'accent': '#EBAF26'
       },
     },
   },
