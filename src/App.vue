@@ -6,7 +6,7 @@ import Footer from "./components/Footer.vue";
 
 <template>
   <Navbar />
-  <!--<CTA />-->
+  <CTA />
   <router-view v-slot="{ Component }">
     <Transition name="fade" mode="out-in">
       <component :is="Component" />
