@@ -1,6 +1,6 @@
 <script setup>
 import Form from '../components/contact-form.vue';
-import { ArrowDownCircleIcon } from "@heroicons/vue/24/outline";
+import { ArrowDownCircleIcon, PhoneIcon, EnvelopeIcon } from "@heroicons/vue/24/solid";
 
 </script>
 <template>
@@ -15,57 +15,58 @@ import { ArrowDownCircleIcon } from "@heroicons/vue/24/outline";
 <section id="personale">
 <!-- Person 1 -->
 <div class="contactCard">
-<span>
+    <div class="relative">
      <!-- bg img import -->
-<div class="imgBox" style="background-image: url('https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr'); background-size: cover;">
+    <div class="imgBox" style="background-image: url('https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr'); background-size: cover;">
+        <article class="floatInfo">
+            <h2 class="font-bold">Klaus Nielsen</h2>
+            <h3 class="font-normal">PR Medarbejder</h3>
+        </article>
+    </div>
 </div>
-<article class="floatInfo">
-     <h2>Navn</h2>
-     <h3>Titel</h3>
+
+<article class="grid gap-2 grid-cols2 py-4">
+    <div class="flex items-center">
+        <i class="mr-4"><PhoneIcon class="w-8 h-8"></PhoneIcon></i>
+        <a href="tel:+4520228630" class="font-body font-normal">20 22 86 30</a>
+    </div>
+               
+    <div class="flex items-center">
+        <i class="mr-4"><EnvelopeIcon class="w-8 h-8"></EnvelopeIcon></i>
+        <a href="mailto:sabuh@kolding.dk" class="font-body font-normal">sabuh@kolding.dk</a>
+    </div>
+          
 </article>
-</span>
-
-<article class="grid  grid-cols2">
-               <article class="flex">
-                    <i class="mr-4"> icon</i>
-                    <a href="tel:+4512345678">Nummer</a>
-               </article>
-               
-               <article class="flex">
-                    <i class="mr-4"> icon</i>
-                    <a href="">E-mail</a>
-               </article>
-          
-          </article>
 
 </div>
+
 <!-- Person 2 -->
-     <div class="contactCard">
+<div class="contactCard">
+    <div class="relative">
+     <!-- bg img import -->
+    <div class="imgBox" style="background-image: url('https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr'); background-size: cover;">
+        <article class="floatInfo">
+            <h2 class="font-bold">Klaus Nielsen</h2>
+            <h3 class="font-normal">PR Medarbejder</h3>
+        </article>
+    </div>
+</div>
 
-          <span>
-               <!-- bg img import -->
-          <div class="imgBox" style="background-image: url('https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr'); background-size: cover;">
-          </div>
-          <article class="floatInfo">
-               <h2>Navn</h2>
-               <h3>Titel</h3>
-          </article>
-          </span>
-
-          <article class="grid  grid-cols2">
-               <article class="flex">
-                    <i class="mr-4"> icon</i>
-                    <a href="tel:+4512345678">Nummer</a>
-               </article>
+<article class="grid gap-2 grid-cols2 py-4">
+    <div class="flex items-center">
+        <i class="mr-4"><PhoneIcon class="w-8 h-8"></PhoneIcon></i>
+        <a href="tel:+4520228630" class="font-body font-normal">20 22 86 30</a>
+    </div>
                
-               <article class="flex">
-                    <i class="mr-4"> icon</i>
-                    <a href="">E-mail</a>
-               </article>
+    <div class="flex items-center">
+        <i class="mr-4"><EnvelopeIcon class="w-8 h-8"></EnvelopeIcon></i>
+        <a href="mailto:sabuh@kolding.dk" class="font-body font-normal">sabuh@kolding.dk</a>
+    </div>
           
-          </article>
+</article>
 
-     </div>
+</div>
+
 </section>
 </div>
 <section class="test">
@@ -94,61 +95,22 @@ import { ArrowDownCircleIcon } from "@heroicons/vue/24/outline";
 .imgBox {
      @apply w-64 h-64;
 }
-.contactCard .floatInfo {
-     @apply absolute bg-indigo-600/50 w-64 bottom-12;
+
+.floatInfo {
+     @apply absolute bg-indigo-600/50 w-64 bottom-0 px-4 py-2 font-body;
 }
 
 
 /* Test */
 
 .flex-center {
-  width: 100%;
-
- /*  Midlertidig - slet senere */
- height: 20em;
-  
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+@apply w-full h-[20em] flex;
 }
 
 .icon-3d {
-  padding: 10px;
-  -webkit-animation: icon3d 200ms 10;
-  animation: icon3d 200ms 10;
-  color: #fff;
+@apply p-[10px] text-white;
 }
 
-.icon-3d:hover {
-  -webkit-animation: icon3d 200ms infinite;
-        animation: icon3d 200ms infinite;
-}
 
-@keyframes icon3d {
-  0% {
-    text-shadow: 5px 4px rgba(244,67,54,1), -5px -6px rgba(33,150,243,1)
-  }
-  25% {
-    text-shadow: -5px -6px rgba(244,67,54,1), 5px 4px rgba(33,150,243,1)
-  }
-  50% {
-    text-shadow: 5px -4px rgba(244,67,54,1), -8px 4px rgba(33,150,243,1)
-  }
-  75% {
-    text-shadow: -8px -4px rgba(244,67,54,1), -5px -4px rgba(33,150,243,1)
-  }
-  100% {
-    text-shadow: -5px 0 rgba(244,67,54,1), 5px -4px rgba(33,150,243,1)
-  }
-}
 
 </style>

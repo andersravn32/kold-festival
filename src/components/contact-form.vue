@@ -9,22 +9,26 @@ export default {
     }
   },
   methods: {
-    submit() {
-        
+    onSubmit() {
+        const inputAll = document.querySelectorAll('.field');
+        inputAll.forEach(input => {
+            input.value = '';
+        })
+        console.log('Form submitted!')
     }
   }
 }
 
 </script>
 <template>
-    <form class="container flex flex-col space-y-4 w-full">
+    <form @submit.prevent class="container flex flex-col space-y-4 w-full">
         <div class="grid grid-cols-2 gap-4">
-        <input type="text" v-model="firstName" placeholder="Fornavn"/>
-        <input type="text" v-model="lastName" placeholder="Efternavn"/>
+        <input class="field" type="text" v-model="firstName" placeholder="Fornavn"/>
+        <input class="field" type="text" v-model="lastName" placeholder="Efternavn"/>
         </div>
-        <input type="email" v-model="email" placeholder="E-mail"/>
-        <textarea type="text" v-model="message" placeholder="Besked"/>
-        <button @click="submit" class="bg-indigo-600/50 font-header text-xl font-bold text-white px-8 py-4 hover:bg-blue-900">Send</button>
+        <input class="field" type="email" v-model="email" placeholder="E-mail"/>
+        <textarea class="field" type="text" v-model="message" placeholder="Besked"/>
+        <button @click="onSubmit" class="bg-indigo-600/50 font-header text-xl font-bold text-white px-8 py-4 hover:bg-blue-900">Send</button>
     </form>
 </template>
 

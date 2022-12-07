@@ -17,6 +17,9 @@ module.exports = {
         'midnight': '#00132F',
         'accent': '#EBAF26'
       },
+      keyframes: {
+        'social': 'icon3d 500ms infinite'
+      }
     },
   },
   plugins: [],

@@ -3,6 +3,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
+import { BellAlertIcon } from "@heroicons/vue/24/solid";
 
 import GridArtist from "../components/GridArtist.vue";
 
@@ -38,10 +39,17 @@ onMounted(async () => {
   // Floating Banner Effect
   const banner = gsap.timeline();
 
+  // Enter tickets Effect
+  const tickets = gsap.timeline();
+
   // Position animated banner center
   banner
     .from("#artist-banner", { x: "-50%" })
     .from(".extraSpan", { opacity: 1 });
+
+  // Enterings effect tickets 
+  tickets.to('.priceBox', { y: 0, opacity: 1, duration: 0.5, ease: 'ease-out', stagger: 0.3 })
+  .to('.warning', { y: 0, opacity: 1, duration: 0.5, ease: 'ease-out'}, 0.8)
 
   // Create scrolltrigger
   ScrollTrigger.create({
@@ -51,6 +59,14 @@ onMounted(async () => {
     start: "top 90% ",
     end: "bottom 40%",
     toggleActions: "restart none none none",
+  });
+
+  ScrollTrigger.create({
+    animation: tickets,
+    trigger: '.priceBox',
+    start: 'top 70%',
+    end: 'bottom 40%',
+    toggleActions: 'play none none none'
   });
 });
 </script>
@@ -106,7 +122,7 @@ onMounted(async () => {
     </div>
 
     <!-- Artist Container -->
-    <section id="artist" v-if="artists.length">
+    <section class="pb-16" id="artist" v-if="artists.length">
       <div
         class="p-6 container mx-auto grid gap-16 sm:grid-cols-1 lg:grid-cols-2"
       >
@@ -119,6 +135,52 @@ onMounted(async () => {
           @click="router.push(`/artist/${artist.identifier}`)"
         />
       </div>
+    </section>
+
+    <!-- Tickets -->
+    <section id="tickets">
+      <div id="ticketBoxes">
+      <div class="priceBox">
+        <h3 class="font-header font-bold text-4xl text-white">PARTOUT</h3>
+        <div class=" text-white font-body flex flex-col justify-center items-center">
+          <p class="font-normal text-2xl">Student / Ung pris</p>
+          <h4 class="font-bold text-6xl">150 KR.</h4>
+        </div>
+        <div class=" text-white font-body flex flex-col justify-center items-center">
+          <p class="font-normal text-2xl">Normal pris</p>
+          <h4 class="font-bold text-6xl">300 KR.</h4>
+        </div>
+      </div>
+
+      <div class="priceBox">
+        <h3 class="font-header font-bold text-4xl text-white">FREDAG</h3>
+        <div class=" text-white font-body flex flex-col justify-center items-center">
+          <p class="font-normal text-2xl">Student / Ung pris</p>
+          <h4 class="font-bold text-6xl">175 KR.</h4>
+        </div>
+        <div class=" text-white font-body flex flex-col justify-center items-center">
+          <p class="font-normal text-2xl">Normal pris</p>
+          <h4 class="font-bold text-6xl">350 KR.</h4>
+        </div>
+      </div>
+
+      <div class="priceBox">
+        <h3 class="font-header font-bold text-4xl text-white">LØRDAG</h3>
+        <div class=" text-white font-body flex flex-col justify-center items-center">
+          <p class="font-normal text-2xl">Student / Ung pris</p>
+          <h4 class="font-bold text-6xl">175 KR.</h4>
+        </div>
+        <div class=" text-white font-body flex flex-col justify-center items-center">
+          <p class="font-normal text-2xl">Normal pris</p>
+          <h4 class="font-bold text-6xl">350 KR.</h4>
+        </div>
+      </div>
+      <article class="warning">
+      <i><BellAlertIcon class="w-16 h-16"></BellAlertIcon></i>
+      <p>For at opnå student / ung pris skal man være under 22 år eller have et gyldigt studiekort</p>
+    </article>
+    </div>
+
     </section>
   </div>
 </template>
@@ -140,5 +202,23 @@ onMounted(async () => {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* tickets */
+
+#tickets {
+  @apply container mx-auto flex flex-col
+}
+
+#ticketBoxes {
+  @apply gap-8 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4; 
+}
+
+.priceBox {
+@apply relative translate-y-8 opacity-0 flex flex-col justify-center items-center gap-8 py-8 border-2 mx-8 sm:mx-0;
+}
+
+.warning {
+  @apply relative translate-y-8 opacity-0 h-full bg-blue-900 text-white flex flex-col justify-between items-center font-bold font-body p-12 text-center py-20 border-2 mx-8 sm:mx-0;
 }
 </style>
