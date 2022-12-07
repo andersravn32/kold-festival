@@ -11,7 +11,7 @@ import {
       class="relative bg-cover bg-top h-72 w-full"
       :style="{
         'background-image':
-          'url(https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr)',
+          'url(https://thispersondoesnotexist.com/image)',
       }"
     >
       <div class="absolute left-0 right-0 bottom-0 bg-indigo-500/75 p-4">
