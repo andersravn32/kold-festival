@@ -11,8 +11,6 @@ const loading = ref(false);
 // Define artists array
 const artist = ref([]);
 
-let content = { hej: 'tis'}
-
 onMounted(async () => {
   // Update loading state
   loading.value = true;
@@ -33,8 +31,6 @@ onMounted(async () => {
   }
 
   console.log(artist.value)
-
-  content = JSON.parse(JSON.stringify(artist.value));
 });
 </script>
 
