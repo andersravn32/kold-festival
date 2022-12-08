@@ -1,26 +1,23 @@
 <script setup>
 import FormContact from "../components/Forms/Contact.vue";
 import ContactPerson from "../components/ContactPerson.vue";
+import bg from "../assets/img/hero-bg.jpg";
+import PageHeader from "../components/PageHeader.vue";
 </script>
 
 <template>
   <div id="page-contact">
-    <div class="flex flex-col space-y-2">
-      <h1
-        class="uppercase font-header font-bold text-8xl text-center text-zinc-100 leading-[0.7]"
-      >
-        Kontakt
-      </h1>
-      <p class="text-zinc-100 font-body text-center">
-        Udfyld den nedenstående formular for at sende os en direkte besked:
-      </p>
-    </div>
-    <FormContact />
+    <PageHeader :bg="bg">
+      <h1 class="text-8xl uppercase leading-[0.9]">Kontakt</h1>
+      <h2 class="text-xl text-center font-body">
+        Udfyld den nedenstående formular for at sende os en direkte besked
+      </h2></PageHeader
+    >
+    <FormContact class="max-w-2xl mx-auto"/>
 
-    <div class="grid grid-cols-2 gap-8">
-
+    <div class="max-w-2xl mx-auto w-full grid grid-cols-2 gap-8">
       <ContactPerson />
-      <ContactPerson /> 
+      <ContactPerson />
     </div>
 
     <!--     <section class="test">
@@ -37,7 +34,7 @@ import ContactPerson from "../components/ContactPerson.vue";
 </template>
 <style>
 #page-contact {
-  @apply min-h-screen flex flex-col py-32 max-w-2xl mx-auto space-y-8;
+  @apply min-h-screen flex flex-col space-y-8;
 }
 
 /* Test */
