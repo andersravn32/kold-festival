@@ -24,7 +24,7 @@ onMounted(async () => {
 
   // Fetch artist data
   const response = await fetch(
-    "https://api.singlepage.dk/"
+    "/src/assets/data.json"
   ).then((res) => res.json());
 
   // Update artists
@@ -94,7 +94,7 @@ onMounted(async () => {
       ></video>
 
       <img
-        class="hero-logo h-2/3"
+        class="hero-logo h-96"
         src="../assets/img/logo.svg"
         alt="KOLD Icon"
       />
@@ -128,16 +128,14 @@ onMounted(async () => {
       </div>
     </div>
 
-    <!-- Artist Container -->
     <section class="pb-16" id="artist" v-if="artists.length">
       <div
-        class="p-6 container mx-auto grid gap-16 sm:grid-cols-1 lg:grid-cols-2"
+        class="p-6 container mx-auto grid gap-16 sm:grid-cols-1 lg:grid-cols-3"
       >
         <GridArtist
           v-for="(artist, index) in artists"
           :key="index"
           :name="artist.name"
-          :artist-image="artist.image"
           :artist-cover="artist.header"
           @click="router.push(`/artist/${artist.identifier}`)"
         />
@@ -208,7 +206,7 @@ onMounted(async () => {
 
 <style>
 #hero {
-  @apply w-full relative z-10 flex items-center justify-center overflow-hidden;
+  @apply min-h-screen space-y-4 w-full relative z-10 flex items-center justify-center overflow-hidden;
 }
 
 .hero-logo {
