@@ -3,7 +3,7 @@
         {
             "name": "Ude af Kontrol",
             "identifier": "ude-af-kontrol",
-            "some": {
+            "socials": {
                 "instagram": "https://www.instagram.com/udeafkontrol",
                 "facebook": "https://www.facebook.com/udeafkontrol",
                 "website": "https://udeafkontrol.dk"
@@ -17,7 +17,7 @@
         {
             "name": "Chopper",
             "identifier": "chopper",
-            "some": {
+            "socials": {
                 "instagram": "",
                 "facebook": "",
                 "website": ""
@@ -31,7 +31,7 @@
         {
             "name": "Agnes Hartwich",
             "identifier": "agnes-hartwich",
-            "some": {
+            "socials": {
                 "instagram": "",
                 "facebook": "",
                 "website": ""
@@ -45,7 +45,7 @@
         {
             "name": "Elektrisk Ål",
             "identifier": "elektrisk-al",
-            "some": {
+            "socials": {
                 "instagram": "",
                 "facebook": "",
                 "website": ""
@@ -59,7 +59,7 @@
         {
             "name": "Evil House Party",
             "identifier": "evil-house-party",
-            "some": {
+            "socials": {
                 "instagram": "",
                 "facebook": "",
                 "website": ""

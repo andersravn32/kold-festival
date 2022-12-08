@@ -55,17 +55,17 @@ onMounted(async () => {
         <div v-if="artist.some" class="flex flex-col space-y-2">
           <h2>Socials</h2>
           <ul class="flex flex-col space-y-2">
-            <li v-if="artist.some.instagram">
+            <li v-if="artist.socials.instagram">
               <img :src="IgIcon" alt="Instagram Icon">
-              <a :href="artist.some.instagram" target="_blank">Instagram</a>
+              <a :href="artist.socials.instagram" target="_blank">Instagram</a>
             </li>
-            <li v-if="artist.some.facebook">
+            <li v-if="artist.socials.facebook">
               <img :src="FbIcon" alt="Facebook Icon">
-              <a :href="artist.some.facebook" target="_blank">Facebook</a>
+              <a :href="artist.socials.facebook" target="_blank">Facebook</a>
             </li>
-            <li v-if="artist.some.website">
+            <li v-if="artist.socials.website">
               <GlobeAltIcon class="h-6 w-6" />
-              <a :href="artist.some.website" target="_blank">Hjemmeside</a>
+              <a :href="artist.socials.website" target="_blank">Hjemmeside</a>
             </li>
           </ul>
         </div>
