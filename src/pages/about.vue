@@ -47,14 +47,14 @@ const hovering = gsap.timeline();
         <article class="info grid lg:grid-cols-2 my-16">
             <span class="block px-12">
                 <h2 class='m-auto text-4xl mb-2'>Hvad er Kold Festival?</h2>
-                <h3 class="font-body mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, nulla
+                <p class="font-body mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, nulla
                     ratione error excepturi iusto mollitia obcaecati suscipit molestias officia quos quia laboriosam
                     doloribus quo a debitis quas nemo eaque laborum. Lorem ipsum dolor sit, amet consectetur adipisicing
                     elit. Aliquam molestias quidem in non eligendi nihil, aut nemo expedita? Ipsa, molestiae? Lorem
                     ipsum dolor sit, amet consectetur adipisicing elit. Quo veniam reiciendis dignissimos expedita animi
                     quam eveniet eaque iste! Necessitatibus, doloribus sequi. Soluta iure et magni praesentium excepturi
                     reprehenderit, consequuntur repellendus?
-                </h3>
+                </p>
             </span>
             <span class="relative px-12 m-auto">
                 <img class="relative"
@@ -116,14 +116,14 @@ const hovering = gsap.timeline();
         <article class="info grid lg:grid-cols-2 my-16">
             <span class="block px-12">
                 <h2 class='m-auto  text-4xl mb-2'>Bæredygtighed</h2>
-                <h3 class="font-body mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, nulla
+                <p class="font-body mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, nulla
                     ratione error excepturi iusto mollitia obcaecati suscipit molestias officia quos quia laboriosam
                     doloribus quo a debitis quas nemo eaque laborum. Lorem ipsum dolor sit, amet consectetur adipisicing
                     elit. Aliquam molestias quidem in non eligendi nihil, aut nemo expedita? Ipsa, molestiae? Lorem
                     ipsum dolor sit, amet consectetur adipisicing elit. Quo veniam reiciendis dignissimos expedita animi
                     quam eveniet eaque iste! Necessitatibus, doloribus sequi. Soluta iure et magni praesentium excepturi
                     reprehenderit, consequuntur repellendus?
-                </h3>
+                </p>
             </span>
             <span class="block px-12 m-auto">
                 <img class="relative"
