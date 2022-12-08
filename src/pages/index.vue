@@ -82,7 +82,7 @@ onMounted(async () => {
   <div id="page-index">
     <section
       id="hero"
-      class="relative w-full h-full z-20 flex flex-col items-center justify-center p-4"
+      class="relative w-full h-full z-20 flex flex-col items-center justify-center p-4 gradient-divider"
     >
       <div class="gradient-backdrop absolute hero-fade -z-10"></div>
       <video
