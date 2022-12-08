@@ -2,7 +2,11 @@
 import { onMounted, ref } from "vue";
 import PageHeader from "../components/PageHeader.vue";
 import { useRouter } from "vue-router";
-import { GlobeAltIcon } from "@heroicons/vue/24/outline";
+import {
+  GlobeAltIcon,
+  MapPinIcon,
+  CalendarIcon,
+} from "@heroicons/vue/24/solid";
 import IgIcon from "../assets/img/ig.svg";
 import FbIcon from "../assets/img/fb.svg";
 
@@ -46,49 +50,76 @@ onMounted(async () => {
     <PageHeader :bg="artist.header">
       <h1 class="text-8xl">{{ artist.name }}</h1>
     </PageHeader>
-    <section id="artist-info">
-      <div id="artist-socials" class="col-span-1 p-4">
-        <h2 class="text-xl">Socials</h2>
-        <ul
-          class="flex flex-col justify-start items-start"
-        >
-          <li v-if="artist.some.instagram">
-            <a :href="artist.some.instagram" target="_blank"
-              ><img class="h-8" :src="IgIcon" /><span>Instagram</span></a
+    <section id="artist-inner">
+      <div id="artist-info">
+        <div v-if="artist.some" class="flex flex-col space-y-2">
+          <h2>Socials</h2>
+          <ul class="flex flex-col space-y-2">
+            <li v-if="artist.some.instagram">
+              <img :src="IgIcon" alt="Instagram Icon">
+              <a :href="artist.some.instagram" target="_blank">Instagram</a>
+            </li>
+            <li v-if="artist.some.facebook">
+              <img :src="FbIcon" alt="Facebook Icon">
+              <a :href="artist.some.facebook" target="_blank">Facebook</a>
+            </li>
+            <li v-if="artist.some.website">
+              <GlobeAltIcon class="h-6 w-6" />
+              <a :href="artist.some.website" target="_blank">Hjemmeside</a>
+            </li>
+          </ul>
+        </div>
+        <div class="flex flex-col space-y-2">
+          <h2>Tidspunkt</h2>
+          <p>
+            <CalendarIcon class="h-6 w-6" />
+            <span>
+              {{
+                new Intl.DateTimeFormat("da-DK", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                }).format(artist.date * 1000)
+              }}</span
             >
-          </li>
-          <li v-if="artist.some.facebook">
-            <a :href="artist.some.facebook" target="_blank"
-              ><img class="h-8" :src="FbIcon" alt="" /><span>Facebook</span></a
-            >
-          </li>
-          <li v-if="artist.some.website">
-            <a :href="artist.some.website" target="_blank"
-              ><GlobeAltIcon class="h-8 w-8" /><span>Hjemmeside</span></a
-            >
-          </li>
-        </ul>
+          </p>
+        </div>
+        <div class="flex flex-col space-y-2">
+          <h2>Lokation</h2>
+          <p>
+            <MapPinIcon class="h-6 w-6" /><span>{{ artist.location }}</span>
+          </p>
+        </div>
       </div>
-      <div id="artist-body" class="col-span-2 p-4 flex flex-col space-y-4" v-html="artist.body">
-      </div>
+
+      <div id="artist-body"></div>
     </section>
   </div>
 </template>
 
 <style>
+#artist-inner {
+  @apply container mx-auto grid grid-cols-3 gap-4;
+}
+
 #artist-info {
-  @apply container mx-auto grid grid-cols-3;
+  @apply col-span-1 flex flex-col space-y-4 text-zinc-100;
 }
 
-#artist-socials{
-  @apply flex flex-col space-y-4;
+#artist-info h2 {
+  @apply text-2xl;
 }
 
-#artist-socials ul{
-  @apply flex flex-col space-y-2;
+#artist-info p,
+#artist-info li {
+  @apply font-body flex items-center space-x-2;
 }
 
-#artist-socials ul li a{
-  @apply flex items-center space-x-4 font-header font-bold text-zinc-100 transition-all duration-150 uppercase hover:opacity-75;
+#artist-info li img{
+  @apply h-6 w-6;
+}
+
+#artist-body {
+  @apply col-span-2;
 }
 </style>
