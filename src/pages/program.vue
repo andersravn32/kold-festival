@@ -8,9 +8,10 @@ import bg from "../assets/img/bg.jpg";
 <template>
   <div id="page-program">
     <PageHeader :bg="bg">
-      <h1 class="text-8xl uppercase">
-        Program
-      </h1>
+      <h1 class="text-8xl uppercase leading-[0.9]">Program</h1>
+      <h2 class="text-xl text-center font-body">
+        Nedenfor kan du læse hele festivalens program
+      </h2>
     </PageHeader>
     <section id="program" class="container mx-auto flex flex-col">
       <Tabs>
