@@ -4,10 +4,6 @@ defineProps({
     type: String,
     required: true,
   },
-  artistImage: {
-    type: String,
-    required: true,
-  },
   artistCover: {
     type: String,
     required: true,
@@ -20,11 +16,6 @@ defineProps({
 <template>
   <div class="artist">
     <h3 class="artist-name">{{name}}</h3>
-    <div
-      class="artist-image"
-    >
-      <img :src="artistImage" class="w-3/5 " />
-    </div>
     <div
       class="absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"
     ></div>
@@ -39,7 +30,7 @@ defineProps({
 
 <style>
 .artist {
-  @apply h-96 relative flex justify-center w-full transition-all duration-150 ease-in-out cursor-pointer hover:scale-[1.02];
+  @apply h-96 relative flex justify-center items-center w-full transition-all duration-150 ease-in-out cursor-pointer hover:scale-[1.02];
   @apply hover:before:-translate-y-4 hover:before:-translate-x-4;
   @apply hover:after:translate-y-4 hover:after:translate-x-4;
 }
@@ -62,7 +53,7 @@ defineProps({
 
 
 .artist:hover .gradient-backdrop {
-  @apply backdrop-blur-[1px]
+  @apply backdrop-blur-[0px]
 }
 
 .artist:hover .artist-image  {
