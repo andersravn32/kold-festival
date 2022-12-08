@@ -24,7 +24,7 @@ onMounted(async () => {
 
   // Fetch artist data
   const response = await fetch(
-    "http://127.0.0.1:4000/src/assets/data.json"
+    "/src/assets/data.json"
   ).then((res) => res.json());
 
   // Update artists
@@ -82,7 +82,7 @@ onMounted(async () => {
   <div id="page-index">
     <section
       id="hero"
-      class="relative w-full h-full z-20 flex flex-col items-center justify-center p-4"
+      class="relative w-full h-full z-20 flex flex-col items-center justify-center p-4 gradient-divider"
     >
       <div class="gradient-backdrop absolute hero-fade -z-10"></div>
       <video
@@ -94,7 +94,7 @@ onMounted(async () => {
       ></video>
 
       <img
-        class="hero-logo h-2/3"
+        class="hero-logo h-96"
         src="../assets/img/logo.svg"
         alt="KOLD Icon"
       />
@@ -128,16 +128,14 @@ onMounted(async () => {
       </div>
     </div>
 
-    <!-- Artist Container -->
     <section class="pb-16" id="artist" v-if="artists.length">
       <div
-        class="p-6 container mx-auto grid gap-16 sm:grid-cols-1 lg:grid-cols-2"
+        class="p-6 container mx-auto grid gap-16 sm:grid-cols-1 lg:grid-cols-3"
       >
         <GridArtist
           v-for="(artist, index) in artists"
           :key="index"
           :name="artist.name"
-          :artist-image="artist.image"
           :artist-cover="artist.header"
           @click="router.push(`/artist/${artist.identifier}`)"
         />
@@ -148,7 +146,7 @@ onMounted(async () => {
     <section id="tickets">
       <div id="ticketBoxes">
         <div class="priceBox">
-          <h3 class="font-header font-bold text-4xl text-white">PARTOUT</h3>
+          <h3 class="text-4xl">PARTOUT</h3>
           <div
             class="text-white font-body flex flex-col justify-center items-center"
           >
@@ -164,7 +162,7 @@ onMounted(async () => {
         </div>
 
         <div class="priceBox">
-          <h3 class="font-header font-bold text-4xl text-white">FREDAG</h3>
+          <h3 class="text-4xl">FREDAG</h3>
           <div
             class="text-white font-body flex flex-col justify-center items-center"
           >
@@ -180,7 +178,7 @@ onMounted(async () => {
         </div>
 
         <div class="priceBox">
-          <h3 class="font-header font-bold text-4xl text-white">LØRDAG</h3>
+          <h3 class="text-4xl">LØRDAG</h3>
           <div
             class="text-white font-body flex flex-col justify-center items-center"
           >
@@ -208,7 +206,7 @@ onMounted(async () => {
 
 <style>
 #hero {
-  @apply w-full relative z-10 flex items-center justify-center overflow-hidden;
+  @apply min-h-screen space-y-4 w-full relative z-10 flex items-center justify-center overflow-hidden;
 }
 
 .hero-logo {

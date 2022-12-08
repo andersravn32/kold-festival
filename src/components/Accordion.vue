@@ -18,7 +18,7 @@ defineProps({
 <template>
   <div class="accordion">
     <div
-      class="accordion-title"
+      class="accordion-title cursor-pointer"
       @click="opened = !opened"
     >
       <p>{{ title }}</p>

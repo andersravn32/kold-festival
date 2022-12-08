@@ -1,53 +1,134 @@
 <script setup>
 import Tabs from "../components/Tabs.vue";
 import Tab from "../components/Tab.vue";
+import PageHeader from "../components/PageHeader.vue";
 import bg from "../assets/img/bg.jpg";
 </script>
 
 <template>
-  <div id="page-program" :style="{ 'background-image': `url(${bg})` }">
-    <section id="program" class="gradient-backdrop">
-      <h1
-        class="uppercase font-bold font-header text-zinc-100 text-8xl text-center"
-      >
-        Program
-      </h1>
-
-      <h2 class="text-2xl text-zinc-100 bold font-body">Filtrér</h2>
+  <div id="page-program">
+    <PageHeader :bg="bg">
+      <h1 class="text-8xl uppercase leading-[0.9]">Program</h1>
+      <h2 class="text-xl text-center font-body">
+        Nedenfor kan du læse hele festivalens program
+      </h2>
+    </PageHeader>
+    <section id="program" class="container mx-auto flex flex-col">
       <Tabs>
-        <Tab title="Musik" class="grid grid-cols-4 gap-4">
-          <div class="bg-blue-900/75 p-4">
-            <h2
-              class="font-header text-zinc-100 font-bold text-2xl text-center"
-            >
-              Torsdag d. 2. Februar
-            </h2>
-            <ul class="text-sm text-zinc-100 divide-y-2 divide-blue-900">
-              <li class="grid grid-cols-4 font-header font-bold py-2">
+        <Tab title="Musik" class="grid grid-cols-3 gap-4">
+          <div class="flex flex-col space-y-4 bg-blue-900/75 p-4">
+            <h2 class="text-xl">Torsdag d. 2. Februar</h2>
+            <ul class="flex flex-col space-y-2 text-zinc-100">
+              <li class="grid grid-cols-4 font-header font-bold">
                 <span class="col-span-2">Navn</span>
                 <span>Sted</span>
                 <span>Tidspunkt</span>
               </li>
-              <li class="grid grid-cols-4 font-body py-2">
-                <span class="col-span-2">Ude af Kontrol</span>
+              <li class="grid grid-cols-4 font-body">
+                <span class="col-span-2">Agnes Hartwich</span>
                 <span>Pitstop</span>
                 <span>kl 23:30</span>
               </li>
-              <li class="grid grid-cols-4 font-body py-2">
-                <span class="col-span-2">Ude af Kontrol</span>
+              <li class="grid grid-cols-4 font-body">
+                <span class="col-span-2">Astrid Engberg</span>
                 <span>Pitstop</span>
                 <span>kl 23:30</span>
               </li>
-              <li class="grid grid-cols-4 font-body py-2">
-                <span class="col-span-2">Ude af Kontrol</span>
+              <li class="grid grid-cols-4 font-body">
+                <span class="col-span-2">Chopper</span>
+                <span>Godset</span>
+                <span>kl 23:30</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col space-y-4 bg-blue-900/75 p-4">
+            <h2 class="text-xl">Fredag d. 3. Februar</h2>
+            <ul class="flex flex-col space-y-2 text-zinc-100">
+              <li class="grid grid-cols-4 font-header font-bold">
+                <span class="col-span-2">Navn</span>
+                <span>Sted</span>
+                <span>Tidspunkt</span>
+              </li>
+              <li class="grid grid-cols-4 font-body">
+                <span class="col-span-2">Agnes Hartwich</span>
                 <span>Pitstop</span>
+                <span>kl 23:30</span>
+              </li>
+              <li class="grid grid-cols-4 font-body">
+                <span class="col-span-2">Astrid Engberg</span>
+                <span>Pitstop</span>
+                <span>kl 23:30</span>
+              </li>
+              <li class="grid grid-cols-4 font-body">
+                <span class="col-span-2">Chopper</span>
+                <span>Godset</span>
+                <span>kl 23:30</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col space-y-4 bg-blue-900/75 p-4">
+            <h2 class="text-xl">Lørdag d. 4. Februar</h2>
+            <ul class="flex flex-col space-y-2 text-zinc-100">
+              <li class="grid grid-cols-4 font-header font-bold">
+                <span class="col-span-2">Navn</span>
+                <span>Sted</span>
+                <span>Tidspunkt</span>
+              </li>
+              <li class="grid grid-cols-4 font-body">
+                <span class="col-span-2">Agnes Hartwich</span>
+                <span>Pitstop</span>
+                <span>kl 23:30</span>
+              </li>
+              <li class="grid grid-cols-4 font-body">
+                <span class="col-span-2">Astrid Engberg</span>
+                <span>Pitstop</span>
+                <span>kl 23:30</span>
+              </li>
+              <li class="grid grid-cols-4 font-body">
+                <span class="col-span-2">Chopper</span>
+                <span>Godset</span>
                 <span>kl 23:30</span>
               </li>
             </ul>
           </div>
         </Tab>
-        <Tab title="Talks">
-          <h1>Talks</h1>
+
+        <Tab title="Talks" class="grid grid-cols-3 gap-4">
+          <div class="flex flex-col space-y-4 bg-blue-900/75 p-4">
+            <h2 class="text-xl">Torsdag d. 2. Februar</h2>
+            <ul class="flex flex-col space-y-2 text-zinc-100">
+              <li class="grid grid-cols-4 font-header font-bold">
+                <span class="col-span-2">Navn</span>
+                <span>Sted</span>
+                <span>Tidspunkt</span>
+              </li>
+              <li class="grid grid-cols-4 font-body">
+                <span class="col-span-2">Selvforsynende Villahave</span>
+                <span>Godset</span>
+                <span>kl 13:30</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col space-y-4 bg-blue-900/75 p-4">
+            <h2 class="text-xl">Fredag d. 3. Februar</h2>
+            <ul class="flex flex-col space-y-2 text-zinc-100">
+              <li class="grid grid-cols-4 font-header font-bold">
+                <span class="col-span-2">Navn</span>
+                <span>Sted</span>
+                <span>Tidspunkt</span>
+              </li>
+              <li class="grid grid-cols-4 font-body">
+                <span class="col-span-2">Emma Holten</span>
+                <span>Pitstop</span>
+                <span>kl 23:30</span>
+              </li>
+              <li class="grid grid-cols-4 font-body">
+                <span class="col-span-2">Ung Scene</span>
+                <span>Pitstop</span>
+                <span>kl 23:30</span>
+              </li>
+            </ul>
+          </div>
         </Tab>
       </Tabs>
     </section>
@@ -60,7 +141,7 @@ import bg from "../assets/img/bg.jpg";
 }
 
 #program {
-  @apply p-4 pt-[128px] h-screen flex flex-col space-y-4;
+  @apply container mx-auto flex flex-col p-4;
 }
 
 #program .tabs-titles {

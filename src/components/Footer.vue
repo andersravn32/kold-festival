@@ -22,12 +22,8 @@ const routes = router.getRoutes().filter((route) => {
             </li>
         </ul>
         <ul class="flex justify-center items-center gap-16">
-            <li>
-                <img class="h-12" :src="IgIcon">
-            </li>
-            <li>
-                <img class="h-12" :src="FbIcon">
-            </li>
+            <a href="#" target="_blank"><img class="h-12" :src="IgIcon" /></a>
+            <a href="#" target="_blank"><img class="h-12" :src="FbIcon" /></a>
         </ul>
     </footer>
 </template>

@@ -1,57 +1,42 @@
 <script setup>
 import Accordion from "../components/Accordion.vue";
+import PageHeader from "../components/PageHeader.vue";
 import bg from "../assets/img/hero-bg.jpg";
 </script>
 
 <template>
-  <div id="page-faq" :style="{ 'background-image': `url(${bg})` }">
-    <section id="faq" class="gradient-backdrop">
-      <div class="container max-w-4xl mx-auto flex flex-col space-y-4">
-        <h1
-          class="uppercase font-bold font-header text-zinc-100 text-8xl text-center"
-        >
-          F.A.Q
-        </h1>
-        <h2 class="text-zinc-100 text-xl text-center font-body">
-          Her vil du finde svarene på de fleste af dine spørgsmål
-        </h2>
-        <Accordion :opened="true" title="hello borld">
-          <p class="text-zinc-100">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-            accusantium alias vel dolores minima facilis, est doloribus
-            quisquam. Earum, sed in. Cumque provident voluptatum, voluptates
-            illum hic omnis porro at!Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Blanditiis accusantium alias vel dolores minima
-            facilis, est doloribus quisquam. Earum, sed in. Cumque provident
-            voluptatum, voluptates illum hic omnis porro at!Lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Blanditiis accusantium alias
-            vel dolores minima facilis, est doloribus quisquam. Earum, sed in.
-            Cumque provident voluptatum, voluptates illum hic omnis porro
-            at!Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Blanditiis accusantium alias vel dolores minima facilis, est
-            doloribus quisquam. Earum, sed in. Cumque provident voluptatum,
-            voluptates illum hic omnis porro at!
-          </p>
-        </Accordion>
-        <Accordion title="hello borld - the sequal">
-          <p class="text-zinc-100">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-            accusantium alias vel dolores minima facilis, est doloribus
-            quisquam. Earum, sed in. Cumque provident voluptatum, voluptates
-            illum hic omnis porro at!Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Blanditiis accusantium alias vel dolores minima
-            facilis, est doloribus quisquam. Earum, sed in. Cumque provident
-            voluptatum, voluptates illum hic omnis porro at!Lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Blanditiis accusantium alias
-            vel dolores minima facilis, est doloribus quisquam. Earum, sed in.
-            Cumque provident voluptatum, voluptates illum hic omnis porro
-            at!Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Blanditiis accusantium alias vel dolores minima facilis, est
-            doloribus quisquam. Earum, sed in. Cumque provident voluptatum,
-            voluptates illum hic omnis porro at!
-          </p>
-        </Accordion>
-      </div>
+  <div id="page-faq">
+    <PageHeader :bg="bg">
+      <h1 class="text-8xl uppercase leading-[0.9]">F.A.Q</h1>
+      <h2 class="text-xl text-center font-body">
+        Her vil du finde svarene på de fleste af dine spørgsmål
+      </h2></PageHeader
+    >
+    <section id="faq">
+      <Accordion title="Lorem ipsum" :opened="true">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam a
+          tempore impedit odit nisi culpa repellat cupiditate magni esse
+          facilis. Nesciunt perferendis laboriosam eius repellat molestiae
+          voluptatibus reprehenderit! Rerum, accusamus!
+        </p>
+      </Accordion>
+      <Accordion title="Lorem ipsum - The sequal">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam a
+          tempore impedit odit nisi culpa repellat cupiditate magni esse
+          facilis. Nesciunt perferendis laboriosam eius repellat molestiae
+          voluptatibus reprehenderit! Rerum, accusamus!
+        </p>
+      </Accordion>
+      <Accordion title="Lorem ipsum - The Third &copy;">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam a
+          tempore impedit odit nisi culpa repellat cupiditate magni esse
+          facilis. Nesciunt perferendis laboriosam eius repellat molestiae
+          voluptatibus reprehenderit! Rerum, accusamus!
+        </p>
+      </Accordion>
     </section>
   </div>
 </template>
@@ -61,7 +46,7 @@ import bg from "../assets/img/hero-bg.jpg";
 }
 
 #faq {
-  @apply p-4 pt-[128px] h-screen;
+  @apply container max-w-4xl mx-auto flex flex-col space-y-4;
 }
 
 #faq .accordion {
@@ -72,7 +57,7 @@ import bg from "../assets/img/hero-bg.jpg";
   @apply flex items-center justify-between text-zinc-100 text-2xl font-bold font-header;
 }
 
-#faq .accordion-content{
-    @apply border-t-2 border-zinc-100/50 mt-2 pt-2; 
+#faq .accordion-content {
+  @apply text-zinc-100 border-t-2 border-zinc-100/50 mt-2 pt-2;
 }
 </style>
