@@ -2,7 +2,7 @@
 import bg from "../assets/img/hero-bg.jpg";
 import gsap from "gsap";
 import { onMounted } from "vue";
-import PageHeader from "../components/PageHeader.vue"
+import PageHeader from "../components/PageHeader.vue";
 
 onMounted(() => {
   const hovering = gsap.timeline();
@@ -32,11 +32,11 @@ onMounted(() => {
 <template>
   <div id="page-about">
     <PageHeader :bg="bg">
-        <h1 class="text-8xl">Om os</h1>
+      <h1 class="text-8xl">Om os</h1>
     </PageHeader>
 
     <!-- // About info -->
-    <article class="info grid lg:grid-cols-2 my-16">
+    <article class="info grid lg:grid-cols-2 my-16 container mx-auto">
       <span class="block px-12">
         <h2 class="m-auto text-4xl mb-2">Hvad er Kold Festival?</h2>
         <p class="font-body mb-4">
@@ -148,7 +148,7 @@ onMounted(() => {
         </svg>
       </span>
     </article>
-    <article class="info grid lg:grid-cols-2 my-16">
+    <article class="info grid lg:grid-cols-2 my-16 container mx-auto">
       <span class="block px-12">
         <h2 class="m-auto text-4xl mb-2">Bæredygtighed</h2>
         <p class="font-body mb-4">
@@ -222,32 +222,13 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
-.hero-logo {
-  @apply opacity-5;
-  animation: hero-logo 120s infinite linear;
-}
-
-@keyframes hero-logo {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
+<style>
 .hero {
   @apply h-96 w-full;
 }
 
-* {
-  @apply text-white;
-}
-
 #page-about {
-  @apply h-full w-full;
+  @apply h-full w-full text-zinc-100;
 }
 
 .socialIcons {
