@@ -92,14 +92,14 @@ onMounted(async () => {
         </div>
       </div>
 
-      <div id="artist-body"></div>
+      <div id="artist-body" v-html="artist.body"></div>
     </section>
   </div>
 </template>
 
 <style>
 #artist-inner {
-  @apply container mx-auto grid grid-cols-3 gap-4;
+  @apply container mx-auto grid grid-cols-4 gap-4;
 }
 
 #artist-info {
@@ -120,6 +120,10 @@ onMounted(async () => {
 }
 
 #artist-body {
-  @apply col-span-2;
+  @apply col-span-3 text-zinc-100 flex flex-col space-y-2;
+}
+
+#artist-body p{
+  @apply font-body;
 }
 </style>
