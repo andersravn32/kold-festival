@@ -9,9 +9,7 @@ const router = useRouter();
 const loading = ref(false);
 
 // Define artists array
-const artist = ref([]);
-
-let content = { hej: 'tis'}
+let artist = ref([]);
 
 onMounted(async () => {
   // Update loading state
@@ -33,14 +31,13 @@ onMounted(async () => {
   }
 
   console.log(artist.value)
+})
 
-  content = JSON.parse(JSON.stringify(artist.value));
-});
 </script>
 
 <template>
   <div class="page" id="page-artist">
-    <p class="text-white">{{ content }}</p>
+    <p class="text-white"></p>
     <section class="hero flex flex-col justify-center items-center relative overflow-hidden">
             <div class="z-40">
                 <div class="flex flex-col items-center justify-center">
@@ -48,8 +45,8 @@ onMounted(async () => {
                 </div>
             </div>
             <div class="gradient-backdrop absolute w-full z-20 hero-fade"></div>
-            <div class="w-full h-full bg-cover bg-center absolute origin-bottom hero-fade"
-                :style="{ 'background-image': `url(${bg})` }"></div>
+<!--             <div class="w-full h-full bg-cover bg-center absolute origin-bottom hero-fade"
+                :style="{ 'background-image': `url(${})` }"></div> -->
         </section>
 
 
