@@ -5,7 +5,7 @@ import { ref } from "vue";
 
 let showMenu = ref(false);
 
-defineEmits(['blockScroll']);
+defineEmits(['toggleScroll']);
 
 
 </script>
@@ -29,14 +29,14 @@ defineEmits(['blockScroll']);
           <router-link to="/program">Program</router-link>
         </li>
         <li>
-          <button @click="showMenu = !showMenu; $emit('blockScroll');">
+          <button @click="showMenu = !showMenu; $emit('toggleScroll');">
             <Bars3Icon class="h-16 w-16 transition-all duration-150 text-zinc-100/75 hover:text-zinc-100" />
           </button>
         </li>
       </ul>
     </nav>
     <Transition name="bubble">
-      <NavMenu @scroll.prevent v-if="showMenu" @close="showMenu = !showMenu" />
+      <NavMenu v-if="showMenu" @close="showMenu = !showMenu; $emit('toggleScroll')" />
     </Transition>
   </header>
 </template>

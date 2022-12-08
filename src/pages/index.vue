@@ -24,7 +24,7 @@ onMounted(async () => {
 
   // Fetch artist data
   const response = await fetch(
-    "http://127.0.0.1:5173/src/assets/data.json"
+    "http://127.0.0.1:4000/src/assets/data.json"
   ).then((res) => res.json());
 
   // Update artists
@@ -79,7 +79,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div id="page-index" class="overflow-hidden">
+  <div id="page-index">
     <section
       id="hero"
       class="relative w-full h-full z-20 flex flex-col items-center justify-center p-4"

@@ -19,7 +19,7 @@ onMounted(async () => {
 
   // Fetch artist data
   const response = await fetch(
-    "http://127.0.0.1:5173/src/assets/data.json"
+    "http://127.0.0.1:4000/src/assets/data.json"
   ).then((res) => res.json());
 
   // Filter artists data to locate artist by identifier
