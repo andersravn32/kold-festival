@@ -46,7 +46,7 @@ const hovering = gsap.timeline();
         <!-- // About info -->
         <article class="info grid lg:grid-cols-2 my-16">
             <span class="block px-12">
-                <h2 class='font-header font-bold m-auto text-4xl mb-2'>Hvad er Kold Festival?</h2>
+                <h2 class='m-auto text-4xl mb-2'>Hvad er Kold Festival?</h2>
                 <h3 class="font-body mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, nulla
                     ratione error excepturi iusto mollitia obcaecati suscipit molestias officia quos quia laboriosam
                     doloribus quo a debitis quas nemo eaque laborum. Lorem ipsum dolor sit, amet consectetur adipisicing
@@ -115,7 +115,7 @@ const hovering = gsap.timeline();
         </article>
         <article class="info grid lg:grid-cols-2 my-16">
             <span class="block px-12">
-                <h2 class='font-header font-bold m-auto  text-4xl mb-2'>Bæredygtighed</h2>
+                <h2 class='m-auto  text-4xl mb-2'>Bæredygtighed</h2>
                 <h3 class="font-body mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, nulla
                     ratione error excepturi iusto mollitia obcaecati suscipit molestias officia quos quia laboriosam
                     doloribus quo a debitis quas nemo eaque laborum. Lorem ipsum dolor sit, amet consectetur adipisicing
@@ -135,7 +135,7 @@ const hovering = gsap.timeline();
 
         <!-- Socials -->
         <section id="socials">
-            <h3 class=" text-center font-header font-bold text-xl ">Se hvad der sker på vores sociale medier</h3>
+            <h3 class=" text-center text-xl ">Se hvad der sker på vores sociale medier</h3>
             <div class="socialIcons pt-8 pb-8">
                 <!-- Instagram -->
                 <a class="opacity-75 hover:opacity-100 transition-all duration-150"

@@ -8,11 +8,11 @@ import bg from "../assets/img/hero-bg.jpg";
     <section id="faq" class="gradient-backdrop">
       <div class="container max-w-4xl mx-auto flex flex-col space-y-4">
         <h1
-          class="uppercase font-bold font-header text-zinc-100 text-8xl text-center"
+          class="uppercase font-bold font-header text-8xl text-center"
         >
           F.A.Q
         </h1>
-        <h2 class="text-zinc-100 text-xl text-center font-body">
+        <h2 class="text-xl text-center font-body">
           Her vil du finde svarene på de fleste af dine spørgsmål
         </h2>
         <Accordion :opened="true" title="hello borld">

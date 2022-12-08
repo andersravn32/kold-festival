@@ -148,7 +148,7 @@ onMounted(async () => {
     <section id="tickets">
       <div id="ticketBoxes">
         <div class="priceBox">
-          <h3 class="font-header font-bold text-4xl text-white">PARTOUT</h3>
+          <h3 class="text-4xl">PARTOUT</h3>
           <div
             class="text-white font-body flex flex-col justify-center items-center"
           >
@@ -164,7 +164,7 @@ onMounted(async () => {
         </div>
 
         <div class="priceBox">
-          <h3 class="font-header font-bold text-4xl text-white">FREDAG</h3>
+          <h3 class="text-4xl">FREDAG</h3>
           <div
             class="text-white font-body flex flex-col justify-center items-center"
           >
@@ -180,7 +180,7 @@ onMounted(async () => {
         </div>
 
         <div class="priceBox">
-          <h3 class="font-header font-bold text-4xl text-white">LØRDAG</h3>
+          <h3 class="text-4xl">LØRDAG</h3>
           <div
             class="text-white font-body flex flex-col justify-center items-center"
           >

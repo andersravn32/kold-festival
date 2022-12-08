@@ -15,7 +15,7 @@ import {
       }"
     >
       <div class="absolute left-0 right-0 bottom-0 bg-indigo-500/75 p-4">
-        <h3 class="text-zinc-100 font-bold font-body">Klaus Nielsen</h3>
+        <h3 class="font-body">Klaus Nielsen</h3>
         <h4 class="text-zinc-100/75 font-body text-sm">PR Medarbejder</h4>
       </div>
     </div>
