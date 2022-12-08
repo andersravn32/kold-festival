@@ -8,8 +8,8 @@ defineProps({
 </script>
 
 <template>
-  <div class="bg-cover bg-center hero-fade" :style="{ 'background-image': `url(${bg})` }">
-    <div class="gradient-backdrop flex flex-col justify-center items-center py-32">
+  <div class="bg-cover bg-center" :style="{ 'background-image': `url(${bg})` }">
+    <div class="gradient-backdrop flex flex-col justify-center items-center py-32 gradient-divider">
         <slot />
     </div>
   </div>
