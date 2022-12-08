@@ -44,7 +44,7 @@ defineProps({
 }
 
 .artist-name {
-  @apply font-bold font-header text-6xl text-center uppercase text-white z-40;
+  @apply font-bold font-header text-6xl text-center uppercase text-white z-40 w-3/4;
 }
 
 .artist-image{

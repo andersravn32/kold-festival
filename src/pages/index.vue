@@ -167,13 +167,13 @@ onMounted(async () => {
             class="text-white font-body flex flex-col justify-center items-center"
           >
             <p class="font-normal text-2xl">Student / Ung pris</p>
-            <h4 class="font-bold text-6xl">175 KR.</h4>
+            <h4 class="font-bold text-6xl">100 KR.</h4>
           </div>
           <div
             class="text-white font-body flex flex-col justify-center items-center"
           >
             <p class="font-normal text-2xl">Normal pris</p>
-            <h4 class="font-bold text-6xl">350 KR.</h4>
+            <h4 class="font-bold text-6xl">175 KR.</h4>
           </div>
         </div>
 
@@ -183,13 +183,13 @@ onMounted(async () => {
             class="text-white font-body flex flex-col justify-center items-center"
           >
             <p class="font-normal text-2xl">Student / Ung pris</p>
-            <h4 class="font-bold text-6xl">175 KR.</h4>
+            <h4 class="font-bold text-6xl">100 KR.</h4>
           </div>
           <div
             class="text-white font-body flex flex-col justify-center items-center"
           >
             <p class="font-normal text-2xl">Normal pris</p>
-            <h4 class="font-bold text-6xl">350 KR.</h4>
+            <h4 class="font-bold text-6xl">175 KR.</h4>
           </div>
         </div>
         <article class="warning">
