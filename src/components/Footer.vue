@@ -30,7 +30,7 @@ const routes = router.getRoutes().filter((route) => {
 
 <style>
 footer {
-    @apply py-16 mt-16 font-header
+    @apply py-16 my-16 font-header
 }
 
 footer ul a {
