@@ -17,7 +17,7 @@ onMounted(async () => {
 
   // Fetch artist data
   const response = await fetch(
-    "/src/assets/data.json"
+    "https://api.singlepage.dk/"
   ).then((res) => res.json());
 
   // Reset loading stae
