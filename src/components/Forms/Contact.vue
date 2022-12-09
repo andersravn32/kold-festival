@@ -23,7 +23,7 @@ const submit = () => {
 
 <template>
   <form id="form-contact" @submit.prevent="submit" class="container flex flex-col space-y-4">
-    <div class="grid grid-cols-2 gap-4">
+    <div class="grid md:grid-cols-2 gap-4">
         <input v-model="firstName" type="text" placeholder="Fornavn" />
         <input v-model="lastName" type="text" placeholder="Efternavn" />
     </div>

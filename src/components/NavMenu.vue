@@ -22,7 +22,7 @@ defineEmits(["close"]);
     </button>
 
     <ul
-      class="flex flex-col space-y-8 font-bold font-header text-zinc-100 uppercase z-100 text-6xl text-center"
+      class="flex flex-col space-y-8 font-bold font-header text-zinc-100 uppercase z-100 text-4xl lg:text-8xl text-center"
     >
       <li v-for="(route, index) in routes" :key="index">
         <router-link @click="$emit('close')" :to="route.path">

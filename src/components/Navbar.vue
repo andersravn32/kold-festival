@@ -23,7 +23,7 @@ defineEmits(['toggleScroll']);
         />
       </router-link>
       <ul
-        class="flex items-center space-x-6 text-xl font-bold font-header text-zinc-100 uppercase"
+        class="flex items-center space-x-6 text-lg lg:text-xl font-bold font-header text-zinc-100 uppercase"
       >
         <li>
           <router-link to="/program">Program</router-link>

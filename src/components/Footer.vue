@@ -14,7 +14,7 @@ const routes = router.getRoutes().filter((route) => {
 <template>
     <footer>
         <ul
-            class="container grid justify-center place-items-center mx-auto gap-4 grid-cols-5 border-b-2 border-zinc-100/75 pb-8 mb-8 font-bold text-zinc-100">
+            class="container grid justify-center place-items-center mx-auto gap-4 grid-cols-3 lg:grid-cols-5 border-b-2 border-zinc-100/75 pb-8 mb-8 font-bold text-zinc-100">
             <li v-for="(route, index) in routes" :key="index">
                 <router-link :to="route.path">
                     {{ route.name }}
@@ -30,7 +30,7 @@ const routes = router.getRoutes().filter((route) => {
 
 <style>
 footer {
-    @apply py-16 my-16 font-header
+    @apply p-4 py-16 my-16 font-header
 }
 
 footer ul a {

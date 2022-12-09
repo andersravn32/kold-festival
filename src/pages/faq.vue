@@ -7,8 +7,8 @@ import bg from "../assets/img/hero-bg.jpg";
 <template>
   <div id="page-faq">
     <PageHeader :bg="bg">
-      <h1 class="text-8xl uppercase leading-[0.9]">F.A.Q</h1>
-      <h2 class="text-xl text-center font-body">
+      <h1 class="text-6xl lg:text-8xl uppercase leading-[0.9]">F.A.Q</h1>
+      <h2 class="lg:text-xl text-center font-body">
         Her vil du finde svarene på de fleste af dine spørgsmål
       </h2></PageHeader
     >
@@ -46,7 +46,7 @@ import bg from "../assets/img/hero-bg.jpg";
 }
 
 #faq {
-  @apply container max-w-4xl mx-auto flex flex-col space-y-4;
+  @apply container max-w-4xl mx-auto flex flex-col space-y-4 p-4;
 }
 
 #faq .accordion {

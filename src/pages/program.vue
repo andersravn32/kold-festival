@@ -8,14 +8,14 @@ import bg from "../assets/img/bg.jpg";
 <template>
   <div id="page-program">
     <PageHeader :bg="bg">
-      <h1 class="text-8xl uppercase leading-[0.9]">Program</h1>
-      <h2 class="text-xl text-center font-body">
+      <h1 class="text-6xl lg:text-8xl uppercase leading-[0.9]">Program</h1>
+      <h2 class="lg:text-xl text-center font-body">
         Nedenfor kan du læse hele festivalens program
       </h2>
     </PageHeader>
     <section id="program" class="container mx-auto flex flex-col">
       <Tabs>
-        <Tab title="Musik" class="grid grid-cols-3 gap-4">
+        <Tab title="Musik" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div class="flex flex-col space-y-4 bg-blue-900/75 p-4">
             <h2 class="text-xl">Torsdag d. 2. Februar</h2>
             <ul class="flex flex-col space-y-2 text-zinc-100">
@@ -93,7 +93,7 @@ import bg from "../assets/img/bg.jpg";
           </div>
         </Tab>
 
-        <Tab title="Talks" class="grid grid-cols-3 gap-4">
+        <Tab title="Talks" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div class="flex flex-col space-y-4 bg-blue-900/75 p-4">
             <h2 class="text-xl">Torsdag d. 2. Februar</h2>
             <ul class="flex flex-col space-y-2 text-zinc-100">
