@@ -184,6 +184,10 @@ onMounted(async () => {
   @apply font-body;
 }
 
+#artist-body h2{
+  @apply text-2xl;
+}
+
 #artist-suggested {
   @apply w-full max-w-6xl mx-auto flex flex-col gap-12 mt-8 p-4;
 }
