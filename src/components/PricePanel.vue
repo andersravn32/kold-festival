@@ -1,0 +1,45 @@
+<script setup>
+defineProps({
+    title: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    }
+})
+</script>
+
+<template>
+  <div class="price-panel">
+    <!--     <h3 class="text-4xl">PARTOUT</h3>
+    <div class="text-white font-body flex flex-col justify-center items-center">
+      <p class="font-normal text-2xl">Student / Ung pris</p>
+      <h4 class="font-bold text-6xl">150 KR.</h4>
+    </div>
+    <div class="text-white font-body flex flex-col justify-center items-center">
+      <p class="font-normal text-2xl">Normal pris</p>
+      <h4 class="font-bold text-6xl">300 KR.</h4>
+    </div> -->
+    <h3 class="text-6xl">{{title}}</h3>
+    <div class="flex flex-col text-center">
+        <h4 class="text-xl">Student / Ung</h4>
+        <p class="text-6xl font-bold">{{Math.round(price / 2)}} kr.</p>
+    </div>
+    <div class="flex flex-col text-center">
+        <h4 class="text-xl">Normal pris</h4>
+        <p class="text-6xl font-bold">{{price}} kr.</p>
+    </div>
+  </div>
+</template>
+
+<style>
+.price-panel {
+    @apply border-2 border-zinc-100 p-8 flex flex-col items-center text-zinc-100 space-y-4;
+}
+
+.priceBox {
+  @apply relative translate-y-8 opacity-0 flex flex-col justify-center items-center gap-8 py-8 border-2 mx-8 sm:mx-0;
+}
+</style>
