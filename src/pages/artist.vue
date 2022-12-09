@@ -151,7 +151,7 @@ onMounted(async () => {
       </h3>
       <div class="grid lg:grid-cols-3 gap-16">
         <GridArtist
-          v-for="(artist, index) in suggested"
+          v-for="(artist, index) in suggested.filter((artist) => {return artist.type == 'concert'})"
           :key="index"
           :name="artist.name"
           :artist-cover="artist.header"
