@@ -42,13 +42,15 @@ const refresh = async () => {
   suggested.value = shuffle(
     artists.value.filter((artist) => {
       return !(
-        artist.identifier == router.currentRoute.value.params.identifier
+        artist.identifier == currentArtist.value.identifier
       );
     })
   );
 
   // Set static array length
   suggested.value.length = 3;
+
+  console.log(suggested.value)
 };
 
 onMounted(async () => {
@@ -151,7 +153,7 @@ onMounted(async () => {
       </h3>
       <div class="grid lg:grid-cols-3 gap-16">
         <GridArtist
-          v-for="(artist, index) in suggested.filter((artist) => {return artist.type == 'concert'})"
+          v-for="(artist, index) in suggested"
           :key="index"
           :name="artist.name"
           :artist-cover="artist.header"
