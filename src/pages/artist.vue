@@ -79,7 +79,7 @@ onMounted(async () => {
 <template>
   <div v-if="currentArtist" id="page-artist">
     <PageHeader :bg="currentArtist.header">
-      <h1 class="text-8xl">{{ currentArtist.name }}</h1>
+      <h1 class="text-6xl lg:text-8xl">{{ currentArtist.name }}</h1>
     </PageHeader>
     <section id="artist-inner">
       <div id="artist-info">
@@ -133,10 +133,10 @@ onMounted(async () => {
       <div id="artist-body" v-html="currentArtist.body"></div>
     </section>
     <section v-if="suggested.length" id="artist-suggested">
-      <h3 class="font-header font-bold text-white text-6xl">
+      <h3 class="font-header font-bold text-white text-6xl text-center">
         Se flere kunstnere
       </h3>
-      <div class="grid grid-cols-3 gap-16">
+      <div class="grid lg:grid-cols-3 gap-16">
         <GridArtist
           v-for="(artist, index) in suggested"
           :key="index"
@@ -156,11 +156,11 @@ onMounted(async () => {
 
 <style>
 #artist-inner {
-  @apply max-w-6xl mx-auto grid grid-cols-4 gap-4;
+  @apply max-w-6xl mx-auto grid lg:grid-cols-4 gap-4;
 }
 
 #artist-info {
-  @apply col-span-1 flex flex-col space-y-4 text-zinc-100;
+  @apply col-span-1 flex flex-col space-y-4 text-zinc-100 p-4;
 }
 
 #artist-info h2 {
@@ -177,7 +177,7 @@ onMounted(async () => {
 }
 
 #artist-body {
-  @apply col-span-3 text-zinc-100 flex flex-col space-y-2;
+  @apply col-span-3 text-zinc-100 flex flex-col space-y-2 p-4;
 }
 
 #artist-body p {
@@ -185,6 +185,6 @@ onMounted(async () => {
 }
 
 #artist-suggested {
-  @apply max-w-6xl mx-auto flex flex-col justify-center items-center gap-12 mt-8;
+  @apply w-full max-w-6xl mx-auto flex flex-col gap-12 mt-8 p-4;
 }
 </style>
