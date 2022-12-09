@@ -41,16 +41,14 @@ const refresh = async () => {
   // Assign values to suggested array
   suggested.value = shuffle(
     artists.value.filter((artist) => {
-      return !(
-        artist.identifier == currentArtist.value.identifier
-      );
+      return !(artist.identifier == currentArtist.value.identifier);
     })
-  );
+  ).filter((artist) => {
+    return artist.type == "concert";
+  });
 
   // Set static array length
   suggested.value.length = 3;
-
-  console.log(suggested.value)
 };
 
 onMounted(async () => {
@@ -85,7 +83,16 @@ onMounted(async () => {
     </PageHeader>
     <section id="artist-inner">
       <div id="artist-info">
-        <div v-if="currentArtist.socials" class="flex flex-col space-y-2">
+        <div
+          v-if="
+            !(
+              !currentArtist.socials.facebook &&
+              !currentArtist.socials.instagram &&
+              !currentArtist.socials.website
+            )
+          "
+          class="flex flex-col space-y-2"
+        >
           <h2>Socials</h2>
           <ul class="flex flex-col space-y-2">
             <li v-if="currentArtist.socials.instagram">
