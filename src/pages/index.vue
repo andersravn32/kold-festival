@@ -3,9 +3,10 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
-import { BellAlertIcon } from "@heroicons/vue/24/solid";
+import { InformationCircleIcon } from "@heroicons/vue/24/solid";
 
 import GridArtist from "../components/GridArtist.vue";
+import PricePanel from "../components/PricePanel.vue";
 
 import bg from "../assets/video/bg-video1.mp4";
 
@@ -23,9 +24,9 @@ onMounted(async () => {
   loading.value = true;
 
   // Fetch artist data
-  const response = await fetch(
-    "/src/assets/data.json"
-  ).then((res) => res.json());
+  const response = await fetch("/src/assets/data.json").then((res) =>
+    res.json()
+  );
 
   // Update artists
   artists.value = response.artists;
@@ -94,20 +95,18 @@ onMounted(async () => {
       ></video>
 
       <img
-        class="hero-logo h-96"
+        class="hero-logo h-80 md:h-96 lg:h-[512px]"
         src="../assets/img/logo.svg"
         alt="KOLD Icon"
       />
-      <h1
-        class="flex flex-col items-center justify-center text-zinc-100 font-header"
-      >
+      <h1 class="flex flex-col items-center justify-center">
         <span
-          class="text-[12rem] uppercase font-bold text-zinc-100 leading-[0.6]"
+          class="text-8xl lg:text-[12rem] uppercase font-bold text-zinc-100 leading-[0.6]"
           >Kold</span
-        ><span class="text-8xl">Festival</span>
+        ><span class="text-4xl lg:text-6xl">Festival</span>
       </h1>
       <h3
-        class="flex items-center text-4xl font-header space-x-8 text-zinc-100"
+        class="flex items-center font-header space-x-2 text-zinc-100 lg:text-2xl"
       >
         <span>24D</span><span>/</span><span>12T</span><span>/</span
         ><span>02M</span><span>/</span><span>33S</span>
@@ -130,7 +129,7 @@ onMounted(async () => {
 
     <section class="pb-16" id="artist" v-if="artists.length">
       <div
-        class="p-6 container mx-auto grid gap-16 sm:grid-cols-1 lg:grid-cols-3"
+        class="p-4 container mx-auto grid gap-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
       >
         <GridArtist
           v-for="(artist, index) in artists"
@@ -144,74 +143,38 @@ onMounted(async () => {
 
     <!-- Tickets -->
     <section id="tickets">
-      <div id="ticketBoxes">
-        <div class="priceBox">
-          <h3 class="text-4xl">PARTOUT</h3>
-          <div
-            class="text-white font-body flex flex-col justify-center items-center"
-          >
-            <p class="font-normal text-2xl">Student / Ung pris</p>
-            <h4 class="font-bold text-6xl">150 KR.</h4>
-          </div>
-          <div
-            class="text-white font-body flex flex-col justify-center items-center"
-          >
-            <p class="font-normal text-2xl">Normal pris</p>
-            <h4 class="font-bold text-6xl">300 KR.</h4>
-          </div>
-        </div>
-
-        <div class="priceBox">
-          <h3 class="text-4xl">FREDAG</h3>
-          <div
-            class="text-white font-body flex flex-col justify-center items-center"
-          >
-            <p class="font-normal text-2xl">Student / Ung pris</p>
-            <h4 class="font-bold text-6xl">100 KR.</h4>
-          </div>
-          <div
-            class="text-white font-body flex flex-col justify-center items-center"
-          >
-            <p class="font-normal text-2xl">Normal pris</p>
-            <h4 class="font-bold text-6xl">175 KR.</h4>
-          </div>
-        </div>
-
-        <div class="priceBox">
-          <h3 class="text-4xl">LØRDAG</h3>
-          <div
-            class="text-white font-body flex flex-col justify-center items-center"
-          >
-            <p class="font-normal text-2xl">Student / Ung pris</p>
-            <h4 class="font-bold text-6xl">100 KR.</h4>
-          </div>
-          <div
-            class="text-white font-body flex flex-col justify-center items-center"
-          >
-            <p class="font-normal text-2xl">Normal pris</p>
-            <h4 class="font-bold text-6xl">175 KR.</h4>
-          </div>
-        </div>
-        <article class="warning">
-          <i><BellAlertIcon class="w-16 h-16"></BellAlertIcon></i>
-          <p>
-            For at opnå student / ung pris skal man være under 22 år eller have
-            et gyldigt studiekort
-          </p>
-        </article>
+      <PricePanel title="Partout" :price="300" />
+      <PricePanel title="Fredag" :price="200" />
+      <PricePanel title="Lørdag" :price="200" />
+      <div class="flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100">
+        <InformationCircleIcon class="h-32 w-32" />
+        <h3>Vær opmærksom på..</h3>        
+        <p class="font-body text-center">
+          For at opnå student / ung pris skal man være under 22 år eller have et
+          gyldigt studiekort
+        </p>
       </div>
     </section>
   </div>
 </template>
 
 <style>
+
+/* Hero styling */
 #hero {
-  @apply min-h-screen space-y-4 w-full relative z-10 flex items-center justify-center overflow-hidden;
+  @apply py-32 lg:py-4 lg:min-h-screen space-y-4 w-full relative z-10 flex items-center justify-center overflow-hidden;
 }
 
 .hero-logo {
   animation: hero-logo 180s infinite linear;
 }
+
+/* Tickets styling */
+#tickets {
+  @apply container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 text-zinc-100;
+}
+
+/* Animations */
 
 @keyframes hero-logo {
   0% {
@@ -221,23 +184,5 @@ onMounted(async () => {
   100% {
     transform: rotate(360deg);
   }
-}
-
-/* tickets */
-
-#tickets {
-  @apply container mx-auto flex flex-col;
-}
-
-#ticketBoxes {
-  @apply gap-8 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4;
-}
-
-.priceBox {
-  @apply relative translate-y-8 opacity-0 flex flex-col justify-center items-center gap-8 py-8 border-2 mx-8 sm:mx-0;
-}
-
-.warning {
-  @apply relative translate-y-8 opacity-0 h-full bg-blue-900 text-white flex flex-col justify-between items-center font-bold font-body p-12 text-center py-20 border-2 mx-8 sm:mx-0;
 }
 </style>
