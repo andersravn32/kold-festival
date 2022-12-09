@@ -148,7 +148,7 @@ onMounted(async () => {
             :key="index"
             class="flex flex-col space-y-4 bg-blue-900/75 p-4"
           >
-            <h2 class="text-xl">Torsdag d. 2. Februar</h2>
+            <h2 class="text-xl">{{ column }}</h2>
             <ul class="flex flex-col space-y-2 text-zinc-100">
               <li class="grid grid-cols-4 font-header font-bold">
                 <span class="col-span-2">Navn</span>
