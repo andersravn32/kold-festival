@@ -130,7 +130,20 @@ onMounted(async () => {
         </div>
       </div>
 
-      <div id="artist-body" v-html="currentArtist.body"></div>
+      <div id="artist-body">
+        <article v-html="currentArtist.body"></article>
+        <iframe
+          v-if="currentArtist.socials.spotify"
+          style="border-radius: 12px"
+          :src="`https://open.spotify.com/embed/artist/${currentArtist.socials.spotify}?utm_source=generator`"
+          width="100%"
+          height="80"
+          frameBorder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      </div>
     </section>
     <section v-if="suggested.length" id="artist-suggested">
       <h3 class="font-header font-bold text-white text-6xl text-center">
@@ -177,14 +190,18 @@ onMounted(async () => {
 }
 
 #artist-body {
-  @apply col-span-3 text-zinc-100 flex flex-col space-y-2 p-4;
+  @apply col-span-3 text-zinc-100 flex flex-col space-y-8 p-4;
 }
 
-#artist-body p {
+#artist-body article {
+  @apply flex flex-col space-y-2;
+}
+
+#artist-body article p {
   @apply font-body;
 }
 
-#artist-body h2{
+#artist-body article h2 {
   @apply text-2xl;
 }
 
