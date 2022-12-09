@@ -29,7 +29,9 @@ onMounted(async () => {
   );
 
   // Update artists
-  artists.value = response.artists;
+  artists.value = response.artists.filter((artist) => {
+    return artist.type == "concert"
+  });
 
   // Update loading state
   loading.value = false;
@@ -50,14 +52,14 @@ onMounted(async () => {
 
   // Enterings effect tickets
   tickets
-    .to(".priceBox", {
+    .to(".price-panel", {
       y: 0,
       opacity: 1,
       duration: 0.5,
       ease: "ease-out",
       stagger: 0.3,
     })
-    .to(".warning", { y: 0, opacity: 1, duration: 0.5, ease: "ease-out" }, 0.8);
+    .to(".notice", { y: 0, opacity: 1, duration: 0.5, ease: "ease-out" }, 0.8);
 
   // Create scrolltrigger
   ScrollTrigger.create({
@@ -71,7 +73,7 @@ onMounted(async () => {
 
   ScrollTrigger.create({
     animation: tickets,
-    trigger: ".priceBox",
+    trigger: ".price-panel",
     start: "top 70%",
     end: "bottom 40%",
     toggleActions: "play none none none",
@@ -146,7 +148,7 @@ onMounted(async () => {
       <PricePanel title="Partout" :price="300" />
       <PricePanel title="Fredag" :price="200" />
       <PricePanel title="Lørdag" :price="200" />
-      <div class="flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100">
+      <div class="notice flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100">
         <InformationCircleIcon class="h-32 w-32" />
         <h3>Vær opmærksom på..</h3>        
         <p class="font-body text-center">
