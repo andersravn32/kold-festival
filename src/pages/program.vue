@@ -104,7 +104,7 @@ onMounted(async () => {
             class="flex flex-col space-y-4 bg-blue-900/75 p-4"
           >
             <h2 class="text-xl">{{ column }}</h2>
-            <ul class="flex flex-col space-y-2 text-zinc-100">
+            <ul class="flex flex-col space-y-2 divide-y-2 divide-blue-900 text-zinc-100">
               <li class="grid grid-cols-4 font-header font-bold">
                 <span class="col-span-2">Navn</span>
                 <span>Sted</span>
@@ -120,7 +120,7 @@ onMounted(async () => {
                   );
                 })"
                 :key="index"
-                class="grid grid-cols-4 font-body"
+                class="grid grid-cols-4 font-body pt-2"
               >
                 <span class="col-span-2 cursor-pointer underline" @click="router.push(`/artist/${artist.identifier}`)">{{
                   artist.name
@@ -149,7 +149,7 @@ onMounted(async () => {
             class="flex flex-col space-y-4 bg-blue-900/75 p-4"
           >
             <h2 class="text-xl">{{ column }}</h2>
-            <ul class="flex flex-col space-y-2 text-zinc-100">
+            <ul class="flex flex-col text-zinc-100 space-y-2 divide-y-2 divide-blue-900">
               <li class="grid grid-cols-4 font-header font-bold">
                 <span class="col-span-2">Navn</span>
                 <span>Sted</span>
@@ -165,7 +165,7 @@ onMounted(async () => {
                   );
                 })"
                 :key="index"
-                class="grid grid-cols-4 font-body"
+                class="grid grid-cols-4 font-body pt-2"
               >
                 <span class="col-span-2 underline cursor-pointer" @click="router.push(`/artist/${artist.identifier}`)">{{ artist.name }}</span>
                 <span>{{ artist.location }}</span>
