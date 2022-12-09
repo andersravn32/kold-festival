@@ -21,7 +21,7 @@ const loading = ref(false);
 const artists = ref([]);
 
 // Define individual artist
-const artist = ref(null);
+const currentArtist = ref(null);
 
 // Define suggested array
 const suggested = ref([]);
@@ -38,11 +38,6 @@ const shuffle = (array) => {
 };
 
 const refresh = async () => {
-  // Set individual artist based on route param
-  artist.value = artists.value.filter((artist) => {
-    return artist.identifier == router.currentRoute.value.params.identifier;
-  })[0];
-
   // Assign values to suggested array
   suggested.value = shuffle(
     artists.value.filter((artist) => {
@@ -54,8 +49,6 @@ const refresh = async () => {
 
   // Set static array length
   suggested.value.length = 3;
-
-  console.log(suggested.value);
 };
 
 onMounted(async () => {
@@ -73,61 +66,71 @@ onMounted(async () => {
   /// Update artists array
   artists.value = response.artists;
 
+  // Set individual artist based on route param
+  currentArtist.value = artists.value.filter((artist) => {
+    return artist.identifier == router.currentRoute.value.params.identifier;
+  })[0];
+
   // When fetching has completed, update values
   refresh();
 });
 </script>
 
 <template>
-  <div v-if="artist" id="page-artist">
-    <PageHeader :bg="artist.header">
-      <h1 class="text-8xl">{{ artist.name }}</h1>
+  <div v-if="currentArtist" id="page-artist">
+    <PageHeader :bg="currentArtist.header">
+      <h1 class="text-8xl">{{ currentArtist.name }}</h1>
     </PageHeader>
     <section id="artist-inner">
       <div id="artist-info">
-        <div v-if="artist.socials" class="flex flex-col space-y-2">
+        <div v-if="currentArtist.socials" class="flex flex-col space-y-2">
           <h2>Socials</h2>
           <ul class="flex flex-col space-y-2">
-            <li v-if="artist.socials.instagram">
+            <li v-if="currentArtist.socials.instagram">
               <img :src="IgIcon" alt="Instagram Icon" />
-              <a :href="artist.socials.instagram" target="_blank">Instagram</a>
+              <a :href="currentArtist.socials.instagram" target="_blank"
+                >Instagram</a
+              >
             </li>
-            <li v-if="artist.socials.facebook">
+            <li v-if="currentArtist.socials.facebook">
               <img :src="FbIcon" alt="Facebook Icon" />
-              <a :href="artist.socials.facebook" target="_blank">Facebook</a>
+              <a :href="currentArtist.socials.facebook" target="_blank"
+                >Facebook</a
+              >
             </li>
-            <li v-if="artist.socials.website">
+            <li v-if="currentArtist.socials.website">
               <GlobeAltIcon class="h-6 w-6" />
-              <a :href="artist.socials.website" target="_blank">Hjemmeside</a>
+              <a :href="currentArtist.socials.website" target="_blank"
+                >Hjemmeside</a
+              >
             </li>
           </ul>
         </div>
         <div class="flex flex-col space-y-2">
-          <p><CalendarIcon class="h-6 w-6" /></p>
-          <span class="flex gap-2">
-            <h2>
-              {{
-                new Intl.DateTimeFormat("da-DK", {
-                  weekday: "long",
-                  month: "short",
-                  day: "numeric",
-                  hour: "numeric",
-                  minute: "numeric",
-                }).format(artist.date * 1000)
-              }}
-            </h2>
-          </span>
+          <h2>Tidspunkt</h2>
+          <p class="flex space-x-2">
+            <CalendarIcon class="h-6 w-6" />
+            <span>{{
+              new Intl.DateTimeFormat("da-DK", {
+                weekday: "long",
+                month: "short",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+              }).format(currentArtist.date * 1000)
+            }}</span>
+          </p>
         </div>
         <div class="flex flex-col space-y-2">
-          <p>Venue</p>
-          <span>
+          <h2>Venue</h2>
+          <p class="flex space-x-2">
             <MapPinIcon class="h-6 w-6" />
-            <h2>{{ artist.location }}</h2>
-          </span>
+            <span>{{ currentArtist.location }}</span>
+          </p>
         </div>
       </div>
 
-      <div id="artist-body" v-html="artist.body"></div>
+      <div id="artist-body" v-html="currentArtist.body"></div>
     </section>
     <section v-if="suggested.length" id="artist-suggested">
       <h3 class="font-header font-bold text-white text-6xl">
@@ -141,6 +144,7 @@ onMounted(async () => {
           :artist-cover="artist.header"
           @click="
             router.push(`/artist/${artist.identifier}`);
+            currentArtist = artist;
             refresh();
           "
         >
@@ -152,7 +156,7 @@ onMounted(async () => {
 
 <style>
 #artist-inner {
-  @apply container mx-auto grid grid-cols-4 gap-4;
+  @apply max-w-6xl mx-auto grid grid-cols-4 gap-4;
 }
 
 #artist-info {
@@ -181,6 +185,6 @@ onMounted(async () => {
 }
 
 #artist-suggested {
-  @apply container mx-auto flex flex-col justify-center items-center gap-12 mt-8;
+  @apply max-w-6xl mx-auto flex flex-col justify-center items-center gap-12 mt-8;
 }
 </style>
