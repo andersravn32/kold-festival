@@ -30,7 +30,7 @@ defineProps({
 
 <style>
 .artist {
-  @apply relative flex justify-center items-center w-full transition-all duration-150 ease-in-out cursor-pointer hover:scale-[1.02];
+  @apply lg:min-h-[300px] relative flex justify-center items-center w-full transition-all duration-150 ease-in-out cursor-pointer hover:scale-[1.02];
   @apply hover:before:-translate-y-4 hover:before:-translate-x-4;
   @apply hover:after:translate-y-4 hover:after:translate-x-4;
 }
@@ -44,7 +44,7 @@ defineProps({
 }
 
 .artist-name {
-  @apply font-bold font-header text-2xl md:text-4xl lg:text-6xl text-center uppercase text-white z-40 p-16;
+  @apply font-bold font-header text-2xl md:text-4xl lg:text-6xl text-center uppercase text-white z-40 p-8;
 }
 
 .artist-image{
