@@ -49,7 +49,7 @@ input, textarea{
 
 .fade-enter-active,
 .fade-leave-active {
-  @apply transition-all duration-150;
+  @apply transition-all duration-300;
 }
 
 .fade-enter-from,
