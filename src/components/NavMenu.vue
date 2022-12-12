@@ -3,6 +3,8 @@ import { useRouter } from "vue-router";
 import { XMarkIcon } from "@heroicons/vue/24/outline";
 import IgIcon from "../assets/img/ig.svg";
 import FbIcon from "../assets/img/fb.svg";
+import gsap from 'gsap';
+import { onMounted } from "vue";
 
 const router = useRouter();
 const routes = router.getRoutes().filter((route) => {

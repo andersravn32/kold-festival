@@ -5,27 +5,17 @@ import { onMounted } from "vue";
 import PageHeader from "../components/PageHeader.vue";
 
 onMounted(() => {
-  const hovering = gsap.timeline();
 
-  hovering
-    .to(".symbolEffect", {
-      y: "-3%",
+  gsap.to(".symbolEffect, .symbolEffect2", {
+      y: "random(-20%, 20%, 2)",
+      x: 'random(-5%, 5%, 2)',
       duration: 2,
       repeat: -1,
       yoyo: true,
-      ease: "sine.inOut",
+      ease: "linear",
+      repeatRefresh: true
     })
-    .to(
-      ".symbolEffect2",
-      {
-        y: "-3%",
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      },
-      1
-    );
+
 });
 </script>
 
