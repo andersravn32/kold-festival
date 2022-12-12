@@ -18,6 +18,40 @@ const loading = ref(false);
 
 const artists = ref([]);
 
+const festivalTime = 1675332000000;
+
+const heroTime = ref({
+  days: null,
+  hours: null,
+  minutes: null,
+  seconds: null,
+});
+
+
+const updateTime = () => {
+  // get total seconds between the times
+  var delta = Math.abs(festivalTime - new Date()) / 1000;
+
+  // calculate (and subtract) whole days
+  heroTime.value.days = Math.floor(delta / 86400);
+  delta -= heroTime.value.days * 86400;
+
+  // calculate (and subtract) whole hours
+  heroTime.value.hours = Math.floor(delta / 3600) % 24;
+  delta -= heroTime.value.hours * 3600;
+
+  // calculate (and subtract) whole minutes
+  heroTime.value.minutes = Math.floor(delta / 60) % 60;
+  delta -= heroTime.value.minutes * 60;
+
+  // what's left is seconds
+  heroTime.value.seconds = Math.floor(delta % 60);
+
+  // Credit: Stackoverflow, User: Altinak - https://stackoverflow.com/users/6782/alnitak
+};
+
+setInterval(updateTime, 1000);
+
 // Load gsap when page has mounted
 onMounted(async () => {
   // Update loading state
@@ -30,7 +64,7 @@ onMounted(async () => {
 
   // Update artists
   artists.value = response.artists.filter((artist) => {
-    return artist.type == "concert"
+    return artist.type == "concert";
   });
 
   // Update loading state
@@ -78,6 +112,8 @@ onMounted(async () => {
     end: "bottom 40%",
     toggleActions: "play none none none",
   });
+
+  updateTime();
 });
 </script>
 
@@ -110,8 +146,10 @@ onMounted(async () => {
       <h3
         class="flex items-center font-header space-x-2 text-zinc-100 lg:text-2xl"
       >
-        <span>24D</span><span>/</span><span>12T</span><span>/</span
-        ><span>02M</span><span>/</span><span>33S</span>
+        <span>{{ heroTime.days }}D</span><span>/</span
+        ><span>{{ heroTime.hours }}T</span><span>/</span
+        ><span>{{ heroTime.minutes }}M</span><span>/</span
+        ><span>{{ heroTime.seconds }}S</span>
       </h3>
     </section>
 
@@ -148,9 +186,11 @@ onMounted(async () => {
       <PricePanel title="Partout" :price="300" />
       <PricePanel title="Fredag" :price="200" />
       <PricePanel title="Lørdag" :price="200" />
-      <div class="notice flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100">
+      <div
+        class="notice flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100"
+      >
         <InformationCircleIcon class="h-32 w-32" />
-        <h3>Vær opmærksom på..</h3>        
+        <h3>Vær opmærksom på..</h3>
         <p class="font-body text-center">
           For at opnå student / ung pris skal man være under 22 år eller have et
           gyldigt studiekort
@@ -161,7 +201,6 @@ onMounted(async () => {
 </template>
 
 <style>
-
 /* Hero styling */
 #hero {
   @apply py-32 lg:py-4 lg:min-h-screen space-y-4 w-full relative z-10 flex items-center justify-center overflow-hidden;
