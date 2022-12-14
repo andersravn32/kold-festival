@@ -10,19 +10,6 @@ import PricePanel from "../components/PricePanel.vue";
 
 import bg from "../assets/video/bg-video1.mp4";
 
-const countDown = new Date(1675360800 * 1000);
-
-setInterval(()=> {
-let now = new Date().getTime()
-
-let current = countDown.getTime() - now;
-
-console.log(new Date(current * 1000))
-
-
-}, 1000)
-
-
 // import router from vue-router
 const router = useRouter();
 

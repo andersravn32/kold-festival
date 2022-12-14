@@ -2,6 +2,7 @@
 import Accordion from "../components/Accordion.vue";
 import PageHeader from "../components/PageHeader.vue";
 import bg from "../assets/img/hero-bg.jpg";
+import { onMounted } from "vue";
 
 
 onMounted(() => {

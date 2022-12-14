@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, computed } from "vue";
+import { onMounted, ref } from "vue";
 import PageHeader from "../components/PageHeader.vue";
 import { useRouter } from "vue-router";
 import {
@@ -52,6 +52,12 @@ const refresh = async () => {
 };
 
 onMounted(async () => {
+  //Create dataLayer if its doesn't exist
+  dataLayer = window.dataLayer || [];
+
+  //Pushing CTA event to dataLayer
+  dataLayer.push({'event' : 'Contact_Page'});
+
   // Update loading state
   loading.value = true;
 

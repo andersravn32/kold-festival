@@ -3,6 +3,7 @@ import FormContact from "../components/Forms/Contact.vue";
 import ContactPerson from "../components/ContactPerson.vue";
 import bg from "../assets/img/hero-bg.jpg";
 import PageHeader from "../components/PageHeader.vue";
+import { onMounted } from "vue";
 
 onMounted(() => {
 
