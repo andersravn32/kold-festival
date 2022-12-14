@@ -29,8 +29,4 @@ defineProps({
 .price-panel {
     @apply border-2 border-zinc-100 p-8 flex flex-col items-center text-zinc-100 space-y-4;
 }
-
-.priceBox {
-  @apply relative translate-y-8 opacity-0 flex flex-col justify-center items-center gap-8 py-8 border-2 mx-8 sm:mx-0;
-}
 </style>
