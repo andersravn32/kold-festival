@@ -25,6 +25,13 @@ const concerts = ref([]);
 const talks = ref([]);
 
 onMounted(async () => {
+
+  //Create dataLayer if its doesn't exist
+  dataLayer = window.dataLayer || [];
+
+  //Pushing CTA event to dataLayer
+  dataLayer.push({'event' : 'Program_Page'});
+
   // Update loading state
   loading.value = true;
 

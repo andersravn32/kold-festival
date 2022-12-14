@@ -6,6 +6,12 @@ import PageHeader from "../components/PageHeader.vue";
 
 onMounted(() => {
 
+  //Create dataLayer if its doesn't exist
+  dataLayer = window.dataLayer || [];
+
+  //Pushing CTA event to dataLayer
+  dataLayer.push({'event' : 'About_Page'});
+
   gsap.to(".symbolEffect, .symbolEffect2", {
       y: "random(-20%, 20%, 2)",
       x: 'random(-5%, 5%, 2)',

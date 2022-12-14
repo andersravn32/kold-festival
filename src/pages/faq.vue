@@ -2,6 +2,18 @@
 import Accordion from "../components/Accordion.vue";
 import PageHeader from "../components/PageHeader.vue";
 import bg from "../assets/img/hero-bg.jpg";
+
+
+onMounted(() => {
+
+//Create dataLayer if its doesn't exist
+dataLayer = window.dataLayer || [];
+
+//Pushing CTA event to dataLayer
+dataLayer.push({'event' : 'FAQ_Page'});
+});
+
+
 </script>
 
 <template>

@@ -3,6 +3,16 @@ import FormContact from "../components/Forms/Contact.vue";
 import ContactPerson from "../components/ContactPerson.vue";
 import bg from "../assets/img/hero-bg.jpg";
 import PageHeader from "../components/PageHeader.vue";
+
+onMounted(() => {
+
+//Create dataLayer if its doesn't exist
+dataLayer = window.dataLayer || [];
+
+//Pushing CTA event to dataLayer
+dataLayer.push({'event' : 'Contact_Page'});
+
+});
 </script>
 
 <template>

@@ -144,7 +144,7 @@ onMounted(async () => {
         <iframe
           v-if="currentArtist.socials.spotify"
           style="border-radius: 12px"
-          :src="`https://open.spotify.com/embed/artist/${currentArtist.socials.spotify}?utm_source=generator`"
+          :src="`https://open.spotify.com/embed/artist/${currentArtist.socials.spotify}?utm_source=generator&theme=0`"
           width="100%"
           height="80"
           frameBorder="0"
