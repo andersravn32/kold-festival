@@ -59,7 +59,7 @@ onMounted(async () => {
   loading.value = true;
 
   // Fetch artist data
-  const response = await fetch("/src/assets/data.json").then((res) =>
+  const response = await fetch("https://api.singlepage.dk").then((res) =>
     res.json()
   );
 
