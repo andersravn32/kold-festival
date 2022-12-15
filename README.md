@@ -11,3 +11,6 @@ Vi har benyttet os i stor grad af TailwindCSS til implmentering af vores design.
 
 ### Git
 Vi har benyttet os af Git i langt større grad i det her projekt end tidligere, da Git spiller rigtig godt sammen med hele komponent logikken som Vue.js understøtter. Til dette har vi såvidt muligt forsøgt at holde en naming convention på vores commit statements, så det er nemt og overskueligt at se hvad der er blevet implementeret ved hvert commit, f.eks.: "Add: Added component" eller "Update: Update user logic"
+
+### API Data
+Den data som hentes fra https://api.singlepage.dk er blot et online mirror af edn JSON data som er inkluderet i assets/data.json.
