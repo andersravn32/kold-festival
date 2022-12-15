@@ -4,11 +4,11 @@ import img1 from "../assets/img/aboutImg2.png";
 <template>
   <article
     id="aboutSection"
-    class="container text-white mx-auto flex flex-col justify-between items-start md:flex-row p-4"
+    class="container text-white mx-auto flex flex-col-reverse justify-between items-start md:flex-row p-4"
   >
-    <div class="flex flex-col justify-center gap-8">
+    <div class="flex flex-col justify-center gap-8 text-center md:text-left">
       <h3 class="text-4xl">Derfor skal du til Kold Festival iår</h3>
-      <p class="w-96">
+      <p class="w-full max-w-lg">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, alias
         error vero nulla est tenetur neque, expedita maxime id iusto hic
         dolores, impedit laborum similique maiores consequuntur? Numquam,

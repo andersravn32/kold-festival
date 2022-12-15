@@ -28,7 +28,6 @@ const heroTime = ref({
   seconds: null,
 });
 
-
 const updateTime = () => {
   // get total seconds between the times
   var delta = Math.abs(festivalTime - new Date()) / 1000;
@@ -86,14 +85,13 @@ onMounted(async () => {
     .from(".extraSpan", { opacity: 1 });
 
   // Enterings effect tickets
-  tickets
-    .to(".price-panel", {
-      y: 0,
-      opacity: 1,
-      duration: 0.5,
-      ease: "ease-out",
-      stagger: 0.3,
-    })
+  tickets.to(".price-panel", {
+    y: 0,
+    opacity: 1,
+    duration: 0.5,
+    ease: "ease-out",
+    stagger: 0.3,
+  });
 
   // Create scrolltrigger
   ScrollTrigger.create({
@@ -181,8 +179,6 @@ onMounted(async () => {
       </div>
     </section>
 
-    <AboutSection />
-
     <!-- Tickets -->
     <section id="tickets">
       <PricePanel class="price-panel" title="Partout" :price="300" />
@@ -199,6 +195,9 @@ onMounted(async () => {
         </p>
       </div>
     </section>
+
+    <!-- About Section -->
+    <AboutSection />
   </div>
 </template>
 
@@ -214,7 +213,7 @@ onMounted(async () => {
 
 /* Tickets styling */
 #tickets {
-  @apply container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 text-zinc-100;
+  @apply container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 text-zinc-100 mb-32;
 }
 
 /* Animations */
