@@ -5,7 +5,8 @@
 @tailwind utilities;
 
 body {
-  @apply bg-midnight;
+  @apply bg-midnight delay-200;
+  font-display: swap;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -66,23 +67,6 @@ input, textarea{
 
 .bubble-enter-from,
 .bubble-leave-to {
+  @apply delay-200;
   clip-path: circle(0.1% at 100% 0%);
-}
-
-@keyframes icon3d {
-  0% {
-    text-shadow: 5px 4px red, -5px -6px blue;
-  }
-  25% {
-    text-shadow: -5px -6px red, 5px 4px blue;
-  }
-  50% {
-    text-shadow: 5px -4px red, -8px 4px blue;
-  }
-  75% {
-    text-shadow: -8px -4px red, -5px -4px blue;
-  }
-  100% {
-    text-shadow: -5px 0 red, 5px -4px blue;
-  }
 }

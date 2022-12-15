@@ -13,15 +13,15 @@ const routes = router.getRoutes().filter((route) => {
   }
 });
 
-defineEmits(["close"]);
+/* defineEmits(["close"]); */
 </script>
 <template>
   <div
-    class=" bg-midnight fixed top-0 bottom-0 left-0 right-0 flex flex-col items-center justify-center"
+    class=" bg-midnight fixed z-40 top-0 bottom-0 left-0 right-0 flex flex-col items-center justify-center"
   >
-    <button @click="$emit('close')" class="absolute top-8 right-4">
+<!--     <button @click="$emit('close')" class="absolute top-8 right-4">
       <XMarkIcon class="h-16 w-16 text-zinc-100" />
-    </button>
+    </button> -->
 
     <ul
       class="flex flex-col space-y-8 font-bold font-header text-zinc-100 uppercase z-100 text-4xl lg:text-8xl text-center"
@@ -30,10 +30,6 @@ defineEmits(["close"]);
         <router-link @click="$emit('close')" :to="route.path">
           {{ route.name }}
         </router-link>
-      </li>
-      <li class="flex items-center justify-center space-x-8">
-        <a href="#" target="_blank"><img class="h-12" :src="IgIcon" /></a>
-        <a href="#" target="_blank"><img class="h-12" :src="FbIcon" /></a>
       </li>
     </ul>
   </div>
