@@ -7,6 +7,7 @@ import { InformationCircleIcon } from "@heroicons/vue/24/solid";
 
 import GridArtist from "../components/GridArtist.vue";
 import PricePanel from "../components/PricePanel.vue";
+import AboutSection from "../components/AboutSection.vue";
 
 import bg from "../assets/video/bg-video1.mp4";
 
@@ -93,7 +94,6 @@ onMounted(async () => {
       ease: "ease-out",
       stagger: 0.3,
     })
-    .to(".notice", { y: 0, opacity: 1, duration: 0.5, ease: "ease-out" }, 0.8);
 
   // Create scrolltrigger
   ScrollTrigger.create({
@@ -107,7 +107,7 @@ onMounted(async () => {
 
   ScrollTrigger.create({
     animation: tickets,
-    trigger: ".price-panel",
+    trigger: "#tickets",
     start: "top 70%",
     end: "bottom 40%",
     toggleActions: "play none none none",
@@ -181,13 +181,15 @@ onMounted(async () => {
       </div>
     </section>
 
+    <AboutSection />
+
     <!-- Tickets -->
     <section id="tickets">
-      <PricePanel title="Partout" :price="300" />
-      <PricePanel title="Fredag" :price="200" />
-      <PricePanel title="Lørdag" :price="200" />
+      <PricePanel class="price-panel" title="Partout" :price="300" />
+      <PricePanel class="price-panel" title="Fredag" :price="200" />
+      <PricePanel class="price-panel" title="Lørdag" :price="200" />
       <div
-        class="notice flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100"
+        class="price-panel notice flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100"
       >
         <InformationCircleIcon class="h-32 w-32" />
         <h3>Vær opmærksom på..</h3>

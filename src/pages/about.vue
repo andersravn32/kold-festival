@@ -13,7 +13,7 @@ onMounted(() => {
   dataLayer.push({'event' : 'About_Page'});
 
   gsap.to(".symbolEffect, .symbolEffect2", {
-      y: "random(-20%, 20%, 2)",
+      y: "random(-20%, 20%, 5)",
       x: 'random(-5%, 5%, 2)',
       duration: 2,
       repeat: -1,
@@ -27,13 +27,13 @@ onMounted(() => {
 
 <template>
   <div id="page-about">
-    <PageHeader :bg="bg">
+    <PageHeader class="bg-fixed bg-no-repeat bg-bottom" :bg="bg">
       <h1 class="text-8xl">Om os</h1>
     </PageHeader>
 
     <!-- // About info -->
     <article class="info grid lg:grid-cols-2 my-16 container mx-auto">
-      <span class="block px-12">
+      <span class="block px-12 sticky top-36">
         <h2 class="m-auto text-4xl mb-2">Hvad er Kold Festival?</h2>
         <p class="font-body mb-4">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur,
@@ -77,9 +77,19 @@ onMounted(() => {
           />
         </svg>
 
+      </span>
+    </article>
+    <article class="info grid lg:grid-cols-2 my-16 container mx-auto">
+      <span class="relative px-12 m-auto">
+        <img
+          class="relative"
+          src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt=""
+        />
+
         <!-- SVG 2 -->
         <svg
-          class="absolute w-40 -bottom-32 right-8 z-99 symbolEffect2 z-40"
+          class="absolute w-40 -top-16 left-8 z-99 symbolEffect2 z-40"
           width="269"
           height="269"
           viewBox="0 0 269 269"
@@ -143,8 +153,6 @@ onMounted(() => {
           </defs>
         </svg>
       </span>
-    </article>
-    <article class="info grid lg:grid-cols-2 my-16 container mx-auto">
       <span class="block px-12">
         <h2 class="m-auto text-4xl mb-2">Bæredygtighed</h2>
         <p class="font-body mb-4">
@@ -160,13 +168,7 @@ onMounted(() => {
           consequuntur repellendus?
         </p>
       </span>
-      <span class="block px-12 m-auto">
-        <img
-          class="relative"
-          src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt=""
-        />
-      </span>
+
     </article>
 
     <!-- Socials -->
