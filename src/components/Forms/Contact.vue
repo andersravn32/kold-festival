@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import validate from "../../utils/validate";
 
 // Define input fields data points
 const firstName = ref(null);
@@ -16,7 +17,11 @@ const submit = () => {
     email.value = null;
     message.value = null;
 
-    console.log("Form submitted");
+    if (!validate(firstName.value, lastName.value, email.value, message.value)){
+      return console.log("Failed to submit form")
+    }
+
+    console.log("Form submitted")
 }
 
 </script>
