@@ -7,22 +7,26 @@ defineProps({
     price: {
         type: Number,
         required: true
+    },
+    studentPrice: {
+        type: Number,
+        required: true
     }
 })
 </script>
 
 <template>
-  <div class="price-panel">
+  <a href="https://tix.dk/da/musikkolding/buyingflow/tickets/15815/23040/" target="_blank" class="price-panel hover:bg-blue-600/50 hover:cursor-pointer">
     <h3 class="text-6xl">{{title}}</h3>
     <div class="flex flex-col text-center">
         <h4 class="lg:text-lg">Student / Ung</h4>
-        <p class="text-4xl lg:text-6xl font-bold">{{Math.round(price / 2)}} kr.</p>
+        <p class="text-4xl lg:text-6xl font-bold">{{studentPrice}} kr.</p>
     </div>
     <div class="flex flex-col text-center">
         <h4 class="lg:text-xl">Normal pris</h4>
         <p class="text-4xl lg:text-6xl font-bold">{{price}} kr.</p>
     </div>
-  </div>
+  </a>
 </template>
 
 <style>
