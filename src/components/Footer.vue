@@ -21,9 +21,9 @@ const routes = router.getRoutes().filter((route) => {
                 </router-link>
             </li>
         </ul>
-        <ul class="flex justify-center items-center gap-16">
-            <a href="#" target="_blank"><img class="h-12" :src="IgIcon" /></a>
-            <a href="#" target="_blank"><img class="h-12" :src="FbIcon" /></a>
+        <ul class="text-zinc-100 grid place-content-center">
+            <li class="text-center">MUSIKKOLDING</li>
+            <li class="text-center">Jens Holms Vej 5, 6000 Kolding</li>
         </ul>
     </footer>
 </template>

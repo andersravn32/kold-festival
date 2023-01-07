@@ -24,10 +24,10 @@ dataLayer.push({'event' : 'Contact_Page'});
         Udfyld den nedenstående formular for at sende os en direkte besked
       </h2></PageHeader
     >
+    <p class="font-body text-zinc-50 text-center">Kontaktformularen er ude af drift pt. Se derfor kontaktoplysninger nedenfor</p>
     <FormContact class="max-w-2xl mx-auto p-4"/>
 
     <div class="max-w-2xl mx-auto w-full grid md:grid-cols-2 gap-8 p-4">
-      <ContactPerson />
       <ContactPerson />
     </div>
   </div>

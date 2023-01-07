@@ -30,20 +30,19 @@ onMounted(() => {
 <template>
   <div id="page-about">
     <PageHeader class="bg-fixed bg-no-repeat bg-bottom" :bg="bg">
-      <h1 class="text-8xl">Om os</h1>
+      <h1 class="text-6xl lg:text-8xl uppercase leading-[0.9]">Om os</h1>
     </PageHeader>
 
     <!-- // About info -->
     <article class="info grid lg:grid-cols-2 my-16 container mx-auto">
-      <span class="block px-12 sticky top-36">
+      <span class="block px-12 top-36">
         <h2 class="m-auto text-4xl mb-2">Hvad er Kold Festival?</h2>
         <p class="font-body mb-4">
           KOLD Festival er en ny vinterfestival, som finder sted i Kolding Midtby fra den 2. - 4. februar. Vi er en festival, der i samarbejde med 6 lokale venues, som vi i fællesskab sammensætter og skaber rammerne for. Der er mulighed for at få en oplevelse udover det sædvanlige i en ellers kold og mørk tid af året.  
           KOLD Festival er drevet af MusikKolding og en lang række lokale samarbejdspartnere.
-
         </p>
       </span>
-      <span class="relative px-12 m-auto">
+      <span class="relative px-12 mx-auto mt-12">
         <img
           class="relative"
           :src="img1"
@@ -51,7 +50,7 @@ onMounted(() => {
         />
         <!-- SVG 1 -->
         <svg
-          class="absolute w-40 -top-16 lg:-top-24 left-0 z-99 symbolEffect z-40"
+          class="absolute w-24 left-8 md:left-0 md:w-40 -top-16 lg:-top-24  z-99 symbolEffect z-40"
           width="242"
           height="274"
           viewBox="0 0 242 274"
@@ -74,8 +73,17 @@ onMounted(() => {
 
       </span>
     </article>
-    <article class="info grid lg:grid-cols-2 my-16 container mx-auto">
-      <span class="relative px-12 m-auto">
+    <article class="info grid lg:flex lg:flex-row-reverse lg:justify-start lg:items-start my-16 container mx-auto">
+      <span class="block px-12">
+        <h2 class="m-auto text-4xl mb-2">Bæredygtighed</h2>
+        <p class="font-body mb-4">
+          Den bæredygtige dagsorden er en central del af KOLD Festival, Koldings nye vinterfestival. 
+          Bæredygtighed er en del af KOLD på lige fod med musikken, og derfor vil KOLD også være foregangsevent for andre kulturevents i byen, 
+          både kommunale og private, hvor vi aktivt bringer bæredygtighed og klima i spil, i forhold planlægning og afvikling.
+        </p>
+      </span>
+
+      <span class="relative px-12 m-auto mt-12">
         <img
           class="relative"
           :src="img2"
@@ -84,7 +92,7 @@ onMounted(() => {
 
         <!-- SVG 2 -->
         <svg
-          class="absolute w-40 -top-16 left-8 z-99 symbolEffect2 z-40"
+          class="absolute w-24 md:left-0 md:w-40 -top-16 left-8 z-99 symbolEffect2 z-40"
           width="269"
           height="269"
           viewBox="0 0 269 269"
@@ -148,15 +156,6 @@ onMounted(() => {
           </defs>
         </svg>
       </span>
-      <span class="block px-12">
-        <h2 class="m-auto text-4xl mb-2">Bæredygtighed</h2>
-        <p class="font-body mb-4">
-          Den bæredygtige dagsorden er en central del af KOLD Festival, Koldings nye vinterfestival. 
-          Bæredygtighed er en del af KOLD på lige fod med musikken, og derfor vil KOLD også være foregangsevent for andre kulturevents i byen, 
-          både kommunale og private, hvor vi aktivt bringer bæredygtighed og klima i spil, i forhold planlægning og afvikling.
-        </p>
-      </span>
-
     </article>
   </div>
 </template>

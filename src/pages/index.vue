@@ -66,10 +66,17 @@ onMounted(async () => {
   // Enter tickets Effect
   const tickets = gsap.timeline();
 
+  // Floating Banner Effect 2
+  const talks = gsap.timeline();
+
   // Position animated banner center
   banner
     .from("#artist-banner", { x: "-50%" })
     .from(".extraSpan", { opacity: 1 });
+
+  talks
+    .from("#talks-banner", { x: "-50%" })
+    .from(".extraSpanTalk", { opacity: 1 });
 
   // Enterings effect tickets
   tickets.to(".price-panel", {
@@ -91,6 +98,15 @@ onMounted(async () => {
   });
 
   ScrollTrigger.create({
+    animation: talks,
+    trigger: "#talks-banner",
+    scrub: 1,
+    start: "top 90% ",
+    end: "bottom 40%",
+    toggleActions: "restart none none none",
+  });
+
+  ScrollTrigger.create({
     animation: tickets,
     trigger: "#tickets",
     start: "top 70%",
@@ -100,6 +116,8 @@ onMounted(async () => {
 
   updateTime();
 });
+
+
 </script>
 
 <template>
@@ -200,6 +218,7 @@ onMounted(async () => {
 
     <!-- About Section -->
     <AboutSection />
+
   </div>
 </template>
 
