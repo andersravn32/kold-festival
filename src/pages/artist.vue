@@ -10,15 +10,13 @@ import {
 import IgIcon from "../assets/img/ig.svg";
 import FbIcon from "../assets/img/fb.svg";
 import GridArtist from "../components/GridArtist.vue";
+import { artists } from "../assets/data.json";
 
 // Import router through useRouter composable
 const router = useRouter();
 
 // Define loading state
 const loading = ref(false);
-
-// Define artists array
-const artists = ref([]);
 
 // Define individual artist
 const currentArtist = ref(null);
@@ -40,7 +38,7 @@ const shuffle = (array) => {
 const refresh = async () => {
   // Assign values to suggested array
   suggested.value = shuffle(
-    artists.value.filter((artist) => {
+    artists.filter((artist) => {
       return !(artist.identifier == currentArtist.value.identifier);
     })
   ).filter((artist) => {
@@ -58,26 +56,12 @@ onMounted(async () => {
   //Pushing CTA event to dataLayer
   dataLayer.push({'event' : 'Contact_Page'});
 
-  // Update loading state
-  loading.value = true;
-
-  // Fetch artist data
-  const response = await fetch("https://api.singlepage.dk").then((res) =>
-    res.json()
-  );
-
-  // Reset loading stae
-  loading.value = false;
-
-  /// Update artists array
-  artists.value = response.artists;
-
   // Set individual artist based on route param
-  currentArtist.value = artists.value.filter((artist) => {
+  currentArtist.value = artists.filter((artist) => {
     return artist.identifier == router.currentRoute.value.params.identifier;
   })[0];
 
-  // When fetching has completed, update values
+  // When loading has completed, update values
   refresh();
 });
 </script>

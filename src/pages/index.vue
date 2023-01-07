@@ -9,15 +9,11 @@ import GridArtist from "../components/GridArtist.vue";
 import PricePanel from "../components/PricePanel.vue";
 import AboutSection from "../components/AboutSection.vue";
 
+import { artists } from "../assets/data.json";
 import bg from "../assets/video/bg-video1.mp4";
 
 // import router from vue-router
 const router = useRouter();
-
-// Handles data loading
-const loading = ref(false);
-
-const artists = ref([]);
 
 const festivalTime = 1675332000000;
 
@@ -27,6 +23,12 @@ const heroTime = ref({
   minutes: null,
   seconds: null,
 });
+
+const artistsData = ref(
+  artists.filter((artist) => {
+    return artist.type == "concert";
+  })
+);
 
 const updateTime = () => {
   // get total seconds between the times
@@ -54,21 +56,6 @@ setInterval(updateTime, 1000);
 
 // Load gsap when page has mounted
 onMounted(async () => {
-  // Update loading state
-  loading.value = true;
-
-  // Fetch artist data
-  const response = await fetch("https://api.singlepage.dk").then((res) =>
-    res.json()
-  );
-
-  // Update artists
-  artists.value = response.artists.filter((artist) => {
-    return artist.type == "concert";
-  });
-
-  // Update loading state
-  loading.value = false;
 
   // Register gsap plugin
   gsap.registerPlugin(ScrollTrigger);
@@ -170,7 +157,7 @@ onMounted(async () => {
         class="p-4 container mx-auto grid gap-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
       >
         <GridArtist
-          v-for="(artist, index) in artists"
+          v-for="(artist, index) in artistsData"
           :key="index"
           :name="artist.name"
           :artist-cover="artist.header"
@@ -181,9 +168,24 @@ onMounted(async () => {
 
     <!-- Tickets -->
     <section id="tickets">
-      <PricePanel class="price-panel" title="Partout" :price="300" :studentPrice="150" />
-      <PricePanel class="price-panel" title="Fredag" :price="175" :studentPrice="100" />
-      <PricePanel class="price-panel" title="Lørdag" :price="175" :studentPrice="100" />
+      <PricePanel
+        class="price-panel"
+        title="Partout"
+        :price="300"
+        :studentPrice="150"
+      />
+      <PricePanel
+        class="price-panel"
+        title="Fredag"
+        :price="175"
+        :studentPrice="100"
+      />
+      <PricePanel
+        class="price-panel"
+        title="Lørdag"
+        :price="175"
+        :studentPrice="100"
+      />
       <div
         class="price-panel notice flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100"
       >

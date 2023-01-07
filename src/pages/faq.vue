@@ -3,18 +3,15 @@ import Accordion from "../components/Accordion.vue";
 import PageHeader from "../components/PageHeader.vue";
 import bg from "../assets/img/hero-bg.jpg";
 import { onMounted } from "vue";
-
+import { faq } from "../assets/data.json";
 
 onMounted(() => {
+  //Create dataLayer if its doesn't exist
+  dataLayer = window.dataLayer || [];
 
-//Create dataLayer if its doesn't exist
-dataLayer = window.dataLayer || [];
-
-//Pushing CTA event to dataLayer
-dataLayer.push({'event' : 'FAQ_Page'});
+  //Pushing CTA event to dataLayer
+  dataLayer.push({ event: "FAQ_Page" });
 });
-
-
 </script>
 
 <template>
@@ -25,55 +22,16 @@ dataLayer.push({'event' : 'FAQ_Page'});
         Her vil du finde svarene på de fleste af dine spørgsmål
       </h2></PageHeader
     >
-      <section id="faq">
-      <Accordion title="Hvor kan jeg købe billetter?" :opened="true">
-        <p>
-          Du kan købe billetter <a class="underline" target="_blank" href="https://tix.dk/da/musikkolding/buyingflow/tickets/15815/23040/">her.</a> 
-          Der findes tre typer billetter. <br />Vær obs. på, at du skal købe en partoutbillet, 
-          hvis du vil til koncerten med Ude Af Kontrol
-        </p>
+    <section id="faq">
+      <Accordion
+        v-for="(data, index) in faq"
+        :key="index"
+        :opened="data.opened || false"
+        :title="data.title"
+      >
+        <p v-html="data.content" />
       </Accordion>
-      <Accordion title="Hvor får jeg udleveret armbånd til festivalen?">
-        <p>
-          Armbåndet kan du få udleveret på alle venues eller midt på Banegårdspladsen.
-        </p>
-      </Accordion>
-      <Accordion title="Hvordan kommer jeg rundt til de forskellige venues?">
-        <p>
-          Alle venues er inden for kort gå-afstand, så der er rig mulighed at få nå rundt til flere forskellige venues.
-        </p>
-      </Accordion>
-      <Accordion title="Er der bar på de forskellige venues?">
-        <p>
-          Ja, der er bare på alle venues!
-        </p>
-      </Accordion>
-      <Accordion title="Kan jeg købe billet selvom jeg er under 18 år?">
-        <p>
-          Ja! men du kan ikke købe alkohol i barene eller være med til den store efterfest på Pitstop lørdag nat.
-        </p>
-      </Accordion>
-      <Accordion title="Kan man få studierabat?">
-        <p>
-          Ja! Der er studierabat og ungdomsrabat (under 25 år) på alle billettyper. <br /> Du kan f.eks. få armbånd til hele festivalen for kun 150 kr. i stedet for de 300 kr., som det normalt vil koste.
-        </p>
-      </Accordion>
-      <Accordion title="Er der overnatningsmuligheder til KOLD?">
-        <p>
-          Nej, KOLD Festival har ikke overnatningsmuligheder, men der er gode muligheder for at finde værelser på både vandrehjem eller hotel tæt på festivalen.
-        </p>
-      </Accordion>
-      <Accordion title="Må jeg medbringe mine egne drikkevarer på KOLD Festival?">
-        <p>
-          Nej, der må ikke medbringes egne drikkevarer på vores venues. 
-        </p>
-      </Accordion>
-      <Accordion title="Kan jeg komme til Ude Af Kontrol koncerten med en lørdagsbillet?">
-        <p>
-          Nej, til denne koncert skal du have et partoutarmbånd.
-        </p>
-      </Accordion>
-      </section>
+    </section>
   </div>
 </template>
 <style>

@@ -6,15 +6,10 @@ import bg from "../assets/img/bg.jpg";
 
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
+import { artists } from "../assets/data.json";
 
 // Define router from composable
 const router = useRouter();
-
-// Define loading state
-const loading = ref(false);
-
-// Define global artists variable
-const artists = ref([]);
 
 // Define array for storing number and titles of columns
 const artistCols = ref([]);
@@ -24,24 +19,7 @@ const talkCols = ref([]);
 const concerts = ref([]);
 const talks = ref([]);
 
-onMounted(async () => {
-
-  //Creating dataLayer if its doesn't exist
-  dataLayer = window.dataLayer || [];
-
-  //Pushing CTA event to dataLayer
-  dataLayer.push({'event' : 'Program_Page'});
-
-  // Update loading state
-  loading.value = true;
-
-  // Fetch artist data
-  const response = await fetch("https://api.singlepage.dk").then((res) =>
-    res.json()
-  );
-
-  // Map artists as new array with expanded date data
-  artists.value = response.artists.map((artist) => {
+const artistData = ref(artists.map((artist) => {
     return {
       ...artist,
       dateShort: new Intl.DateTimeFormat("da-DK", {
@@ -52,14 +30,22 @@ onMounted(async () => {
         minute: "numeric",
       }).format(artist.date * 1000),
     };
-  });
+  }))
+
+onMounted(async () => {
+  //Creating dataLayer if its doesn't exist
+  dataLayer = window.dataLayer || [];
+
+  //Pushing CTA event to dataLayer
+  dataLayer.push({ event: "Program_Page" });
+
 
   // Map each artist as either a concert or a talk
-  concerts.value = artists.value.filter((artist) => {
+  concerts.value = artistData.value.filter((artist) => {
     return artist.type == "concert";
   });
 
-  talks.value = artists.value.filter((artist) => {
+  talks.value = artistData.value.filter((artist) => {
     return artist.type == "talk";
   });
 
@@ -88,9 +74,6 @@ onMounted(async () => {
       );
     }
   });
-
-  // Reset loading state
-  loading.value = false;
 });
 </script>
 
@@ -104,14 +87,16 @@ onMounted(async () => {
     </PageHeader>
     <section id="program" class="container mx-auto flex flex-col">
       <Tabs v-if="artists.length">
-        <Tab title="Musik" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <Tab title="Musik" class="grid md:grid-cols-2 lg:grid-cols-2 gap-4">
           <div
             v-for="(column, index) in artistCols"
             :key="index"
             class="flex flex-col space-y-4 bg-blue-900/75 p-4"
           >
             <h2 class="text-xl">{{ column }}</h2>
-            <ul class="flex flex-col space-y-2 divide-y-2 divide-blue-900 text-zinc-100">
+            <ul
+              class="flex flex-col space-y-2 divide-y-2 divide-blue-900 text-zinc-100"
+            >
               <li class="grid grid-cols-4 font-header font-bold">
                 <span class="col-span-2">Navn</span>
                 <span>Sted</span>
@@ -129,9 +114,11 @@ onMounted(async () => {
                 :key="index"
                 class="grid grid-cols-4 font-body pt-2"
               >
-                <span class="col-span-2 cursor-pointer underline" @click="router.push(`/artist/${artist.identifier}`)">{{
-                  artist.name
-                }}</span>
+                <span
+                  class="col-span-2 cursor-pointer underline"
+                  @click="router.push(`/artist/${artist.identifier}`)"
+                  >{{ artist.name }}</span
+                >
                 <span>{{ artist.location }}</span>
                 <span
                   >kl
@@ -149,14 +136,16 @@ onMounted(async () => {
           </div>
         </Tab>
 
-        <Tab title="Talks" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <Tab title="Talks" class="grid md:grid-cols-2 lg:grid-cols-2 gap-4">
           <div
             v-for="(column, index) in talkCols"
             :key="index"
             class="flex flex-col space-y-4 bg-blue-900/75 p-4"
           >
             <h2 class="text-xl">{{ column }}</h2>
-            <ul class="flex flex-col text-zinc-100 space-y-2 divide-y-2 divide-blue-900">
+            <ul
+              class="flex flex-col text-zinc-100 space-y-2 divide-y-2 divide-blue-900"
+            >
               <li class="grid grid-cols-4 font-header font-bold">
                 <span class="col-span-2">Navn</span>
                 <span>Sted</span>
@@ -174,7 +163,11 @@ onMounted(async () => {
                 :key="index"
                 class="grid grid-cols-4 font-body pt-2"
               >
-                <span class="col-span-2 underline cursor-pointer" @click="router.push(`/artist/${artist.identifier}`)">{{ artist.name }}</span>
+                <span
+                  class="col-span-2 underline cursor-pointer"
+                  @click="router.push(`/artist/${artist.identifier}`)"
+                  >{{ artist.name }}</span
+                >
                 <span>{{ artist.location }}</span>
                 <span
                   >kl
