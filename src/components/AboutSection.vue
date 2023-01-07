@@ -1,5 +1,5 @@
 <script setup>
-import img1 from "../assets/img/aboutImg2.png";
+import img1 from "../assets/img/about_frontImg.png";
 </script>
 <template>
   <article

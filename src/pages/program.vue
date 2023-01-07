@@ -26,7 +26,7 @@ const talks = ref([]);
 
 onMounted(async () => {
 
-  //Create dataLayer if its doesn't exist
+  //Creating dataLayer if its doesn't exist
   dataLayer = window.dataLayer || [];
 
   //Pushing CTA event to dataLayer
