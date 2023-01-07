@@ -20,11 +20,8 @@ const props = defineProps({
 // Get tabs
 const tabs = ref(slots.default());
 
-// Map tab titles to array
-const titles = tabs.value.map((tab) => tab.props.title);
-
 // Define selected title from titles array, based on props
-const selectedTitle = ref(titles[props.index]);
+const selectedTitle = ref(tabs.value[0].props.title);
 
 // Provide selectedTitle data to component children
 provide("selectedTitle", selectedTitle);
@@ -34,12 +31,12 @@ provide("selectedTitle", selectedTitle);
   <div class="tabs">
     <ul v-if="showTitles" class="tabs-titles">
       <li
-        v-for="title in titles"
-        @click="selectedTitle = title"
+        v-for="tab in tabs"
+        @click="selectedTitle = tab.props.title"
         class="tab-title"
-        :class="{ 'tab-active': title == selectedTitle }"
+        :class="{ 'tab-active': tab.props.title == selectedTitle }"
       >
-        {{ title }}
+        {{ tab.props.title }}
       </li>
     </ul>
 
