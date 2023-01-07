@@ -181,9 +181,9 @@ onMounted(async () => {
 
     <!-- Tickets -->
     <section id="tickets">
-      <PricePanel class="price-panel" title="Partout" :price="300" />
-      <PricePanel class="price-panel" title="Fredag" :price="200" />
-      <PricePanel class="price-panel" title="Lørdag" :price="200" />
+      <PricePanel class="price-panel" title="Partout" :price="300" :studentPrice="150" />
+      <PricePanel class="price-panel" title="Fredag" :price="175" :studentPrice="100" />
+      <PricePanel class="price-panel" title="Lørdag" :price="175" :studentPrice="100" />
       <div
         class="price-panel notice flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100"
       >
@@ -213,7 +213,7 @@ onMounted(async () => {
 
 /* Tickets styling */
 #tickets {
-  @apply container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 text-zinc-100 mb-32;
+  @apply container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 text-zinc-100 md:mb-16;
 }
 
 /* Animations */

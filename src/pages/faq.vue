@@ -25,32 +25,55 @@ dataLayer.push({'event' : 'FAQ_Page'});
         Her vil du finde svarene på de fleste af dine spørgsmål
       </h2></PageHeader
     >
-    <section id="faq">
-      <Accordion title="Lorem ipsum" :opened="true">
+      <section id="faq">
+      <Accordion title="Hvor kan jeg købe billetter?" :opened="true">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam a
-          tempore impedit odit nisi culpa repellat cupiditate magni esse
-          facilis. Nesciunt perferendis laboriosam eius repellat molestiae
-          voluptatibus reprehenderit! Rerum, accusamus!
+          Du kan købe billetter <a class="underline" target="_blank" href="https://tix.dk/da/musikkolding/buyingflow/tickets/15815/23040/">her.</a> 
+          Der findes tre typer billetter. <br />Vær obs. på, at du skal købe en partoutbillet, 
+          hvis du vil til koncerten med Ude Af Kontrol
         </p>
       </Accordion>
-      <Accordion title="Lorem ipsum - The sequal">
+      <Accordion title="Hvor får jeg udleveret armbånd til festivalen?">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam a
-          tempore impedit odit nisi culpa repellat cupiditate magni esse
-          facilis. Nesciunt perferendis laboriosam eius repellat molestiae
-          voluptatibus reprehenderit! Rerum, accusamus!
+          Armbåndet kan du få udleveret på alle venues eller midt på Banegårdspladsen.
         </p>
       </Accordion>
-      <Accordion title="Lorem ipsum - The Third &copy;">
+      <Accordion title="Hvordan kommer jeg rundt til de forskellige venues?">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam a
-          tempore impedit odit nisi culpa repellat cupiditate magni esse
-          facilis. Nesciunt perferendis laboriosam eius repellat molestiae
-          voluptatibus reprehenderit! Rerum, accusamus!
+          Alle venues er inden for kort gå-afstand, så der er rig mulighed at få nå rundt til flere forskellige venues.
         </p>
       </Accordion>
-    </section>
+      <Accordion title="Er der bar på de forskellige venues?">
+        <p>
+          Ja, der er bare på alle venues!
+        </p>
+      </Accordion>
+      <Accordion title="Kan jeg købe billet selvom jeg er under 18 år?">
+        <p>
+          Ja! men du kan ikke købe alkohol i barene eller være med til den store efterfest på Pitstop lørdag nat.
+        </p>
+      </Accordion>
+      <Accordion title="Kan man få studierabat?">
+        <p>
+          Ja! Der er studierabat og ungdomsrabat (under 25 år) på alle billettyper. <br /> Du kan f.eks. få armbånd til hele festivalen for kun 150 kr. i stedet for de 300 kr., som det normalt vil koste.
+        </p>
+      </Accordion>
+      <Accordion title="Er der overnatningsmuligheder til KOLD?">
+        <p>
+          Nej, KOLD Festival har ikke overnatningsmuligheder, men der er gode muligheder for at finde værelser på både vandrehjem eller hotel tæt på festivalen.
+        </p>
+      </Accordion>
+      <Accordion title="Må jeg medbringe mine egne drikkevarer på KOLD Festival?">
+        <p>
+          Nej, der må ikke medbringes egne drikkevarer på vores venues. 
+        </p>
+      </Accordion>
+      <Accordion title="Kan jeg komme til Ude Af Kontrol koncerten med en lørdagsbillet?">
+        <p>
+          Nej, til denne koncert skal du have et partoutarmbånd.
+        </p>
+      </Accordion>
+      </section>
   </div>
 </template>
 <style>
@@ -72,5 +95,10 @@ dataLayer.push({'event' : 'FAQ_Page'});
 
 #faq .accordion-content {
   @apply text-zinc-100 border-t-2 border-zinc-100/50 mt-2 pt-2;
+}
+
+.faq-enter-active,
+.faq-leave-active {
+  @apply transition-all duration-150 ease-in-out;
 }
 </style>

@@ -21,7 +21,7 @@ const submit = () => {
       return console.log("Failed to submit form")
     }
 
-    console.log("Form submitted")
+    console.log("Message submitted!")
 }
 
 </script>
