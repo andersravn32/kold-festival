@@ -16,7 +16,7 @@ defineProps({
 </script>
 
 <template>
-  <a href="https://tix.dk/da/musikkolding/buyingflow/tickets/15815/23040/" target="_blank" class="price-panel hover:bg-blue-600/50 hover:cursor-pointer">
+  <a href="https://tix.dk/da/musikkolding/buyingflow/tickets/15815/23040/" target="_blank" class="price-panel hover:bg-blue-600/50 hover:cursor-pointer transition-all duration-300">
     <h3 class="text-6xl">{{title}}</h3>
     <div class="flex flex-col text-center">
         <h4 class="lg:text-lg">Student / Ung</h4>
