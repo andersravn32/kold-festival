@@ -74,10 +74,6 @@ onMounted(async () => {
     .from("#artist-banner", { x: "-50%" })
     .from(".extraSpan", { opacity: 1 });
 
-  talks
-    .from("#talks-banner", { x: "-50%" })
-    .from(".extraSpanTalk", { opacity: 1 });
-
   // Enterings effect tickets
   tickets.to(".price-panel", {
     y: 0,
@@ -91,15 +87,6 @@ onMounted(async () => {
   ScrollTrigger.create({
     animation: banner,
     trigger: "#artist-banner",
-    scrub: 1,
-    start: "top 90% ",
-    end: "bottom 40%",
-    toggleActions: "restart none none none",
-  });
-
-  ScrollTrigger.create({
-    animation: talks,
-    trigger: "#talks-banner",
     scrub: 1,
     start: "top 90% ",
     end: "bottom 40%",
