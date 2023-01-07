@@ -332,5 +332,44 @@
       "header": "https://i.ibb.co/pK2P1cR/ung-scene.jpg",
       "body": "<div> <h2>Om Unge Scene</h2> <p>Gik du glip af Ung Scene - eller har du bare glædet dig til at det sker igen? Så har vi rigtig gode nyheder! Ung Scene vender stærkt tilbage på 27B i Klostergade fredag d. 3. februar som en del af Kold Festival 2023.</p> <br> <p>Ung Scene er en aften fyldt med lækker musik spillet af unge. I mellem de forskellige acts kan du høre sprøde plader vendt af vinyl - DJ’s. Der bliver mulighed for at købe lækker mad og drikkevarer, som man kan nyde gennem aftenen. Denne gang kommer Ung Scene til at fungere som en musikalsk oase som du kan gå til og fra, når du ikke er til nogen af de andre fede koncerter der finder sted rundt i byen til Kold Festival. Du er selvfølgelig også velkommen til bare at blive hængende. Første band går på kl. 17.30 og vi regner med at runde af omkring kl. 20.30. Så hvis du er til hygge blandet med sprød, ny ung musik og mulighed for lækker mad, så ses vi på 27B d. 3. februar.</p> </div>"
     }
+  ],
+  "faq": [
+    {
+      "title": "Hvor kan jeg købe billetter?",
+      "content": "<p> Du kan købe billetter <a class='underline' target='_blank' href='https://tix.dk/da/musikkolding/buyingflow/tickets/15815/23040/'>her.</a> Der findes tre typer billetter. <br />Vær obs. på, at du skal købe en partoutbillet, hvis du vil til koncerten med Ude Af Kontrol </p>",
+      "opened": true
+    },
+    {
+      "title": "Hvor får jeg udleveret armbånd til festivalen?",
+      "content": "Armbåndet kan du få udleveret på alle venues eller midt på Banegårdspladsen."
+    },
+    {
+      "title": "Hvordan kommer jeg rundt til de forskellige venues?",
+      "content": "Alle venues er inden for kort gå-afstand, så der er rig mulighed at få nå rundt til flere forskellige venues."
+    },
+    {
+      "title": "Er der bar på de forskellige venues?",
+      "content": "Ja, der er bare på alle venues!"
+    },
+    {
+      "title": "Kan jeg købe billet selvom jeg er under 18 år?",
+      "content": "Ja! men du kan ikke købe alkohol i barene eller være med til den store efterfest på Pitstop lørdag nat."
+    },
+    {
+      "title": "Kan man få studierabat?",
+      "content": "Ja! Der er studierabat og ungdomsrabat (under 25 år) på alle billettyper. <br /> Du kan f.eks. få armbånd til hele festivalen for kun 150 kr. i stedet for de 300 kr., som det normalt vil koste."
+    },
+    {
+      "title": "Er der overnatningsmuligheder til KOLD?",
+      "content": "Nej, KOLD Festival har ikke overnatningsmuligheder, men der er gode muligheder for at finde værelser på både vandrehjem eller hotel tæt på festivalen."
+    },
+    {
+      "title": "Må jeg medbringe mine egne drikkevarer på KOLD Festival?",
+      "content": "Nej, der må ikke medbringes egne drikkevarer på vores venues. "
+    },
+    {
+      "title": "Kan jeg komme til Ude Af Kontrol koncerten med en lørdagsbillet?",
+      "content": "Nej, til denne koncert skal du have et partoutarmbånd."
+    }
   ]
 }
