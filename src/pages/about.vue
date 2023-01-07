@@ -1,5 +1,7 @@
 <script setup>
 import bg from "../assets/img/hero-bg.jpg";
+import img1 from "../assets/img/aboutImg.jpg"
+import img2 from "../assets/img/aboutImg2.jpg"
 import gsap from "gsap";
 import { onMounted } from "vue";
 import PageHeader from "../components/PageHeader.vue";
@@ -36,22 +38,15 @@ onMounted(() => {
       <span class="block px-12 sticky top-36">
         <h2 class="m-auto text-4xl mb-2">Hvad er Kold Festival?</h2>
         <p class="font-body mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur,
-          nulla ratione error excepturi iusto mollitia obcaecati suscipit
-          molestias officia quos quia laboriosam doloribus quo a debitis quas
-          nemo eaque laborum. Lorem ipsum dolor sit, amet consectetur
-          adipisicing elit. Aliquam molestias quidem in non eligendi nihil, aut
-          nemo expedita? Ipsa, molestiae? Lorem ipsum dolor sit, amet
-          consectetur adipisicing elit. Quo veniam reiciendis dignissimos
-          expedita animi quam eveniet eaque iste! Necessitatibus, doloribus
-          sequi. Soluta iure et magni praesentium excepturi reprehenderit,
-          consequuntur repellendus?
+          KOLD Festival er en ny vinterfestival, som finder sted i Kolding Midtby fra den 2. - 4. februar. Vi er en festival, der i samarbejde med 6 lokale venues, som vi i fællesskab sammensætter og skaber rammerne for. Der er mulighed for at få en oplevelse udover det sædvanlige i en ellers kold og mørk tid af året.  
+          KOLD Festival er drevet af MusikKolding og en lang række lokale samarbejdspartnere.
+
         </p>
       </span>
       <span class="relative px-12 m-auto">
         <img
           class="relative"
-          src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          :src="img1"
           alt=""
         />
         <!-- SVG 1 -->
@@ -83,7 +78,7 @@ onMounted(() => {
       <span class="relative px-12 m-auto">
         <img
           class="relative"
-          src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          :src="img2"
           alt=""
         />
 
@@ -156,16 +151,9 @@ onMounted(() => {
       <span class="block px-12">
         <h2 class="m-auto text-4xl mb-2">Bæredygtighed</h2>
         <p class="font-body mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur,
-          nulla ratione error excepturi iusto mollitia obcaecati suscipit
-          molestias officia quos quia laboriosam doloribus quo a debitis quas
-          nemo eaque laborum. Lorem ipsum dolor sit, amet consectetur
-          adipisicing elit. Aliquam molestias quidem in non eligendi nihil, aut
-          nemo expedita? Ipsa, molestiae? Lorem ipsum dolor sit, amet
-          consectetur adipisicing elit. Quo veniam reiciendis dignissimos
-          expedita animi quam eveniet eaque iste! Necessitatibus, doloribus
-          sequi. Soluta iure et magni praesentium excepturi reprehenderit,
-          consequuntur repellendus?
+          Den bæredygtige dagsorden er en central del af KOLD Festival, Koldings nye vinterfestival. 
+          Bæredygtighed er en del af KOLD på lige fod med musikken, og derfor vil KOLD også være foregangsevent for andre kulturevents i byen, 
+          både kommunale og private, hvor vi aktivt bringer bæredygtighed og klima i spil, i forhold planlægning og afvikling.
         </p>
       </span>
 
