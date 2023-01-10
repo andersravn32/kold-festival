@@ -197,7 +197,7 @@ onMounted(async () => {
         <InformationCircleIcon class="h-32 w-32" />
         <h3>Vær opmærksom på..</h3>
         <p class="font-body text-center">
-          For at opnå student / ung pris skal man være under 22 år eller have et
+          For at opnå student / ung pris skal man være under 25 år eller have et
           gyldigt studiekort
         </p>
       </div>

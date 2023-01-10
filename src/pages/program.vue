@@ -61,6 +61,17 @@ onMounted(async () => {
       );
     }
   });
+  artistCols.value.reverse();
+
+  // Sort concerts
+  concerts.value.sort((x, y) => {
+    return x.date - y.date
+  })
+
+  // Sort talks
+  talks.value.sort((x, y) => {
+    return x.date - y.date
+  })
 
   // Get number of dates as array
   talks.value.forEach((artist) => {
@@ -74,6 +85,7 @@ onMounted(async () => {
       );
     }
   });
+  talkCols.value.reverse();
 });
 </script>
 
