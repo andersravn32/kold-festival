@@ -188,6 +188,7 @@ onMounted(async () => {
       <PricePanel
         class="price-panel"
         title="Lørdag"
+        subtitle="(OBS: Gælder ikke Ude af Kontrol)"
         :price="175"
         :studentPrice="100"
       />
