@@ -4,6 +4,10 @@ defineProps({
         type: String,
         required: true
     },
+    subtitle: {
+        type: String,
+        required: false
+    },
     price: {
         type: Number,
         required: true
@@ -25,12 +29,13 @@ defineProps({
     <div class="flex flex-col text-center">
         <h4 class="lg:text-xl">Normal pris</h4>
         <p class="text-4xl lg:text-6xl font-bold">{{price}} kr.</p>
+        <h5 class="font-normal text-xs mt-4">{{ subtitle }}</h5>
     </div>
   </a>
 </template>
 
 <style>
 .price-panel {
-    @apply border-2 border-zinc-100 p-8 flex flex-col items-center text-zinc-100 space-y-4;
+    @apply border-2 border-zinc-100 p-8 flex flex-col justify-center items-center text-zinc-100 space-y-4;
 }
 </style>
