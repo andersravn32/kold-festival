@@ -29,7 +29,7 @@ defineProps({
     <div class="flex flex-col text-center">
         <h4 class="lg:text-xl">Normal pris</h4>
         <p class="text-4xl lg:text-6xl font-bold">{{price}} kr.</p>
-        <h5 class="font-normal text-xs mt-4">{{ subtitle }}</h5>
+        <h5 v-if="subtitle" class="font-body text-xs mt-4">{{ subtitle }}</h5>
     </div>
   </a>
 </template>
