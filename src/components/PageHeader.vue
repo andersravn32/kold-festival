@@ -1,8 +1,7 @@
 <script setup>
 defineProps({
     bg: {
-        type: String,
-        required: true
+        type: String
     }
 })
 </script>
