@@ -85,7 +85,6 @@ onMounted(async () => {
       );
     }
   });
-  talkCols.value.reverse();
 });
 </script>
 
