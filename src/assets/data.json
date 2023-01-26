@@ -387,5 +387,122 @@
       "title": "Kan jeg komme til Ude Af Kontrol koncerten med en lørdagsbillet?",
       "content": "Nej, til denne koncert skal du have et partoutarmbånd."
     }
+  ],
+  "partnere": [
+    {
+      "name": "IBA Erhvervsakademi Kolding",
+      "logo": "https://i.ibb.co/2NsdWfs/logo-iba.png",
+      "link": "https://www.iba.dk/fuldtidsuddannelser"
+    },
+    {
+      "name": "Mazur",
+      "logo": "https://i.ibb.co/cTbmDHB/logo-mazur.png",
+      "link": "https://mazur.dk/"
+    },
+    {
+      "name": "Mou Suppe",
+      "logo": "https://i.ibb.co/MnHpPMZ/logo-mou.webp",
+      "link": "https://www.mou.dk/"
+    },
+    {
+      "name": "27B Tobbers",
+      "logo": "https://i.ibb.co/Qrkvqyn/logo-27b.png",
+      "link": "https://tobbers.nu/"
+    },
+    {
+      "name": "Arkaden",
+      "logo": "https://i.ibb.co/J5D0HHx/logo-arkaden.jpg",
+      "link": "https://www.facebook.com/arkadenkolding/"
+    },
+    {
+      "name": "Bæredygtighedshuset",
+      "logo": "https://i.ibb.co/W6527s2/logo-baeredygtighedshuset.png",
+      "link": "https://www.kolding.dk/borger/miljo-natur-og-klima/klima-og-baeredygtighed/baeredygtighedshuset/"
+    },
+    {
+      "name": "City Kolding",
+      "logo": "https://i.ibb.co/RzYds9n/logo-citykolding.jpg",
+      "link": "https://www.citykolding.dk/"
+    },
+    {
+      "name": "Food Reformers",
+      "logo": "https://i.ibb.co/Jm2gDZq/logo-food-reformers.png",
+      "link": "https://www.facebook.com/foodreformer/"
+    },
+    {
+      "name": "Godset",
+      "logo": "https://i.ibb.co/YhppD4Y/logo-godset.png",
+      "link": "https://www.godset.net/"
+    },
+    {
+      "name": "Hansenberg",
+      "logo": "https://i.ibb.co/9gtd1Jn/logo-hansenberg.jpg",
+      "link": "https://www.hansenberg.dk/"
+    },
+    {
+      "name": "Jazz6000",
+      "logo": "https://i.ibb.co/FgjRxrS/logo-jazz6000.jpg",
+      "link": "https://jazz6000.dk/"
+    },
+    {
+      "name": "Kolding Gårdbryggeri",
+      "logo": "https://i.ibb.co/XJt8H0b/logo-kolding-gaardbryggeri.png",
+      "link": "https://koldinggaardbryggeri.dk/"
+    },
+    {
+      "name": "Knuds Dance Hall",
+      "logo": "https://i.ibb.co/wzX5GtT/logo-knuds-dance-hall.jpg",
+      "link": "https://www.facebook.com/KnudsDanceHall/"
+    },
+    {
+      "name": "Jazz i Trekanten - JazzHouse",
+      "logo": "https://i.ibb.co/CKdf0Wy/logo-jazzhouse.jpg",
+      "link": "http://jazzitrekanten.dk/jazzhouse/"
+    },
+    {
+      "name": "Kolding Bibliotek",
+      "logo": "https://i.ibb.co/yyKgfYd/logo-kolding-bibliotek.png",
+      "link": "https://koldingbib.dk/"
+    },
+    {
+      "name": "Kolding Kommune",
+      "logo": "https://i.ibb.co/vvjCbKg/logo-kolding-kommune.png",
+      "link": "https://www.kolding.dk/"
+    },
+    {
+      "name": "Milling Hotel, Saxildhus",
+      "logo": "https://i.ibb.co/D8zWQSQ/logo-milling.png",
+      "link": "https://millinghotels.dk/hoteller/milling-hotel-saxildhus/"
+    },
+    {
+      "name": "Munkensdam Musical",
+      "logo": "https://i.ibb.co/WVFYYLb/logo-munkensdam-musical.png",
+      "link": "https://munkensdammusical.dk/"
+    },
+    {
+      "name": "Pitstop",
+      "logo": "https://i.ibb.co/p3Bhxrf/logo-pitstop.jpg",
+      "link": "https://www.facebook.com/pitstopkolding/?locale=da_DK"
+    },
+    {
+      "name": "Slicetown",
+      "logo": "https://i.ibb.co/1fYxBCP/logo-slicetown.png",
+      "link": "https://slicetown.dk/"
+    },
+    {
+      "name": "UC Syd",
+      "logo": "https://i.ibb.co/z2sRmB4/logo-uc-syd.png",
+      "link": "https://www.ucsyd.dk/"
+    },
+    {
+      "name": "Bruger Shack",
+      "logo": "https://i.ibb.co/V9tQ50m/logo-burger-shack.png",
+      "link": "https://www.facebook.com/theburgershackdanmark/"
+    },
+    {
+      "name": "Campus Kolding",
+      "logo": "https://i.ibb.co/bmwHZXZ/Campus-Kolding-Logo-RGB-Gron.png",
+      "link": "https://campuskolding.dk/"
+    }
   ]
 }
