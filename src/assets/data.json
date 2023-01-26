@@ -1,7 +1,8 @@
 {
   "artists": [
     {
-      "name": "Ude af Kontrol + Djämes Braun",
+      "name": "Ude af Kontrol",
+      "subartist": "+ Djämes Braun x Vild $mith",
       "identifier": "ude-af-kontrol",
       "socials": {
         "instagram": "https://www.instagram.com/udeafkontrol",
@@ -154,7 +155,7 @@
       },
       "type": "talk",
       "date": 1675360800,
-      "location": "Torvet",
+      "location": "Kolding Bibliotek",
       "image": "https://i.ibb.co/tHx6xGH/emma-holten.jpg",
       "header": "https://i.ibb.co/tHx6xGH/emma-holten.jpg",
       "body": "<div> <h2>Emma Holten: Feministisk økonomi – Hvad er vi værd?</h2> <p>Vi får fremlagt økonomi som en uangribelig sandhed. Man fortæller os, at de penge, der står på et menneskes bankkonto, afspejler den værdi, de har for samfundet. Men hvem bestemmer, hvad vi er værd? Og hvad vi som samfund har råd til?</p> <br> <p>Feministisk økonomi vender vores traditionelle økonomier på hovedet og spørger: hvad er alt det gratis egentlig værd? Naturen, fritiden, familien og vennerne? Og hvorfor føles det som om, de gratis ting er de sværeste at få tid til?</p> <br> <p>Kom med på en rejse gennem økonomiens historie, og måske ind i en fremtid, hvor vi får mere af alt det, der faktisk gør livet værd at leve!</p> </div>"
@@ -207,19 +208,20 @@
       "body": "<div> <h2>Om Krydsfelt 2.0</h2> <p>To musikere. To vidt forskellige musikkulturer. Musik på tværs.</p> <br> <p>Krydsfelt er et musikalsk eksperiment, der undersøg er hvad der kan ske, når man sætter to musikere fra to vidt forskellige musikkulturer sammen for at skabe ny musik og fortolke eksisterende musik.</p> <br> <p>I Krydsfelt mødes komponist og musiker Mathias Heise som normalt spiller funk, fusionsjazz, med elektronisk musiker Joakim Moesgaard. De spiller og fortolker sammen kompositioner skrevet til Krydsfelt af Mathias Heise.</p> <br> <p>Sammen vil de på scenen spille indøvende numre og improvisere sig frem til helt nye numre. Vi lover det bliver festligt, energisk og en absolut kæmpeoplevelse.</p> <br> <p>Krydsfelt blev gennemført første gang i 2018 og vandt JazzDanmarkprisen 2018 for 'årets nytænkende koncertoplevelse.'</p> </div>"
     },
     {
-      "name": "Selvforsynende Villahave",
-      "identifier": "selvforsynende-villahave-talk",
+      "name": "Lasse Laurentius",
+      "identifier": "lasse-laurentius",
       "socials": {
-        "instagram": "",
-        "facebook": "https://www.facebook.com/groups/1032030250236543",
-        "website": ""
+        "instagram": "https://www.instagram.com/lasselaurentius.mp3/",
+        "facebook": "",
+        "website": "",
+        "spotify": "7Mq1NrEfW11lsSXWuIkTO1"
       },
-      "type": "talk",
-      "date": 1675355400,
-      "location": "Bryggeriet",
-      "image": "https://i.ibb.co/RBNs8Js/selvforsynende-villahave.jpg",
-      "header": "https://i.ibb.co/RBNs8Js/selvforsynende-villahave.jpg",
-      "body": "<div> <h2>Bliv selvforsynende i din have</h2> <p>Line Øskov Knudsen, der står bag Facebook - gruppen ’Den selvforsynende have’ med knap 10.000 følgere, holder foredrag om sin have.</p> <br> <p>Line bor i et helt almindeligt parcelhus med have i Kolding. Haven har hun omdannet fra at være en have med græs og blomster til et gigantisk spisekammer, der forsyner familien på fem med grøntsager og frugter året rundt.</p> <br> <p>Til foredraget vil Line fortælle om sit arbejde med at udvikle sin have, og hun videregiver sine bedste tips og tricks om selvforsyning. Der bliver god lejlighed til at stille spørgsmål.</p> </div>"
+      "type": "concert",
+      "date": 1675530000,
+      "location": "UC Syd",
+      "image": "https://i.ibb.co/9Z6fdfK/Lasse-Laurentius-1x1.jpg",
+      "header": "https://i.ibb.co/9Z6fdfK/Lasse-Laurentius-1x1.jpg",
+      "body": "<div> <h2>Om Lasse Laurentius</h2> <p>Lasse Laurentius er navnet på en 28-årig artist, producer, sangskriver og rapper. Han producerer alternativ trap/r&b med et ordenligt skud hyperpop, men også genre som drum‘n’bass, happy hardcore og ambient får lov at være med i Lasse' lydlegeplads. Han kombinerer moderne hiphop-elementer med et virvar af lyde og genre som tilsammen skaber et forførende og unikt univers, som både er alternativt og besidder masser af sjæl og pop appel. Den eneste konstant i Lasse univers er uforudsigelighed. Det ene sekund bliver man omsluttet af en sexet hvisken i øret akkompagneret af moody trap, og før man ved af det står man og flækker et floor kl 5 om morgenen og kaster fuckfingre til sin lærer. Der er obskure referencer og store følelser på spil og når Lasse Laurentius autotune-crooner sin sjæl ud over sine unikke beats - en slags post-nostalgisk introvert interneteteksplotion. Lasse’s lyd leder tankerne hen på artister som Frank Ocean, Jpegmafia, Fraads og Debbie Sings.</p> <br /> <p>I forbindelse med at Lasse’s sang ‘Hele Tiden Helt Nyt’ blev udvalgt til Ugens Kanon på P3 sagde Pelle Peter Jencel at musikken var: “skizofrent og vanedannende […] komplekst og opfindsomt, men også catchy og pisse ørefængende” og samlignede ham blandt andet med Thomas Knak, Björk og Frank Ocean. Bands of Tomorrow beskriver hans lyriske univers i deres artikel sådan her: “Lasse Laurentius indhyller [...] sine lyttere i et forførende og melankolsk univers” [...] talrige følelser og tanker leveres på en eksplicit og dragende måde” </p> </div>"
     },
     {
       "name": "Sulka",
@@ -326,7 +328,7 @@
       },
       "type": "talk",
       "date": 1675440000,
-      "location": "Foran Biblioteket",
+      "location": "Kolding Bibliotek",
       "image": "",
       "header": "",
       "body": "<div> <h2>Bål og højtlæsning</h2> <p>På med de uldne vanter og det lune halstørklæde, men husk ikke at dække ørerne for meget til.</p><p>Vi mødes nemlig rundt om bålet til en omgang guidet fælleslæsning.</p><br><p>Bibliotekaren medbringer en kort tekst, som vi læser højt og sammen debatterer de tanker og betragtninger, som teksten sætter i gang.</p><p>Så mød op til en hyggelig stund med gloende vinterlitteratur og glødende fællesskab, hvor vi byder på kakao, kaffe og te ved bålet.</p></div>"
@@ -341,7 +343,7 @@
       },
       "type": "talk",
       "date": 1675524600,
-      "location": "Bryggeriet",
+      "location": "Kolding Bibliotek",
       "image": "",
       "header": "",
       "body": "<div> <h2>En guide til bæredygtige rejser</h2> <p>Danskere er et af verdens mest rejselystne folkefærd i verden, og de fleste danskere rejser udenlands mindst en gang om året. Det ligger dybt forankret i vores kultur, men hvordan kan denne udelængsel, som i øjeblikket også er en af de vores største forureningkilder, harmonere med et bæredygtighedsideal? Et ideal som tager hensyn til både vores egen og fremtidige generationer. Hvordan ser et bæredygtigt eventyr ud?</p><br><p>Jeg var ikke mange måneder gammel før jeg var i et fly første gang, og er siden vokset op i en rygsæk, med forældre som har taget mig jorden rundt. De har taget mig til farverige bryllupper i Indien, dykkeroplevelser i Fransk Polynesien, til pandekagestakke og store biler i USA. Jeg har således fra en ung alder tilslutte mig koret som synger ”at rejse er at leve”.<br><br>Som 20-årig bestemte jeg mig for at stoppe med at flyve, hvilket førte til flere eventyr end jeg kunne have drømt om, som jeg fortæller mere om i mit andet foredrag blafferbilleder.</p><br><p>De sidste 9 år har jeg eksperimenteret med CO2-neutrale rejser og igennem mine studier, har jeg læst og diskuteret meget, hvad bæredygtige rejser er. Foredraget vil være en blanding af den nyeste forskning inden for bæredygtighedsvidenskab, samtale om flyskam, personlige refleksioner og en masse røverhistorier fra blaffereventyr til Kina, togture til Iran, til tømmerflådesejlads i Danmark, roadtrips og ø-lejrer.</p></div>"

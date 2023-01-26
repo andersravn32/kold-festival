@@ -165,6 +165,7 @@ onMounted(async () => {
           v-for="(artist, index) in artistsData"
           :key="index"
           :name="artist.name"
+          :subartist="artist.subartist"
           :artist-cover="artist.header"
           @click="router.push(`/artist/${artist.identifier}`)"
         />

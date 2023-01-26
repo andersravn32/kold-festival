@@ -69,7 +69,8 @@ onMounted(async () => {
 <template>
   <div v-if="currentArtist" id="page-artist">
     <PageHeader :bg="currentArtist.header">
-      <h1 class="text-6xl lg:text-8xl">{{ currentArtist.name }}</h1>
+      <h1 class="text-center text-6xl lg:text-8xl">{{ currentArtist.name }}</h1>
+      <h2 class="text-center text-4xl lg:text-6xl">{{ currentArtist.subartist }}</h2>
     </PageHeader>
     <section id="artist-inner">
       <div id="artist-info">
@@ -153,6 +154,7 @@ onMounted(async () => {
           v-for="(artist, index) in suggested"
           :key="index"
           :name="artist.name"
+          :subartist="artist.subartist"
           :artist-cover="artist.header"
           @click="
             router.push(`/artist/${artist.identifier}`);

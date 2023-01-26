@@ -4,6 +4,9 @@ defineProps({
     type: String,
     required: true,
   },
+  subartist: {
+    type: String,
+  },
   artistCover: {
     type: String,
     required: true,
@@ -15,7 +18,10 @@ defineProps({
 
 <template>
   <div class="artist">
+    <div>
     <h3 class="artist-name">{{name}}</h3>
+    <h4 v-if="subartist" class="sub-name">{{ subartist }}</h4>
+    </div>
     <div
       class="absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"
     ></div>
@@ -44,7 +50,11 @@ defineProps({
 }
 
 .artist-name {
-  @apply font-bold font-header text-2xl md:text-4xl lg:text-6xl text-center uppercase text-white z-40 p-8;
+  @apply font-bold font-header text-2xl md:text-4xl lg:text-5xl text-center uppercase text-white z-40 p-8;
+}
+
+.sub-name {
+  @apply font-bold font-header text-2xl md:text-4xl lg:text-4xl text-center uppercase text-white z-40 px-8 pb-8;
 }
 
 .artist-image{
