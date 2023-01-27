@@ -104,6 +104,9 @@
 
 <script setup>
 
+definePageMeta({
+    name: 'Hjem',
+})
 // Supabase
 /* const supabase = useSupabaseClient();
 
