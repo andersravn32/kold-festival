@@ -1,6 +1,6 @@
 <template>
     <div id="page-index">
-    <section
+<!--     <section
       id="hero"
       class="relative w-full h-full z-20 flex flex-col items-center justify-center p-4 gradient-divider"
     >
@@ -34,7 +34,7 @@
       </h3>
     </section>
 
-    <!-- sliding text -->
+    
     <div class="overflow-hidden w-full">
       <div
         class="flex justify-center items-center py-4 font-bold text-[4rem] lg:text-[8rem] xl:text-[12rem] font-header text-zinc-100 space-x-8 lg:space-x-16"
@@ -48,7 +48,7 @@
       </div>
     </div>
 
-<!--     <section class="pb-16" id="artist" v-if="artists.length">
+<section class="pb-16" id="artist" v-if="artists.length">
       <div
         class="p-4 container mx-auto grid gap-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
       >
@@ -61,9 +61,9 @@
           @click="router.push(`/artist/${artist.identifier}`)"
         />
       </div>
-    </section> -->
+    </section>
 
-    <!-- Tickets -->
+    
     <section id="tickets">
       <PricePanel
         class="price-panel"
@@ -96,8 +96,8 @@
       </div>
     </section>
 
-    <!-- About Section -->
-    <AboutSection />
+   
+    <AboutSection /> -->
 
   </div>
 </template>
@@ -115,7 +115,7 @@ const { data: artists } = await useAsyncData('artists', async () => {
 
 
 // import router
-const router = useRouter();
+/* const router = useRouter();
 
 const festivalTime = 1675332000000;
 
@@ -124,7 +124,7 @@ const heroTime = ref({
   hours: null,
   minutes: null,
   seconds: null,
-});
+}); */
 
 /* const artistsData = ref(
   artists.filter((artist) => {
@@ -132,7 +132,7 @@ const heroTime = ref({
   })
 ); */
 
-const updateTime = () => {
+/* const updateTime = () => {
   // get total seconds between the times
   var delta = Math.abs(festivalTime - new Date()) / 1000;
 
@@ -154,7 +154,7 @@ const updateTime = () => {
   // Credit: Stackoverflow, User: Altinak - https://stackoverflow.com/users/6782/alnitak
 };
 
-setInterval(updateTime, 1000);
+setInterval(updateTime, 1000); */
 
 // Load gsap when page has mounted
 /* onMounted(async () => {

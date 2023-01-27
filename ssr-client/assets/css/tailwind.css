@@ -3,7 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* 
 body {
   @apply bg-midnight delay-200;
   font-display: swap;
@@ -46,8 +46,6 @@ input, textarea{
   @apply bg-indigo-500 px-6 py-2 font-header font-bold transition-all duration-150 text-zinc-100 hover:text-zinc-100/75;
 }
 
-/* Vue transition classes */
-
 .fade-enter-active,
 .fade-leave-active {
   @apply transition-all duration-300;
@@ -69,4 +67,4 @@ input, textarea{
 .bubble-leave-to {
   @apply delay-200;
   clip-path: circle(0.1% at 100% 0%);
-}
+} */
