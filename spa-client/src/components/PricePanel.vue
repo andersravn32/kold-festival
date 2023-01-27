@@ -24,7 +24,7 @@ defineProps({
         class="price-panel hover:bg-blue-600/50 hover:cursor-pointer transition-all duration-300">
         <div>
             <h3 class="text-6xl">{{ title }}</h3>
-            <h5 v-if="subtitle" class="font-body text-xs mt-4">{{ subtitle }}</h5>
+            <h5 v-if="subtitle" class="font-body text-xs mt-4 text-center">{{ subtitle }}</h5>
         </div>
         <div class="flex flex-col text-center">
             <h4 class="lg:text-lg">Student / Ung</h4>
