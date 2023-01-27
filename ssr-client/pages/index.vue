@@ -109,6 +109,8 @@
 
 const { data: artists } = await useAsyncData('artists', async () => {
     const { data } = await supabase.from('name').select();
+
+    return data
 }) */
 
 
