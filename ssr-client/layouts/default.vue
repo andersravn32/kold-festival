@@ -3,5 +3,6 @@
     <Navbar />
     <slot />
     <Footer />
+    <CTA />
   </div>
 </template>
