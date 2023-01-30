@@ -3,10 +3,10 @@ const supabase = useSupabaseClient();
 const user = useSupabaseUser();
 const router = useRouter();
 
-// Redirect if user is not signed in
-if (!user.value) {
-  router.push("/");
+if (!user.value){
+    router.push("/");
 }
+
 </script>
 
 <template>
