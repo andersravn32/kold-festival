@@ -1,12 +1,12 @@
 <template>
-    <div id="page-index">
-<!--     <section
+  <div id="page-index">
+    <section
       id="hero"
       class="relative w-full h-full z-20 flex flex-col items-center justify-center p-4 gradient-divider"
     >
       <div class="gradient-backdrop absolute hero-fade -z-10"></div>
       <video
-        :src="bg"
+        src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bg-video.mp4"
         autoplay
         muted
         loop
@@ -15,7 +15,7 @@
 
       <img
         class="hero-logo h-80 md:h-96 lg:h-[512px]"
-        src="../assets/img/logo.svg"
+        src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/logo.svg"
         alt="KOLD Icon"
       />
       <h1 class="flex flex-col items-center justify-center">
@@ -34,7 +34,7 @@
       </h3>
     </section>
 
-    
+    <!--     
     <div class="overflow-hidden w-full">
       <div
         class="flex justify-center items-center py-4 font-bold text-[4rem] lg:text-[8rem] xl:text-[12rem] font-header text-zinc-100 space-x-8 lg:space-x-16"
@@ -98,15 +98,13 @@
 
    
     <AboutSection /> -->
-
   </div>
 </template>
 
 <script setup>
-
 definePageMeta({
-    name: 'Hjem',
-})
+  name: "Hjem",
+});
 // Supabase
 /* const supabase = useSupabaseClient();
 
@@ -116,9 +114,8 @@ const { data: artists } = await useAsyncData('artists', async () => {
     return data
 }) */
 
-
 // import router
-/* const router = useRouter();
+const router = useRouter();
 
 const festivalTime = 1675332000000;
 
@@ -127,7 +124,7 @@ const heroTime = ref({
   hours: null,
   minutes: null,
   seconds: null,
-}); */
+});
 
 /* const artistsData = ref(
   artists.filter((artist) => {
@@ -135,7 +132,7 @@ const heroTime = ref({
   })
 ); */
 
-/* const updateTime = () => {
+const updateTime = () => {
   // get total seconds between the times
   var delta = Math.abs(festivalTime - new Date()) / 1000;
 
@@ -157,7 +154,7 @@ const heroTime = ref({
   // Credit: Stackoverflow, User: Altinak - https://stackoverflow.com/users/6782/alnitak
 };
 
-setInterval(updateTime, 1000); */
+setInterval(updateTime, 1000);
 
 // Load gsap when page has mounted
 /* onMounted(async () => {
@@ -208,8 +205,6 @@ setInterval(updateTime, 1000); */
 
   updateTime();
 }); */
-
-
 </script>
 
 <style scoped>

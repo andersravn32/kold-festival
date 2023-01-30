@@ -19,7 +19,7 @@ defineEmits(['toggleScroll']);
       <router-link to="/" class="flex flex-col items-center">
         <img
           class="h-24 w-24 hover:rotate-90 transition-transform duration-300"
-          src="../assets/img/logo.svg"
+          src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/logo.svg"
           alt="KOLD Icon"
         />
       </router-link>
