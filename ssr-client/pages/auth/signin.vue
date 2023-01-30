@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="page-signin">
     <FormSignin />
   </section>
 </template>
