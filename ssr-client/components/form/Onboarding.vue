@@ -43,29 +43,54 @@ const update = async () => {
 </script>
 
 <template>
-  <form id="form-onboarding" @submit.prevent="update">
-    <h1>Velkommen til!</h1>
-    <p>Indtast venligst et par basale informationer om dig selv herunder, så personliggør vi systemet til netop dig!</p>
-    <label>Fornavn</label>
-    <input
-      v-model="firstName"
-      type="text"
-      placeholder="Indtast fornavn"
-      :disabled="profile == null"
-    />
-    <label>Efternavn</label>
-    <input
-      v-model="lastName"
-      type="text"
-      placeholder="Indtast efternavn"
-      :disabled="profile == null"
-    />
-    <BaseButton :loading="loading"> Gem</BaseButton>
-  </form>
+  <div>
+    <form id="form-onboarding" @submit.prevent="update">
+      <h1>Velkommen til!</h1>
+      <p>
+        Indtast venligst et par basale informationer om dig selv herunder, så
+        personliggør vi systemet til netop dig!
+      </p>
+      <div class="flex flex-col space-y-2">
+        <label>Fornavn</label>
+        <input
+          v-model="firstName"
+          type="text"
+          placeholder="Indtast fornavn"
+          :disabled="profile == null"
+        />
+      </div>
+      <div class="flex flex-col space-y-2">
+        <label>Efternavn</label>
+        <input
+          v-model="lastName"
+          type="text"
+          placeholder="Indtast efternavn"
+          :disabled="profile == null"
+        />
+      </div>
+      <BaseButton :loading="loading">Gem</BaseButton>
+    </form>
+  </div>
 </template>
 
 <style>
 #form-onboarding {
-  @apply flex flex-col w-full max-w-md;
+  @apply flex flex-col w-full max-w-md bg-midnight text-white p-4 space-y-4;
+}
+
+#form-onboarding h1 {
+  @apply font-header font-bold text-2xl;
+}
+
+#form-onboarding p {
+  @apply font-body text-sm;
+}
+
+#form-onboarding label {
+  @apply font-header font-bold;
+}
+
+#form-onboarding input {
+  @apply bg-transparent border-2 border-white/75 py-2 px-6 text-white placeholder:text-white/75 font-body text-sm outline-none;
 }
 </style>
