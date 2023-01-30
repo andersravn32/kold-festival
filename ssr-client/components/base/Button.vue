@@ -4,11 +4,15 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  disabled: {
+    type: Boolean,
+    default: false
+  }
 });
 </script>
 
 <template>
-  <button :class="{ 'btn-loading': loading }">
+  <button :class="{ 'btn-loading': loading, 'btn-disabled': disabled }">
     <span :class="{ 'btn-hidden': loading }">
       <slot />
     </span>
@@ -20,6 +24,10 @@ const props = defineProps({
 .button,
 button {
   @apply bg-indigo-500 px-6 py-2 relative font-header font-bold transition-all duration-150 text-white;
+}
+
+.btn-disabled{
+    @apply opacity-50 cursor-not-allowed;
 }
 
 .btn-hidden {
