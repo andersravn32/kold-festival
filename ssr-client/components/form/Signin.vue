@@ -36,11 +36,13 @@ const signin = async () => {
 <template>
   <div>
     <form id="form-signin" @submit.prevent="signin">
-      <h1>Personale login</h1>
-      <p>
-        Velkommen til KOLD Festivals personale login, indtast venligst din
-        e-mail nedenfor.
-      </p>
+      <div>
+        <h1>Personale login</h1>
+        <p>
+          Velkommen til KOLD Festivals personale login, indtast venligst din
+          e-mail nedenfor.
+        </p>
+      </div>
       <input v-model="email" type="email" placeholder="Indtast din e-mail" />
       <BaseButton :loading="loading">Log på </BaseButton>
     </form>
