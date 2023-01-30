@@ -14,3 +14,9 @@ if (!user.value){
     <FormOnboarding v-if="user" />
   </section>
 </template>
+
+<style>
+#page-onboarding{
+    @apply h-screen flex flex-col items-center justify-center;
+}
+</style>
