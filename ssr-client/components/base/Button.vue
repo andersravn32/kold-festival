@@ -23,7 +23,7 @@ const props = defineProps({
 .btn,
 .button,
 button {
-  @apply bg-indigo-500 px-6 py-2 relative font-header font-bold transition-all duration-150 text-white;
+  @apply bg-indigo-500 px-6 py-2 relative font-header font-bold transition-all duration-150 text-white hover:bg-indigo-600/75;
 }
 
 .btn-disabled{
@@ -32,6 +32,10 @@ button {
 
 .btn-hidden {
   @apply invisible;
+}
+
+.btn-loading{
+    @apply bg-indigo-600/75 cursor-not-allowed;
 }
 
 .btn-loading::after {
