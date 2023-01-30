@@ -8,6 +8,7 @@
 
 definePageMeta({
     layout: 'subpage',
+    name: 'FAQ'
 });
 
 </script>
