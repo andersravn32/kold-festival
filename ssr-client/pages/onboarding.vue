@@ -3,20 +3,22 @@ const supabase = useSupabaseClient();
 const user = useSupabaseUser();
 const router = useRouter();
 
-if (!user.value){
-    router.push("/");
+if (!user.value) {
+  router.push("/");
 }
-
 </script>
 
 <template>
   <section id="page-onboarding">
-    <FormOnboarding v-if="user" />
+    <BaseGradient class="flex items-center justify-center">
+      <FormOnboarding v-if="user" />
+    </BaseGradient>
   </section>
 </template>
 
 <style>
-#page-onboarding{
-    @apply h-screen flex flex-col items-center justify-center;
+#page-onboarding {
+  @apply h-screen flex flex-col items-center justify-center bg-cover;
+  background-image: url("https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bg1.jpg");
 }
 </style>

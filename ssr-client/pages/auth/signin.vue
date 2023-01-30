@@ -1,11 +1,14 @@
 <template>
   <section id="page-signin">
-    <FormSignin />
+    <BaseGradient class="flex items-center justify-center">
+      <FormSignin />
+    </BaseGradient>
   </section>
 </template>
 
 <style>
 #page-signin {
-  @apply h-screen flex flex-col items-center justify-center;
+  @apply h-screen flex flex-col items-center justify-center bg-cover;
+  background-image: url("https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bg.jpg");
 }
 </style>
