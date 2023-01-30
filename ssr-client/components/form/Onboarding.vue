@@ -44,6 +44,8 @@ const update = async () => {
 
 <template>
   <form id="form-onboarding" @submit.prevent="update">
+    <h1>Velkommen til!</h1>
+    <p>Indtast venligst et par basale informationer om dig selv herunder, så personliggør vi systemet til netop dig!</p>
     <label>Fornavn</label>
     <input
       v-model="firstName"
@@ -64,6 +66,6 @@ const update = async () => {
 
 <style>
 #form-onboarding {
-  @apply flex flex-col w-full max-w-sm;
+  @apply flex flex-col w-full max-w-md;
 }
 </style>
