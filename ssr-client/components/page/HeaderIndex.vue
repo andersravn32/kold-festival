@@ -1,35 +1,102 @@
+<script setup>
+const festivalTime = 1675332000000;
+
+const heroTime = ref({
+  days: null,
+  hours: null,
+  minutes: null,
+  seconds: null,
+});
+
+const updateTime = () => {
+  // get total seconds between the times
+  var delta = Math.abs(festivalTime - new Date()) / 1000;
+
+  // calculate (and subtract) whole days
+  heroTime.value.days = Math.floor(delta / 86400);
+  delta -= heroTime.value.days * 86400;
+
+  // calculate (and subtract) whole hours
+  heroTime.value.hours = Math.floor(delta / 3600) % 24;
+  delta -= heroTime.value.hours * 3600;
+
+  // calculate (and subtract) whole minutes
+  heroTime.value.minutes = Math.floor(delta / 60) % 60;
+  delta -= heroTime.value.minutes * 60;
+
+  // what's left is seconds
+  heroTime.value.seconds = Math.floor(delta % 60);
+
+  // Credit: Stackoverflow, User: Altinak - https://stackoverflow.com/users/6782/alnitak
+};
+setInterval(updateTime, 1000);
+</script>
+
 <template>
-     <section
-      id="hero"
-      class="relative w-full h-full z-20 flex flex-col items-center justify-center p-4 gradient-divider"
-    >
+     <section id="hero">
       <div class="gradient-backdrop absolute hero-fade -z-10"></div>
       <video
-        :src="bg"
+        src="/video/bg-video1.mp4"
         autoplay
         muted
         loop
-        class="absolute w-full h-full object-cover hero-fade -z-20"
+        class=""
       ></video>
 
       <img
-        class="hero-logo h-80 md:h-96 lg:h-[512px]"
+        class="hero_logo"
         src="/img/logo.svg"
         alt="KOLD Icon"
       />
-      <h1 class="flex flex-col items-center justify-center">
-        <span
-          class="text-8xl lg:text-[12rem] uppercase font-bold text-zinc-100 leading-[0.6]"
-          >Kold</span
-        ><span class="text-4xl lg:text-6xl">Festival</span>
+      <h1 class="hero_header">
+        <span>Kold</span>
+        <span>Festival</span>
       </h1>
-      <h3
-        class="flex items-center font-header space-x-2 text-zinc-100 lg:text-2xl"
-      >
-       <!--  <span>{{ heroTime.days }}D</span><span>/</span
+      <h3 class="hero_timer">
+        <span>{{ heroTime.days }}D</span><span>/</span
         ><span>{{ heroTime.hours }}T</span><span>/</span
         ><span>{{ heroTime.minutes }}M</span><span>/</span
-        ><span>{{ heroTime.seconds }}S</span> -->
+        ><span>{{ heroTime.seconds }}S</span>
       </h3>
     </section>
 </template>
+
+
+<style>
+/* Hero styling */
+#hero {
+     @apply relative w-full h-full z-20 flex flex-col items-center justify-center p-4 /* gradient-divider */;
+}
+#hero video {
+     @apply absolute w-full h-full object-cover /* hero-fade */ -z-20
+}
+.hero_logo{
+     @apply  h-80 md:h-96 lg:h-[512px];
+     animation: hero-logo 180s infinite linear;
+}
+.hero_header {
+     @apply  flex flex-col items-center justify-center ;
+}
+.hero_header span:nth-child(1){
+     @apply  text-8xl lg:text-[12rem] uppercase font-bold text-zinc-100 leading-[0.6] ;
+}
+.hero_header span:nth-child(2){
+     @apply text-4xl lg:text-6xl ;
+}
+.hero_timer {
+     @apply flex items-center font-header space-x-2 text-zinc-100 lg:text-2xl ;
+}
+
+/* Animations */
+
+@keyframes hero-logo {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+</style>

@@ -18,6 +18,7 @@
 </template>
 
 <script setup>
+/* 
 const { name, subartist, artistCover  } = defineProps({
   name: {
     type: String,
@@ -32,7 +33,7 @@ const { name, subartist, artistCover  } = defineProps({
     default:
       "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
-});
+}); */
 </script>
 
 <style>

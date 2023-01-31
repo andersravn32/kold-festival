@@ -1,79 +1,12 @@
-<template>
-  <div id="page-index">
-   <PageHeaderIndex />
-<!-- Floating GSAP Text -->
-    <div class="overflow-hidden w-full">
-      <div id="artist-banner">
-        <span class="floatingText">KUNSTNERE</span>
-        <span class="floatingText">KUNSTNERE</span>
-        <span>KUNSTNERE</span>
-        <span class="floatingText">KUNSTNERE</span>
-        <span class="floatingText">KUNSTNERE</span>
-      </div>
-    </div> 
-
-<!-- Artis Grid (mangler: styling ned i bunden og se om data virker) -->
-<!-- <section class="pb-16" id="artist" v-if="artists.data.length">
-      <div class="artistGrid">
-        <GridArtist
-          v-for="(artist, index) in artists.data"
-          :key="index"
-          :name="artist.name"
-          :subartist="artist.subartist"
-          :artist-cover="artist.header"
-          @click="router.push(`/artist/${artist.identifier}`)"
-        />
-      </div>
-    </section>
-    /* Artist grid styling */
-    .artistGrid {
-      @apply  p-4 container mx-auto grid gap-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
-    }
-     -->
-
-<!-- Ticket Selection -->
-    <section id="tickets">
-      <PricePanel
-        class="price-panel"
-        title="Partout"
-        :price="300"
-        :studentPrice="150"
-      />
-      <PricePanel
-        class="price-panel"
-        title="Fredag"
-        :price="175"
-        :studentPrice="100"
-      />
-      <PricePanel
-        class="price-panel"
-        title="Lørdag"
-        subtitle="(OBS: Gælder ikke Ude af Kontrol)"
-        :price="175"
-        :studentPrice="100"
-      />
-      <div
-        class="price-panel notice flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100"
-      >
-      <!-- Kan referere fra public eller assets mappe uden brug af import i stedet -->
-      <!--   <InformationCircleIcon class="h-32 w-32" /> -->
-        <h3>Vær opmærksom på..</h3>
-        <p class="font-body text-center">
-          For at opnå student / ung pris skal man være under 25 år eller have et
-          gyldigt studiekort
-        </p>
-      </div>
-    </section>
-
-   
-     <AboutSection /> 
-  </div>
-</template>
-
 <script setup>
+/* Meta */
 definePageMeta({
   name: "Hjem",
 });
+/* Imports */
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+/* import { artists } from "~/assets/data.json"; */
 
 /* // Supabase
 const supabase = useSupabaseClient();
@@ -84,54 +17,21 @@ const { data: artists } = await useAsyncData('artists', async () => {
     return data
 })
  */
-
-const { data } = useArtists();
+/* const { data } = useArtists();
 console.log(data)
+  const artistsData = ref(
+    artists.filter((artist) => {
+      return artist.type == "concert";
+    })
+  ); */
 
 // import router
 const router = useRouter();
 
-const festivalTime = 1675332000000;
 
-const heroTime = ref({
-  days: null,
-  hours: null,
-  minutes: null,
-  seconds: null,
-});
-
-/* const artistsData = ref(
-  artists.filter((artist) => {
-    return artist.type == "concert";
-  })
-); */
-
-const updateTime = () => {
-  // get total seconds between the times
-  var delta = Math.abs(festivalTime - new Date()) / 1000;
-
-  // calculate (and subtract) whole days
-  heroTime.value.days = Math.floor(delta / 86400);
-  delta -= heroTime.value.days * 86400;
-
-  // calculate (and subtract) whole hours
-  heroTime.value.hours = Math.floor(delta / 3600) % 24;
-  delta -= heroTime.value.hours * 3600;
-
-  // calculate (and subtract) whole minutes
-  heroTime.value.minutes = Math.floor(delta / 60) % 60;
-  delta -= heroTime.value.minutes * 60;
-
-  // what's left is seconds
-  heroTime.value.seconds = Math.floor(delta % 60);
-
-  // Credit: Stackoverflow, User: Altinak - https://stackoverflow.com/users/6782/alnitak
-};
-
-setInterval(updateTime, 1000);
 
 // Load gsap when page has mounted
-/* onMounted(async () => {
+onMounted(async () => {
 
   // Register gsap plugin
   gsap.registerPlugin(ScrollTrigger);
@@ -177,19 +77,86 @@ setInterval(updateTime, 1000);
     toggleActions: "play none none none",
   });
 
-  updateTime();
-}); */
+ 
+});
 </script>
 
-<style scoped>
-/* Hero styling */
-#hero {
-  @apply py-32 lg:py-4 lg:min-h-screen space-y-4 w-full relative z-10 flex items-center justify-center overflow-hidden;
-}
 
-.hero-logo {
-  animation: hero-logo 180s infinite linear;
-}
+
+
+<template>
+  <div id="page-index">
+<!-- Video Hero -->
+   <PageHeaderIndex />
+<!-- Floating GSAP Text -->
+    <div class="overflow-hidden w-full">
+      <div id="artist-banner">
+        <span class="floatingText">KUNSTNERE</span>
+        <span class="floatingText">KUNSTNERE</span>
+        <span>KUNSTNERE</span>
+        <span class="floatingText">KUNSTNERE</span>
+        <span class="floatingText">KUNSTNERE</span>
+      </div>
+    </div> 
+
+<!-- Artis Grid (mangler: se om data virker) -->
+<!-- <section class="pb-16" id="artist" v-if="artists.data.length">
+      <div class="artistGrid">
+        <GridArtist
+          v-for="(artist, index) in artists.data"
+          :key="index"
+          :name="artist.name"
+          :subartist="artist.subartist"
+          :artist-cover="artist.header"
+          @click="router.push(`/artist/${artist.identifier}`)"
+        />
+      </div>
+    </section> -->
+    
+    
+
+<!-- Ticket Selection -->
+    <section id="tickets">
+      <PricePanel
+        class="price-panel"
+        title="Partout"
+        :price="300"
+        :studentPrice="150"
+      />
+      <PricePanel
+        class="price-panel"
+        title="Fredag"
+        :price="175"
+        :studentPrice="100"
+      />
+      <PricePanel
+        class="price-panel"
+        title="Lørdag"
+        subtitle="(OBS: Gælder ikke Ude af Kontrol)"
+        :price="175"
+        :studentPrice="100"
+      />
+      <div
+        class="price-panel notice flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100"
+      >
+      <!--   <InformationCircleIcon class="h-32 w-32" /> -->
+        <h3>Vær opmærksom på..</h3>
+        <p class="font-body text-center">
+          For at opnå student / ung pris skal man være under 25 år eller have et
+          gyldigt studiekort
+        </p>
+      </div>
+    </section>
+
+<!-- About Selection -->
+     <AboutSection /> 
+
+  </div>
+</template>
+
+
+<style scoped>
+
 /* Floating Text styling */
 #artist-banner{
   @apply flex justify-center items-center py-4 font-bold text-[4rem] lg:text-[8rem] xl:text-[12rem] font-header text-zinc-100 space-x-8 lg:space-x-16;
@@ -197,21 +164,14 @@ setInterval(updateTime, 1000);
 .floatingText{
   @apply opacity-25 ;
 }
-
+/* Artist grid styling */
+.artistGrid {
+  @apply  p-4 container mx-auto grid gap-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+}
 /* Tickets styling */
 #tickets {
   @apply container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 text-zinc-100 md:mb-16;
 }
 
-/* Animations */
 
-@keyframes hero-logo {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
 </style>

@@ -9,9 +9,9 @@ await artists.reload();
 </script>
 
 <template>
-  <BaseNavbar />
+  <!-- <BaseNavbar /> -->
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
-  <BaseFooter />
+  <!-- <BaseFooter /> -->
 </template>
