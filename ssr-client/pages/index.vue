@@ -31,6 +31,9 @@ console.log(data)
 // import router
 const router = useRouter();
 
+const artists = useArtists();
+
+artists.reload();
 
 // Load gsap when page has mounted
 onMounted(async () => {
@@ -99,18 +102,18 @@ ScrollTrigger.create({
     </div> 
 
 <!-- Artis Grid (mangler: se om data virker) -->
-<!-- <section class="pb-16" id="artist" v-if="artists.data.length">
+<section class="pb-16" id="artist" v-if="artists.data">
       <div class="artistGrid">
         <GridArtist
-          v-for="(artist, index) in artists.data"
+          v-for="(artist, index) in artists.data.value"
           :key="index"
           :name="artist.name"
-          :subartist="artist.subartist"
+          :subartist="artist.subtitle"
           :artist-cover="artist.header"
           @click="router.push(`/artist/${artist.identifier}`)"
         />
       </div>
-    </section> -->
+    </section>
     
     
 

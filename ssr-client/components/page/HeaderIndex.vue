@@ -40,7 +40,6 @@ setInterval(updateTime, 1000);
         autoplay
         muted
         loop
-        class=""
       ></video>
 
       <img
@@ -65,17 +64,17 @@ setInterval(updateTime, 1000);
 <style>
 /* Hero styling */
 #hero {
-     @apply relative w-full h-full z-20 flex flex-col items-center justify-center p-4 /* gradient-divider */;
+     @apply relative w-full h-full z-20 flex flex-col items-center justify-center p-4 gradient-divider;
 }
 #hero video {
-     @apply absolute w-full h-full object-cover /* hero-fade */ -z-20
+     @apply absolute w-full h-full object-cover -z-20
 }
 .hero_logo{
      @apply  h-80 md:h-96 lg:h-[512px];
      animation: hero-logo 180s infinite linear;
 }
 .hero_header {
-     @apply  flex flex-col items-center justify-center ;
+     @apply  flex flex-col items-center justify-center z-20;
 }
 .hero_header span:nth-child(1){
      @apply  text-8xl lg:text-[12rem] uppercase font-bold text-zinc-100 leading-[0.6] ;
@@ -84,7 +83,7 @@ setInterval(updateTime, 1000);
      @apply text-4xl lg:text-6xl ;
 }
 .hero_timer {
-     @apply flex items-center font-header space-x-2 text-zinc-100 lg:text-2xl ;
+     @apply flex items-center font-header space-x-2 text-zinc-100 lg:text-2xl z-20;
 }
 
 /* Animations */

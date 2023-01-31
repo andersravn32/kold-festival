@@ -33,12 +33,13 @@ h1,h2,h3,h4,h5,h6{
   @apply h-full w-full bg-gradient-to-b bg-blue-600/50 to-indigo-600/50 backdrop-blur-sm;
 }
 
-.gradient-divider{
-  @apply relative;
-}
-
-.gradient-divider::after{
-  @apply content-[''] absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-midnight to-transparent;
+@layer components {
+  .gradient-divider{
+    @apply relative;
+  }
+  .gradient-divider::after{
+    @apply content-[''] absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-midnight to-transparent;
+  }
 }
 
 
