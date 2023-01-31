@@ -1,6 +1,8 @@
 <template>
     <aside class="sidebar">
-        
+        <div class="relative">
+            <!-- Tilføj user og profile fra composables -->
+        </div>
     </aside>
 </template>
 

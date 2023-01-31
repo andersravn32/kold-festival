@@ -11,7 +11,7 @@ await artists.reload();
 <template>
   <BaseNavbar />
   <NuxtLayout>
-    <NuxtPage/>
+    <NuxtPage />
   </NuxtLayout>
   <BaseFooter />
 </template>
