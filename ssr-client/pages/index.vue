@@ -1,59 +1,22 @@
 <template>
   <div id="page-index">
-    <section
-      id="hero"
-      class="relative w-full h-full z-20 flex flex-col items-center justify-center p-4 gradient-divider"
-    >
-      <div class="gradient-backdrop absolute hero-fade -z-10"></div>
-      <video
-        src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bg-video.mp4"
-        autoplay
-        muted
-        loop
-        class="absolute w-full h-full object-cover hero-fade -z-20"
-      ></video>
+    <PageHeaderIndex />
 
-      <img
-        class="hero-logo h-80 md:h-96 lg:h-[512px]"
-        src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/logo.svg"
-        alt="KOLD Icon"
-      />
-      <h1 class="flex flex-col items-center justify-center">
-        <span
-          class="text-8xl lg:text-[12rem] uppercase font-bold text-zinc-100 leading-[0.6]"
-          >Kold</span
-        ><span class="text-4xl lg:text-6xl">Festival</span>
-      </h1>
-      <h3
-        class="flex items-center font-header space-x-2 text-zinc-100 lg:text-2xl"
-      >
-        <span>{{ heroTime.days }}D</span><span>/</span
-        ><span>{{ heroTime.hours }}T</span><span>/</span
-        ><span>{{ heroTime.minutes }}M</span><span>/</span
-        ><span>{{ heroTime.seconds }}S</span>
-      </h3>
-    </section>
-
-    <!--     
+<!-- Floating GSAP Text -->
     <div class="overflow-hidden w-full">
-      <div
-        class="flex justify-center items-center py-4 font-bold text-[4rem] lg:text-[8rem] xl:text-[12rem] font-header text-zinc-100 space-x-8 lg:space-x-16"
-        id="artist-banner"
-      >
-        <span class="opacity-25 extraSpan">KUNSTNERE</span>
-        <span class="opacity-25 extraSpan">KUNSTNERE</span>
+      <div id="artist-banner">
+        <span class="floatingText">KUNSTNERE</span>
+        <span class="floatingText">KUNSTNERE</span>
         <span>KUNSTNERE</span>
-        <span class="opacity-25 extraSpan">KUNSTNERE</span>
-        <span class="opacity-25 extraSpan">KUNSTNERE</span>
+        <span class="floatingText">KUNSTNERE</span>
+        <span class="floatingText">KUNSTNERE</span>
       </div>
-    </div>
-
-<section class="pb-16" id="artist" v-if="artists.length">
-      <div
-        class="p-4 container mx-auto grid gap-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-      >
+    </div> 
+<!-- Artis Grid (mangler: styling ned i bunden og se om data virker) -->
+<!-- <section class="pb-16" id="artist" v-if="artists.data.length">
+      <div class="artistGrid">
         <GridArtist
-          v-for="(artist, index) in artistsData"
+          v-for="(artist, index) in artists.data"
           :key="index"
           :name="artist.name"
           :subartist="artist.subartist"
@@ -62,8 +25,13 @@
         />
       </div>
     </section>
+    /* Artist grid styling */
+    .artistGrid {
+      @apply  p-4 container mx-auto grid gap-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+    }
+     -->
 
-    
+<!-- Ticket Selection -->
     <section id="tickets">
       <PricePanel
         class="price-panel"
@@ -87,6 +55,7 @@
       <div
         class="price-panel notice flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100"
       >
+      <!-- Kan referere fra public eller assets mappe uden brug af import i stedet -->
         <InformationCircleIcon class="h-32 w-32" />
         <h3>Vær opmærksom på..</h3>
         <p class="font-body text-center">
@@ -97,22 +66,27 @@
     </section>
 
    
-    <AboutSection /> -->
   </div>
 </template>
+    <!-- <AboutSection /> -->
 
 <script setup>
 definePageMeta({
   name: "Hjem",
 });
-// Supabase
-/* const supabase = useSupabaseClient();
+
+/* // Supabase
+const supabase = useSupabaseClient();
 
 const { data: artists } = await useAsyncData('artists', async () => {
-    const { data } = await supabase.from('name').select();
+    const { data } = await supabase.from('artists').select();
 
     return data
-}) */
+})
+ */
+
+const { data } = useArtists();
+console.log(data)
 
 // import router
 const router = useRouter();
@@ -174,7 +148,7 @@ setInterval(updateTime, 1000);
   // Position animated banner center
   banner
     .from("#artist-banner", { x: "-50%" })
-    .from(".extraSpan", { opacity: 1 });
+    .from(".floatingText", { opacity: 1 });
 
   // Enterings effect tickets
   tickets.to(".price-panel", {
@@ -209,13 +183,20 @@ setInterval(updateTime, 1000);
 
 <style scoped>
 /* Hero styling */
-#hero {
+/* #hero {
   @apply py-32 lg:py-4 lg:min-h-screen space-y-4 w-full relative z-10 flex items-center justify-center overflow-hidden;
+} */
+/* Floating Text styling */
+#artist-banner{
+  @apply flex justify-center items-center py-4 font-bold text-[4rem] lg:text-[8rem] xl:text-[12rem] font-header text-zinc-100 space-x-8 lg:space-x-16;
+}
+.floatingText{
+  @apply opacity-25 ;
 }
 
-.hero-logo {
+/* .hero-logo {
   animation: hero-logo 180s infinite linear;
-}
+} */
 
 /* Tickets styling */
 #tickets {
@@ -224,7 +205,7 @@ setInterval(updateTime, 1000);
 
 /* Animations */
 
-@keyframes hero-logo {
+/* @keyframes hero-logo {
   0% {
     transform: rotate(0deg);
   }
@@ -232,5 +213,5 @@ setInterval(updateTime, 1000);
   100% {
     transform: rotate(360deg);
   }
-}
+} */
 </style>

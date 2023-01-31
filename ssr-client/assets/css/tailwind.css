@@ -4,7 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body {
+*, *::after, *::before {
+  @apply m-0 p-0 box-border;
+}
+
+body {
   @apply bg-midnight delay-200;
   font-display: swap;
 }
@@ -67,4 +71,4 @@ input, textarea{
 .bubble-leave-to {
   @apply delay-200;
   clip-path: circle(0.1% at 100% 0%);
-} */
+}

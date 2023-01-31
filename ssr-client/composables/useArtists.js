@@ -8,7 +8,7 @@ export const useArtists = () => {
   // Reload current artist data
   const reload = async () => {
     // Request data from supabase
-    const req = await supabase.from("artists").select().eq("public", true);
+    const req = await supabase.from("artists").select().eq('public', true);
 
     // Assign comp data to response data
     data.value = req.data;

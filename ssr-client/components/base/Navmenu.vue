@@ -5,9 +5,19 @@ import { XMarkIcon } from '@heroicons/vue/24/outline';
 // Define router instance
 const router = useRouter();
 
+//Defined nav order
+const navOrder = ['Hjem', 'Program', 'Om os', 'FAQ', 'Partnere', 'Kontakt']
+
 // Filter routes, based on page meta
 const routes = router.getRoutes().filter((route) => {
     return !route.meta.hidden
+})
+
+// Sort routes by navOrder
+const navList = navOrder.map(item => {
+  return routes.find(route => {
+    return route.name == item;
+  })
 })
 
 // Define component emits
@@ -20,7 +30,7 @@ defineEmits(["close"]);
             <XMarkIcon class="h-16 w-16 text-white" />
         </button>
         <ul>
-            <li v-for="route in routes">
+            <li v-for="route in navList">
                 <NuxtLink @click="$emit('close')" :to="route.path">
                     {{ route.name }}
                 </NuxtLink>

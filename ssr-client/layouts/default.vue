@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <main>
     <slot />
-  </div>
+  </main>
+  <BaseCTA />
 </template>
