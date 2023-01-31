@@ -1,6 +1,38 @@
 <template>
   <div id="page-index">
-    <PageHeaderIndex />
+    <section
+      id="hero"
+      class="relative w-full h-full z-20 flex flex-col items-center justify-center p-4 gradient-divider"
+    >
+      <div class="gradient-backdrop absolute hero-fade -z-10"></div>
+      <video
+        :src="bg"
+        autoplay
+        muted
+        loop
+        class="absolute w-full h-full object-cover hero-fade -z-20"
+      ></video>
+
+      <img
+        class="hero-logo h-80 md:h-96 lg:h-[512px]"
+        src="../assets/img/logo.svg"
+        alt="KOLD Icon"
+      />
+      <h1 class="flex flex-col items-center justify-center">
+        <span
+          class="text-8xl lg:text-[12rem] uppercase font-bold text-zinc-100 leading-[0.6]"
+          >Kold</span
+        ><span class="text-4xl lg:text-6xl">Festival</span>
+      </h1>
+      <h3
+        class="flex items-center font-header space-x-2 text-zinc-100 lg:text-2xl"
+      >
+        <span>{{ heroTime.days }}D</span><span>/</span
+        ><span>{{ heroTime.hours }}T</span><span>/</span
+        ><span>{{ heroTime.minutes }}M</span><span>/</span
+        ><span>{{ heroTime.seconds }}S</span>
+      </h3>
+    </section>
 
 <!-- Floating GSAP Text -->
     <div class="overflow-hidden w-full">
@@ -183,20 +215,22 @@ setInterval(updateTime, 1000);
 
 <style scoped>
 /* Hero styling */
-/* #hero {
+#hero {
   @apply py-32 lg:py-4 lg:min-h-screen space-y-4 w-full relative z-10 flex items-center justify-center overflow-hidden;
-} */
+}
+
+.hero-logo {
+  animation: hero-logo 180s infinite linear;
+}
 /* Floating Text styling */
 #artist-banner{
   @apply flex justify-center items-center py-4 font-bold text-[4rem] lg:text-[8rem] xl:text-[12rem] font-header text-zinc-100 space-x-8 lg:space-x-16;
 }
+
+
 .floatingText{
   @apply opacity-25 ;
 }
-
-/* .hero-logo {
-  animation: hero-logo 180s infinite linear;
-} */
 
 /* Tickets styling */
 #tickets {
@@ -205,7 +239,7 @@ setInterval(updateTime, 1000);
 
 /* Animations */
 
-/* @keyframes hero-logo {
+@keyframes hero-logo {
   0% {
     transform: rotate(0deg);
   }
@@ -213,5 +247,5 @@ setInterval(updateTime, 1000);
   100% {
     transform: rotate(360deg);
   }
-} */
+}
 </style>
