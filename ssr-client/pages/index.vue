@@ -1,39 +1,6 @@
 <template>
   <div id="page-index">
-    <section
-      id="hero"
-      class="relative w-full h-full z-20 flex flex-col items-center justify-center p-4 gradient-divider"
-    >
-      <div class="gradient-backdrop absolute hero-fade -z-10"></div>
-      <video
-        :src="bg"
-        autoplay
-        muted
-        loop
-        class="absolute w-full h-full object-cover hero-fade -z-20"
-      ></video>
-
-      <img
-        class="hero-logo h-80 md:h-96 lg:h-[512px]"
-        src="../assets/img/logo.svg"
-        alt="KOLD Icon"
-      />
-      <h1 class="flex flex-col items-center justify-center">
-        <span
-          class="text-8xl lg:text-[12rem] uppercase font-bold text-zinc-100 leading-[0.6]"
-          >Kold</span
-        ><span class="text-4xl lg:text-6xl">Festival</span>
-      </h1>
-      <h3
-        class="flex items-center font-header space-x-2 text-zinc-100 lg:text-2xl"
-      >
-        <span>{{ heroTime.days }}D</span><span>/</span
-        ><span>{{ heroTime.hours }}T</span><span>/</span
-        ><span>{{ heroTime.minutes }}M</span><span>/</span
-        ><span>{{ heroTime.seconds }}S</span>
-      </h3>
-    </section>
-
+   <PageHeaderIndex />
 <!-- Floating GSAP Text -->
     <div class="overflow-hidden w-full">
       <div id="artist-banner">
@@ -44,6 +11,7 @@
         <span class="floatingText">KUNSTNERE</span>
       </div>
     </div> 
+
 <!-- Artis Grid (mangler: styling ned i bunden og se om data virker) -->
 <!-- <section class="pb-16" id="artist" v-if="artists.data.length">
       <div class="artistGrid">
@@ -88,7 +56,7 @@
         class="price-panel notice flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100"
       >
       <!-- Kan referere fra public eller assets mappe uden brug af import i stedet -->
-        <InformationCircleIcon class="h-32 w-32" />
+      <!--   <InformationCircleIcon class="h-32 w-32" /> -->
         <h3>Vær opmærksom på..</h3>
         <p class="font-body text-center">
           For at opnå student / ung pris skal man være under 25 år eller have et
@@ -98,9 +66,9 @@
     </section>
 
    
+     <AboutSection /> 
   </div>
 </template>
-    <!-- <AboutSection /> -->
 
 <script setup>
 definePageMeta({
@@ -226,8 +194,6 @@ setInterval(updateTime, 1000);
 #artist-banner{
   @apply flex justify-center items-center py-4 font-bold text-[4rem] lg:text-[8rem] xl:text-[12rem] font-header text-zinc-100 space-x-8 lg:space-x-16;
 }
-
-
 .floatingText{
   @apply opacity-25 ;
 }

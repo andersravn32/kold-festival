@@ -20,7 +20,7 @@
       </ul>
     </div>
     <div class="grid place-content-center">
-      <!-- <img :src="img1" class="w-full" /> -->
+      <img src="/img/aboutCollage.png" class="w-full" />
     </div>
   </article>
 </template>
