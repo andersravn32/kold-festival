@@ -1,6 +1,7 @@
 <script setup>
 definePageMeta({
   hidden: true,
+  layout: 'empty'
 })
 </script>
 

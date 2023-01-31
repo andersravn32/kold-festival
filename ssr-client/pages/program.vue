@@ -7,7 +7,6 @@
 <script setup>
 
 definePageMeta({
-    layout: 'subpage',
     name: 'Program'
 });
 

@@ -4,9 +4,11 @@ definePageMeta({
   name: "Hjem",
 });
 /* Imports */
+import { InformationCircleIcon } from "@heroicons/vue/24/solid";
+
+// GSAP implementation
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-/* import { artists } from "~/assets/data.json"; */
 
 /* // Supabase
 const supabase = useSupabaseClient();
@@ -17,6 +19,7 @@ const { data: artists } = await useAsyncData('artists', async () => {
     return data
 })
  */
+
 /* const { data } = useArtists();
 console.log(data)
   const artistsData = ref(
@@ -29,53 +32,49 @@ console.log(data)
 const router = useRouter();
 
 
-
 // Load gsap when page has mounted
 onMounted(async () => {
 
-  // Register gsap plugin
-  gsap.registerPlugin(ScrollTrigger);
+// Register gsap plugin
+gsap.registerPlugin(ScrollTrigger);
 
-  // Floating Banner Effect
-  const banner = gsap.timeline();
+// Floating Banner Effect
+const banner = gsap.timeline();
 
-  // Enter tickets Effect
-  const tickets = gsap.timeline();
+// Enter tickets Effect
+const tickets = gsap.timeline();
 
-  // Floating Banner Effect 2
-  const talks = gsap.timeline();
+// Position animated banner center
+banner
+  .from("#artist-banner", { x: "-50%" })
+  .from(".floatingText", { opacity: 1 });
 
-  // Position animated banner center
-  banner
-    .from("#artist-banner", { x: "-50%" })
-    .from(".floatingText", { opacity: 1 });
+// Enterings effect tickets
+tickets.to(".price-panel", {
+  y: 0,
+  opacity: 1,
+  duration: 0.5,
+  ease: "ease-out",
+  stagger: 0.3,
+});
 
-  // Enterings effect tickets
-  tickets.to(".price-panel", {
-    y: 0,
-    opacity: 1,
-    duration: 0.5,
-    ease: "ease-out",
-    stagger: 0.3,
-  });
+// Create scrolltrigger
+ScrollTrigger.create({
+  animation: banner,
+  trigger: "#artist-banner",
+  scrub: 1,
+  start: "top 90% ",
+  end: "bottom 40%",
+  toggleActions: "restart none reset none",
+});
 
-  // Create scrolltrigger
-  ScrollTrigger.create({
-    animation: banner,
-    trigger: "#artist-banner",
-    scrub: 1,
-    start: "top 90% ",
-    end: "bottom 40%",
-    toggleActions: "restart none none none",
-  });
-
-  ScrollTrigger.create({
-    animation: tickets,
-    trigger: "#tickets",
-    start: "top 70%",
-    end: "bottom 40%",
-    toggleActions: "play none none none",
-  });
+ScrollTrigger.create({
+  animation: tickets,
+  trigger: "#tickets",
+  start: "top 70%",
+  end: "bottom 40%",
+  toggleActions: "play none none none",
+});
 
  
 });
@@ -137,9 +136,9 @@ onMounted(async () => {
         :studentPrice="100"
       />
       <div
-        class="price-panel notice flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100"
+        class="price-panel notice"
       >
-      <!--   <InformationCircleIcon class="h-32 w-32" /> -->
+        <InformationCircleIcon class="h-32 w-32" />
         <h3>Vær opmærksom på..</h3>
         <p class="font-body text-center">
           For at opnå student / ung pris skal man være under 25 år eller have et
@@ -171,6 +170,10 @@ onMounted(async () => {
 /* Tickets styling */
 #tickets {
   @apply container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 text-zinc-100 md:mb-16;
+}
+
+.notice {
+  @apply flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100;
 }
 
 

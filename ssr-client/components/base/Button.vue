@@ -19,7 +19,7 @@ const props = defineProps({
   </button>
 </template>
 
-<style>
+<style scoped>
 .btn,
 .button,
 button {
