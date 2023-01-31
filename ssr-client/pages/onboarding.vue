@@ -3,6 +3,10 @@ const supabase = useSupabaseClient();
 const user = useSupabaseUser();
 const router = useRouter();
 
+definePageMeta({
+  hidden: true,
+})
+
 if (!user.value) {
   router.push("/");
 }

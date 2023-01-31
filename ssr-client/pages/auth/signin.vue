@@ -1,3 +1,9 @@
+<script setup>
+definePageMeta({
+  hidden: true,
+})
+</script>
+
 <template>
   <section id="page-signin">
     <BaseGradient class="flex items-center justify-center">
