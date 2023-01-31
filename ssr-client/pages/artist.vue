@@ -1,4 +1,7 @@
 <script setup>
+definePageMeta({
+  hidden: true
+})
 /* import { onMounted, ref } from "vue";
 import PageHeader from "../components/PageHeader.vue";
 import { useRouter } from "vue-router";
