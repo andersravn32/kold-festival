@@ -34,7 +34,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .gradient-divider::after{
-  @apply content-[''] absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-midnight to-transparent;
+  @apply content-[''] absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-midnight to-transparent;
 }
 
 

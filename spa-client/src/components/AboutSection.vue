@@ -6,8 +6,8 @@ import img1 from "../assets/img/aboutCollage.png";
     id="aboutSection"
     class="container text-white mx-auto flex flex-col-reverse justify-between items-start md:flex-row p-4"
   >
-    <div class="flex flex-col mt-8 justify-center gap-8 text-center md:text-left md:mt-0">
-      <h3 class="text-4xl">Derfor skal du til Kold Festival iår</h3>
+    <div class="flex flex-col mt-8 justify-center gap-8 text-left md:mt-0">
+      <h3 class="text-2xl md:text-4xl">Derfor skal du til Kold Festival iår</h3>
       <p class="w-full mx-auto max-w-lg md:mx-0">
         Kom til KOLD Festival og få årets første festivaloplevelse. 6 venues åbner dørene til et væld af forskellige musikoplevelser i starten februar. 
         Tag vennerne med under armen og oplev alt fra vilde fester, jazzkoncerter, talks om feminisme og bæredyygtighed og meget mere! 
