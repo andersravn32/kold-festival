@@ -134,12 +134,14 @@ onMounted(async () => {
         ><span class="text-4xl lg:text-6xl">Festival</span>
       </h1>
       <h3
-        class="flex items-center font-header space-x-2 text-zinc-100 lg:text-2xl"
       >
+      <div v-if="heroTime.days || heroTime.hours || heroTime.minutes || heroTime.seconds" class="flex items-center font-header space-x-2 text-zinc-100 lg:text-2xl">
         <span>{{ heroTime.days }}D</span><span>/</span
         ><span>{{ heroTime.hours }}T</span><span>/</span
         ><span>{{ heroTime.minutes }}M</span><span>/</span
         ><span>{{ heroTime.seconds }}S</span>
+      </div>
+      <span class="font-header text-zinc-100 lg:text-2xl" v-else>Festen er igang!</span>
       </h3>
     </section>
 
