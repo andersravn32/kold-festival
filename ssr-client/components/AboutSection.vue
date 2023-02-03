@@ -20,7 +20,7 @@
       </ul>
     </div>
     <div class="grid place-content-center">
-      <img src="/img/aboutCollage.png" class="w-full" />
+      <img src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/aboutCollage.png" class="w-full" />
     </div>
   </article>
 </template>

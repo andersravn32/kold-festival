@@ -36,7 +36,7 @@ setInterval(updateTime, 1000);
      <section id="hero">
       <div class="gradient-backdrop absolute hero-fade -z-10"></div>
       <video
-        src="/video/bg-video1.mp4"
+        src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bg-video.mp4"
         autoplay
         muted
         loop
@@ -44,7 +44,7 @@ setInterval(updateTime, 1000);
 
       <img
         class="hero_logo"
-        src="/img/logo.svg"
+        src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/logo.svg"
         alt="KOLD Icon"
       />
       <h1 class="hero_header">

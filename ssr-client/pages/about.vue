@@ -32,7 +32,7 @@ onMounted(() => {
 
 <template>
   <div id="page-about">
-    <PageHeader class="bg-fixed bg-no-repeat bg-bottom" bg="/img/bg.jpg">
+    <PageHeader class="bg-fixed bg-no-repeat bg-bottom" bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgAbout">
       <h1 class="text-6xl lg:text-8xl uppercase leading-[0.9]">Om os</h1>
     </PageHeader>
 
@@ -48,7 +48,7 @@ onMounted(() => {
       <span class="relative px-12 mx-auto mt-12">
         <img
           class="relative"
-          src="/img/aboutImg.jpg"
+          src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/aboutSectionOne"
           alt=""
         />
         <!-- SVG 1 -->
@@ -90,7 +90,7 @@ onMounted(() => {
       <span class="relative px-12 m-auto mt-12">
         <img
           class="relative"
-          src="/img/aboutImg2.jpg"
+          src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/aboutSectionTwo"
           alt=""
         />
 

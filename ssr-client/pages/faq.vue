@@ -9,7 +9,7 @@ import { faq } from "../assets/data.json";
 </script>
 <template>
     <div id="page-faq">
-    <PageHeader bg="/img/hero-bg.jpg">
+    <PageHeader bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgFaq">
       <h1 class="text-6xl lg:text-8xl uppercase leading-[0.9]">F.A.Q</h1>
       <h2 class="lg:text-xl text-center font-body">
         Her vil du finde svarene på de fleste af dine spørgsmål

@@ -26,7 +26,7 @@ definePageMeta({
     name: 'Partnere'
 });
 
-const bg = 'https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bg3.jpg'
+const bg = 'https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere'
 
 </script>
 
