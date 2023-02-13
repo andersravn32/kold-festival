@@ -1,7 +1,12 @@
 <script setup>
 /* Meta */
 definePageMeta({
-    name: 'Om os'
+//Disable duplicate
+  hid: 'Om os',
+//Page Title
+  name: "Om os",
+//Page description
+  content: 'Default description for the page'
 });
 /* Imports */
 import gsap from "gsap";

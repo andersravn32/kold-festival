@@ -26,6 +26,6 @@ const props = defineProps({
 }
 
 .user-avatar-inner {
-  @apply h-full w-full rounded-full border border-indigo-600 font-bold font-header flex items-center justify-center text-white bg-center bg-cover;
+  @apply h-full w-full rounded-full border border-indigo-600 font-bold flex items-center justify-center text-white bg-center bg-cover;
 }
 </style>

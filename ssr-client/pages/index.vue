@@ -1,7 +1,12 @@
 <script setup>
 /* Meta */
 definePageMeta({
+//Disable duplicate
+  hid: 'Hjem',
+//Page Title
   name: "Hjem",
+//Page description
+  content: 'Default description for the page'
 });
 /* Imports */
 import { InformationCircleIcon } from "@heroicons/vue/24/solid";

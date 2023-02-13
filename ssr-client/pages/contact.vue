@@ -1,7 +1,12 @@
 <script setup>
 /* Meta */
 definePageMeta({
-    name: 'Kontakt'
+//Disable duplicate
+  hid: 'Kontakt',
+//Page Title
+  name: "Kontakt",
+//Page description
+  content: 'Default description for the page'
 });
 /* Imports */
 import {

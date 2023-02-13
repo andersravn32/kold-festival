@@ -1,7 +1,12 @@
 <script setup>
 /* Meta */
 definePageMeta({
-    name: 'FAQ'
+//Disable duplicate
+  hid: 'FAQ',
+//Page Title 
+  name: "FAQ",
+//Page description
+  content: 'Default description for the page'
 });
 /* Imports */
 import { faq } from "../assets/data.json";
