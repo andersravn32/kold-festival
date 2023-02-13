@@ -19,7 +19,9 @@ export default {
   <main>
     <slot />
   </main>
+  <BaseSocialTabs />
   <BaseCTA />
+  <BaseCancelled />
   <BaseFooter />
 </template>
 

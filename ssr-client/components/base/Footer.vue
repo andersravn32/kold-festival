@@ -1,7 +1,6 @@
 <script setup>
 import { useRouter } from "vue-router";
-/* import IgIcon from "../assets/img/ig.svg";
-import FbIcon from "../assets/img/fb.svg"; */
+
 
 const router = useRouter();
 //Defined nav order
@@ -22,7 +21,7 @@ const navList = navOrder.map(item => {
 <template>
     <footer>
         <ul
-            class="container grid justify-center place-items-center mx-auto gap-4 grid-cols-3 lg:grid-cols-5 border-b-2 border-zinc-100/75 pb-12 mb-12 font-bold text-zinc-100">
+            class="container grid justify-center place-items-center mx-auto gap-4 grid-cols-3 lg:grid-cols-6 border-b-2 border-zinc-100/75 pb-12 mb-12 font-bold text-zinc-100">
             <li v-for="(route, index) in navList" :key="index">
                 <router-link :to="route.path">
                     {{ route.name }}

@@ -8,12 +8,9 @@ definePageMeta({
 //Page description
   content: 'Default description for the page'
 });
-
 </script>
 <template>
-    <div>
-
-    </div>
+    <section><!--   <BaseGridArtist /> --></section>
 </template>
 
 

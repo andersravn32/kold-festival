@@ -109,7 +109,7 @@ ScrollTrigger.create({
 <!-- Artis Grid (mangler: se om data virker) -->
 <section class="pb-16" id="artist" v-if="artists.data">
       <div class="artistGrid">
-        <GridArtist
+        <BaseGridArtist
           v-for="(artist, index) in artists.data.value"
           :key="index"
           :name="artist.name"
@@ -124,19 +124,19 @@ ScrollTrigger.create({
 
 <!-- Ticket Selection -->
     <section id="tickets">
-      <PricePanel
+      <PagePricePanel
         class="price-panel"
         title="Partout"
         :price="300"
         :studentPrice="150"
       />
-      <PricePanel
+      <PagePricePanel
         class="price-panel"
         title="Fredag"
         :price="175"
         :studentPrice="100"
       />
-      <PricePanel
+      <PagePricePanel
         class="price-panel"
         title="Lørdag"
         subtitle="(OBS: Gælder ikke Ude af Kontrol)"
@@ -156,7 +156,7 @@ ScrollTrigger.create({
     </section>
 
 <!-- About Selection -->
-     <AboutSection /> 
+     <PageAboutSection /> 
 
   </div>
 </template>

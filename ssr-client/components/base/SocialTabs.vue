@@ -1,6 +1,5 @@
 <script setup>
-/* import IgIcon from "../assets/img/ig.svg";
-import FbIcon from "../assets/img/fb.svg"; */
+
 
 </script>
 
@@ -8,10 +7,10 @@ import FbIcon from "../assets/img/fb.svg"; */
 <aside id="SocialSideTab">
     <ul class="flex w-full md:flex-col md:justify-center md:items-end">
         <li class="socialItem">
-            <a class="socialLink " href="https://www.instagram.com/koldfestival/" target="_blank"><img class="socialTabIcon" :src="IgIcon" /></a>
+            <a class="socialLink " href="https://www.instagram.com/koldfestival/" target="_blank"><img class="socialTabIcon" src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/instafram.svg" /></a>
         </li>
         <li class="socialItem">
-            <a class="h-12 w-full md:w-16 md:h-16 grid place-content-center" href="https://www.facebook.com/koldfestival" target="_blank"><img class=" h-8 md:h-12 socialTabIcon transition-all duration-150" :src="FbIcon" /></a>
+            <a class="h-12 w-full md:w-16 md:h-16 grid place-content-center" href="https://www.facebook.com/koldfestival" target="_blank"><img class=" h-8 md:h-12 socialTabIcon transition-all duration-150" src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/facebook.svg" /></a>
         </li>
     </ul>
 </aside>
