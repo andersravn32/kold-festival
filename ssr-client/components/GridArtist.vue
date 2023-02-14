@@ -8,10 +8,10 @@
     <div
       class="absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"
     ></div>
-    <img
+    <nuxt-img format="webp" quality="80" width="500"
       id="img-pop"
       class="absolute -z-20 h-full w-full object-cover"
-      :src="artistCover"
+      :src="String(artistCover)"
       alt=""
     />
   </div>
