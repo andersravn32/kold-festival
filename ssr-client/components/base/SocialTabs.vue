@@ -1,9 +1,3 @@
-<script setup>
-/* import IgIcon from "../assets/img/ig.svg";
-import FbIcon from "../assets/img/fb.svg"; */
-
-</script>
-
 <template>
 <aside id="SocialSideTab">
     <ul class="flex w-full md:flex-col md:justify-center md:items-end">
@@ -16,6 +10,12 @@ import FbIcon from "../assets/img/fb.svg"; */
     </ul>
 </aside>
 </template>
+
+<script setup>
+const IgIcon = "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/instafram.svg";
+const FbIcon = "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/facebook.svg";
+
+</script>
 
 <style>
 

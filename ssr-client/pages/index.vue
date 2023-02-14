@@ -99,8 +99,10 @@
 
    
   </div>
+
+  <PageAboutSection></PageAboutSection>
 </template>
-    <!-- <AboutSection /> -->
+
 
 <script setup>
 definePageMeta({

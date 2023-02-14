@@ -10,6 +10,9 @@ await artists.reload();
 
 <template>
   <BaseNavbar />
+
+  <!-- Social Icons -->
+  <BaseSocialTabs />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
