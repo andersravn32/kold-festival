@@ -8,7 +8,7 @@
     <div
       class="absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"
     ></div>
-    <nuxt-img format="webp" quality="80" width="500"
+    <nuxt-img preset="compress"
       id="img-pop"
       class="absolute -z-20 h-full w-full object-cover"
       :src="artistCover"

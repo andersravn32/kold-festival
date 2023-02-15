@@ -5,5 +5,14 @@ export default defineNuxtConfig({
         transpile: ['gsap'],
     },
     image: {
-    domains: ["https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/"]
+    domains: ["https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/"],
+    presets: {
+        compress: {
+            modifiers: {
+                format: "webp",
+                quality: "80",
+                width: 500
+            }
+        }
+    }
 }})
