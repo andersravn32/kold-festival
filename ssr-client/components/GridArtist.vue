@@ -11,7 +11,7 @@
     <nuxt-img format="webp" quality="80" width="500"
       id="img-pop"
       class="absolute -z-20 h-full w-full object-cover"
-      :src="String(artistCover)"
+      :src="artistCover"
       alt=""
     />
   </div>
