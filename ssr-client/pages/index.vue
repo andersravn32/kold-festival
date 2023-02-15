@@ -149,10 +149,6 @@ ScrollTrigger.create({
         </p>
       </div>
     </section>
-
-<!-- About Selection -->
-     <AboutSection /> 
-
   </div>
 
   <PageAboutSection></PageAboutSection>

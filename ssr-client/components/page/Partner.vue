@@ -1,3 +1,13 @@
+<template>
+    <a :href="link" target="_blank" class="partner">
+        <img class="w-24 md:w-32 object-cover py-8" :src="logo" />
+        <p class="partner-name hidden md:block">{{ name }}</p>
+        <div
+            class="absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"
+        ></div>
+    </a>
+</template>
+
 <script setup>
 defineProps({
   name: {
@@ -14,19 +24,6 @@ defineProps({
   },
 });
 </script>
-
-<template>
-    <a :href="link" target="_blank" class="partner">
-        <img
-                class="w-24 md:w-32 object-cover py-8"
-                :src="logo"
-                />
-        <p class="partner-name hidden md:block">{{ name }}</p>
-        <div
-            class="absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"
-        ></div>
-    </a>
-</template>
 
 <style>
 .partner {
