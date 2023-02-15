@@ -15,7 +15,7 @@ import bg from "../assets/video/bg-video1.mp4";
 // import router from vue-router
 const router = useRouter();
 
-const festivalTime = 1675332000000;
+const festivalTime = 1675436400000;
 
 const heroTime = ref({
   days: null,
@@ -123,23 +123,25 @@ onMounted(async () => {
       ></video>
 
       <img
-        class="hero-logo h-80 md:h-96 lg:h-[512px]"
+        class="hero-logo h-80 md:h-96"
         src="../assets/img/logo.svg"
         alt="KOLD Icon"
       />
       <h1 class="flex flex-col items-center justify-center">
         <span
-          class="text-8xl lg:text-[12rem] uppercase font-bold text-zinc-100 leading-[0.6]"
+          class="text-8xl lg:text-[10rem] uppercase font-bold text-zinc-100 leading-[0.6]"
           >Kold</span
         ><span class="text-4xl lg:text-6xl">Festival</span>
       </h1>
       <h3
-        class="flex items-center font-header space-x-2 text-zinc-100 lg:text-2xl"
       >
+      <div class="flex items-center font-header space-x-2 text-zinc-100 lg:text-2xl">
         <span>{{ heroTime.days }}D</span><span>/</span
         ><span>{{ heroTime.hours }}T</span><span>/</span
         ><span>{{ heroTime.minutes }}M</span><span>/</span
         ><span>{{ heroTime.seconds }}S</span>
+      </div>
+      <!-- <span class="font-header text-zinc-100 lg:text-2xl" v-else>Festen er igang!</span> -->
       </h3>
     </section>
 

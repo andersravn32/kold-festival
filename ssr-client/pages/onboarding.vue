@@ -5,6 +5,7 @@ const router = useRouter();
 
 definePageMeta({
   hidden: true,
+  layout: 'empty'
 })
 
 if (!user.value) {

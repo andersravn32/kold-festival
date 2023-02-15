@@ -1,39 +1,95 @@
+<script setup>
+/* Meta */
+definePageMeta({
+  name: "Hjem",
+});
+/* Imports */
+import { InformationCircleIcon } from "@heroicons/vue/24/solid";
+
+// GSAP implementation
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+/* // Supabase
+const supabase = useSupabaseClient();
+
+const { data: artists } = await useAsyncData('artists', async () => {
+    const { data } = await supabase.from('artists').select();
+
+    return data
+})
+ */
+
+/* const { data } = useArtists();
+console.log(data)
+  const artistsData = ref(
+    artists.filter((artist) => {
+      return artist.type == "concert";
+    })
+  ); */
+
+// import router
+const router = useRouter();
+
+const artists = useArtists();
+
+artists.reload();
+
+// Load gsap when page has mounted
+onMounted(async () => {
+
+// Register gsap plugin
+gsap.registerPlugin(ScrollTrigger);
+
+// Floating Banner Effect
+const banner = gsap.timeline();
+
+// Enter tickets Effect
+const tickets = gsap.timeline();
+
+// Position animated banner center
+banner
+  .from("#artist-banner", { x: "-50%" })
+  .from(".floatingText", { opacity: 1 });
+
+// Enterings effect tickets
+tickets.to(".price-panel", {
+  y: 0,
+  opacity: 1,
+  duration: 0.5,
+  ease: "ease-out",
+  stagger: 0.3,
+});
+
+// Create scrolltrigger
+ScrollTrigger.create({
+  animation: banner,
+  trigger: "#artist-banner",
+  scrub: 1,
+  start: "top 90% ",
+  end: "bottom 40%",
+  toggleActions: "restart none reset none",
+});
+
+ScrollTrigger.create({
+  animation: tickets,
+  trigger: "#tickets",
+  start: "top 70%",
+  end: "bottom 40%",
+  toggleActions: "play none none none",
+});
+
+ 
+});
+</script>
+
+
+
+
 <template>
   <div id="page-index">
-    <section
-      id="hero"
-      class="relative w-full h-full z-20 flex flex-col items-center justify-center p-4 gradient-divider"
-    >
-      <div class="gradient-backdrop absolute hero-fade -z-10"></div>
-      <video
-        :src="bg"
-        autoplay
-        muted
-        loop
-        class="absolute w-full h-full object-cover hero-fade -z-20"
-      ></video>
-
-      <img
-        class="hero-logo h-80 md:h-96 lg:h-[512px]"
-        src="../assets/img/logo.svg"
-        alt="KOLD Icon"
-      />
-      <h1 class="flex flex-col items-center justify-center">
-        <span
-          class="text-8xl lg:text-[12rem] uppercase font-bold text-zinc-100 leading-[0.6]"
-          >Kold</span
-        ><span class="text-4xl lg:text-6xl">Festival</span>
-      </h1>
-      <h3
-        class="flex items-center font-header space-x-2 text-zinc-100 lg:text-2xl"
-      >
-        <span>{{ heroTime.days }}D</span><span>/</span
-        ><span>{{ heroTime.hours }}T</span><span>/</span
-        ><span>{{ heroTime.minutes }}M</span><span>/</span
-        ><span>{{ heroTime.seconds }}S</span>
-      </h3>
-    </section>
-
+<!-- Video Hero -->
+   <PageHeaderIndex />
 <!-- Floating GSAP Text -->
     <div class="overflow-hidden w-full">
       <div id="artist-banner">
@@ -44,24 +100,22 @@
         <span class="floatingText">KUNSTNERE</span>
       </div>
     </div> 
-<!-- Artis Grid (mangler: styling ned i bunden og se om data virker) -->
-<!-- <section class="pb-16" id="artist" v-if="artists.data.length">
+
+<!-- Artis Grid (mangler: se om data virker) -->
+<section class="pb-16" id="artist" v-if="artists.data">
       <div class="artistGrid">
         <GridArtist
-          v-for="(artist, index) in artists.data"
+          v-for="(artist, index) in artists.data.value"
           :key="index"
           :name="artist.name"
-          :subartist="artist.subartist"
+          :subartist="artist.subtitle"
           :artist-cover="artist.header"
           @click="router.push(`/artist/${artist.identifier}`)"
         />
       </div>
     </section>
-    /* Artist grid styling */
-    .artistGrid {
-      @apply  p-4 container mx-auto grid gap-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
-    }
-     -->
+    
+    
 
 <!-- Ticket Selection -->
     <section id="tickets">
@@ -85,9 +139,8 @@
         :studentPrice="100"
       />
       <div
-        class="price-panel notice flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100"
+        class="price-panel notice"
       >
-      <!-- Kan referere fra public eller assets mappe uden brug af import i stedet -->
         <InformationCircleIcon class="h-32 w-32" />
         <h3>Vær opmærksom på..</h3>
         <p class="font-body text-center">
@@ -97,7 +150,9 @@
       </div>
     </section>
 
-   
+<!-- About Selection -->
+     <AboutSection /> 
+
   </div>
 
   <PageAboutSection></PageAboutSection>
@@ -211,43 +266,28 @@ setInterval(updateTime, 1000);
     toggleActions: "play none none none",
   });
 
-  updateTime();
-}); */
-</script>
 
 <style scoped>
-/* Hero styling */
-#hero {
-  @apply py-32 lg:py-4 lg:min-h-screen space-y-4 w-full relative z-10 flex items-center justify-center overflow-hidden;
-}
 
-.hero-logo {
-  animation: hero-logo 180s infinite linear;
-}
 /* Floating Text styling */
 #artist-banner{
   @apply flex justify-center items-center py-4 font-bold text-[4rem] lg:text-[8rem] xl:text-[12rem] font-header text-zinc-100 space-x-8 lg:space-x-16;
 }
-
-
 .floatingText{
   @apply opacity-25 ;
 }
-
+/* Artist grid styling */
+.artistGrid {
+  @apply  p-4 container mx-auto grid gap-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+}
 /* Tickets styling */
 #tickets {
   @apply container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 text-zinc-100 md:mb-16;
 }
 
-/* Animations */
-
-@keyframes hero-logo {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+.notice {
+  @apply flex p-4 flex-col justify-center items-center bg-blue-900/75 border-2 border-zinc-100;
 }
+
+
 </style>

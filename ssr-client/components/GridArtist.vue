@@ -18,6 +18,7 @@
 </template>
 
 <script setup>
+
 const { name, subartist, artistCover  } = defineProps({
   name: {
     type: String,

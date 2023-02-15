@@ -2,18 +2,14 @@
 definePageMeta({
   hidden: true
 })
-/* import { onMounted, ref } from "vue";
-import PageHeader from "../components/PageHeader.vue";
-import { useRouter } from "vue-router";
-import {
+
+/* import {
   GlobeAltIcon,
   MapPinIcon,
   CalendarIcon,
 } from "@heroicons/vue/24/solid";
 import IgIcon from "../assets/img/ig.svg";
 import FbIcon from "../assets/img/fb.svg";
-import GridArtist from "../components/GridArtist.vue";
-import { artists } from "../assets/data.json";
 
 // Import router through useRouter composable
 const router = useRouter();
@@ -50,27 +46,28 @@ const refresh = async () => {
 
   // Set static array length
   suggested.value.length = 3;
-};
+}; */
 
-onMounted(async () => {
-  //Create dataLayer if its doesn't exist
+/* onMounted(async () => {
+
+/*   //Create dataLayer if its doesn't exist
   dataLayer = window.dataLayer || [];
 
   //Pushing CTA event to dataLayer
-  dataLayer.push({'event' : 'Contact_Page'});
+  dataLayer.push({'event' : 'Contact_Page'}); */
 
   // Set individual artist based on route param
-  currentArtist.value = artists.filter((artist) => {
+/*   currentArtist.value = artists.filter((artist) => {
     return artist.identifier == router.currentRoute.value.params.identifier;
-  })[0];
+  })[0]; */
 
   // When loading has completed, update values
-  refresh();
-}); */
+  /* refresh(); */
+/* }); */
 </script>
 
 <template>
-<!--   <div v-if="currentArtist" id="page-artist">
+  <!-- <div v-if="currentArtist" id="page-artist">
     <PageHeader :bg="currentArtist.header">
       <h1 class="text-center text-6xl lg:text-8xl">{{ currentArtist.name }}</h1>
       <h2 class="text-center text-4xl lg:text-6xl">{{ currentArtist.subartist }}</h2>
