@@ -36,9 +36,6 @@ const { name, subartist, artistCover  } = defineProps({
 });
 </script>
 
-<template>
-  <section></section>
-</template>
 
 
 <style>
