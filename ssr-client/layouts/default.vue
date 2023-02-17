@@ -1,8 +1,5 @@
 <template>
-<BaseNavbar />
-  <main>
+  <div>
     <slot />
-  </main>
-  <BaseCTA />
-  <BaseFooter />
+  </div>
 </template>
