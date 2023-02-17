@@ -1,3 +1,22 @@
+
+<template>
+  <div class="artist">
+    <div>
+    <h3 class="artist-name">{{name}}</h3>
+    <h4 v-if="subartist" class="sub-name">{{ subartist }}</h4>
+    </div>
+    <div
+      class="absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"
+    ></div>
+    <nuxt-img preset="compress"
+      id="img-pop"
+      class="absolute -z-20 h-full w-full object-cover"
+      :src="artistCover"
+      alt=""
+    />
+  </div>
+</template>
+
 <script setup>
 
 const { name, subartist, artistCover  } = defineProps({
