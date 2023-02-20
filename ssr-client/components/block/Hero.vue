@@ -44,7 +44,7 @@ onMounted(() => {
 
 </script>
 <template>
-  <section class="hero">
+  <section class="block-hero">
     <video
       class="hero-video"
       v-if="data.bg.src"
@@ -75,7 +75,7 @@ onMounted(() => {
 </template>
 
 <style>
-.hero {
+.block-hero {
   @apply min-h-screen flex flex-col items-center relative;
 }
 
