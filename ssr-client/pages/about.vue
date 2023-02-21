@@ -135,8 +135,8 @@ definePageMeta({
     name: 'Om os'
 });
 /* Imports */
-import gsap from "gsap";
-import { onMounted } from "vue";
+/* import gsap from "gsap";
+import { onMounted } from "vue"; */
 /* Mount */
 onMounted(() => {
 

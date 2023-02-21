@@ -15,9 +15,9 @@
     </div> 
 
 <!-- Artis Grid (mangler: se om data virker) -->
-<section class="pb-16" id="artist" v-if="artists.data">
+<section class="pb-16 px-4" id="artist" v-if="artists.data">
       <div class="artistGrid">
-        <GridArtist
+        <BaseGridArtist
           v-for="(artist, index) in artists.data.value"
           :key="index"
           :name="artist.name"
@@ -73,10 +73,10 @@ definePageMeta({
   name: "Hjem",
 });
 /* Imports */
-/* import { InformationCircleIcon } from "@heroicons/vue/24/solid";
+import { InformationCircleIcon } from "@heroicons/vue/24/solid";
 
 // GSAP implementation
-import gsap from "gsap";
+/* import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger"; */
 
 /* // Supabase

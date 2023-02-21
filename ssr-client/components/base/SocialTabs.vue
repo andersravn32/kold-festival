@@ -1,11 +1,11 @@
 <template>
 <aside id="SocialSideTab">
-    <ul class="flex w-full md:flex-col md:justify-center md:items-end">
+    <ul class="flex-col justify-center items-end">
         <li class="socialItem">
-            <a class="socialLink " href="https://www.instagram.com/koldfestival/" target="_blank"><img class="socialTabIcon" :src="IgIcon" /></a>
+            <a class="socialLink" href="https://www.instagram.com/koldfestival/" target="_blank"><img class="socialTabIcon" :src="IgIcon" /></a>
         </li>
         <li class="socialItem">
-            <a class="h-12 w-full md:w-16 md:h-16 grid place-content-center" href="https://www.facebook.com/koldfestival" target="_blank"><img class="socialTabIcon" :src="FbIcon" /></a>
+            <a class="socialLink" href="https://www.facebook.com/koldfestival" target="_blank"><img class="socialTabIcon" :src="FbIcon" /></a>
         </li>
     </ul>
 </aside>
@@ -20,19 +20,19 @@ const FbIcon = "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/publi
 <style>
 
     #SocialSideTab {
-        @apply fixed bottom-12 -translate-y-1/2 z-50 w-full flex bg-accent h-fit transition-transform duration-150 md:w-20 md:top-1/2 md:justify-end md:-translate-x-4 md:hover:translate-x-0;
+        @apply md:fixed bottom-12 -translate-y-1/2 z-50 w-20 flex bg-accent h-fit transition-transform duration-150 top-1/2 justify-end -translate-x-4 hover:translate-x-0;
     }
 
     .socialItem {
-       @apply transition-all duration-150 bg-blue-600 hover:bg-white w-full md:w-fit;
+       @apply transition-all duration-150 bg-blue-600 hover:bg-white w-fit;
     }
 
     .socialLink {
-        @apply h-12 w-full md:w-16 md:h-16 grid place-content-center;
+        @apply w-16 h-16 grid place-content-center;
     }
 
     .socialTabIcon {
-        @apply h-8 md:h-12 transition-all duration-150;
+        @apply h-12 transition-all duration-150;
     }
 
     .socialItem:hover .socialTabIcon {
