@@ -5,7 +5,7 @@
             <a class="socialLink " href="https://www.instagram.com/koldfestival/" target="_blank"><img class="socialTabIcon" :src="IgIcon" /></a>
         </li>
         <li class="socialItem">
-            <a class="h-12 w-full md:w-16 md:h-16 grid place-content-center" href="https://www.facebook.com/koldfestival" target="_blank"><img class="socialTabIcon" :src="FbIcon" /></a>
+            <a class="h-12 w-full md:w-16 md:h-16 grid place-content-center" href="https://www.facebook.com/koldfestival" target="_blank"><img class=" h-8 md:h-12 socialTabIcon transition-all duration-150" :src="FbIcon" /></a>
         </li>
     </ul>
 </aside>
