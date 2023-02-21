@@ -19,7 +19,7 @@
 <style>
 
     #SocialSideTab {
-        @apply fixed bottom-12 -translate-y-1/2 z-50 w-full flex bg-accent h-fit transition-transform duration-150 md:w-20 md:top-1/2 md:justify-end md:-translate-x-4 md:hover:translate-x-0;
+        @apply hidden sm:block fixed bottom-12 -translate-y-1/2 z-50 w-full flex bg-accent h-fit transition-transform duration-150 md:w-20 md:top-1/2 md:justify-end md:-translate-x-4 md:hover:translate-x-0;
     }
 
     .socialItem {

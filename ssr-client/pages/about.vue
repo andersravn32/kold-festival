@@ -43,14 +43,14 @@ onMounted(() => {
 
     <!-- // About info -->
     <article class="aboutContainer info grid lg:grid-cols-2 my-16 container mx-auto">
-      <span class="block px-12 top-36">
+      <span class="block px-2 sm:px-12 top-36">
         <h2 class="m-auto text-4xl mb-2">Hvad er Kold Festival?</h2>
         <p class="font-body mb-4">
           KOLD Festival er en ny vinterfestival, som finder sted i Kolding Midtby fra den 2. - 4. februar. Vi er en festival, der i samarbejde med 6 lokale venues, som vi i fællesskab sammensætter og skaber rammerne for. Der er mulighed for at få en oplevelse udover det sædvanlige i en ellers kold og mørk tid af året.  
           KOLD Festival er drevet af MusikKolding og en lang række lokale samarbejdspartnere.
         </p>
       </span>
-      <span class="relative px-12 mx-auto mt-12">
+      <span class="relative px-2 sm:px-12 mx-auto mt-12">
         <img
           class="relative"
           src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/aboutSectionOne"
@@ -58,7 +58,7 @@ onMounted(() => {
         />
         <!-- SVG 1 -->
         <svg
-          class="absolute w-24 left-8 md:left-0 md:w-40 -top-16 lg:-top-24  z-99 symbolEffect z-40"
+          class="absolute w-24 -left-2 sm:left-8 md:left-0 md:w-40 -top-16 lg:-top-24  z-99 symbolEffect z-40"
           width="242"
           height="274"
           viewBox="0 0 242 274"
@@ -83,7 +83,7 @@ onMounted(() => {
     </article>
 
     <article class="aboutContainer info grid lg:flex lg:flex-row-reverse lg:justify-start lg:items-start my-16 container mx-auto">
-      <span class="block px-12">
+      <span class="block px-2 sm:px-12">
         <h2 class="m-auto text-4xl mb-2">Bæredygtighed</h2>
         <p class="font-body mb-4">
           Den bæredygtige dagsorden er en central del af KOLD Festival, Koldings nye vinterfestival. 
@@ -92,7 +92,7 @@ onMounted(() => {
         </p>
       </span>
 
-      <span class="relative px-12 m-auto mt-12">
+      <span class="relative px-2 sm:px-12 m-auto mt-12">
         <img
           class="relative"
           src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/aboutSectionTwo"
@@ -101,7 +101,7 @@ onMounted(() => {
 
         <!-- SVG 2 -->
         <svg
-          class="absolute w-24 md:left-0 md:w-40 -top-16 left-8 z-99 symbolEffect2 z-40"
+          class="absolute w-24 md:left-0 md:w-40 -top-16 sm:left-8 z-99 symbolEffect2 z-40"
           width="269"
           height="269"
           viewBox="0 0 269 269"

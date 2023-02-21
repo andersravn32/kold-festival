@@ -17,7 +17,7 @@ const GA4_Event_Ticket = ()=> {
 
 <style>
 .cancelCTA {
-    @apply fixed bottom-[4.5rem] left-0 right-0 p-4 text-4xl text-center font-header uppercase text-zinc-100 bg-red-800 font-bold z-[100];
+    @apply fixed bottom-[4.5rem] left-0 right-0 p-4 text-4xl text-center font-header uppercase text-zinc-100 bg-red-800 font-bold z-[100] hidden;
 }
 
 </style>
