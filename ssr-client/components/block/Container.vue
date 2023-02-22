@@ -12,6 +12,7 @@ const columns = props.data.html.length;
 <template>
   <section class="block-container">
     <div
+      class="block-container-column"
       v-if="data.html"
       v-for="(col, index) in data.html"
       :key="index"
