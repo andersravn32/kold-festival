@@ -3,6 +3,8 @@ import { Bars3Icon } from '@heroicons/vue/24/outline';
 
 // Navmenu state
 const showNavmenu = ref(false);
+
+defineEmits(['toggleScroll']);
 </script>
 
 <template>
@@ -40,6 +42,6 @@ const showNavmenu = ref(false);
 }
 
 #navbar ul{
-    @apply text-2xl font-header font-bold text-white/75 flex items-center space-x-8 uppercase;
+    @apply  sm:text-2xl font-header font-bold text-white/75 flex items-center space-x-8 uppercase;
 }
 </style>

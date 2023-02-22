@@ -1,7 +1,12 @@
 <script setup>
 /* Meta */
 definePageMeta({
-    name: 'FAQ'
+//Disable duplicate
+  hid: 'FAQ',
+//Page Title 
+  name: "FAQ",
+//Page description
+  content: 'Default description for the page'
 });
 /* Imports */
 import { faq } from "../assets/data.json";
@@ -16,14 +21,14 @@ import { faq } from "../assets/data.json";
       </h2></PageHeader
     >
     <section id="faq">
-      <Accordion
+      <PageAccordion
         v-for="(data, index) in faq"
         :key="index"
         :opened="data.opened || false"
         :title="data.title"
       >
         <p v-html="data.content" />
-      </Accordion>
+      </PageAccordion>
     </section>
   </div>
 </template>

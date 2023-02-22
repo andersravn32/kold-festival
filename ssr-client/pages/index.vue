@@ -70,7 +70,12 @@
 <script setup>
 /* Meta */
 definePageMeta({
+//Disable duplicate
+  hid: 'Hjem',
+//Page Title
   name: "Hjem",
+//Page description
+  content: 'Default description for the page'
 });
 /* Imports */
 import { InformationCircleIcon } from "@heroicons/vue/24/solid";
@@ -167,7 +172,7 @@ ScrollTrigger.create({
 }
 /* Tickets styling */
 #tickets {
-  @apply container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 text-zinc-100 md:mb-16;
+  @apply container mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 p-4 text-zinc-100 md:mb-16;
 }
 
 .notice {
