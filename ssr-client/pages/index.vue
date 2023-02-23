@@ -71,6 +71,13 @@
 /* Imports */
 import { InformationCircleIcon } from "@heroicons/vue/24/solid";
 
+// GSAP implementation
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+// import router
+const router = useRouter();
+
 /* Meta */
 definePageMeta({
 //Disable duplicate
@@ -81,34 +88,17 @@ definePageMeta({
   content: 'Default description for the page'
 });
 
-// GSAP implementation
-/* import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger"; */
 
-/* // Supabase
-const supabase = useSupabaseClient();
+const artists = useArtists();
 
-const { data: artists } = await useAsyncData('artists', async () => {
-    const { data } = await supabase.from('artists').select();
+artists.getArtists(['concert']);
 
-    return data
-})
- */
 
-/* const { data } = useArtists();
-console.log(data)
-  const artistsData = ref(
+/*   const artistsData = ref(
     artists.filter((artist) => {
       return artist.type == "concert";
     })
   ); */
-
-// import router
-const router = useRouter();
-
-const artists = useArtists();
-
-artists.reload();
 
 // Load gsap when page has mounted
 onMounted(async () => {
