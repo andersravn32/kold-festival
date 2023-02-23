@@ -4,8 +4,8 @@ import { XMarkIcon } from "@heroicons/vue/24/outline";
 
 // Import account from composable
 const account = useAccount();
-if (!account.user.value || !account.profile.value){
-    await account.update()
+if (!account.user.value || !account.profile.value) {
+  await account.update();
 }
 
 // Import sidebar data
@@ -22,8 +22,8 @@ onMounted(async () => {
 
 <template>
   <div class="sidebar-overlay">
-    <div v-if="ready" class="h-full w-full relative">
-      <aside class="sidebar">
+    <div class="h-full w-full relative">
+      <aside v-if="ready" class="sidebar">
         <div class="flex items-end justify-end text-white">
           <button @click="sidebar.show.value = false">
             <XMarkIcon class="h-12 w-12" />
@@ -47,7 +47,7 @@ onMounted(async () => {
 }
 
 .sidebar {
-  @apply absolute top-0 bottom-0 right-0 bg-midnight p-8 w-full max-w-lg flex flex-col justify-between space-y-8;
+  @apply absolute top-0 bottom-0 right-0 bg-midnight p-8 w-full max-w-lg flex flex-col justify-between space-y-8 translate-x-0;
 }
 
 .sidebar-content {
