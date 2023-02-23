@@ -32,19 +32,19 @@
 
 <!-- Ticket Selection -->
     <section id="tickets">
-      <PricePanel
+      <PagePricePanel
         class="price-panel"
         title="Partout"
         :price="300"
         :studentPrice="150"
       />
-      <PricePanel
+      <PagePricePanel
         class="price-panel"
         title="Fredag"
         :price="175"
         :studentPrice="100"
       />
-      <PricePanel
+      <PagePricePanel
         class="price-panel"
         title="Lørdag"
         subtitle="(OBS: Gælder ikke Ude af Kontrol)"
@@ -68,6 +68,9 @@
 </template>
 
 <script setup>
+/* Imports */
+import { InformationCircleIcon } from "@heroicons/vue/24/solid";
+
 /* Meta */
 definePageMeta({
 //Disable duplicate
@@ -77,8 +80,6 @@ definePageMeta({
 //Page description
   content: 'Default description for the page'
 });
-/* Imports */
-import { InformationCircleIcon } from "@heroicons/vue/24/solid";
 
 // GSAP implementation
 /* import gsap from "gsap";

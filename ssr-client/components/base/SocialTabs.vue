@@ -20,7 +20,7 @@ const FbIcon = "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/publi
 <style>
 
     #SocialSideTab {
-        @apply md:fixed bottom-12 -translate-y-1/2 z-50 w-20 flex bg-accent h-fit transition-transform duration-150 top-1/2 justify-end -translate-x-4 hover:translate-x-0;
+        @apply hidden md:fixed md:flex bottom-12 -translate-y-1/2 z-50 w-20 bg-accent h-fit transition-transform duration-150 top-1/2 justify-end -translate-x-4 hover:translate-x-0;
     }
 
     .socialItem {
