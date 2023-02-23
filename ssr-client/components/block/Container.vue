@@ -5,8 +5,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-const columns = props.data.html.length;
 </script>
 
 <template>
@@ -24,6 +22,6 @@ const columns = props.data.html.length;
 <style>
 .block-container {
   @apply grid items-center;
-  grid-template-columns: repeat(v-bind(columns), 1fr);
+  grid-template-columns: repeat(v-bind('data.html.length'), 1fr);
 }
 </style>
