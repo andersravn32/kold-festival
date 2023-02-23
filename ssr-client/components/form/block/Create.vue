@@ -36,7 +36,7 @@ const create = async () => {
 <template>
     <div>
         <form id="form-block-create" @submit.prevent="create">
-            <h1>Opret indhold</h1>
+            <h2 class="text-2xl">Opret indhold</h2>
             <div class="input">
                 <label>Vælg venligst en type af indhold</label>
                 <select v-model="block.type">
@@ -46,6 +46,8 @@ const create = async () => {
                     <option value="container">Indholds block</option>
                 </select>
             </div>
+            <FormBlockDataHero v-if="block.type == 'hero'" @update="(e) => { block.data = e }" />
+            <FormBlockDataContainer v-if="block.type == 'container'" @update="(e) => { block.data = e }" />
             <div class="input">
                 <label>På hvilken side skal indholdet placeres?</label>
                 <select v-model="block.link">
@@ -54,8 +56,6 @@ const create = async () => {
                     <option v-for="route in routes" :value="route.path">{{ route.name }}</option>
                 </select>
             </div>
-            <FormBlockDataHero v-if="block.type == 'hero'" @update="(e) => { block.data = e }" />
-            <FormBlockDataContainer v-if="block.type == 'container'" @update="(e) => { block.data = e }" />
 
             <div class="checkbox">
                 <input v-model="block.visible" type="checkbox">
