@@ -1,4 +1,4 @@
-const show = ref(true);
+const show = ref(false);
 const component = shallowRef(null);
 
 export const useSidebar = () => {
