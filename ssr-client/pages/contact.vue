@@ -1,4 +1,9 @@
 <script setup>
+/* Imports */
+import {
+  PhoneIcon,
+  EnvelopeIcon,
+} from "@heroicons/vue/24/solid";
 /* Meta */
 definePageMeta({
 //Disable duplicate
@@ -8,11 +13,7 @@ definePageMeta({
 //Page description
   content: 'Default description for the page'
 });
-/* Imports */
-import {
-  PhoneIcon,
-  EnvelopeIcon,
-} from "@heroicons/vue/24/solid";
+
 </script>
 
 <template>

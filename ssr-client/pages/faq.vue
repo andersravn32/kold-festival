@@ -1,17 +1,3 @@
-<script setup>
-/* Meta */
-definePageMeta({
-//Disable duplicate
-  hid: 'FAQ',
-//Page Title 
-  name: "FAQ",
-//Page description
-  content: 'Default description for the page'
-});
-/* Imports */
-import { faq } from "../assets/data.json";
-
-</script>
 <template>
     <div id="page-faq">
     <PageHeader bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgFaq">
@@ -22,7 +8,7 @@ import { faq } from "../assets/data.json";
     >
     <section id="faq">
       <PageAccordion
-        v-for="(data, index) in faq"
+        v-for="(data, index) in faq.data.value"
         :key="index"
         :opened="data.opened || false"
         :title="data.title"
@@ -33,6 +19,24 @@ import { faq } from "../assets/data.json";
   </div>
 </template>
 
+<script setup>
+
+// init faq composable
+const faq = useFaq();
+
+// get faq data
+faq.getData();
+
+/* Meta */
+definePageMeta({
+//Disable duplicate
+  hid: 'FAQ',
+//Page Title 
+  name: "FAQ",
+//Page description
+  content: 'Default description for the page'
+});
+</script>
 
 <style>
 #page-faq {

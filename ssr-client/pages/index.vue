@@ -88,17 +88,12 @@ definePageMeta({
   content: 'Default description for the page'
 });
 
-
+// get artist composable
 const artists = useArtists();
 
+// get artist with option of concert
 artists.getArtists(['concert']);
 
-
-/*   const artistsData = ref(
-    artists.filter((artist) => {
-      return artist.type == "concert";
-    })
-  ); */
 
 // Load gsap when page has mounted
 onMounted(async () => {
