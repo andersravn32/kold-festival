@@ -44,10 +44,13 @@ const create = async () => {
                     <option disabled>----</option>
                     <option value="hero">Hero block</option>
                     <option value="container">Indholds block</option>
+                    <option value="accordion">Fold-ud block</option>
                 </select>
             </div>
             <FormBlockDataHero v-if="block.type == 'hero'" @update="(e) => { block.data = e }" />
             <FormBlockDataContainer v-if="block.type == 'container'" @update="(e) => { block.data = e }" />
+            <FormBlockDataAccordion v-if="block.type == 'accordion'" @update="(e) => { block.data = e }" />
+
             <div class="input">
                 <label>På hvilken side skal indholdet placeres?</label>
                 <select v-model="block.link">
