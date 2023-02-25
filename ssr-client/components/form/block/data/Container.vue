@@ -4,8 +4,6 @@ const emit = defineEmits(["update"]);
 const data = ref({
   html: [],
 });
-// On init, push null to array
-// Replace null with correct html markup, which is saved and used in block later
 
 const update = () => {
   return emit("update", {
