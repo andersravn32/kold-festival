@@ -1,11 +1,11 @@
 <script setup>
 import { PlusIcon, MinusIcon } from "@heroicons/vue/24/outline";
 
-defineProps({
-    data: {
-        type: Object,
-        required: true
-    }
+const props = defineProps({
+  data: {
+    type: Object,
+    required: true,
+  },
 });
 </script>
 
@@ -13,13 +13,13 @@ defineProps({
   <div class="block-accordion">
     <div
       class="block-accordion-title"
-      @click="data.opened = !data.opened"
+      @click="data.open = !data.open"
     >
       <p>{{ data.title }}</p>
-      <PlusIcon v-if="!data.opened" class="h-6 w-6 cursor-pointer" />
-      <MinusIcon v-if="data.opened" class="h-6 w-6 cursor-pointer" />
+      <PlusIcon v-if="!data.open" class="h-6 w-6 cursor-pointer" />
+      <MinusIcon v-if="data.open" class="h-6 w-6 cursor-pointer" />
     </div>
-    <div v-if="data.opened" class="block-accordion-content" v-html="data.content">
+    <div v-if="data.open" class="block-accordion-content" v-html="data.content">
     </div>
   </div>
 </template>
