@@ -18,6 +18,7 @@ blocks.value = data;
       <BlockHero v-if="block.type == 'hero'" :data="block.data" />
       <BlockContainer v-if="block.type == 'container'" :data="block.data" />
       <BlockAccordion v-if="block.type == 'accordion'" :data="block.data" />
+      <BlockHeader v-if="block.type == 'header'" :data="block.data" />
     </div>
   </div>
 </template>
