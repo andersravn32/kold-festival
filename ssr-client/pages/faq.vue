@@ -20,13 +20,6 @@
 </template>
 
 <script setup>
-
-// init faq composable
-const faq = useFaq();
-
-// get faq data
-faq.getData();
-
 /* Meta */
 definePageMeta({
 //Disable duplicate
