@@ -17,7 +17,7 @@ const block = ref({
     link: "",
     link_type: "page",
     visible: false,
-    data: null,
+    data: {},
     type: "",
 })
 
@@ -46,6 +46,7 @@ const create = async () => {
                     <option value="container">Indholds block</option>
                     <option value="accordion">Fold-ud block</option>
                     <option value="header">Header</option>
+                    <option value="artist-grid">Kunstner liste</option>
                 </select>
             </div>
             <FormBlockDataHero v-if="block.type == 'hero'" @update="(e) => { block.data = e }" />
