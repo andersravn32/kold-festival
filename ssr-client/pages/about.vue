@@ -130,20 +130,22 @@
 </template>
 
 <script setup>
+/* Imports */
+import gsap from "gsap";
+import { onMounted } from "vue";
+
 /* Meta */
 definePageMeta({
     name: 'Om os'
 });
-/* Imports */
-/* import gsap from "gsap";
-import { onMounted } from "vue"; */
+
 /* Mount */
 onMounted(() => {
 
 //Create dataLayer if its doesn't exist
-/* dataLayer = window.dataLayer || []; */
+dataLayer = window.dataLayer || [];
 //Pushing CTA event to dataLayer
-/* dataLayer.push({'event' : 'About_Page'}); */
+dataLayer.push({'event' : 'About_Page'});
 
 //GSAP Animation
 
