@@ -20,4 +20,8 @@
 #demo .block-accordion {
   @apply max-w-4xl mx-auto mb-4;
 }
+
+#demo .block-artist-grid {
+  @apply grid grid-cols-3 gap-16 container mx-auto;
+}
 </style>
