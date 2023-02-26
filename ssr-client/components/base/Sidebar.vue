@@ -13,9 +13,7 @@ const sidebar = useSidebar();
 
 // Ready state
 const ready = ref(false);
-
 onMounted(async () => {
-  sidebar.component.value = FormBlockCreate;
   ready.value = true;
 });
 </script>
@@ -35,6 +33,21 @@ onMounted(async () => {
             @done="sidebar.show.value = false"
           />
         </div>
+        <div v-if="!sidebar.component.value" class="sidebar-content space-y-4">
+          <div>
+            <h2 class="text-2xl">
+              Velkommen {{ account.profile.value.firstName }}
+            </h2>
+            <p>Vælg venligst hvad du ønsker at administrere</p>
+          </div>
+      
+          <BaseButton @click="sidebar.component.value = FormBlockCreate"
+            >Opret nyt indhold</BaseButton
+          >
+          <BaseButton>Tilføj ny kunstner</BaseButton>
+          <BaseButton>Rediger kunstner info</BaseButton>
+          <BaseButton>Rediger kontaktformular</BaseButton>
+        </div>
         <User :user="account.user.value" :profile="account.profile.value" />
       </aside>
     </div>
@@ -43,7 +56,7 @@ onMounted(async () => {
 
 <style>
 .sidebar-overlay {
-  @apply top-0 bottom-0 left-0 right-0 fixed bg-black/50 z-50;
+  @apply top-0 bottom-0 left-0 right-0 fixed bg-black/75 z-50;
 }
 
 .sidebar {
@@ -51,7 +64,7 @@ onMounted(async () => {
 }
 
 .sidebar-content {
-  @apply h-full overflow-scroll;
+  @apply h-full overflow-scroll flex flex-col text-white;
 }
 
 .sidebar-content::-webkit-scrollbar {
