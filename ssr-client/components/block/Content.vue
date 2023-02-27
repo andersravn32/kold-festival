@@ -20,8 +20,19 @@ const edit = (block) => {
   sidebar.show.value = true;
 }
 
-const remove = (block) => {
+const remove = async (block) => {
+  if (!confirm("Er du sikker på at du ønsker at slette dette indhold?")) {
+    return;
+  }
 
+  const { error } = await supabase.from("blocks").delete().eq("id", block.id);
+  if (error) {
+    return;
+  }
+  
+  blocks.value = blocks.value.filter((loopBlock) => {
+    return !(loopBlock.id == block.id)
+  })
 }
 </script>
 
