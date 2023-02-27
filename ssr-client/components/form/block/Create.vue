@@ -26,7 +26,13 @@ const emit = defineEmits(['done']);
 
 // Main method for submitting data to database
 const create = async () => {
+    // Update loading state
+    loading.value = true;
+
     const { data, error } = await supabase.from("blocks").insert(block.value).select();
+
+    // Update loading state
+    loading.value = false;
 
     // Return done event with either data or error
     return emit('done', data || error);
