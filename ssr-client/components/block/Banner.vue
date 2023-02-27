@@ -46,6 +46,6 @@ onMounted(() => {
 }
 
 .block-banner-inner {
-    @apply flex justify-center items-center py-4 font-bold text-8xl font-header text-zinc-100 space-x-8 uppercase;
+    @apply flex justify-center items-center py-4 font-bold text-8xl font-header text-zinc-100 space-x-8 uppercase text-center;
 }
 </style>
