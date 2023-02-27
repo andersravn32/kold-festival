@@ -20,6 +20,7 @@ blocks.value = data;
       <BlockAccordion v-if="block.type == 'accordion'" :data="block.data" />
       <BlockHeader v-if="block.type == 'header'" :data="block.data" />
       <BlockArtistGrid v-if="block.type == 'artist-grid'" :data="block.data" />
+      <BlockBanner v-if="block.type == 'banner'" :data="block.data" />
     </div>
   </div>
 </template>

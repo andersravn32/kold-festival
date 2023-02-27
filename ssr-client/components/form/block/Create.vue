@@ -47,12 +47,14 @@ const create = async () => {
                     <option value="accordion">Fold-ud block</option>
                     <option value="header">Header</option>
                     <option value="artist-grid">Kunstner liste</option>
+                    <option value="banner">Animeret banner</option>
                 </select>
             </div>
             <FormBlockDataHero v-if="block.type == 'hero'" @update="(e) => { block.data = e }" />
             <FormBlockDataContainer v-if="block.type == 'container'" @update="(e) => { block.data = e }" />
             <FormBlockDataAccordion v-if="block.type == 'accordion'" @update="(e) => { block.data = e }" />
             <FormBlockDataHeader v-if="block.type == 'header'" @update="(e) => { block.data = e }" />
+            <FormBlockDataBanner v-if="block.type == 'banner'" @update="(e) => { block.data = e }" />
 
             <div class="input">
                 <label>På hvilken side skal indholdet placeres?</label>
