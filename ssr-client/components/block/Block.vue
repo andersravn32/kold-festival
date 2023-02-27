@@ -1,0 +1,43 @@
+<script setup>
+import { PencilIcon, TrashIcon } from '@heroicons/vue/24/outline';
+const emit = defineEmits(['edit', 'remove'])
+const account = useAccount();
+
+const hover = ref(false);
+
+const mouseenter = (e) => {
+    if (!(account.profile.value && account.user.value)) {
+        return;
+    }
+    hover.value = true;
+}
+
+const mouseleave = (e) => {
+    hover.value = false;
+}
+</script>
+
+<template>
+    <div class="block-content" @mouseenter="mouseenter" @mouseleave="mouseleave"
+        :class="{ 'border-2 border-indigo-500': hover }">
+        <div v-if="hover"
+            class="absolute top-0 right-0 bg-indigo-500 z-20 p-2 flex items-center space-x-4 text-xs text-white">
+            <span class="flex items-center space-x-2 cursor-pointer" @click="emit('edit')">
+                <PencilIcon class="w-4 h-4" />
+                <span>Rediger</span>
+            </span>
+            <span>|</span>
+            <span class="flex items-center space-x-2 cursor-pointer" @click="emit('remove')">
+                <TrashIcon class="w-4 h-4" />
+                <span>Slet</span>
+            </span>
+        </div>
+        <slot />
+    </div>
+</template>
+
+<style>
+.block-content {
+    @apply relative;
+}
+</style>

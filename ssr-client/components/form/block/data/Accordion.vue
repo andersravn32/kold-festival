@@ -1,10 +1,19 @@
 <script setup>
 const emit = defineEmits(["update"]);
 
+const props = defineProps({
+  data: {
+    type: Object,
+    default: {
+      title: null,
+      content: null,
+      open: false,
+    }
+  }
+})
+
 const data = ref({
-  title: null,
-  content: null,
-  open: false,
+  ...props.data
 });
 
 const update = () => {
@@ -18,17 +27,17 @@ const update = () => {
   <div id="form-block-data-accordion">
     <div class="input">
       <label>Titel</label>
-      <input v-model="data.title" @change="update" type="text" placeholder="Indtast titel"/>
+      <input v-model="data.title" @change="update" type="text" placeholder="Indtast titel" />
     </div>
     <div class="input">
       <label>Indhold</label>
       <textarea class="h-32" v-model="data.content" @change="update" placeholder="Indtast indhold"></textarea>
     </div>
-    
+
     <div class="checkbox">
-        <input v-model="data.open" @change="update" type="checkbox" />
-        <label>Åben fold-ud boks</label>
-      </div>
+      <input v-model="data.open" @change="update" type="checkbox" />
+      <label>Åben fold-ud boks</label>
+    </div>
   </div>
 </template>
 

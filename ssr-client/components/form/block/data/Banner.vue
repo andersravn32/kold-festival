@@ -1,8 +1,17 @@
 <script setup>
 const emit = defineEmits(["update"]);
 
+const props = defineProps({
+    data: {
+        type: Object,
+        default: {
+            word: null
+        }
+    }
+})
+
 const data = ref({
-    word: null
+    ...props.data
 });
 
 const update = () => {

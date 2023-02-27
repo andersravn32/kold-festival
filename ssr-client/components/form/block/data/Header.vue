@@ -1,9 +1,18 @@
 <script setup>
 const emit = defineEmits(["update"]);
 
+const props = defineProps({
+  data: {
+    type: Object,
+    default: {
+      bg: null,
+      html: null,
+    }
+  }
+})
+
 const data = ref({
-  bg: null,
-  html: null,
+  ...props.data
 });
 
 const update = () => {
@@ -17,21 +26,11 @@ const update = () => {
   <div id="form-block-data-header">
     <div class="input">
       <label>Link til baggrundsbillede</label>
-      <input
-        v-model="data.bg"
-        @change="update"
-        type="text"
-        placeholder="Indtast link"
-      />
+      <input v-model="data.bg" @change="update" type="text" placeholder="Indtast link" />
     </div>
     <div class="input">
       <label>Indhold</label>
-      <textarea
-        class="h-32"
-        v-model="data.html"
-        @change="update"
-        placeholder="Indtast indhold"
-      ></textarea>
+      <textarea class="h-32" v-model="data.html" @change="update" placeholder="Indtast indhold"></textarea>
     </div>
   </div>
 </template>
