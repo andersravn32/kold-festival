@@ -17,4 +17,7 @@ await artists.reload();
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
+
+  <!-- modal -->
+  <div id="modal"></div>
 </template>

@@ -1,22 +1,10 @@
-<script>
-export default {
-  computed: {
-    pageName() {
-      return this.$route.name;
-    }
-  },
-  watch: {
-    $route(to, from) {
-      useHead({
-        titleTemplate: `Kold Festival - ${this.pageName}`
-      });
-    }
-  }
-};
+<script setup>
+const modalOpen = ref(false)
 </script>
 <template>
   <main>
     <slot />
+    <BaseModal :IsOpen="modalOpen"/>
   </main>
   <BaseSocialTabs />
   <BaseCTA />
