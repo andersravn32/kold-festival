@@ -4,7 +4,7 @@ const modalOpen = ref(false)
 <template>
   <main>
     <slot />
-    <BaseModal :IsOpen="modalOpen"/>
+    <BaseModal :IsOpen="modalOpen" TextContent="Amir er en hund!"/>
   </main>
   <BaseSocialTabs />
   <BaseCTA />

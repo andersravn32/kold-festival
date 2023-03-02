@@ -28,7 +28,7 @@ defineProps({
 <style scoped>
 
 .bgModal {
-    @apply fixed inset-0 h-full w-full bg-[rgba(0,0,0,0.5)] grid place-content-center;
+    @apply fixed inset-0 h-full w-full bg-[rgba(0,0,0,0.5)] grid place-content-center z-[10000];
 }
 
 .modalContent {

@@ -14,7 +14,8 @@
         </p>
       </div>
       <div class="relative px-16">
-        <img
+        <nuxt-img
+          preset="compress2"
           src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/aboutSectionOne"
           alt=""
         />
@@ -54,7 +55,8 @@
         </p>
       </div>
       <div class="relative px-16 order-2 lg:-order-1">
-        <img
+        <nuxt-img
+          preset="compress2"
           src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/aboutSectionTwo"
           alt=""
         />
