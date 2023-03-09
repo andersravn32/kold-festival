@@ -56,7 +56,7 @@ onMounted(async () => {
 
 <style>
 .sidebar-overlay {
-  @apply top-0 bottom-0 left-0 right-0 fixed bg-black/75 z-50;
+  @apply top-0 bottom-0 left-0 right-0 fixed bg-black/75 z-40;
 }
 
 .sidebar {
