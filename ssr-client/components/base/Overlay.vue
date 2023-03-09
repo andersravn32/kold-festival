@@ -1,6 +1,6 @@
 <template>
     <div class="overlay">
-        <div class="relative h-full w-full">
+        <div class="relative h-full w-full flex items-center justify-center">
             <slot/>
         </div>
     </div>
