@@ -42,7 +42,7 @@ const edit = async () => {
 <template>
     <div>
         <form id="form-block-edit" @submit.prevent="edit">
-            <FormBlockDataHero v-if="block.type == 'hero'" @update="(e) => { block.data = e }" />
+            <FormBlockDataHero v-if="block.type == 'hero'" :data="block.data" @update="(e) => { block.data = e }" />
             <FormBlockDataContainer v-if="block.type == 'container'" :data="block.data"
                 @update="(e) => { block.data = e }" />
             <FormBlockDataAccordion v-if="block.type == 'accordion'" :data="block.data"
