@@ -23,17 +23,17 @@ onMounted(async () => {
     <div class="h-full w-full relative">
       <aside v-if="ready" class="sidebar">
         <div class="flex items-end justify-end text-white">
-          <button @click="sidebar.show.value = false">
+          <button @click="sidebar.toggle()">
             <XMarkIcon class="h-12 w-12" />
           </button>
         </div>
-        <div v-if="sidebar.component.value" class="sidebar-content">
+        <div v-if="sidebar.getComponent()" class="sidebar-content">
           <component
-            :is="sidebar.component.value"
-            @done="sidebar.show.value = false"
+            :is="sidebar.getComponent()"
+            @done="sidebar.toggle()"
           />
         </div>
-        <div v-if="!sidebar.component.value" class="sidebar-content space-y-4">
+        <div v-if="!sidebar.getComponent()" class="sidebar-content space-y-4">
           <div>
             <h2 class="text-2xl">
               Velkommen {{ account.profile.value.firstName }}

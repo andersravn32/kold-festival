@@ -16,8 +16,8 @@ blocks.value = data;
 
 const edit = (block) => {
   sidebar.editData.value = block;
-  sidebar.component.value = FormBlockEdit;
-  sidebar.show.value = true;
+  sidebar.setComponent(FormBlockEdit);
+  sidebar.toggle();
 }
 
 const remove = async (block) => {
@@ -37,14 +37,15 @@ const remove = async (block) => {
 </script>
 
 <template>
-  <div>
+  <div class="blocks">
     <Block v-for="block in blocks" :key="block.id" @edit="edit(block)" @remove="remove(block)">
-      <BlockHero v-if="block.type == 'hero'" :data="block.data" />
-      <BlockContainer v-if="block.type == 'container'" :data="block.data" />
-      <BlockAccordion v-if="block.type == 'accordion'" :data="block.data" />
-      <BlockHeader v-if="block.type == 'header'" :data="block.data" />
-      <BlockArtistGrid v-if="block.type == 'artist-grid'" :data="block.data" />
-      <BlockBanner v-if="block.type == 'banner'" :data="block.data" />
+      <BlockHero v-if="block.type == 'hero'" :id="`block-${block.id}`" :data="block.data" />
+      <BlockContainer v-if="block.type == 'container'" :id="`block-${block.id}`" :data="block.data" />
+      <BlockAccordion v-if="block.type == 'accordion'" :id="`block-${block.id}`" :data="block.data" />
+      <BlockHeader v-if="block.type == 'header'" :id="`block-${block.id}`" :data="block.data" />
+      <BlockArtistGrid v-if="block.type == 'artist-grid'" :id="`block-${block.id}`" :data="block.data" />
+      <BlockBanner v-if="block.type == 'banner'" :id="`block-${block.id}`" :data="block.data" />
+      <BlockPrices v-if="block.type == 'prices'" :id="`block-${block.id}`" :data="block.data" />
     </Block>
   </div>
 </template>
