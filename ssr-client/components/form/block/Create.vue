@@ -54,6 +54,7 @@ const create = async () => {
                     <option value="header">Header</option>
                     <option value="artist-grid">Kunstner liste</option>
                     <option value="banner">Animeret banner</option>
+                    <option value="prices">Prisliste</option>
                 </select>
             </div>
             <FormBlockDataHero v-if="block.type == 'hero'" @update="(e) => { block.data = e }" />

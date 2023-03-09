@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="prices">
+  <div class="block-prices">
     <BasePrice title="Partout" :price="300" :studentPrice="175" />
     <BasePrice title="Fredag" :price="175" :studentPrice="100" />
     <BasePrice
@@ -31,7 +31,7 @@ const props = defineProps({
 </template>
 
 <style>
-.prices {
+.block-prices {
   @apply container mx-auto grid grid-cols-4 gap-4;
 }
 </style>
