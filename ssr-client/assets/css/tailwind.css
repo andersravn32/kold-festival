@@ -4,9 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-*, *::after, *::before {
-  @apply m-0 p-0 box-border;
-}
 
 body {
   @apply bg-midnight delay-200;
