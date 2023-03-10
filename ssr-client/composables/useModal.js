@@ -4,6 +4,9 @@ const show = ref(false);
 export const useModal = () => {
   const toggle = () => {
     show.value = !show.value;
+    if (!show.value) {
+      component.value = null;
+    }
   };
 
   const setComponent = (comp) => {
@@ -15,5 +18,5 @@ export const useModal = () => {
     return component.value;
   };
 
-  return { toggle, setComponent, getComponent, show, component }
+  return { toggle, setComponent, getComponent, show, component };
 };
