@@ -11,6 +11,12 @@ if (!account.user.value || !account.profile.value) {
 // Import sidebar data
 const sidebar = useSidebar();
 
+const handleClick = (e) => {
+  if (e.target.className == "sidebar-overlay-inner") {
+    return sidebar.toggle();
+  }
+}
+
 // Ready state
 const ready = ref(false);
 onMounted(async () => {
@@ -19,8 +25,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="sidebar-overlay">
-    <div class="h-full w-full relative">
+  <div class="sidebar-overlay" @click="handleClick">
+    <div class="sidebar-overlay-inner">
       <aside v-if="ready" class="sidebar">
         <div class="flex items-end justify-end text-white">
           <button @click="sidebar.toggle()">
@@ -57,6 +63,10 @@ onMounted(async () => {
 <style>
 .sidebar-overlay {
   @apply top-0 bottom-0 left-0 right-0 fixed bg-black/75 z-40;
+}
+
+.sidebar-overlay-inner{
+  @apply h-full w-full relative;
 }
 
 .sidebar {
