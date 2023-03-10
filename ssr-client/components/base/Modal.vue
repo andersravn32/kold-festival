@@ -4,12 +4,12 @@ const modal = useModal();
 
 <template>
   <div class="modal">
-    <component v-if="modal.getComponent()" :is="modal.getComponent()" />
+    <component v-if="modal.getComponent()" :is="modal.getComponent()" @close="modal.toggle()"/>
   </div>
 </template>
 
 <style>
 .modal {
-    @apply bg-midnight shadow-md p-4 text-white w-full max-w-md;
+    @apply bg-midnight shadow-md p-4 text-white;
 }
 </style>
