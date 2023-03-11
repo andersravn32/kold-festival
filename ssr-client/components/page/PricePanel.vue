@@ -23,16 +23,16 @@ const { title, subtitle, price, studentPrice } = defineProps({
     <a href="https://tix.dk/da/musikkolding/buyingflow/tickets/15815/23040/" target="_blank"
         class="price-panel hover:bg-blue-600/50 hover:cursor-pointer transition-all duration-300">
         <div>
-            <h3 class="text-6xl">{{ title }}</h3>
-            <h5 v-if="subtitle" class="font-body text-xs mt-4 text-center">{{ subtitle }}</h5>
+            <h3 class="text-5xl">{{ title }}</h3>
+            <h5 v-if="subtitle" class="font-body text-xs mt-4 text-center hidden">{{ subtitle }}</h5>
         </div>
         <div class="flex flex-col text-center">
             <h4 class="lg:text-lg">Student / Ung</h4>
-            <p class="text-4xl lg:text-6xl font-bold">{{ studentPrice }} kr.</p>
+            <p class="text-4xl lg:text-5xl font-bold">{{ studentPrice }} kr.</p>
         </div>
         <div class="flex flex-col text-center">
             <h4 class="lg:text-xl">Normal pris</h4>
-            <p class="text-4xl lg:text-6xl font-bold">{{ price }} kr.</p>
+            <p class="text-4xl lg:text-5xl font-bold">{{ price }} kr.</p>
         </div>
     </a>
 </template>

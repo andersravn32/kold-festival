@@ -9,6 +9,6 @@
     <input type="email" placeholder="E-mail adresse">
     <textarea  placeholder="Indtast din besked"></textarea>
 
-    <button class="btn">Send besked</button>
+    <BaseButton :loading="false">Send besked</BaseButton>
   </form>
 </template>

@@ -70,14 +70,14 @@ setInterval(updateTime, 1000);
      @apply absolute w-full h-full object-cover -z-20
 }
 .hero_logo{
-     @apply  h-80 md:h-96 lg:h-[512px];
+     @apply  h-80 md:h-96 lg:h-[452px];
      animation: hero-logo 180s infinite linear;
 }
 .hero_header {
      @apply  flex flex-col items-center justify-center z-20;
 }
 .hero_header span:nth-child(1){
-     @apply  text-8xl lg:text-[12rem] uppercase font-bold text-zinc-100 leading-[0.6] ;
+     @apply  text-8xl sm:text-9xl xl:text-[10rem] uppercase font-bold text-zinc-100 leading-[0.6] ;
 }
 .hero_header span:nth-child(2){
      @apply text-4xl lg:text-6xl ;
@@ -88,7 +88,7 @@ setInterval(updateTime, 1000);
 
 /* Animations */
 
-@keyframes hero-logo {
+/* @keyframes hero-logo {
   0% {
     transform: rotate(0deg);
   }
@@ -96,6 +96,6 @@ setInterval(updateTime, 1000);
   100% {
     transform: rotate(360deg);
   }
-}
+} */
 
 </style>

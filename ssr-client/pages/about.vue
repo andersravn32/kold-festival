@@ -1,35 +1,3 @@
-<script setup>
-/* Meta */
-definePageMeta({
-    name: 'Om os'
-});
-/* Imports */
-import gsap from "gsap";
-import { onMounted } from "vue";
-/* Mount */
-onMounted(() => {
-
-//Create dataLayer if its doesn't exist
-/* dataLayer = window.dataLayer || []; */
-//Pushing CTA event to dataLayer
-/* dataLayer.push({'event' : 'About_Page'}); */
-
-//GSAP Animation
-
-  gsap.to(".symbolEffect, .symbolEffect2", {
-      y: "random(-20%, 20%, 5)",
-      x: 'random(-5%, 5%, 2)',
-      duration: 2,
-      repeat: -1,
-      yoyo: true,
-      ease: "linear",
-      repeatRefresh: true
-    })
-
-});
-
-</script>
-
 <template>
   <div id="page-about">
     <PageHeader class="bg-fixed bg-no-repeat bg-bottom" bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgAbout">
@@ -37,23 +5,23 @@ onMounted(() => {
     </PageHeader>
 
     <!-- // About info -->
-    <article class="aboutContainer info grid lg:grid-cols-2 my-16 container mx-auto">
-      <span class="block px-12 top-36">
-        <h2 class="m-auto text-4xl mb-2">Hvad er Kold Festival?</h2>
-        <p class="font-body mb-4">
+    <article class="aboutSection">
+      <div class="px-16 mb-8">
+        <h2 class="text-4xl mb-2 text-left">Hvad er Kold Festival?</h2>
+        <p class="font-body mb-4 text-left">
           KOLD Festival er en ny vinterfestival, som finder sted i Kolding Midtby fra den 2. - 4. februar. Vi er en festival, der i samarbejde med 6 lokale venues, som vi i fællesskab sammensætter og skaber rammerne for. Der er mulighed for at få en oplevelse udover det sædvanlige i en ellers kold og mørk tid af året.  
           KOLD Festival er drevet af MusikKolding og en lang række lokale samarbejdspartnere.
         </p>
-      </span>
-      <span class="relative px-12 mx-auto mt-12">
-        <img
-          class="relative"
+      </div>
+      <div class="relative px-16">
+        <nuxt-img
+          preset="compress2"
           src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/aboutSectionOne"
           alt=""
         />
         <!-- SVG 1 -->
         <svg
-          class="absolute w-24 left-8 md:left-0 md:w-40 -top-16 lg:-top-24  z-99 symbolEffect z-40"
+          class="svgPos1 symbolEffect"
           width="242"
           height="274"
           viewBox="0 0 242 274"
@@ -74,29 +42,27 @@ onMounted(() => {
           />
         </svg>
 
-      </span>
+      </div>
     </article>
 
-    <article class="aboutContainer info grid lg:flex lg:flex-row-reverse lg:justify-start lg:items-start my-16 container mx-auto">
-      <span class="block px-12">
-        <h2 class="m-auto text-4xl mb-2">Bæredygtighed</h2>
-        <p class="font-body mb-4">
+    <article class="aboutSection">
+      <div class="px-16 mb-8">
+        <h2 class="text-4xl mb-2 text-left">Bæredygtighed</h2>
+        <p class="font-body mb-4 text-left">
           Den bæredygtige dagsorden er en central del af KOLD Festival, Koldings nye vinterfestival. 
           Bæredygtighed er en del af KOLD på lige fod med musikken, og derfor vil KOLD også være foregangsevent for andre kulturevents i byen, 
           både kommunale og private, hvor vi aktivt bringer bæredygtighed og klima i spil, i forhold planlægning og afvikling.
         </p>
-      </span>
-
-      <span class="relative px-12 m-auto mt-12">
-        <img
-          class="relative"
+      </div>
+      <div class="relative px-16 order-2 lg:-order-1">
+        <nuxt-img
+          preset="compress2"
           src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/aboutSectionTwo"
           alt=""
         />
-
         <!-- SVG 2 -->
         <svg
-          class="absolute w-24 md:left-0 md:w-40 -top-16 left-8 z-99 symbolEffect2 z-40"
+          class="svgPos2 symbolEffect2"
           width="269"
           height="269"
           viewBox="0 0 269 269"
@@ -159,10 +125,45 @@ onMounted(() => {
             </clipPath>
           </defs>
         </svg>
-      </span>
+
+      </div>
     </article>
   </div>
 </template>
+
+<script setup>
+/* Imports */
+import gsap from "gsap";
+import { onMounted } from "vue";
+
+/* Meta */
+definePageMeta({
+    name: 'Om os'
+});
+
+/* Mount */
+onMounted(() => {
+
+//Create dataLayer if its doesn't exist
+dataLayer = window.dataLayer || [];
+//Pushing CTA event to dataLayer
+dataLayer.push({'event' : 'About_Page'});
+
+//GSAP Animation
+
+  gsap.to(".symbolEffect, .symbolEffect2", {
+      y: "random(-20%, 20%, 5)",
+      x: 'random(-5%, 5%, 2)',
+      duration: 2,
+      repeat: -1,
+      yoyo: true,
+      ease: "linear",
+      repeatRefresh: true
+    })
+
+});
+
+</script>
 
 
 <style>
@@ -177,4 +178,17 @@ onMounted(() => {
 .socialIcons {
   @apply flex justify-center items-center space-x-8;
 }
+
+.aboutSection {
+  @apply grid lg:grid-cols-2 my-16 container mx-auto px-4;
+}
+
+.svgPos1 {
+  @apply absolute w-24 left-8 md:left-0 md:w-40 -top-16 lg:-top-24 z-40;
+}
+
+.svgPos2 {
+  @apply absolute w-24 -top-12 right-8 md:right-0 md:w-40 z-40;
+}
+
 </style>

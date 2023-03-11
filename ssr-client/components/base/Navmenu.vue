@@ -45,6 +45,6 @@ defineEmits(["close"]);
 }
 
 #navmenu ul {
-    @apply flex flex-col text-6xl font-header font-bold uppercase text-white/75 text-center space-y-8;
+    @apply flex flex-col text-[3rem] md:text-6xl font-header font-bold uppercase text-white/75 text-center space-y-4 md:space-y-8;
 }
 </style>
