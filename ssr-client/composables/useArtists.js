@@ -17,6 +17,18 @@ export const useArtists = () => {
     return data.value;
   };
 
+  const getArtists = async (...args) => {
+    
+    // Request data from supabase
+    const req = await supabase.from("artists").select().eq('public', true).in('type', ...args);
+
+    // Assign comp data to response data
+    data.value = req.data;
+
+    // Return comp data
+    return data.value;
+  }
+
   // Create new artist
   const create = async (data) => {
     // Insert artist data
@@ -37,5 +49,5 @@ export const useArtists = () => {
   // Remove artist
   const remove = async (id) => {};
 
-  return { data, reload, create, update, remove };
+  return { data, reload, getArtists, create, update, remove };
 };

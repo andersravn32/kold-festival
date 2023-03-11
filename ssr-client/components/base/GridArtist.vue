@@ -36,6 +36,8 @@ const { name, subartist, artistCover  } = defineProps({
 });
 </script>
 
+
+
 <style>
 .artist {
   @apply lg:min-h-[300px] relative flex justify-center items-center w-full transition-all duration-150 ease-in-out cursor-pointer hover:scale-[1.02];

@@ -1,7 +1,7 @@
 <template>
     <footer>
         <ul
-            class="container grid justify-center place-items-center mx-auto gap-4 grid-cols-3 lg:grid-cols-5 border-b-2 border-zinc-100/75 pb-12 mb-12 font-bold text-zinc-100">
+            class="footerList">
             <li v-for="(route, index) in navList" :key="index">
                 <router-link :to="route.path">
                     {{ route.name }}
@@ -17,12 +17,15 @@
 
 <script setup>
 import { useRouter } from "vue-router";
-/* import IgIcon from "../assets/img/ig.svg";
-import FbIcon from "../assets/img/fb.svg"; */
+
 
 const router = useRouter();
+
 //Defined nav order
 const navOrder = ['Hjem', 'Program', 'Om os', 'FAQ', 'Partnere', 'Kontakt']
+
+//TO-DO: Define meta settings on pages
+
 
 // Filter routes, based on page meta
 const routes = router.getRoutes().filter((route) => {
@@ -35,11 +38,16 @@ const navList = navOrder.map(item => {
     return route.name == item;
   })
 })
+
 </script>
 
 <style>
 footer {
     @apply p-4 py-24 font-header
+}
+
+.footerList {
+    @apply container grid justify-center place-items-center mx-auto gap-4 grid-cols-3 lg:grid-cols-5 border-b-2 border-zinc-100/75 pb-12 mb-12 font-bold text-zinc-100
 }
 
 footer ul a {

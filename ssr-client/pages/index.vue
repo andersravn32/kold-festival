@@ -1,8 +1,73 @@
+
+<template>
+  <div id="page-index">
+<!-- Video Hero -->
+   <PageHeaderIndex />
+<!-- Floating GSAP Text -->
+    <div class="overflow-hidden w-full">
+      <div id="artist-banner">
+        <span class="floatingText">KUNSTNERE</span>
+        <span class="floatingText">KUNSTNERE</span>
+        <span>KUNSTNERE</span>
+        <span class="floatingText">KUNSTNERE</span>
+        <span class="floatingText">KUNSTNERE</span>
+      </div>
+    </div> 
+
+<!-- Artis Grid (mangler: se om data virker) -->
+<section class="pb-16 px-4" id="artist" v-if="artists.data">
+      <div class="artistGrid">
+        <BaseGridArtist
+          v-for="(artist, index) in artists.data.value"
+          :key="index"
+          :name="artist.name"
+          :subartist="artist.subtitle"
+          :artist-cover="artist.header"
+          @click="router.push(`/artist/${artist.identifier}`)"
+        />
+      </div>
+    </section>
+    
+    
+
+<!-- Ticket Selection -->
+    <section id="tickets">
+      <PagePricePanel
+        class="price-panel"
+        title="Partout"
+        :price="300"
+        :studentPrice="150"
+      />
+      <PagePricePanel
+        class="price-panel"
+        title="Fredag"
+        :price="175"
+        :studentPrice="100"
+      />
+      <PagePricePanel
+        class="price-panel"
+        title="Lørdag"
+        subtitle="(OBS: Gælder ikke Ude af Kontrol)"
+        :price="175"
+        :studentPrice="100"
+      />
+      <div
+        class="price-panel notice"
+      >
+        <InformationCircleIcon class="h-32 w-32" />
+        <h3>Vær opmærksom på..</h3>
+        <p class="font-body text-center">
+          For at opnå student / ung pris skal man være under 25 år eller have et
+          gyldigt studiekort
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <PageAboutSection></PageAboutSection>
+</template>
+
 <script setup>
-/* Meta */
-definePageMeta({
-  name: "Hjem",
-});
 /* Imports */
 import { InformationCircleIcon } from "@heroicons/vue/24/solid";
 
@@ -10,30 +75,25 @@ import { InformationCircleIcon } from "@heroicons/vue/24/solid";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-/* // Supabase
-const supabase = useSupabaseClient();
-
-const { data: artists } = await useAsyncData('artists', async () => {
-    const { data } = await supabase.from('artists').select();
-
-    return data
-})
- */
-
-/* const { data } = useArtists();
-console.log(data)
-  const artistsData = ref(
-    artists.filter((artist) => {
-      return artist.type == "concert";
-    })
-  ); */
-
 // import router
 const router = useRouter();
 
+/* Meta */
+definePageMeta({
+//Disable duplicate
+  hid: 'Hjem',
+//Page Title
+  name: "Hjem",
+//Page description
+  content: 'Default description for the page'
+});
+
+// get artist composable
 const artists = useArtists();
 
-artists.reload();
+// get artist with option of concert
+artists.getArtists(['concert']);
+
 
 // Load gsap when page has mounted
 onMounted(async () => {
@@ -83,80 +143,6 @@ ScrollTrigger.create({
 });
 </script>
 
-
-
-
-<template>
-  <div id="page-index">
-<!-- Video Hero -->
-   <PageHeaderIndex />
-<!-- Floating GSAP Text -->
-    <div class="overflow-hidden w-full">
-      <div id="artist-banner">
-        <span class="floatingText">KUNSTNERE</span>
-        <span class="floatingText">KUNSTNERE</span>
-        <span>KUNSTNERE</span>
-        <span class="floatingText">KUNSTNERE</span>
-        <span class="floatingText">KUNSTNERE</span>
-      </div>
-    </div> 
-
-<!-- Artis Grid (mangler: se om data virker) -->
-<section class="pb-16" id="artist" v-if="artists.data">
-      <div class="artistGrid">
-        <GridArtist
-          v-for="(artist, index) in artists.data.value"
-          :key="index"
-          :name="artist.name"
-          :subartist="artist.subtitle"
-          :artist-cover="artist.header"
-          @click="router.push(`/artist/${artist.identifier}`)"
-        />
-      </div>
-    </section>
-    
-    
-
-<!-- Ticket Selection -->
-    <section id="tickets">
-      <PricePanel
-        class="price-panel"
-        title="Partout"
-        :price="300"
-        :studentPrice="150"
-      />
-      <PricePanel
-        class="price-panel"
-        title="Fredag"
-        :price="175"
-        :studentPrice="100"
-      />
-      <PricePanel
-        class="price-panel"
-        title="Lørdag"
-        subtitle="(OBS: Gælder ikke Ude af Kontrol)"
-        :price="175"
-        :studentPrice="100"
-      />
-      <div
-        class="price-panel notice"
-      >
-        <InformationCircleIcon class="h-32 w-32" />
-        <h3>Vær opmærksom på..</h3>
-        <p class="font-body text-center">
-          For at opnå student / ung pris skal man være under 25 år eller have et
-          gyldigt studiekort
-        </p>
-      </div>
-    </section>
-
-<!-- About Selection -->
-     <AboutSection /> 
-
-  </div>
-</template>
-
-
 <style scoped>
 
 /* Floating Text styling */
@@ -172,7 +158,7 @@ ScrollTrigger.create({
 }
 /* Tickets styling */
 #tickets {
-  @apply container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 text-zinc-100 md:mb-16;
+  @apply container mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 p-4 text-zinc-100 md:mb-16;
 }
 
 .notice {

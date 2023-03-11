@@ -13,6 +13,13 @@ export default defineNuxtConfig({
                 quality: "80",
                 width: 500
             }
+        },
+        compress2: {
+            modifiers: {
+                format: "webp",
+                quality: "80",
+                width: 1000
+            }
         }
     }
 }})

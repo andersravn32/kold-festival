@@ -1,12 +1,3 @@
-<script setup>
-/* Meta */
-definePageMeta({
-    name: 'FAQ'
-});
-/* Imports */
-import { faq } from "../assets/data.json";
-
-</script>
 <template>
     <div id="page-faq">
     <PageHeader bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgFaq">
@@ -16,18 +7,29 @@ import { faq } from "../assets/data.json";
       </h2></PageHeader
     >
     <section id="faq">
-      <Accordion
-        v-for="(data, index) in faq"
+      <PageAccordion
+        v-for="(data, index) in faq.data.value"
         :key="index"
         :opened="data.opened || false"
         :title="data.title"
       >
         <p v-html="data.content" />
-      </Accordion>
+      </PageAccordion>
     </section>
   </div>
 </template>
 
+<script setup>
+/* Meta */
+definePageMeta({
+//Disable duplicate
+  hid: 'FAQ',
+//Page Title 
+  name: "FAQ",
+//Page description
+  content: 'Default description for the page'
+});
+</script>
 
 <style>
 #page-faq {
