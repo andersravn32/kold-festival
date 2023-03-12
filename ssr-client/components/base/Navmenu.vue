@@ -15,9 +15,9 @@ const routes = router.getRoutes().filter((route) => {
 
 // Sort routes by navOrder
 const navList = navOrder.map(item => {
-  return routes.find(route => {
-    return route.name == item;
-  })
+    return routes.find(route => {
+        return route.name == item;
+    })
 })
 
 // Define component emits
@@ -30,9 +30,34 @@ defineEmits(["close"]);
             <XMarkIcon class="h-16 w-16 text-white" />
         </button>
         <ul>
-            <li v-for="route in navList">
-                <NuxtLink @click="$emit('close')" :to="route.path">
-                    {{ route.name }}
+            <li>
+                <NuxtLink to="/">
+                    Hjem
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink to="/about">
+                    Om os
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink to="/faq">
+                    F.A.Q
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink to="/program">
+                    Program
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink to="/partners">
+                    Partnere
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink to="/contact">
+                    Kontakt os
                 </NuxtLink>
             </li>
         </ul>
