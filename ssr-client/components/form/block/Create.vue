@@ -6,7 +6,7 @@ const router = useRouter();
 
 // Filter routes, based on hidden routes
 const routes = router.getRoutes().filter((route) => {
-    return !route.meta.hidden
+    return route.meta.editable
 });
 
 // Loading state
