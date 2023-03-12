@@ -27,9 +27,9 @@ defineProps({
 
 <style>
 .partner {
-  @apply h-[150px] md: min-h-[300px] relative grid place-content-center w-full transition-all duration-150 ease-in-out cursor-pointer hover:scale-[1.02];
-  @apply hover: before:-translate-y-4 hover:before:-translate-x-4;
-  @apply hover: after:translate-y-4 hover:after:translate-x-4;
+  @apply h-[150px] md:min-h-[300px] relative grid place-content-center w-full transition-all duration-150 ease-in-out cursor-pointer hover:scale-[1.02];
+  @apply hover:before:-translate-y-4 hover:before:-translate-x-4;
+  @apply hover:after:translate-y-4 hover:after:translate-x-4;
 }
 
 .partner::before {
