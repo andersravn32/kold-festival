@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({
-  name: "Faq",
+  name: "F.A.Q",
   hidden: false,
   editable: true
 })
