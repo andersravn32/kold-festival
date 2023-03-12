@@ -1,35 +1,16 @@
-<template>
-    <div id="page-faq">
-    <PageHeader bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgFaq">
-      <h1 class="text-6xl lg:text-8xl uppercase leading-[0.9]">F.A.Q</h1>
-      <h2 class="lg:text-xl text-center font-body">
-        Her vil du finde svarene på de fleste af dine spørgsmål
-      </h2></PageHeader
-    >
-    <section id="faq">
-      <PageAccordion
-        v-for="(data, index) in faq.data.value"
-        :key="index"
-        :opened="data.opened || false"
-        :title="data.title"
-      >
-        <p v-html="data.content" />
-      </PageAccordion>
-    </section>
-  </div>
-</template>
-
 <script setup>
-/* Meta */
 definePageMeta({
-//Disable duplicate
-  hid: 'FAQ',
-//Page Title 
-  name: "FAQ",
-//Page description
-  content: 'Default description for the page'
-});
+  name: "Faq",
+  hidden: false,
+  editable: true
+})
 </script>
+
+<template>
+  <section id="page-faq">
+    <BlockContent />
+  </section>
+</template>
 
 <style>
 #page-faq {
