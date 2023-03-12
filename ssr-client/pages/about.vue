@@ -22,7 +22,7 @@ definePageMeta({
 }
 
 #page-about .block-container h3 {
-  @apply text-white text-4xl;
+  @apply text-white text-4xl mb-2;
 }
 
 #page-about .block-container p {
