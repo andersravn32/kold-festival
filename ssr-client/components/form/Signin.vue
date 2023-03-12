@@ -2,6 +2,9 @@
 // Import supabase client
 const supabase = useSupabaseClient();
 
+// Import modal from composable
+const modal = useModal();
+
 // Loading state
 const loading = ref(false);
 
@@ -30,6 +33,9 @@ const signin = async () => {
 
   // Update loading state
   loading.value = false;
+
+  modal.setComponent(h("div", { class: "w-full max-w-xl flex flex-col items-center justify-center" }, [h("h3", { class: "text-2xl" }, "Tjek din email"), h("p", "Tjek venligst din e-mail adresse, og benyt det tilsendte link til at tilgå KOLD Festivals personale portal.")]))
+  return modal.toggle();
 };
 </script>
 
