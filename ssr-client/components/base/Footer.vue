@@ -1,61 +1,47 @@
 <template>
     <footer>
         <ul
-            class="footerList">
-            <li v-for="(route, index) in navList" :key="index">
-                <router-link :to="route.path">
-                    {{ route.name }}
-                </router-link>
+            class="container mx-auto grid grid-cols-3 place-items-center text-white font-header uppercase font-bold border-b-2 border-b-white/50 pb-8">
+            <li>
+                <NuxtLink to="/">
+                    Hjem
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink to="/about">
+                    Om os
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink to="/faq">
+                    F.A.Q
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink to="/program">
+                    Program
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink to="/partners">
+                    Partnere
+                </NuxtLink>
+            </li>
+            <li>
+                <NuxtLink to="/contact">
+                    Kontakt os
+                </NuxtLink>
             </li>
         </ul>
-        <ul class="text-zinc-100 grid place-content-center">
+        <ul class="text-white/75 flex flex-col space-y-2 font-body text-xs">
             <li class="text-center">MUSIKKOLDING</li>
             <li class="text-center">Jens Holms Vej 5, 6000 Kolding</li>
         </ul>
     </footer>
 </template>
 
-<script setup>
-import { useRouter } from "vue-router";
-
-
-const router = useRouter();
-
-//Defined nav order
-const navOrder = ['Hjem', 'Program', 'Om os', 'FAQ', 'Partnere', 'Kontakt']
-
-//TO-DO: Define meta settings on pages
-
-
-// Filter routes, based on page meta
-const routes = router.getRoutes().filter((route) => {
-    return !route.meta.hidden
-})
-
-// Sort routes by navOrder
-const navList = navOrder.map(item => {
-  return routes.find(route => {
-    return route.name == item;
-  })
-})
-
-</script>
-
 <style>
 footer {
-    @apply p-4 py-24 font-header
-}
-
-.footerList {
-    @apply container grid justify-center place-items-center mx-auto gap-4 grid-cols-3 lg:grid-cols-5 border-b-2 border-zinc-100/75 pb-12 mb-12 font-bold text-zinc-100
-}
-
-footer ul a {
-  @apply text-zinc-100/75 transition-colors duration-150 hover:text-zinc-100;
-}
-
-footer .router-link-active,
-footer .router-link-exact-active {
-  @apply text-zinc-100;
+    @apply flex flex-col space-y-8 py-8;
 }
 </style>
