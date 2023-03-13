@@ -1,48 +1,19 @@
-<template>
-    <button class="text-zinc-50 z-50 text-center" @click="IsOpen = true">Open Modal</button>
-    <Teleport to="#modal">
-        <Transition name="modal">
-        <div class="bgModal" v-if="IsOpen">
-            <div class="modalContent">
-                {{ TextContent }}
-                <BaseButton @click="IsOpen = false">Close</BaseButton>
-            </div>
-        </div>
-        </Transition>
-    </Teleport>
-</template>
-
 <script setup>
-defineProps({
-  IsOpen: {
-    type: Boolean,
-    default: false,
-  },
-  TextContent: {
-    type: String,
-    default: "This is a modal"
-  }
-});
+import { XMarkIcon } from "@heroicons/vue/24/outline";
+const modal = useModal();
 </script>
 
-<style scoped>
+<template>
+  <div class="modal">
+    <button class="absolute top-4 right-4" @click="modal.toggle()">
+      <XMarkIcon class="h-6 w-6" />
+    </button>
+    <component v-if="modal.getComponent()" :is="modal.getComponent()" @close="modal.toggle()" />
+  </div>
+</template>
 
-.bgModal {
-    @apply fixed inset-0 h-full w-full bg-[rgba(0,0,0,0.5)] grid place-content-center z-[10000];
+<style>
+.modal {
+  @apply bg-midnight shadow-md p-4 text-white relative;
 }
-
-.modalContent {
-    @apply relative shadow-lg bg-zinc-50 py-6 px-8 text-center flex flex-col justify-center items-center gap-8 text-2xl font-header;
-}
-
-.modal-enter-active,
-.modal-leave-active {
-    @apply transition-all duration-150 ease-linear;
-}
-
-.modal-enter-from,
-.modal-leave-to {
-    @apply opacity-0 translate-y-8;
-}
-
 </style>

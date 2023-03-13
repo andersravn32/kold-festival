@@ -1,48 +1,22 @@
 <script setup>
-const modalOpen = ref(false)
+import { UserIcon } from "@heroicons/vue/24/outline";
+const sidebar = useSidebar();
+const modal = useModal();
+const account = useAccount();
 </script>
-<template>
-  <main>
-    <slot />
-    <BaseModal :IsOpen="modalOpen" TextContent="Amir er en hund!"/>
-  </main>
-  <BaseSocialTabs />
-  <BaseCTA />
-  <BaseCancelled />
-  <BaseFooter />
-</template>
 
-<style>
-body{
-  @apply overflow-x-hidden ;
-}
-/* 640px smaller */
-/* 640px smaller */
-@media screen and (max-width: 31em) {
-  html {
-    font-size: 4.2vw;
-  }
-}
-    @media screen and (max-width: 23em) {
-      html {
-        font-size: 5vw;
-      }
-    }
-/* 640px bigger */
-@media screen and (min-width: 31em) {
-  html {
-    font-size: 3vw;
-  }
-}
-@media screen and (min-width: 40em) {
-  html {
-    font-size: 2.5vw;
-  }
-}
-@media screen and (min-width: 50em) {
-  html {
-    font-size: 1.05em;
-  }
-}
-    /* About 2nd img padding, hero img ani fix */
-</style>
+<template>
+  <div id="layout-default">
+    <BaseSidebar v-if="sidebar.show.value && account.user.value && account.profile.value" />
+    <BaseOverlay v-if="modal.show.value">
+      <BaseModal />
+    </BaseOverlay>
+
+    <button v-if="!sidebar.show.value && account.user.value && account.profile.value" @click="sidebar.toggle()"
+      class="fixed bottom-4 right-4 p-4 bg-indigo-500 rounded-full z-20">
+      <UserIcon class="h-6 w-6 text-white" />
+    </button>
+    <slot />
+    <BaseFooter />
+  </div>
+</template>

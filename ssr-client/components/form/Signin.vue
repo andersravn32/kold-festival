@@ -2,6 +2,9 @@
 // Import supabase client
 const supabase = useSupabaseClient();
 
+// Import modal from composable
+const modal = useModal();
+
 // Loading state
 const loading = ref(false);
 
@@ -19,17 +22,21 @@ const signin = async () => {
   loading.value = true;
 
   // Perform signin request
-  const req = await supabase.auth.signInWithOtp({
+  const request = await supabase.auth.signInWithOtp({
     email: email.value,
   });
 
   // Handle errors
-  if (req.error) {
-    return req.error;
+  if (request.error) {
+    modal.setComponent(h("div", { class: "w-full max-w-xl flex flex-col items-center justify-center" }, [h("h3", { class: "text-2xl" }, "Der er sket en fejl"), h("p", { class: "mb-2" }, "Vi var desværre ikke i stand til at logge dig på"), h("p", { class: "opacity-50 text-xs" }, `Fejlkode: ${JSON.stringify(request.error)}`)]));
+    return modal.toggle();
   }
 
   // Update loading state
   loading.value = false;
+
+  modal.setComponent(h("div", { class: "w-full max-w-xl flex flex-col items-center justify-center" }, [h("h3", { class: "text-2xl" }, "Tjek din email"), h("p", "Tjek venligst din e-mail adresse, og benyt det tilsendte link til at tilgå KOLD Festivals personale portal.")]))
+  return modal.toggle();
 };
 </script>
 

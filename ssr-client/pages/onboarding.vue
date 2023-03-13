@@ -1,11 +1,9 @@
 <script setup>
-const supabase = useSupabaseClient();
 const user = useSupabaseUser();
 const router = useRouter();
 
 definePageMeta({
   hidden: true,
-  layout: 'empty'
 })
 
 if (!user.value) {

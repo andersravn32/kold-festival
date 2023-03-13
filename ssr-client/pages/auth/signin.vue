@@ -1,7 +1,6 @@
 <script setup>
 definePageMeta({
   hidden: true,
-  layout: 'empty'
 })
 </script>
 
@@ -16,6 +15,6 @@ definePageMeta({
 <style>
 #page-signin {
   @apply h-screen flex flex-col items-center justify-center bg-cover;
-  background-image: url("https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bg2.jpg");
+  background-image: url("https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bg1.jpg");
 }
 </style>
