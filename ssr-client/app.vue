@@ -4,10 +4,6 @@ if (!account.profile.value || !account.user.value) {
   await account.update();
 }
 
-// Init artists composable on SSR
-const artists = useArtists();
-await artists.reload();
-
 /* onMounted(() => {
   let externalScript = document.createElement("script");
   externalScript.setAttribute(
