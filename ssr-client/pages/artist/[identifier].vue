@@ -53,7 +53,15 @@ suggested.length = 3;
 
     <section id="artist">
       <div class="artist-info">
-        <div v-if="artist.socials" class="artist-socials">
+        <div
+          v-if="
+            artist.socials &&
+            (artist.socials.facebook ||
+              artist.socials.instagram ||
+              artist.socials.website)
+          "
+          class="artist-socials"
+        >
           <h2>Socials</h2>
           <ul>
             <li v-if="artist.socials.website">
