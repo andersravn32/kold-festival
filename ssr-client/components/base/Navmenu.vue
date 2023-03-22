@@ -26,9 +26,9 @@ defineEmits(["close"]);
 
 <template>
     <div id="navmenu">
-        <button @click="$emit('close')" class="absolute top-8 right-4">
+<!--         <button @click="$emit('close')" class="absolute top-8 right-4">
             <XMarkIcon class="h-16 w-16 text-white" />
-        </button>
+        </button> -->
         <ul>
             <li>
                 <NuxtLink to="/">

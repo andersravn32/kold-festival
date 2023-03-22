@@ -1,5 +1,6 @@
 <script setup>
 import { Bars3Icon } from '@heroicons/vue/24/outline';
+import MenuIcon from '../svg/MenuIcon.vue';
 
 // Navmenu state
 const showNavmenu = ref(false);
@@ -22,19 +23,21 @@ defineEmits(['toggleScroll']);
                     </NuxtLink>
                 </li>
                 <li>
-                    <button @click="showNavmenu = !showNavmenu" class="text-white">
-                        <Bars3Icon class="h-16 w-16" />
+                    <button @click="showNavmenu = !showNavmenu" class="text-white relative z-[100]">
+                        <MenuIcon :showMenu="showNavmenu" />
                     </button>
                 </li>
             </ul>
         </nav>
+        <Transition name="bubble">
         <BaseNavmenu v-if="showNavmenu" @close="showNavmenu = !showNavmenu" />
+        </Transition>
     </header>
 </template>
 
 <style>
 #navbar {
-    @apply fixed top-0 left-0 right-0 p-4 z-50 flex items-center justify-between bg-gradient-to-b from-blue-900/50 to-transparent;
+    @apply fixed top-0 inset-x-0 p-4 z-50 flex items-center justify-between bg-gradient-to-b from-blue-900/50 to-transparent;
 }
 
 #navbar .logo {

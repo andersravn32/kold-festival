@@ -7,6 +7,7 @@ const account = useAccount();
 
 <template>
   <div id="layout-default">
+    <!-- <BaseNavbar /> -->
     <BaseSidebar v-if="sidebar.show.value && account.user.value && account.profile.value" />
     <BaseOverlay v-if="modal.show.value">
       <BaseModal />
