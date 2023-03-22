@@ -1,47 +1,47 @@
 <script setup>
-import { Bars3Icon } from '@heroicons/vue/24/outline';
+import { Bars3Icon } from "@heroicons/vue/24/outline";
 
 // Navmenu state
 const showNavmenu = ref(false);
 
-defineEmits(['toggleScroll']);
+defineEmits(["toggleScroll"]);
 </script>
 
 <template>
-    <header>
-        <nav id="navbar">
-            <NuxtLink to="/">
-                <img class="logo"
-                    src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/logo.svg"
-                    alt="KOLD Icon" />
-            </NuxtLink>
-            <ul>
-                <li>
-                    <NuxtLink to="/program">
-                        Program
-                    </NuxtLink>
-                </li>
-                <li>
-                    <button @click="showNavmenu = !showNavmenu" class="text-white">
-                        <Bars3Icon class="h-16 w-16" />
-                    </button>
-                </li>
-            </ul>
-        </nav>
-        <BaseNavmenu v-if="showNavmenu" @close="showNavmenu = !showNavmenu" />
-    </header>
+  <header>
+    <nav id="navbar">
+      <NuxtLink to="/">
+        <img
+          class="logo"
+          src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/logo.svg"
+          alt="KOLD Icon"
+        />
+      </NuxtLink>
+      <ul>
+        <li>
+          <NuxtLink to="/program"> Program </NuxtLink>
+        </li>
+        <li>
+          <button @click="showNavmenu = !showNavmenu" class="text-white">
+            <Bars3Icon class="h-16 w-16" />
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <BaseNavmenu v-if="showNavmenu" @close="showNavmenu = !showNavmenu" />
+  </header>
 </template>
 
 <style>
 #navbar {
-    @apply fixed top-0 left-0 right-0 p-4 z-50 flex items-center justify-between bg-gradient-to-b from-blue-900/50 to-transparent;
+  @apply fixed top-0 left-0 right-0 p-4 z-50 flex items-center justify-between bg-gradient-to-b from-blue-900/50 to-transparent;
 }
 
 #navbar .logo {
-    @apply h-24 w-24 hover:rotate-90 transition-transform duration-300;
+  @apply h-24 w-24 hover:rotate-90 transition-transform duration-300;
 }
 
-#navbar ul{
-    @apply  sm:text-2xl font-header font-bold text-white/75 flex items-center space-x-8 uppercase;
+#navbar ul {
+  @apply sm:text-2xl font-header font-bold text-white/75 flex items-center space-x-8 uppercase;
 }
 </style>
