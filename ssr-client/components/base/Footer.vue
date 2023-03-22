@@ -28,6 +28,7 @@
         <li>Jens Holms Vej 5, 6000 Kolding</li>
       </ul>
       <ul class="text-white/75 flex space-x-4 font-body text-xs">
+        <li><router-link to="/auth/signin">Personalelogin</router-link></li>
         <li><a href="#" target="_blank">Privatlivspolitik</a></li>
         <li><a href="#" target="_blank">Handelsbetingelser</a></li>
         <li>Copyright &copy; 2023</li>
