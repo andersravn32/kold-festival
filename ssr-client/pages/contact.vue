@@ -18,11 +18,11 @@ definePageMeta({
 
 <template>
     <div id="page-contact">
-    <PageHeader bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgContact">
+    <BasePageHeader bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgContact">
       <h1 class="text-6xl lg:text-8xl uppercase leading-[0.9]">Kontakt</h1>
       <h2 class="lg:text-xl text-center font-body">
         Udfyld den nedenstående formular for at sende os en direkte besked
-      </h2></PageHeader
+      </h2></BasePageHeader
     >
     <!-- temporary text -->
     <p class="font-body text-zinc-50 text-center">Kontaktformularen er ude af drift pt. Se derfor kontaktoplysninger nedenfor</p>

@@ -46,10 +46,10 @@ suggested.length = 3;
 
 <template>
   <div id="page-artist">
-    <PageHeader id="artist-header" :bg="artist.header">
+    <BasePageHeader id="artist-header" :bg="artist.header">
       <h1 class="text-center text-6xl">{{ artist.name }}</h1>
       <h2 class="text-center text-4xl">{{ artist.subtitle }}</h2>
-    </PageHeader>
+    </BasePageHeader>
 
     <section id="artist">
       <div class="artist-info">
@@ -120,7 +120,7 @@ suggested.length = 3;
     <section id="suggested">
       <h3 class="text-4xl text-center">Se flere kunstnere</h3>
       <div class="suggested">
-        <Artist
+        <BaseArtist
           v-if="artists.length"
           v-for="(artist, index) in suggested"
           :key="index"

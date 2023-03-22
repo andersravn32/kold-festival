@@ -21,7 +21,7 @@ const artists = ref(data);
     <div v-if="error">
       {{ error }}
     </div>
-    <Artist
+    <BaseArtist
       v-if="artists.length"
       v-for="(artist, index) in artists"
       :key="index"

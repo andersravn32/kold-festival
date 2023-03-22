@@ -1,6 +1,6 @@
 <script setup>
-// Define supabase instance from composable 
-const supabase = useSupabaseClient()
+// Define supabase instance from composable
+const supabase = useSupabaseClient();
 
 // Define router from composable
 const router = useRouter();
@@ -11,16 +11,13 @@ definePageMeta({
   editable: false,
 });
 
-
-
 //Import Artists
-const { data }= await supabase.from("artists").select("*");
+const { data } = await supabase.from("artists").select("*");
 const artists = data;
 
 // Define array for storing number and titles of columns
 const artistCols = ref([]);
 const talkCols = ref([]);
-
 
 const artistDates = ref(
   artists.map((artist) => {
@@ -37,7 +34,7 @@ const artistDates = ref(
   })
 );
 
-/* onMounted(() => {
+onMounted(() => {
   //Sort concerts and talks
   const concerts = artistDates.value.filter((artist) => {
     return artist.type === "concert";
@@ -82,18 +79,33 @@ const artistDates = ref(
   talks.sort((x, y) => {
     return x.date - y.date;
   });
-}); */
+
+  console.log(artistCols.value, talkCols.value)
+});
 </script>
 <template>
-  <section id="programPage">
-    <PageHeader>
+  <section>
+    <BasePageHeader
+      id="program-header"
+      bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere"
+    >
       <h1 class="text-6xl lg:text-8xl uppercase leading-[0.9]">Program</h1>
       <h2 class="lg:text-xl text-center font-body">
         Nedenfor kan du læse hele festivalens program
       </h2>
-    </PageHeader>
+    </BasePageHeader>
 
-    <article id="programContainer">
+    <div id="program-tabs">
+      <BaseTabs>
+        <BaseTab title="Musik">
+          <p>Hello1</p>
+        </BaseTab>
+        <BaseTab title="Talks">
+          <p>Hello2</p>
+        </BaseTab>
+      </BaseTabs>
+    </div>
+    <!--     <article id="programContainer">
       <Tabs>
         <Tab title="Musik" class="tabStyle">
           <div
@@ -142,7 +154,7 @@ const artistDates = ref(
           </div>
         </Tab>
       </Tabs>
-    </article>
+    </article> -->
   </section>
 </template>
 
