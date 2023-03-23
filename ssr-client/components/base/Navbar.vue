@@ -34,7 +34,7 @@ defineEmits(["toggleScroll"]);
 
 <style>
 #navbar {
-  @apply fixed top-0 left-0 right-0 p-4 z-50 flex items-center justify-between bg-gradient-to-b from-blue-900/50 to-transparent;
+  @apply fixed top-0 left-0 right-0 p-4 z-30 flex items-center justify-between bg-gradient-to-b from-blue-900/50 to-transparent;
 }
 
 #navbar .logo {
