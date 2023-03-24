@@ -23,4 +23,9 @@ export default defineNuxtConfig({
         }
     }
     },
+    runtimeConfig: {
+       mailtrap_api: process.env.MAILTRAP_API,
+       mailtrap_token: process.env.MAILTRAP_API_TOKEN,
+       hcaptcha_secret: process.env.HCAPTCHA_SECRET
+    }
 })

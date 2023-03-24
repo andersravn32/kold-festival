@@ -24,8 +24,7 @@ definePageMeta({
         Udfyld den nedenstående formular for at sende os en direkte besked
       </h2></PageHeader
     >
-    <!-- temporary text -->
-    <p class="font-body text-zinc-50 text-center">Kontaktformularen er ude af drift pt. Se derfor kontaktoplysninger nedenfor</p>
+    
     <FormContact class="max-w-2xl mx-auto p-4"/>
 
     <div class="contactContainer">
