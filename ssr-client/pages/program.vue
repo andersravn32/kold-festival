@@ -13,39 +13,58 @@ definePageMeta({
 
 //Import Artists
 const { data } = await supabase.from("artists").select("*");
-const artists = data;
+const artists = ref(data);
 
-// Define array for storing number and titles of columns
+artists.value = artists.value.map((artist) => {
+  return {
+    ...artist,
+    dateShort: new Intl.DateTimeFormat("da-DK", {
+      weekday: "long",
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+    }).format(Math.round(new Date(artist.date))),
+  };
+});
+
+const festivalYears = ref([]);
+artists.value.forEach((artist) => {
+  if (!festivalYears.value.includes(artist.date.split("-")[0])) {
+    return festivalYears.value.push(artist.date.split("-")[0]);
+  }
+});
+
+const selectedYear = ref(festivalYears.value.reverse()[0]);
+
+const concerts = ref([]);
 const artistCols = ref([]);
+
+const talks = ref([]);
 const talkCols = ref([]);
 
-const artistDates = ref(
-  artists.map((artist) => {
-    return {
-      ...artist,
-      dateShort: new Intl.DateTimeFormat("da-DK", {
-        weekday: "long",
-        month: "short",
-        day: "numeric",
-        hour: "numeric",
-        minute: "numeric",
-      }).format(Math.round(new Date(artist.date) / 1000)),
-    };
-  })
-);
+const update = () => {
+  artistCols.value = [];
+  talkCols.value = [];
 
-onMounted(() => {
-  //Sort concerts and talks
-  const concerts = artistDates.value.filter((artist) => {
-    return artist.type === "concert";
-  });
+  concerts.value = artists.value
+    .filter((artist) => {
+      return artist.date.split("-")[0] == selectedYear.value;
+    })
+    .filter((artist) => {
+      return artist.type == "concert";
+    });
 
-  const talks = artistDates.value.filter((artist) => {
-    return artist.type === "talk";
-  });
+  talks.value = artists.value
+    .filter((artist) => {
+      return artist.date.split("-")[0] == selectedYear.value;
+    })
+    .filter((artist) => {
+      return artist.type == "talk";
+    });
 
-  // Get number of dates as array
-  concerts.forEach((artist) => {
+  // Set artist columns state
+  concerts.value.forEach((artist) => {
     if (
       !artistCols.value.includes(
         artist.dateShort.substring(0, artist.dateShort.length - 6)
@@ -57,8 +76,8 @@ onMounted(() => {
     }
   });
 
-  // Get number of dates as array
-  talks.forEach((artist) => {
+  // Set talk columns state
+  talks.value.forEach((artist) => {
     if (
       !talkCols.value.includes(
         artist.dateShort.substring(0, artist.dateShort.length - 6)
@@ -69,18 +88,10 @@ onMounted(() => {
       );
     }
   });
+};
 
-  // Sort concerts
-  concerts.sort((x, y) => {
-    return x.date - y.date;
-  });
-
-  // Sort talks
-  talks.sort((x, y) => {
-    return x.date - y.date;
-  });
-
-  console.log(artistCols.value, talkCols.value)
+onMounted(() => {
+  update();
 });
 </script>
 <template>
@@ -96,32 +107,21 @@ onMounted(() => {
     </BasePageHeader>
 
     <div id="program-tabs">
+      <select v-model="selectedYear" @change="update">
+        <option v-for="year in festivalYears" :value="year">{{ year }}</option>
+      </select>
       <BaseTabs>
-        <BaseTab title="Musik">
-          <p>Hello1</p>
-        </BaseTab>
-        <BaseTab title="Talks">
-          <p>Hello2</p>
-        </BaseTab>
-      </BaseTabs>
-    </div>
-    <!--     <article id="programContainer">
-      <Tabs>
-        <Tab title="Musik" class="tabStyle">
-          <div
-            v-for="(column, index) in artistCols.value"
-            :key="index"
-            class="flex flex-col space-y-4 bg-blue-900/75 p-4"
-          >
+        <BaseTab title="Musik" class="grid grid-cols-2 gap-8">
+          <div v-for="column in artistCols" class="flex flex-col space-y-4">
             <h2 class="text-xl">{{ column }}</h2>
-            <ul class="flex flex-col space-y-2 divide-y-2 divide-blue-900">
+            <ul class="flex flex-col space-y-4 divide-y-2 divide-white/25">
               <li class="grid grid-cols-4 font-header font-bold">
-                <span class="col-span-2">Navn</span>
+                <span>Navn</span>
                 <span>Sted</span>
                 <span>Tidspunkt</span>
               </li>
               <li
-                v-for="(artist, index) in concerts.filter((artist) => {
+                v-for="artist in concerts.filter((artist) => {
                   return (
                     artist.dateShort.substring(
                       0,
@@ -129,41 +129,69 @@ onMounted(() => {
                     ) == column
                   );
                 })"
-                :key="index"
-                class="grid grid-cols-4 font-body pt-2"
+                class="grid grid-cols-4 pt-4 items-center"
               >
                 <span
-                  class="col-span-2 cursor-pointer underline"
-                  @click="router.push(`/artist/${artist.identifier}`)"
+                  class="cursor-pointer underline"
+                  @click="router.push('/artist/' + artist.identifier)"
                   >{{ artist.name }}</span
                 >
                 <span>{{ artist.location }}</span>
-                <span
-                  >kl
-                  {{
-                    artist.dateShort
-                      .substring(
-                        artist.dateShort.length - 6,
-                        artist.dateShort.length
-                      )
-                      .replace(".", ":")
-                  }}</span
-                >
+                <span>{{ artist.time }}</span>
               </li>
             </ul>
           </div>
-        </Tab>
-      </Tabs>
-    </article> -->
+        </BaseTab>
+        <BaseTab title="Talks" class="grid grid-cols-2 gap-8">
+          <div v-for="column in talkCols" class="flex flex-col space-y-4">
+            <h2 class="text-xl">{{ column }}</h2>
+            <ul class="flex flex-col space-y-4 divide-y-2 divide-white/25">
+              <li class="grid grid-cols-4 font-header font-bold">
+                <span>Navn</span>
+                <span>Sted</span>
+                <span>Tidspunkt</span>
+              </li>
+              <li
+                v-for="artist in talks.filter((artist) => {
+                  return (
+                    artist.dateShort.substring(
+                      0,
+                      artist.dateShort.length - 6
+                    ) == column
+                  );
+                })"
+                class="grid grid-cols-4 pt-4 items-center"
+              >
+                <span
+                  class="cursor-pointer underline"
+                  @click="router.push('/artist/' + artist.identifier)"
+                  >{{ artist.name }}</span
+                >
+                <span>{{ artist.location }}</span>
+                <span>{{ artist.time }}</span>
+              </li>
+            </ul>
+          </div>
+        </BaseTab>
+      </BaseTabs>
+    </div>
   </section>
 </template>
 
 <style>
-.programContainer {
-  @apply text-zinc-100;
+#program-tabs {
+  @apply container mx-auto text-white;
 }
 
-.tabStyle {
-  @apply grid md:grid-cols-2 lg:grid-cols-2 gap-4;
+#program-tabs .tabs-titles {
+  @apply flex items-center space-x-4 my-4;
+}
+
+#program-tabs .tab-title {
+  @apply bg-indigo-500 px-6 py-2 relative font-header font-bold text-white cursor-pointer;
+}
+
+#program-tabs .tab-active {
+  @apply bg-indigo-600/75 border-4 border-indigo-500 py-1;
 }
 </style>
