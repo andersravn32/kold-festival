@@ -1,29 +1,30 @@
 <script setup>
-definePageMeta({
-  hidden: true
-})
-
-/* import {
+import {
   GlobeAltIcon,
   MapPinIcon,
   CalendarIcon,
 } from "@heroicons/vue/24/solid";
-import IgIcon from "../assets/img/ig.svg";
-import FbIcon from "../assets/img/fb.svg";
 
-// Import router through useRouter composable
+const supabase = useSupabaseClient();
 const router = useRouter();
 
-// Define loading state
-const loading = ref(false);
+definePageMeta({
+  name: "Kunstner",
+  hidden: true,
+  editable: false,
+});
 
-// Define individual artist
-const currentArtist = ref(null);
+const { data } = await supabase.from("artists").select("*");
 
-// Define suggested array
-const suggested = ref([]);
+// Set all artists
+const artists = data;
 
-// Shuffle method for randomiszing arrays
+// Set selected artist
+const artist = artists.filter((artist) => {
+  return artist.identifier == router.currentRoute.value.params.identifier;
+})[0];
+
+// Shuffle method
 const shuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -34,108 +35,79 @@ const shuffle = (array) => {
   return array;
 };
 
-const refresh = async () => {
-  // Assign values to suggested array
-  suggested.value = shuffle(
-    artists.filter((artist) => {
-      return !(artist.identifier == currentArtist.value.identifier);
-    })
-  ).filter((artist) => {
-    return artist.type == "concert";
-  });
-
-  // Set static array length
-  suggested.value.length = 3;
-}; */
-
-/* onMounted(async () => {
-
-/*   //Create dataLayer if its doesn't exist
-  dataLayer = window.dataLayer || [];
-
-  //Pushing CTA event to dataLayer
-  dataLayer.push({'event' : 'Contact_Page'}); */
-
-  // Set individual artist based on route param
-/*   currentArtist.value = artists.filter((artist) => {
-    return artist.identifier == router.currentRoute.value.params.identifier;
-  })[0]; */
-
-  // When loading has completed, update values
-  /* refresh(); */
-/* }); */
+// Suggested array, contains artist info
+const suggested = shuffle(
+  artists.filter((artist) => {
+    return !(artist.identifier == router.currentRoute.value.params.identifier);
+  })
+);
+suggested.length = 3;
 </script>
 
 <template>
-  <!-- <div v-if="currentArtist" id="page-artist">
-    <PageHeader :bg="currentArtist.header">
-      <h1 class="text-center text-6xl lg:text-8xl">{{ currentArtist.name }}</h1>
-      <h2 class="text-center text-4xl lg:text-6xl">{{ currentArtist.subartist }}</h2>
-    </PageHeader>
-    <section id="artist-inner">
-      <div id="artist-info">
+  <div id="page-artist">
+    <BasePageHeader id="artist-header" :bg="artist.header">
+      <h1 class="text-center text-6xl">{{ artist.name }}</h1>
+      <h2 class="text-center text-4xl">{{ artist.subtitle }}</h2>
+    </BasePageHeader>
+
+    <section id="artist">
+      <div class="artist-info">
         <div
           v-if="
-            !(
-              !currentArtist.socials.facebook &&
-              !currentArtist.socials.instagram &&
-              !currentArtist.socials.website
-            )
+            artist.socials &&
+            (artist.socials.facebook ||
+              artist.socials.instagram ||
+              artist.socials.website)
           "
-          class="flex flex-col space-y-2"
+          class="artist-socials"
         >
           <h2>Socials</h2>
-          <ul class="flex flex-col space-y-2">
-            <li v-if="currentArtist.socials.instagram">
-              <img :src="IgIcon" alt="Instagram Icon" />
-              <a :href="currentArtist.socials.instagram" target="_blank"
-                >Instagram</a
-              >
-            </li>
-            <li v-if="currentArtist.socials.facebook">
-              <img :src="FbIcon" alt="Facebook Icon" />
-              <a :href="currentArtist.socials.facebook" target="_blank"
-                >Facebook</a
-              >
-            </li>
-            <li v-if="currentArtist.socials.website">
-              <GlobeAltIcon class="h-6 w-6" />
-              <a :href="currentArtist.socials.website" target="_blank"
+          <ul>
+            <li v-if="artist.socials.website">
+              <GlobeAltIcon class="h-6 w-6" /><a
+                :href="artist.socials.website"
+                target="_blank"
                 >Hjemmeside</a
               >
             </li>
+            <li v-if="artist.socials.facebook">
+              <img
+                class="h-6 w-6"
+                src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/facebook.svg"
+                alt="Facebook Icon"
+              /><a :href="artist.socials.facebook" target="_blank">Facebook</a>
+            </li>
+            <li v-if="artist.socials.instagram">
+              <img
+                class="h-6 w-6"
+                src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/instafram.svg"
+                alt="Instagram Icon"
+              /><a :href="artist.socials.website" target="_blank">Instagram</a>
+            </li>
           </ul>
         </div>
-        <div class="flex flex-col space-y-2">
-          <h2>Tidspunkt</h2>
-          <p class="flex space-x-2">
-            <CalendarIcon class="h-6 w-6" />
-            <span>{{
-              new Intl.DateTimeFormat("da-DK", {
-                weekday: "long",
-                month: "short",
-                day: "numeric",
-                hour: "numeric",
-                minute: "numeric",
-              }).format(currentArtist.date * 1000)
-            }}</span>
+
+        <div class="artist-date">
+          <h2>Dato</h2>
+          <p>
+            <CalendarIcon class="h6 w-6" /><span>{{ artist.date }}</span>
           </p>
         </div>
-        <div class="flex flex-col space-y-2">
+        <div class="artist-location">
           <h2>Venue</h2>
           <p class="flex space-x-2">
             <MapPinIcon class="h-6 w-6" />
-            <span>{{ currentArtist.location }}</span>
+            <span>{{ artist.location }}</span>
           </p>
         </div>
       </div>
-
-      <div id="artist-body">
-        <article v-html="currentArtist.body"></article>
+      <article class="artist-body">
+        <div class="artist-body-inner" v-html="artist.body"></div>
         <iframe
-          v-if="currentArtist.socials.spotify"
+          v-if="artist.socials && artist.socials.spotify"
           style="border-radius: 12px"
-          :src="`https://open.spotify.com/embed/artist/${currentArtist.socials.spotify}?utm_source=generator&theme=0`"
+          :src="artist.socials.spotify"
           width="100%"
           height="80"
           frameBorder="0"
@@ -143,70 +115,91 @@ const refresh = async () => {
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe>
-      </div>
+      </article>
     </section>
-    <section v-if="suggested.length" id="artist-suggested">
-      <h3 class="font-header font-bold text-white text-6xl text-center">
-        Se flere kunstnere
-      </h3>
-      <div class="grid lg:grid-cols-3 gap-16">
-        <GridArtist
+    <section id="suggested">
+      <h3 class="text-4xl text-center">Se flere kunstnere</h3>
+      <div class="suggested">
+        <BaseArtist
+          v-if="artists.length"
           v-for="(artist, index) in suggested"
           :key="index"
           :name="artist.name"
-          :subartist="artist.subartist"
+          :subartist="artist.subtitle"
           :artist-cover="artist.header"
-          @click="
-            router.push(`/artist/${artist.identifier}`);
-            currentArtist = artist;
-            refresh();
-          "
-        >
-        </GridArtist>
+          @click="router.push(`/artist/${artist.identifier}`)"
+        />
       </div>
     </section>
-  </div> -->
+  </div>
 </template>
 
-<!-- <style>
-#artist-inner {
-  @apply max-w-6xl mx-auto grid lg:grid-cols-4 gap-4;
+<style>
+#page-artist {
+  @apply text-white;
 }
 
-#artist-info {
-  @apply col-span-1 flex flex-col space-y-4 text-zinc-100 p-4;
+#artist {
+  @apply max-w-6xl mx-auto grid lg:grid-cols-4 gap-4 p-4;
 }
 
-#artist-info h2 {
-  @apply text-2xl font-header;
+.artist-info {
+  @apply flex flex-col space-y-4 font-body col-span-1;
 }
 
-#artist-info p,
-#artist-info li {
-  @apply font-body flex items-center space-x-2;
-}
-
-#artist-info li img {
-  @apply h-6 w-6;
-}
-
-#artist-body {
-  @apply col-span-3 text-zinc-100 flex flex-col space-y-8 p-4;
-}
-
-#artist-body article {
+.artist-socials {
   @apply flex flex-col space-y-2;
 }
 
-#artist-body article p {
-  @apply font-body;
-}
-
-#artist-body article h2 {
+.artist-socials h2 {
   @apply text-2xl;
 }
 
-#artist-suggested {
-  @apply w-full max-w-6xl mx-auto flex flex-col gap-12 mt-8 p-4;
+.artist-socials ul {
+  @apply flex flex-col space-y-2;
 }
-</style> -->
+
+.artist-socials li {
+  @apply flex items-center space-x-2;
+}
+
+.artist-date {
+  @apply flex flex-col space-y-2;
+}
+
+.artist-date h2 {
+  @apply text-2xl;
+}
+
+.artist-date p {
+  @apply flex items-center space-x-2;
+}
+
+.artist-location h2 {
+  @apply text-2xl;
+}
+
+.artist-location p {
+  @apply flex items-center space-x-2;
+}
+
+.artist-body {
+  @apply flex flex-col space-y-4 col-span-3;
+}
+
+.artist-body-inner h2 {
+  @apply text-2xl;
+}
+
+.artist-body-inner p {
+  @apply font-body;
+}
+
+#suggested {
+  @apply max-w-6xl mx-auto p-4 flex flex-col space-y-8;
+}
+
+.suggested {
+  @apply grid lg:grid-cols-3 gap-16 col-span-4;
+}
+</style>

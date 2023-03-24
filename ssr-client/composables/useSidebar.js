@@ -7,6 +7,7 @@ export const useSidebar = () => {
     show.value = !show.value;
     if (!show.value) {
       component.value = null;
+      editData.value = null;
     }
   };
 
