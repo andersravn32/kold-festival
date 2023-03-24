@@ -23,7 +23,7 @@ const props = defineProps({
 .btn,
 .button,
 button {
-  @apply bg-indigo-500 px-6 py-2 relative font-header font-bold transition-all duration-150 text-white hover:bg-indigo-600/75;
+  @apply bg-indigo-500 px-6 py-2 relative font-header font-bold transition-all duration-150 text-white hover:bg-indigo-600/75 cursor-pointer;
 }
 
 .btn-disabled{
