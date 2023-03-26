@@ -166,6 +166,7 @@ onMounted(async () => {
         <GridArtist
           v-for="(artist, index) in artistsData"
           :key="index"
+          
           :name="artist.name"
           :subartist="artist.subartist"
           :artist-cover="artist.header"

@@ -1,23 +1,32 @@
 <template>
-    <a @click="GA4_Event_Ticket()" href="https://tix.dk/da/musikkolding/buyingflow/tickets/15815/23040" target="_blank" class="cancelCTA">
+    <!-- <a @click="GA4_Event_Ticket()" href="https://tix.dk/da/musikkolding/buyingflow/tickets/15815/23040" target="_blank" class="cancelCTA">
        Aflyst, ka' du fat det?
-    </a>
+    </a> -->
+    <div id="cancelled">
+        <p class="text-2xl">Aflyst</p>
+        <div class="grid grid-cols-3"
+        v-for="artist, key in artists"
+        >
+        <p :key="key">{{ artist.name }}</p>
+        </div>
+    </div>
 </template>
 
 <script setup>
 
-const GA4_Event_Ticket = ()=> {
-    //Create dataLayer if its doesn't exist
-    dataLayer = window.dataLayer || [];
+// Filter artist by cancelled concert
 
-    //Pushing CTA event to dataLayer
-    dataLayer.push({'event' : 'View_tickets'});
-}
+const { data, error } = await supabase
+  .from("artists")
+  .select("*")
+const artists = ref(data);
+
 </script>
 
 <style>
-.cancelCTA {
-    @apply fixed bottom-[4.5rem] left-0 right-0 p-4 text-4xl text-center font-header uppercase text-zinc-100 bg-red-800 font-bold z-[100] hidden;
+
+#cancelled {
+    @apply container font-header flex flex-col justify-center items-center bg-zinc-50 text-center
 }
 
 </style>
