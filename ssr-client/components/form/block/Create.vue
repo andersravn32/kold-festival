@@ -61,6 +61,7 @@ const create = async () => {
             <FormBlockDataContainer v-if="block.type == 'container'" @update="(e) => { block.data = e }" />
             <FormBlockDataAccordion v-if="block.type == 'accordion'" @update="(e) => { block.data = e }" />
             <FormBlockDataHeader v-if="block.type == 'header'" @update="(e) => { block.data = e }" />
+            <FormBlockDataArtistGrid v-if="block.type == 'artist-grid'" @update="(e) => { block.data = e }" />
             <FormBlockDataBanner v-if="block.type == 'banner'" @update="(e) => { block.data = e }" />
 
             <div class="input">

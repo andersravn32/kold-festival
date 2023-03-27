@@ -1,6 +1,7 @@
 <script setup>
 const supabase = useSupabaseClient();
 const modal = useModal();
+const imageSelector = useImageSelector();
 const sidebar = useSidebar();
 
 const artist = ref({
@@ -141,19 +142,29 @@ const create = async () => {
       </div>
     </div>
     <div class="input">
-      <label>Kunsterbillede</label>
+      <label
+        >Kunsterbillede URL
+        <span class="cursor-pointer underline" @click="imageSelector.toggle()"
+          >(Vælg billede)</span
+        ></label
+      >
       <input
         v-model="artist.image"
         type="text"
-        placeholder="Indtast link til kunstnertitel"
+        placeholder="Indtast URL til kunstnertitel"
       />
     </div>
     <div class="input">
-      <label>Header billede</label>
+      <label
+        >Header billede URL
+        <span class="cursor-pointer underline" @click="imageSelector.toggle()"
+          >(Vælg billede)</span
+        ></label
+      >
       <input
         v-model="artist.header"
         type="text"
-        placeholder="Indtast link til header billede"
+        placeholder="Indtast URL til header billede"
       />
     </div>
     <div class="input">

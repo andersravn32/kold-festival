@@ -1,11 +1,12 @@
 <script setup>
 const supabase = useSupabaseClient();
 const sidebar = useSidebar();
+const imageSelector = useImageSelector();
 const modal = useModal();
 
 // Get artists from Supanase
 const { data } = await supabase.from("artists").select().order("created_at");
-const artists = data;
+const artists = ref(data);
 
 const loading = ref(false);
 
@@ -15,6 +16,13 @@ const setArtist = (artist) => {
   artist.date = artist.date.split("T")[0];
   editArtist.value = artist;
 };
+
+const festivalYears = ref([]);
+artists.value.forEach((artist) => {
+  if (!festivalYears.value.includes(artist.date.split("-")[0])) {
+    return festivalYears.value.push(artist.date.split("-")[0]);
+  }
+});
 
 const update = async () => {
   if (loading.value) {
@@ -91,17 +99,25 @@ const update = async () => {
 <template>
   <form id="form-artist-edit" @submit.prevent="update">
     <div v-if="!editArtist" class="flex flex-col space-y-4">
-      <h2>Vælg venligst en kunster fra listen</h2>
-      <ul v-if="artists.length" class="flex flex-col space-y-2">
-        <li
-          v-for="artist in artists"
-          @click="setArtist(artist)"
-          class="flex flex-col text-white cursor-pointer hover:opacity-75"
-        >
-          <span>{{ artist.name }}</span
-          ><span class="text-xs text-white/50">{{ artist.identifier }}</span>
-        </li>
-      </ul>
+      <BaseAccordion
+        v-for="(year, index) in festivalYears"
+        :title="`Kold Festival - ${year}`"
+        :opened="index == 0"
+      >
+        <h2>Vælg venligst en kunster fra listen</h2>
+        <ul v-if="artists.length" class="flex flex-col space-y-2">
+          <li
+            v-for="artist in artists.filter((filteredArtist) => {
+              return filteredArtist.date.split('-')[0] == year;
+            })"
+            @click="setArtist(artist)"
+            class="flex flex-col text-white cursor-pointer hover:opacity-75 text-base"
+          >
+            <span>{{ artist.name }}</span
+            ><span class="text-xs text-white/50">{{ artist.identifier }}</span>
+          </li>
+        </ul></BaseAccordion
+      >
     </div>
 
     <div v-if="editArtist" class="flex flex-col space-y-4">
@@ -161,7 +177,9 @@ const update = async () => {
         </div>
       </div>
       <div class="input">
-        <label>Kunsterbillede</label>
+        <label>Kunsterbillede URL <span class="cursor-pointer underline" @click="imageSelector.toggle()"
+          >(Vælg billede)</span
+        ></label>
         <input
           v-model="editArtist.image"
           type="text"
@@ -169,7 +187,9 @@ const update = async () => {
         />
       </div>
       <div class="input">
-        <label>Header billede</label>
+        <label>Header billede URL <span class="cursor-pointer underline" @click="imageSelector.toggle()"
+          >(Vælg billede)</span
+        ></label>
         <input
           v-model="editArtist.header"
           type="text"
@@ -234,5 +254,17 @@ const update = async () => {
 
 #form-artist-edit .checkbox {
   @apply flex items-center space-x-2;
+}
+
+.accordion {
+  @apply bg-blue-900/75 p-4 flex flex-col;
+}
+
+.accordion-title {
+  @apply font-bold font-header flex items-center justify-between text-white text-2xl cursor-pointer;
+}
+
+.accordion-content {
+  @apply pt-4;
 }
 </style>
