@@ -1,6 +1,7 @@
 <script setup>
 const supabase = useSupabaseClient();
 const sidebar = useSidebar();
+const imageSelector = useImageSelector();
 const modal = useModal();
 
 // Get artists from Supanase
@@ -176,7 +177,9 @@ const update = async () => {
         </div>
       </div>
       <div class="input">
-        <label>Kunsterbillede</label>
+        <label>Kunsterbillede URL <span class="cursor-pointer underline" @click="imageSelector.toggle()"
+          >(Vælg billede)</span
+        ></label>
         <input
           v-model="editArtist.image"
           type="text"
@@ -184,7 +187,9 @@ const update = async () => {
         />
       </div>
       <div class="input">
-        <label>Header billede</label>
+        <label>Header billede URL <span class="cursor-pointer underline" @click="imageSelector.toggle()"
+          >(Vælg billede)</span
+        ></label>
         <input
           v-model="editArtist.header"
           type="text"
