@@ -6,6 +6,9 @@ export default defineNuxtConfig({
         "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/",
     },
   },
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' }
+  },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase", "@nuxt/image-edge"],
   build: {
     transpile: ["gsap"],
