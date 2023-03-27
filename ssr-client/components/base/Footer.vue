@@ -1,24 +1,24 @@
 <template>
   <footer>
     <ul
-      class="container mx-auto grid grid-cols-3 place-items-center text-white font-header uppercase font-bold border-b-2 border-b-white/50 pb-8"
+      class="container mx-auto flex justify-evenly flex-col md:flex-row place-items-center text-white font-header uppercase font-bold border-b-2 border-b-white/50 pb-8"
     >
-      <li>
+      <li class="footerItem">
         <NuxtLink to="/"> Hjem </NuxtLink>
       </li>
-      <li>
+      <li class="footerItem">
         <NuxtLink to="/about"> Om os </NuxtLink>
       </li>
-      <li>
+      <li class="footerItem">
         <NuxtLink to="/faq"> F.A.Q </NuxtLink>
       </li>
-      <li>
+      <li class="footerItem">
         <NuxtLink to="/program"> Program </NuxtLink>
       </li>
-      <li>
+      <li class="footerItem">
         <NuxtLink to="/partners"> Partnere </NuxtLink>
       </li>
-      <li>
+      <li class="footerItem">
         <NuxtLink to="/contact"> Kontakt os </NuxtLink>
       </li>
     </ul>
@@ -40,5 +40,18 @@
 <style>
 footer {
   @apply flex flex-col space-y-8 py-8;
+}
+
+.footerItem {
+  @apply relative h-6
+}
+
+/* .footerItem::before {
+  content: '';
+  @apply absolute h-1 w-full bg-zinc-50 bottom-0 mt-2 duration-150 transition-all
+} */
+
+.footerItem:hover {
+  @apply border-b-2
 }
 </style>
