@@ -1,5 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      urlBase:
+        "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/",
+    },
+  },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase", "@nuxt/image-edge"],
   build: {
     transpile: ["gsap"],
