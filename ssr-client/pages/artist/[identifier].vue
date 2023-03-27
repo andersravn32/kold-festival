@@ -3,6 +3,7 @@ import {
   GlobeAltIcon,
   MapPinIcon,
   CalendarIcon,
+  MusicalNoteIcon
 } from "@heroicons/vue/24/solid";
 
 const supabase = useSupabaseClient();
@@ -91,8 +92,10 @@ suggested.length = 3;
         <div class="artist-date">
           <h2>Dato</h2>
           <p>
-            <CalendarIcon class="h6 w-6" /><span>{{ artist.date }}</span>
+            <CalendarIcon class="h6 w-6" />
+            <span :class="(artist.cancelled) ? 'line-through' : ''">{{ artist.date }}</span>
           </p>
+          <p class="bg-red-600 py-1 px-4 w-fit rounded-full" v-if="artist.cancelled">Aflyst</p>
         </div>
         <div class="artist-location">
           <h2>Venue</h2>
@@ -100,6 +103,14 @@ suggested.length = 3;
             <MapPinIcon class="h-6 w-6" />
             <span>{{ artist.location }}</span>
           </p>
+        </div>
+        <div v-if="artist.genre" class="artist-genre">
+          <h2 class="flex">Genre</h2>
+          <ul class="flex gap-2 flex-wrap">
+            <li 
+            v-for="style, key in artist.genre.styles"
+            class="artist-genre-style" :key="key"><MusicalNoteIcon class="h-4 w-4" /> {{ style }}</li>
+          </ul>
         </div>
       </div>
       <article class="artist-body">
@@ -181,6 +192,18 @@ suggested.length = 3;
 
 .artist-location p {
   @apply flex items-center space-x-2;
+}
+
+.artist-genre h2 {
+  @apply text-2xl;
+}
+
+.artist-genre p {
+  @apply flex items-center space-x-2;
+}
+
+.artist-genre-style {
+  @apply flex justify-center items-center gap-1 bg-zinc-50/10 py-1 px-2 w-fit rounded-full;
 }
 
 .artist-body {
