@@ -1,32 +1,24 @@
 <template>
-    <!-- <a @click="GA4_Event_Ticket()" href="https://tix.dk/da/musikkolding/buyingflow/tickets/15815/23040" target="_blank" class="cancelCTA">
-       Aflyst, ka' du fat det?
-    </a> -->
     <div id="cancelled">
-        <p class="text-2xl">Aflyst</p>
-        <div class="grid grid-cols-3"
-        v-for="artist, key in artists"
+        <p class="text-2xl font-bold border-solid border-b-4 mb-4">Aflyst</p>
+        <ul class="flex"
+        v-for="artist, key in cancelled_artist"
         >
-        <p :key="key">{{ artist.name }}</p>
-        </div>
+        <li class=" text-xl text-zinc-50 text-center font-body " :key="key">{{ artist.name }}</li>
+        </ul>
     </div>
 </template>
 
 <script setup>
 
-// Filter artist by cancelled concert
-
-const { data, error } = await supabase
-  .from("artists")
-  .select("*")
-const artists = ref(data);
+defineProps(['cancelled_artist'])
 
 </script>
 
 <style>
 
 #cancelled {
-    @apply container font-header flex flex-col justify-center items-center bg-zinc-50 text-center
+    @apply container mx-auto font-header flex flex-col justify-center items-center text-zinc-50 text-center p-4 min-w-[24rem] bg-indigo-500/75 mb-8
 }
 
 </style>
