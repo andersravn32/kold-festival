@@ -15,15 +15,15 @@ const { data, error } = await supabase
   .order("id", { ascending: true });
 const artists = ref(data);
 
-const cancelled = artists.value.filter(artist => {
+/* const cancelled = artists.value.filter(artist => {
   return artist.cancelled === true
-})
+}) */
 
 </script>
 
 <template>
   <section class="flex flex-col justify-center items-center gap-8">
-  <BaseCancelled v-if="cancelled.length" :cancelled_artist="cancelled" />
+  <!-- <BaseCancelled v-if="cancelled.length" :cancelled_artist="cancelled" /> -->
   <article class="block-artist-grid">
     <div v-if="error">
       {{ error }}
@@ -35,6 +35,7 @@ const cancelled = artists.value.filter(artist => {
       :name="artist.name"
       :subartist="artist.subtitle"
       :artist-cover="artist.header"
+      :cancelled="artist.cancelled"
       @click="router.push(`/artist/${artist.identifier}`)"
     />
   </article>
