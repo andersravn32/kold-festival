@@ -1,23 +1,24 @@
 <template>
-    <a @click="GA4_Event_Ticket()" href="https://tix.dk/da/musikkolding/buyingflow/tickets/15815/23040" target="_blank" class="cancelCTA">
-       Aflyst, ka' du fat det?
-    </a>
+    <div id="cancelled">
+        <p class="text-2xl font-bold border-solid border-b-4 mb-4">Aflyst</p>
+        <ul class="flex"
+        v-for="artist, key in cancelled_artist"
+        >
+        <li class=" text-xl text-zinc-50 text-center font-body " :key="key">{{ artist.name }}</li>
+        </ul>
+    </div>
 </template>
 
 <script setup>
 
-const GA4_Event_Ticket = ()=> {
-    //Create dataLayer if its doesn't exist
-    dataLayer = window.dataLayer || [];
+defineProps(['cancelled_artist'])
 
-    //Pushing CTA event to dataLayer
-    dataLayer.push({'event' : 'View_tickets'});
-}
 </script>
 
 <style>
-.cancelCTA {
-    @apply fixed bottom-[4.5rem] left-0 right-0 p-4 text-4xl text-center font-header uppercase text-zinc-100 bg-red-800 font-bold z-[100] hidden;
+
+#cancelled {
+    @apply container mx-auto font-header flex flex-col justify-center items-center text-zinc-50 text-center p-4 min-w-[24rem] bg-indigo-500/75 mb-8
 }
 
 </style>

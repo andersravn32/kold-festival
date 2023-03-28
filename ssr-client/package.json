@@ -14,7 +14,12 @@
     "nuxt": "^3.1.0"
   },
   "dependencies": {
+    "@hcaptcha/vue3-hcaptcha": "^1.2.1",
     "@heroicons/vue": "^2.0.14",
-    "gsap": "^3.11.4"
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/recaptcha": "^1.1.2",
+    "gsap": "^3.11.4",
+    "mailtrap": "^3.1.0",
+    "nuxt-mail": "^3.1.21"
   }
 }

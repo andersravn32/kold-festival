@@ -33,12 +33,6 @@ const artistData = ref(artists.map((artist) => {
   }))
 
 onMounted(async () => {
-  //Creating dataLayer if its doesn't exist
-  dataLayer = window.dataLayer || [];
-
-  //Pushing CTA event to dataLayer
-  dataLayer.push({ event: "Program_Page" });
-
 
   // Map each artist as either a concert or a talk
   concerts.value = artistData.value.filter((artist) => {
@@ -49,29 +43,9 @@ onMounted(async () => {
     return artist.type == "talk";
   });
 
-  // Get number of dates as array
-  concerts.value.forEach((artist) => {
-    if (
-      !artistCols.value.includes(
-        artist.dateShort.substring(0, artist.dateShort.length - 6)
-      )
-    ) {
-      artistCols.value.push(
-        artist.dateShort.substring(0, artist.dateShort.length - 6)
-      );
-    }
-  });
+
   artistCols.value.reverse();
 
-  // Sort concerts
-  concerts.value.sort((x, y) => {
-    return x.date - y.date
-  })
-
-  // Sort talks
-  talks.value.sort((x, y) => {
-    return x.date - y.date
-  })
 
   // Get number of dates as array
   talks.value.forEach((artist) => {
