@@ -1,4 +1,6 @@
 <script setup>
+const imageSelector = useImageSelector();
+
 const emit = defineEmits(["update"]);
 
 const props = defineProps({
@@ -25,7 +27,9 @@ const update = () => {
 <template>
   <div id="form-block-data-header">
     <div class="input">
-      <label>Link til baggrundsbillede</label>
+      <label>Baggrundsbillede URL <span class="cursor-pointer underline" @click="imageSelector.toggle()"
+          >(Vælg billede)</span
+        ></label>
       <input v-model="data.bg" @change="update" type="text" placeholder="Indtast link" />
     </div>
     <div class="input">

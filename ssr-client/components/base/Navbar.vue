@@ -1,11 +1,10 @@
 <script setup>
-import { Bars3Icon } from '@heroicons/vue/24/outline';
 import MenuIcon from '../svg/MenuIcon.vue';
 
 // Navmenu state
 const showNavmenu = ref(false);
 
-defineEmits(['toggleScroll']);
+defineEmits(["toggleScroll"]);
 </script>
 
 <template>
@@ -41,10 +40,10 @@ defineEmits(['toggleScroll']);
 }
 
 #navbar .logo {
-    @apply h-24 w-24 hover:rotate-90 transition-transform duration-300;
+  @apply h-24 w-24 hover:rotate-90 transition-transform duration-300;
 }
 
-#navbar ul{
-    @apply  sm:text-2xl font-header font-bold text-white/75 flex items-center space-x-8 uppercase;
+#navbar ul {
+  @apply sm:text-2xl font-header font-bold text-white/75 flex items-center space-x-8 uppercase;
 }
 </style>

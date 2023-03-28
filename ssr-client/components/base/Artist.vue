@@ -1,4 +1,3 @@
-
 <template>
   <div class="artist">
     <div>
@@ -27,8 +26,7 @@
 </template>
 
 <script setup>
-
-const { name, subartist, artistCover  } = defineProps({
+const { name, subartist, artistCover } = defineProps({
   name: {
     type: String,
     required: true,
@@ -48,8 +46,6 @@ const { name, subartist, artistCover  } = defineProps({
 });
 </script>
 
-
-
 <style>
 .artist {
   @apply lg:min-h-[300px] relative flex justify-center items-center w-full transition-all duration-150 ease-in-out cursor-pointer hover:scale-[1.02];
@@ -57,12 +53,12 @@ const { name, subartist, artistCover  } = defineProps({
   @apply hover:after:translate-y-4 hover:after:translate-x-4;
 }
 
-.artist::before{
-    @apply transition-all duration-150 content-[''] bg-indigo-600 h-full w-full absolute -z-30 -translate-x-3 -translate-y-3;
+.artist::before {
+  @apply transition-all duration-150 content-[''] bg-indigo-600 h-full w-full absolute -z-30 -translate-x-3 -translate-y-3;
 }
 
-.artist::after{
-    @apply transition-all duration-150 content-[''] bg-blue-600 h-full w-full absolute -z-30 translate-x-3 translate-y-3;
+.artist::after {
+  @apply transition-all duration-150 content-[''] bg-blue-600 h-full w-full absolute -z-30 translate-x-3 translate-y-3;
 }
 
 .artist-name {
@@ -73,8 +69,8 @@ const { name, subartist, artistCover  } = defineProps({
   @apply font-bold font-header text-2xl md:text-4xl lg:text-4xl text-center uppercase text-white z-40 px-8 pb-8;
 }
 
-.artist-image{
- @apply overflow-hidden h-full w-full absolute flex justify-center items-end -bottom-2 transition-all duration-150;
+.artist-image {
+  @apply overflow-hidden h-full w-full absolute flex justify-center items-end -bottom-2 transition-all duration-150;
 }
 
 .cancelled-text {
@@ -82,7 +78,7 @@ const { name, subartist, artistCover  } = defineProps({
 }
 
 .artist:hover .gradient-backdrop {
-  @apply backdrop-blur-[0px]
+  @apply backdrop-blur-[0px];
 }
 
 .artist:hover .gradient-cancelled {

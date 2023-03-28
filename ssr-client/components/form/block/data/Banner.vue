@@ -25,7 +25,7 @@ const update = () => {
     <div id="form-block-data-banner">
         <div class="input">
             <label>Ord</label>
-            <input v-model="data.word" @change="update" type="text" placeholder="Indtast ord til banner" />
+            <input v-model="data.word" @change="update" type="text" placeholder="Indtast ord til banner" required/>
             <p>Bemærk: Hver side er begrænset til et banner</p>
         </div>
     </div>
