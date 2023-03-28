@@ -1,14 +1,22 @@
 <template>
   <div class="artist">
     <div>
-      <h3 class="artist-name">{{ name }}</h3>
-      <h4 v-if="subartist" class="sub-name">{{ subartist }}</h4>
+    <h3 class="artist-name" :class="(cancelled) ? 'line-through' : ''">{{name}}</h3>
+    <h4 v-if="subartist" class="sub-name" :class="(cancelled) ? 'line-through' : ''">{{ subartist }}</h4>
     </div>
-    <div
+
+    <!-- Cancelled -->
+    <div v-if="cancelled"
+      class="absolute -z-10 h-full w-full gradient-cancelled transition-all duration-150 ease-in-out overflow-hidden"
+    >
+      <span class="cancelled-text">AFLYST</span>
+    </div>
+
+    <div v-else
       class="absolute -z-10 h-full w-full gradient-backdrop transition-all duration-150 ease-in-out"
     ></div>
-    <nuxt-img
-      preset="compress"
+
+    <nuxt-img preset="compress"
       id="img-pop"
       class="absolute -z-20 h-full w-full object-cover"
       :src="artistCover"
@@ -32,6 +40,9 @@ const { name, subartist, artistCover } = defineProps({
     default:
       "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
+  cancelled: {
+    type: Boolean
+  }
 });
 </script>
 
@@ -62,11 +73,19 @@ const { name, subartist, artistCover } = defineProps({
   @apply overflow-hidden h-full w-full absolute flex justify-center items-end -bottom-2 transition-all duration-150;
 }
 
+.cancelled-text {
+  @apply font-header font-bold absolute translate-x-1/2 right-12 top-6 rotate-45 text-center bg-red-600 text-zinc-50 text-sm md:text-2xl py-2 w-[1000px] mx-auto mb-4 md:mb-8;
+}
+
 .artist:hover .gradient-backdrop {
   @apply backdrop-blur-[0px];
 }
 
-.artist:hover .artist-image {
+.artist:hover .gradient-cancelled {
+  @apply backdrop-blur-[2px]
+}
+
+.artist:hover .artist-image  {
   @apply -bottom-0;
 }
 </style>

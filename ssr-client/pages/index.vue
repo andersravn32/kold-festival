@@ -4,6 +4,10 @@ definePageMeta({
   hidden: false,
   editable: true
 })
+
+const artists = ref([{ name: 'tim'}, { name: 'teist'}, { name: 'test'}])
+
+artists.value
 </script>
 
 <template>
