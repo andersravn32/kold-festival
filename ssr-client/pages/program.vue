@@ -7,7 +7,7 @@ const router = useRouter();
 
 definePageMeta({
   name: "Program",
-  hidden: false,
+  hidden: true,
   editable: false,
 });
 
