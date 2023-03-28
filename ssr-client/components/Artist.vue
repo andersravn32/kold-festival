@@ -78,7 +78,7 @@ const { name, subartist, artistCover  } = defineProps({
 }
 
 .cancelled-text {
-  @apply font-header absolute translate-x-1/2 right-12 top-6 rotate-45 text-center bg-red-600 text-zinc-50 text-sm md:text-2xl py-2 w-[1000px] mx-auto mb-4 md:mb-8;
+  @apply font-header font-bold absolute translate-x-1/2 right-12 top-6 rotate-45 text-center bg-red-600 text-zinc-50 text-sm md:text-2xl py-2 w-[1000px] mx-auto mb-4 md:mb-8;
 }
 
 .artist:hover .gradient-backdrop {

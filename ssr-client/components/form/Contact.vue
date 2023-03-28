@@ -50,9 +50,9 @@ const sendMail = async ()=> {
     </div>
     <input class="normal" :class="{sendingEmail: sending}" v-model="email" type="email" placeholder="E-mail adresse">
     <textarea class="normal messageBox" :class="{sendingEmail: sending}" v-model="message" placeholder="Indtast din besked"></textarea>
+    <VueHcaptcha sitekey="2d41a769-885b-43e5-a2e8-e159f5bb738d"></VueHcaptcha>
     <button class="submitBtn" :class="{ 'submitBtn-loading': sending}" type="submit" @click.prevent="sendMail">
       <p :class="{'text-hidden': sending}">Send besked</p></button>
-    <VueHcaptcha sitekey="2d41a769-885b-43e5-a2e8-e159f5bb738d"></VueHcaptcha>
   </form>
   
   <div class="text-zinc-50 flex flex-col justify-center items-center gap-12 my-8" v-else>
