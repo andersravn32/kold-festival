@@ -34,7 +34,7 @@ const artists = ref(data);
       :key="index"
       :name="artist.name"
       :subartist="artist.subtitle"
-      :artist-cover="artist.header"
+      :artist-cover="artist.image"
       :cancelled="artist.cancelled"
       @click="router.push(`/artist/${artist.identifier}`)"
     />
