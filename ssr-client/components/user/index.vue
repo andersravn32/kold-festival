@@ -1,5 +1,10 @@
 <script setup>
 import { ArrowLeftOnRectangleIcon } from "@heroicons/vue/24/outline";
+
+const account = useAccount();
+const sidebar = useSidebar();
+const router = useRouter();
+
 defineProps({
   user: {
     type: Object,
@@ -11,6 +16,16 @@ defineProps({
     required: true,
   },
 });
+
+const signout = async () => {
+  await account.signout();
+
+  account.user.value = null;
+  account.profile.value = null;
+
+  sidebar.toggle();
+  router.push("/");
+}
 </script>
 
 <template>
@@ -24,7 +39,7 @@ defineProps({
       <span class="font-body text-white/75 text-xs">{{ user.email }}</span>
     </div>
     <button class="text-white/75">
-      <ArrowLeftOnRectangleIcon class="h-6 w-6" />
+      <ArrowLeftOnRectangleIcon class="h-6 w-6" @click="signout"/>
     </button>
   </div>
 </template>
