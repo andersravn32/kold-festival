@@ -4,15 +4,15 @@ const profile = ref(null);
 export const useAccount = () => {
   const supabase = useSupabaseClient();
 
-  const update = async () => {
-    // Assign account user to supabase user
-    user.value = useSupabaseUser().value;
+  // Assign account user to supabase user
+  user.value = useSupabaseUser().value;
 
+  const update = async () => {
     // If no data was loaded, return nothing
-    if (!user.value){
+    if (!user.value) {
       return;
     }
-    
+
     // Fetch profile data from supabase
     const { data } = await supabase
       .from("profiles")
@@ -27,5 +27,15 @@ export const useAccount = () => {
     // Assign account profile data to fetched data
     profile.value = data[0];
   };
-  return { user, profile, update };
+
+  const signout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      return;
+    }
+
+    user.value = null;
+    profile.value = null;
+  };
+  return { user, profile, update, signout };
 };
