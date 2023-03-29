@@ -21,10 +21,6 @@ artists.value
   @apply flex flex-col space-y-16;
 }
 
-#page-index .block-artist-grid {
-  @apply grid grid-cols-3 gap-16 container mx-auto;
-}
-
 #page-index #block-39 .block-container{
   @apply gap-4 container mx-auto;
 }
