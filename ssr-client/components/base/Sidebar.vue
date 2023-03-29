@@ -30,8 +30,17 @@ onMounted(async () => {
   <div class="sidebar-overlay" @click="handleClick">
     <div class="sidebar-overlay-inner">
       <aside v-if="ready" class="sidebar">
-        <div class="flex items-end text-white" :class="{'justify-between': sidebar.getComponent(), 'justify-end': !sidebar.getComponent()}">
-          <button v-if="sidebar.getComponent()" @click="sidebar.setComponent(null)">
+        <div
+          class="flex items-end text-white"
+          :class="{
+            'justify-between': sidebar.getComponent(),
+            'justify-end': !sidebar.getComponent(),
+          }"
+        >
+          <button
+            v-if="sidebar.getComponent()"
+            @click="sidebar.setComponent(null)"
+          >
             <ArrowLeftIcon class="h-12 w-12" />
           </button>
           <button @click="sidebar.toggle()">
