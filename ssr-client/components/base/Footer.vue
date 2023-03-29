@@ -39,11 +39,11 @@
 
 <style>
 footer {
-  @apply flex flex-col space-y-8 py-8 mt-8;
+  @apply flex flex-col space-y-8 py-8 mt-8 px-8;
 }
 
 .footerItem {
-  @apply relative h-6
+  @apply relative h-12 flex justify-center items-center border-b-[1px]
 }
 
 /* .footerItem::before {
@@ -52,6 +52,6 @@ footer {
 } */
 
 .footerItem:hover {
-  @apply border-b-2
+  @apply border-b-2 md:border-b-2
 }
 </style>
