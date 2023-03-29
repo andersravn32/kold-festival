@@ -5,8 +5,7 @@ export default defineNuxtConfig({
     mailtrap_token: process.env.MAILTRAP_API_TOKEN,
     hcaptcha_secret: process.env.HCAPTCHA_SECRET,
     public: {
-      urlBase:
-        "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/",
+      urlBase: process.env.URL_BASE,
     },
   },
   app: {
@@ -17,9 +16,7 @@ export default defineNuxtConfig({
     transpile: ["gsap"],
   },
   image: {
-    domains: [
-      "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/",
-    ],
+    domains: [`${process.env.URL_BASE}`],
     presets: {
       compress: {
         modifiers: {

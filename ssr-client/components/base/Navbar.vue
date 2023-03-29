@@ -27,10 +27,10 @@ defineEmits(["toggleScroll"]);
                     </button>
                 </li>
             </ul>
+            <Transition name="bubble">
+              <BaseNavmenu v-if="showNavmenu" @close="showNavmenu = !showNavmenu" />
+            </Transition>
         </nav>
-        <Transition name="bubble">
-        <BaseNavmenu v-if="showNavmenu" @close="showNavmenu = !showNavmenu" />
-        </Transition>
     </header>
 </template>
 
