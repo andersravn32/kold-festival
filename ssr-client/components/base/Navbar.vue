@@ -16,7 +16,7 @@ defineEmits(["toggleScroll"]);
                     alt="KOLD Icon" />
             </NuxtLink>
             <ul>
-                <li>
+                <li class="text-xl sm:text-2xl">
                     <NuxtLink to="/program">
                         Program
                     </NuxtLink>

@@ -44,7 +44,7 @@ onMounted(() => {
 
 </script>
 <template>
-  <section class="block-hero">
+  <section class="block-hero gradient-divider">
     <video
       class="hero-video"
       v-if="data.bg.src"
@@ -79,6 +79,10 @@ onMounted(() => {
   @apply min-h-screen flex flex-col items-center relative;
 }
 
+.hero-logo {
+  @apply w-[12rem] lg:w-[24rem]
+}
+
 .hero-gradient {
   @apply absolute top-0 bottom-0 left-0 right-0 flex flex-col items-center justify-center space-y-4;
 }
@@ -92,11 +96,11 @@ onMounted(() => {
 }
 
 .hero-title span:nth-of-type(1){
-  @apply text-[10rem] leading-[0.6];
+  @apply text-[5rem] lg:text-[8rem] leading-[0.6];
 }
 
 .hero-title span:nth-of-type(2){
-  @apply text-6xl;
+  @apply text-4xl lg:text-6xl;
 }
 
 .hero-countdown {

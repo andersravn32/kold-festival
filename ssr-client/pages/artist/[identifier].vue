@@ -48,8 +48,8 @@ suggested.length = 3;
 <template>
   <div id="page-artist">
     <BasePageHeader id="artist-header" :bg="artist.header">
-      <h1 class="text-center text-6xl">{{ artist.name }}</h1>
-      <h2 class="text-center text-4xl">{{ artist.subtitle }}</h2>
+      <h1 class="text-center text-5xl">{{ artist.name }}</h1>
+      <h2 class="text-center text-2xl">{{ artist.subtitle }}</h2>
     </BasePageHeader>
 
     <section id="artist">
@@ -104,7 +104,7 @@ suggested.length = 3;
             <span>{{ artist.location }}</span>
           </p>
         </div>
-        <div v-if="artist.genre" class="artist-genre">
+        <div v-if="artist.genre.styles.length" class="artist-genre">
           <h2 class="flex">Genre</h2>
           <ul class="flex gap-2 flex-wrap">
             <li 
@@ -151,7 +151,7 @@ suggested.length = 3;
 }
 
 #artist {
-  @apply max-w-6xl mx-auto grid lg:grid-cols-4 gap-4 p-4;
+  @apply max-w-6xl mx-auto grid space-y-8 lg:space-y-0 lg:grid-cols-4 gap-4 p-4 my-8 ;
 }
 
 .artist-info {
@@ -223,6 +223,6 @@ suggested.length = 3;
 }
 
 .suggested {
-  @apply grid lg:grid-cols-3 gap-16 col-span-4;
+  @apply grid lg:grid-cols-3 gap-16 col-span-4 px-8;
 }
 </style>

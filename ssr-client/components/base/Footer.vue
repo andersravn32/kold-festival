@@ -39,7 +39,7 @@
 
 <style>
 footer {
-  @apply flex flex-col space-y-8 py-8;
+  @apply flex flex-col space-y-8 py-8 mt-8;
 }
 
 .footerItem {

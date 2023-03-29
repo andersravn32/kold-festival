@@ -18,7 +18,7 @@ artists.value
 
 <style>
 #page-index .blocks{
-  @apply flex flex-col space-y-16;
+  @apply flex flex-col space-y-8;
 }
 
 #page-index #block-39 .block-container{

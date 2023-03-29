@@ -19,7 +19,7 @@ const props = defineProps({
       :price="175"
       :studentPrice="100"
     ></BasePrice>
-    <div class="price bg-blue-600/50">
+    <div class="price bg-blue-600/50 text-center">
       <InformationCircleIcon class="w-32 h-32" />
       <h3>Vær opmærksom på..</h3>
       <p class="font-body">
@@ -32,6 +32,6 @@ const props = defineProps({
 
 <style>
 .block-prices {
-  @apply container mx-auto grid grid-cols-4 gap-4;
+  @apply container mx-auto grid md:grid-cols-2 xl:grid-cols-4 gap-4 px-8;
 }
 </style>
