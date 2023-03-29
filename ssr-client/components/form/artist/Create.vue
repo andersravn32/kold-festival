@@ -1,4 +1,6 @@
 <script setup>
+import { TrashIcon } from "@heroicons/vue/24/solid";
+
 const supabase = useSupabaseClient();
 const modal = useModal();
 const imageSelector = useImageSelector();
@@ -22,7 +24,13 @@ const artist = ref({
     website: null,
     spotify: null,
   },
+  genre: {
+    styles: [],
+  },
+  cancelled: false,
 });
+
+const style = ref(null);
 
 // Loading state
 const loading = ref(false);
@@ -209,6 +217,38 @@ const create = async () => {
           placeholder="Indtast link til spotify"
         />
       </div>
+    </div>
+    <div class="input" v-if="artist.genre.styles.length">
+      <label>Genrer</label>
+      <ul class="grid grid-cols-2 gap-4">
+        <li
+          v-for="(style, index) in artist.genre.styles"
+          class="py-2 px-6 border-2 border-white flex items-center justify-between font-body"
+        >
+          <span>{{ style }}</span
+          ><TrashIcon
+            class="h-4 w-4 cursor-pointer"
+            @click="artist.genre.styles.splice(index, 1)"
+          />
+        </li>
+      </ul>
+    </div>
+    <div class="input">
+      <label>Tilføj genre</label>
+      <input v-model="style" type="text" placeholder="Indtast navn på genre" />
+      <BaseButton
+        @click.prevent="
+          if (style) {
+            artist.genre.styles.push(style);
+            style = null;
+          }
+        "
+        >Tilføj</BaseButton
+      >
+    </div>
+    <div class="checkbox">
+      <input v-model="artist.cancelled" type="checkbox" />
+      <label>Marker som aflyst</label>
     </div>
     <div class="checkbox">
       <input v-model="artist.public" type="checkbox" />
