@@ -18,11 +18,7 @@ artists.value
 
 <style>
 #page-index .blocks{
-  @apply flex flex-col space-y-16;
-}
-
-#page-index .block-artist-grid {
-  @apply grid grid-cols-3 gap-16 container mx-auto;
+  @apply flex flex-col space-y-8;
 }
 
 #page-index #block-39 .block-container{

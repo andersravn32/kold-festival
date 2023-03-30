@@ -1,34 +1,28 @@
 <script setup>
-// Manual import statements
-import { XMarkIcon } from "@heroicons/vue/24/outline";
-
 // Define component emits
 defineEmits(["close"]);
 </script>
 
 <template>
   <div id="navmenu">
-    <button @click="$emit('close')" class="absolute top-8 right-4">
-      <XMarkIcon class="h-16 w-16 text-white" />
-    </button>
     <ul>
       <li>
-        <NuxtLink to="/" @click="$emit('close')"> Hjem </NuxtLink>
+        <NuxtLink class="link" to="/" @click="$emit('close')">Hjem</NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/about" @click="$emit('close')"> Om os </NuxtLink>
+        <NuxtLink class="link" to="/about" @click="$emit('close')">Om os</NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/faq" @click="$emit('close')"> F.A.Q </NuxtLink>
+        <NuxtLink class="link" to="/faq" @click="$emit('close')">F.A.Q</NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/program" @click="$emit('close')"> Program </NuxtLink>
+        <NuxtLink class="link" to="/program" @click="$emit('close')">Program</NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/partners" @click="$emit('close')"> Partnere </NuxtLink>
+        <NuxtLink class="link" to="/partners" @click="$emit('close')">Partnere</NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/contact" @click="$emit('close')"> Kontakt os </NuxtLink>
+        <NuxtLink class="link" to="/contact" @click="$emit('close')">Kontakt os</NuxtLink>
       </li>
     </ul>
   </div>
@@ -36,10 +30,15 @@ defineEmits(["close"]);
 
 <style>
 #navmenu {
-  @apply bg-midnight fixed top-0 bottom-0 left-0 right-0 z-50 flex items-center justify-center;
+  @apply bg-midnight fixed top-0 bottom-0 left-0 right-0 z-30 flex items-center justify-center;
 }
 
 #navmenu ul {
-  @apply flex flex-col text-[3rem] md:text-6xl font-header font-bold uppercase text-white/75 text-center space-y-4 md:space-y-8;
+  @apply flex flex-col items-center font-header font-bold uppercase text-white/50 space-y-4 md:space-y-8;
 }
+
+#navmenu ul li {
+  @apply flex justify-center items-center text-4xl xl:text-6xl m-0;
+}
+
 </style>

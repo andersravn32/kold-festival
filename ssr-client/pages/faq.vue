@@ -14,7 +14,7 @@ definePageMeta({
 
 <style>
 #page-faq .block-accordion{
-  @apply w-full max-w-4xl mx-auto mt-4 mb-4;
+  @apply w-full max-w-4xl mx-auto my-4;
 }
 
 #page-faq .block-header{

@@ -16,21 +16,21 @@ defineEmits(["toggleScroll"]);
                     alt="KOLD Icon" />
             </NuxtLink>
             <ul>
-                <li>
+                <li class="text-xl sm:text-2xl">
                     <NuxtLink to="/program">
                         Program
                     </NuxtLink>
                 </li>
                 <li>
-                    <button @click="showNavmenu = !showNavmenu" class="text-white relative z-[100]">
+                    <button @click="showNavmenu = !showNavmenu; $emit('toggleScroll');" class="text-white relative z-[100]">
                         <MenuIcon :showMenu="showNavmenu" />
                     </button>
                 </li>
             </ul>
+            <Transition name="bubble">
+              <BaseNavmenu v-if="showNavmenu" @close="showNavmenu = !showNavmenu; $emit('toggleScroll');" />
+            </Transition>
         </nav>
-        <Transition name="bubble">
-        <BaseNavmenu v-if="showNavmenu" @close="showNavmenu = !showNavmenu" />
-        </Transition>
     </header>
 </template>
 
@@ -44,6 +44,6 @@ defineEmits(["toggleScroll"]);
 }
 
 #navbar ul {
-  @apply sm:text-2xl font-header font-bold text-white/75 flex items-center space-x-8 uppercase;
+  @apply font-header font-bold text-white/75 flex items-center uppercase;
 }
 </style>

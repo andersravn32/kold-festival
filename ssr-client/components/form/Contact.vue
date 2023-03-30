@@ -15,9 +15,9 @@ const sendMail = async ()=> {
   const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
   if(!email.value || !message.value || !firstName.value) {
-    return console.log('Values missing!')
+    return alert('Udfyld venligst alle felter')
   } else if (!email.value.match(validRegex)) {
-    return console.log('Please enter a valid email!')
+    return alert('Indtast en valid email adresse')
   }
 
   sending.value = true
@@ -43,25 +43,36 @@ const sendMail = async ()=> {
 </script>
 
 <template>
-  <form v-if="!confirmed" id="form-contact" @submit.prevent="submit" class="container flex flex-col space-y-4">
+  <Transition name="form" mode="out-in" class="container">
+  <form v-if="!confirmed" id="form-contact" @submit.prevent="submit" class=" flex flex-col space-y-4 px-8">
     <div class="grid md:grid-cols-2 gap-4">
-        <input v-model="firstName" class="normal" :class="{sendingEmail: sending}" type="text" placeholder="Fornavn" />
-        <input v-model="lastName" class="normal" :class="{sendingEmail: sending}" type="text" placeholder="Efternavn" />
+        <input v-model="firstName" class="normal" type="text" placeholder="Fornavn" />
+        <input v-model="lastName" class="normal" type="text" placeholder="Efternavn" />
     </div>
     <input class="normal" :class="{sendingEmail: sending}" v-model="email" type="email" placeholder="E-mail adresse">
-    <textarea class="normal messageBox" :class="{sendingEmail: sending}" v-model="message" placeholder="Indtast din besked"></textarea>
+    <textarea class="normal messageBox" v-model="message" placeholder="Indtast din besked"></textarea>
     <VueHcaptcha sitekey="2d41a769-885b-43e5-a2e8-e159f5bb738d"></VueHcaptcha>
     <button class="submitBtn" :class="{ 'submitBtn-loading': sending}" type="submit" @click.prevent="sendMail">
       <p :class="{'text-hidden': sending}">Send besked</p></button>
   </form>
-  
+
   <div class="text-zinc-50 flex flex-col justify-center items-center gap-12 my-8" v-else>
     <p class=" text-center">Tak for din besked! Vi vender tilbage hurtigst muligt</p>
     <BaseButton @click="confirmed = !confirmed">Send ny besked</BaseButton>
   </div>
+</Transition>
 </template>
 
 <style>
+
+.form-enter-active,
+.form-leave-active {
+  transition: all 0.5s ease-in-out;
+}
+.form-enter-from,
+.form-leave-to {
+  opacity: 0;
+}
 
 .messageBox {
   @apply h-44;
@@ -73,9 +84,6 @@ const sendMail = async ()=> {
 
 .normal {
   @apply bg-midnight duration-200 transition-all
-}
-.sendingEmail {
-  @apply bg-indigo-600/75 text-transparent
 }
 
 .text-hidden {

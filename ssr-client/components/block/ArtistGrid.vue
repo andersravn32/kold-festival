@@ -43,3 +43,12 @@ const artists = ref(data);
   </article>
 </section>
 </template>
+
+<style>
+
+.block-artist-grid {
+  @apply grid gap-16 container mx-auto px-8;
+  @apply grid-cols-1 lg:grid-cols-2 xl:grid-cols-3;
+}
+
+</style>
