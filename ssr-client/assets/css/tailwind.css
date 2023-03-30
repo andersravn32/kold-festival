@@ -82,3 +82,9 @@ label{
   @apply delay-200;
   clip-path: circle(0.1% at 100% 0%);
 }
+
+
+/* Link hover and active */
+.router-link-active {
+  @apply text-zinc-50
+}

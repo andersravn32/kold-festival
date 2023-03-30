@@ -17,6 +17,6 @@ const props = defineProps({
 
 <style>
 .block-header {
-  @apply bg-cover bg-center;
+  @apply bg-cover bg-center gradient-divider;
 }
 </style>

@@ -25,5 +25,7 @@ const props = defineProps({
 }
 .block-container-column {
   @apply py-8;
+  width: max(50%, 100%);
 }
+
 </style>
