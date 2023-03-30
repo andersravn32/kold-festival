@@ -100,7 +100,7 @@ onMounted(() => {
       id="program-header"
       bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere"
     >
-      <h1 class="text-6xl lg:text-8xl uppercase leading-[0.9]">Program</h1>
+      <h1 class="text-4xl lg:text-6xl uppercase leading-[0.9]">Program</h1>
       <h2 class="lg:text-xl text-center font-body">
         Nedenfor kan du læse hele festivalens program
       </h2>

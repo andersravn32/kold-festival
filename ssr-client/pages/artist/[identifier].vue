@@ -48,8 +48,8 @@ suggested.length = 3;
 <template>
   <div id="page-artist">
     <BasePageHeader id="artist-header" :bg="artist.header">
-      <h1 class="text-center text-5xl">{{ artist.name }}</h1>
-      <h2 class="text-center text-2xl">{{ artist.subtitle }}</h2>
+      <h1 class="text-center text-4xl md:text-6xl">{{ artist.name }}</h1>
+      <h2 class="text-center text-2xl md:text-3xl">{{ artist.subtitle }}</h2>
     </BasePageHeader>
 
     <section id="artist">
