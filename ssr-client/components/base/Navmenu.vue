@@ -1,7 +1,4 @@
 <script setup>
-// Manual import statements
-import { XMarkIcon } from "@heroicons/vue/24/outline";
-
 // Define component emits
 defineEmits(["close"]);
 </script>
@@ -10,22 +7,22 @@ defineEmits(["close"]);
   <div id="navmenu">
     <ul>
       <li>
-        <NuxtLink to="/" @click="$emit('close')"> Hjem </NuxtLink>
+        <NuxtLink class="link" to="/" @click="$emit('close')">Hjem</NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/about" @click="$emit('close')"> Om os </NuxtLink>
+        <NuxtLink class="link" to="/about" @click="$emit('close')">Om os</NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/faq" @click="$emit('close')"> F.A.Q </NuxtLink>
+        <NuxtLink class="link" to="/faq" @click="$emit('close')">F.A.Q</NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/program" @click="$emit('close')"> Program </NuxtLink>
+        <NuxtLink class="link" to="/program" @click="$emit('close')">Program</NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/partners" @click="$emit('close')"> Partnere </NuxtLink>
+        <NuxtLink class="link" to="/partners" @click="$emit('close')">Partnere</NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/contact" @click="$emit('close')"> Kontakt os </NuxtLink>
+        <NuxtLink class="link" to="/contact" @click="$emit('close')">Kontakt os</NuxtLink>
       </li>
     </ul>
   </div>
@@ -37,10 +34,11 @@ defineEmits(["close"]);
 }
 
 #navmenu ul {
-  @apply flex flex-col text-[3rem] md:text-6xl font-header font-bold uppercase text-white/75 text-center space-y-4 md:space-y-8;
+  @apply flex flex-col items-center font-header font-bold uppercase text-white/50 space-y-4 md:space-y-8;
 }
 
 #navmenu ul li {
-  @apply flex justify-center items-center;
+  @apply flex justify-center items-center text-4xl m-0;
 }
+
 </style>

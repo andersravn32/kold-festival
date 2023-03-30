@@ -44,6 +44,6 @@ defineEmits(["toggleScroll"]);
 }
 
 #navbar ul {
-  @apply sm:text-2xl font-header font-bold text-white/75 flex items-center space-x-8 uppercase;
+  @apply font-header font-bold text-white/75 flex items-center uppercase;
 }
 </style>

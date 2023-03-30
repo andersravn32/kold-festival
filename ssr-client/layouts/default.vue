@@ -14,6 +14,8 @@ const account = useAccount();
       />
     </Transition>
 
+    <BaseCTA v-if="account.user.value && account.profile.value" />
+
     <Transition name="fade">
       <BaseOverlay v-if="modal.show.value">
         <BaseModal />
