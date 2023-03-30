@@ -5,18 +5,18 @@ export default defineNuxtConfig({
     mailtrap_token: process.env.MAILTRAP_API_TOKEN,
     hcaptcha_secret: process.env.HCAPTCHA_SECRET,
     public: {
-      urlBase:
-        "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/",
+      urlBase: process.env.URL_BASE,
     },
+  },
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' }
   },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase", "@nuxt/image-edge"],
   build: {
     transpile: ["gsap"],
   },
   image: {
-    domains: [
-      "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/",
-    ],
+    domains: [`${process.env.URL_BASE}`],
     presets: {
       compress: {
         modifiers: {

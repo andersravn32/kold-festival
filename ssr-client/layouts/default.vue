@@ -41,7 +41,11 @@ const account = useAccount();
       </button>
     </Transition>
 
-    <BaseNavbar />
+    <button v-if="!sidebar.show.value && account.user.value && account.profile.value" @click="sidebar.toggle()"
+      class="fixed bottom-4 right-4 p-4 bg-indigo-500 rounded-full z-20">
+      <UserIcon class="h-6 w-6 text-white" />
+    </button>
+    <BaseNavbar v-if="!sidebar.show.value" />
     <slot />
     <BaseFooter />
   </div>
