@@ -6,6 +6,7 @@ const props = defineProps({
         type: Object,
         default: {
             html: [],
+            order: false
         }
     }
 })

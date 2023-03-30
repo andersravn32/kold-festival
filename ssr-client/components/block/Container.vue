@@ -21,8 +21,9 @@ const props = defineProps({
 
 <style>
 .block-container {
-  @apply flex flex-col-reverse gap-8 items-center justify-center container px-8 lg:flex-row;
+  @apply flex flex-col gap-8 items-center justify-center container px-8 lg:flex-row;
 }
+
 .block-container-column {
   @apply py-8;
   width: max(50%, 100%);
