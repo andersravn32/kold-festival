@@ -25,10 +25,10 @@ const props = defineProps({
 <template>
   <a class="price" :href="link" target="_blank">
     <div>
-      <h3 v-if="title" class="text-6xl">{{ title }}</h3>
+      <h3 v-if="title" class="text-4xl text-center">{{ title }}</h3>
       <p v-if="subtitle" class="text-xs text-center font-body font-bold uppercase">{{ subtitle }}</p>
     </div>
-    <div class="text-center">
+    <div class="text-center space-y-4">
       <h4>Student / Ung</h4>
       <span>{{ studentPrice }} kr.</span>
       <h4>Normal</h4>
@@ -47,6 +47,6 @@ const props = defineProps({
 }
 
 .price span{
-  @apply text-6xl font-body font-bold;
+  @apply text-5xl font-body font-bold;
 }
 </style>

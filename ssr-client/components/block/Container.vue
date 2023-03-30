@@ -21,7 +21,12 @@ const props = defineProps({
 
 <style>
 .block-container {
-  @apply grid items-center;
-  grid-template-columns: repeat(v-bind('data.html.length'), 1fr);
+  @apply flex flex-col gap-8 items-center justify-center container px-8 lg:flex-row;
 }
+
+.block-container-column {
+  @apply py-8;
+  width: max(50%, 100%);
+}
+
 </style>

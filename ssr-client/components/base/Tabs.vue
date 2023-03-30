@@ -33,7 +33,7 @@ provide("selectedTitle", selectedTitle);
       <li
         v-for="tab in tabs"
         @click="selectedTitle = tab.props.title"
-        class="tab-title"
+        class="tab-title mb-4"
         :class="{ 'tab-active': tab.props.title == selectedTitle }"
       >
         {{ tab.props.title }}

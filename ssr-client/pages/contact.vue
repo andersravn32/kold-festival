@@ -19,7 +19,7 @@ definePageMeta({
 <template>
     <div id="page-contact">
     <BasePageHeader bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgContact">
-      <h1 class="text-6xl lg:text-8xl uppercase leading-[0.9]">Kontakt</h1>
+      <h1 class="text-4xl lg:text-6xl uppercase leading-[0.9]">Kontakt</h1>
       <h2 class="lg:text-xl text-center font-body">
         Udfyld den nedenstående formular for at sende os en direkte besked
       </h2></BasePageHeader
@@ -56,7 +56,7 @@ definePageMeta({
 <style>
 
 .contactContainer {
-  @apply max-w-2xl mx-auto w-full grid md:grid-cols-2 gap-8 p-4 text-zinc-100 font-body;
+  @apply max-w-2xl mx-auto w-full grid md:grid-cols-2 gap-8 p-4 px-8 text-zinc-100 font-body;
 }
 
 .contactCard {

@@ -7,7 +7,7 @@
 
     <!-- Cancelled -->
     <div v-if="cancelled"
-      class="absolute -z-10 h-full w-full gradient-cancelled transition-all duration-150 ease-in-out overflow-hidden"
+      class="cancelled-styles gradient-cancelled"
     >
       <span class="cancelled-text">AFLYST</span>
     </div>
@@ -18,7 +18,7 @@
 
     <nuxt-img preset="compress"
       id="img-pop"
-      class="absolute -z-20 h-full w-full object-cover"
+      class="absolute -z-20 h-full w-full origin-top object-cover"
       :src="artistCover"
       alt=""
     />
@@ -66,7 +66,7 @@ const { name, subartist, artistCover } = defineProps({
 }
 
 .sub-name {
-  @apply font-bold font-header text-2xl md:text-4xl lg:text-4xl text-center uppercase text-white z-40 px-8 pb-8;
+  @apply font-bold font-header text-xl md:text-2xl text-center uppercase text-white z-40 px-8 pb-8;
 }
 
 .artist-image {
@@ -88,4 +88,9 @@ const { name, subartist, artistCover } = defineProps({
 .artist:hover .artist-image  {
   @apply -bottom-0;
 }
+
+.cancelled-styles {
+  @apply absolute -z-10 h-full w-full transition-all duration-150 ease-in-out overflow-hidden;
+}
+
 </style>

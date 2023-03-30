@@ -25,6 +25,7 @@ const props = defineProps({
 </template>
 
 <style>
+
 .block-accordion {
     @apply bg-blue-900/75 p-4 flex flex-col;
 }

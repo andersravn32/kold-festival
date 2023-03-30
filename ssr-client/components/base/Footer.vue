@@ -1,25 +1,25 @@
 <template>
   <footer>
     <ul
-      class="container mx-auto grid grid-cols-3 place-items-center text-white font-header uppercase font-bold border-b-2 border-b-white/50 pb-8"
+      class="footerList"
     >
-      <li>
-        <NuxtLink to="/"> Hjem </NuxtLink>
+      <li class="footerItem">
+        <NuxtLink class="item-link" to="/"> Hjem </NuxtLink>
       </li>
-      <li>
-        <NuxtLink to="/about"> Om os </NuxtLink>
+      <li class="footerItem">
+        <NuxtLink class="item-link" to="/about"> Om os </NuxtLink>
       </li>
-      <li>
-        <NuxtLink to="/faq"> F.A.Q </NuxtLink>
+      <li class="footerItem">
+        <NuxtLink class="item-link" to="/faq"> F.A.Q </NuxtLink>
       </li>
-      <li>
-        <NuxtLink to="/program"> Program </NuxtLink>
+      <li class="footerItem">
+        <NuxtLink class="item-link" to="/program"> Program </NuxtLink>
       </li>
-      <li>
-        <NuxtLink to="/partners"> Partnere </NuxtLink>
+      <li class="footerItem">
+        <NuxtLink class="item-link" to="/partners"> Partnere </NuxtLink>
       </li>
-      <li>
-        <NuxtLink to="/contact"> Kontakt os </NuxtLink>
+      <li class="footerItem">
+        <NuxtLink class="item-link" to="/contact"> Kontakt os </NuxtLink>
       </li>
     </ul>
     <div class="container mx-auto flex items-center justify-between flex-col-reverse lg:flex-row text-center lg:text-left">
@@ -39,6 +39,27 @@
 
 <style>
 footer {
-  @apply flex flex-col space-y-8 py-8;
+  @apply flex flex-col space-y-8 p-8 mt-8;
 }
+
+.footerList {
+  @apply container mx-auto flex justify-between flex-col md:flex-row place-items-center text-white font-header uppercase font-bold border-b-2 border-b-white/50;
+}
+
+.footerItem {
+  @apply relative h-12 flex justify-center items-center border-b-[1px] border-b-white/50 w-full md:border-b-0
+}
+
+.item-link {
+  @apply w-full h-full flex justify-center items-center
+}
+
+.item-link:hover {
+  @apply bg-white/50
+}
+
+/* .footerItem::before {
+  content: '';
+  @apply absolute h-1 w-full bg-zinc-50 bottom-0 mt-2 duration-150 transition-all
+} */
 </style>

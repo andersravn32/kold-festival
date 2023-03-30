@@ -3,6 +3,7 @@ import {
   GlobeAltIcon,
   MapPinIcon,
   CalendarIcon,
+  MusicalNoteIcon
 } from "@heroicons/vue/24/solid";
 
 const supabase = useSupabaseClient();
@@ -47,8 +48,8 @@ suggested.length = 3;
 <template>
   <div id="page-artist">
     <BasePageHeader id="artist-header" :bg="artist.header">
-      <h1 class="text-center text-6xl">{{ artist.name }}</h1>
-      <h2 class="text-center text-4xl">{{ artist.subtitle }}</h2>
+      <h1 class="text-center text-4xl md:text-6xl">{{ artist.name }}</h1>
+      <h2 class="text-center text-2xl md:text-3xl">{{ artist.subtitle }}</h2>
     </BasePageHeader>
 
     <section id="artist">
@@ -91,8 +92,10 @@ suggested.length = 3;
         <div class="artist-date">
           <h2>Dato</h2>
           <p>
-            <CalendarIcon class="h6 w-6" /><span>{{ artist.date }}</span>
+            <CalendarIcon class="h6 w-6" />
+            <span :class="(artist.cancelled) ? 'line-through' : ''">{{ artist.date }}</span>
           </p>
+          <p class="bg-red-600 py-1 px-4 w-fit rounded-full" v-if="artist.cancelled">Aflyst</p>
         </div>
         <div class="artist-location">
           <h2>Venue</h2>
@@ -100,6 +103,14 @@ suggested.length = 3;
             <MapPinIcon class="h-6 w-6" />
             <span>{{ artist.location }}</span>
           </p>
+        </div>
+        <div v-if="artist.genre.styles.length" class="artist-genre">
+          <h2 class="flex">Genre</h2>
+          <ul class="flex gap-2 flex-wrap">
+            <li 
+            v-for="style, key in artist.genre.styles"
+            class="artist-genre-style" :key="key"><MusicalNoteIcon class="h-4 w-4" /> {{ style }}</li>
+          </ul>
         </div>
       </div>
       <article class="artist-body">
@@ -140,7 +151,7 @@ suggested.length = 3;
 }
 
 #artist {
-  @apply max-w-6xl mx-auto grid lg:grid-cols-4 gap-4 p-4;
+  @apply max-w-6xl mx-auto grid space-y-8 lg:space-y-0 lg:grid-cols-4 gap-4 p-4 my-8 ;
 }
 
 .artist-info {
@@ -183,6 +194,18 @@ suggested.length = 3;
   @apply flex items-center space-x-2;
 }
 
+.artist-genre h2 {
+  @apply text-2xl;
+}
+
+.artist-genre p {
+  @apply flex items-center space-x-2;
+}
+
+.artist-genre-style {
+  @apply flex justify-center items-center gap-1 bg-zinc-50/10 py-1 px-2 w-fit rounded-full;
+}
+
 .artist-body {
   @apply flex flex-col space-y-4 col-span-3;
 }
@@ -200,6 +223,6 @@ suggested.length = 3;
 }
 
 .suggested {
-  @apply grid lg:grid-cols-3 gap-16 col-span-4;
+  @apply grid lg:grid-cols-3 gap-16 col-span-4 px-8;
 }
 </style>
