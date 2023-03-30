@@ -29,6 +29,7 @@ const signin = async () => {
   // Handle errors
   if (request.error) {
     modal.setComponent(h("div", { class: "w-full max-w-xl flex flex-col items-center justify-center" }, [h("h3", { class: "text-2xl" }, "Der er sket en fejl"), h("p", { class: "mb-2" }, "Vi var desværre ikke i stand til at logge dig på"), h("p", { class: "opacity-50 text-xs" }, `Fejlkode: ${JSON.stringify(request.error)}`)]));
+    loading.value = !loading.value;
     return modal.toggle();
   }
 

@@ -1,4 +1,6 @@
 <script setup>
+import { TrashIcon } from '@heroicons/vue/24/solid';
+
 const supabase = useSupabaseClient();
 const sidebar = useSidebar();
 const imageSelector = useImageSelector();
@@ -9,6 +11,8 @@ const { data } = await supabase.from("artists").select().order("created_at");
 const artists = ref(data);
 
 const loading = ref(false);
+
+const style = ref(null);
 
 const editArtist = ref(null);
 
@@ -31,7 +35,7 @@ const update = async () => {
 
   // Update loading state
   loading.value = true;
-  console.log(editArtist.value);
+
   // Insert artists and select new rows
   const request = await supabase
     .from("artists")
@@ -47,6 +51,8 @@ const update = async () => {
       header: editArtist.value.header,
       body: editArtist.value.body,
       socials: editArtist.value.socials,
+      genre: editArtist.value.genre,
+      cancelled: editArtist.value.cancelled
     })
     .eq("id", editArtist.value.id);
 
@@ -177,9 +183,12 @@ const update = async () => {
         </div>
       </div>
       <div class="input">
-        <label>Kunsterbillede URL <span class="cursor-pointer underline" @click="imageSelector.toggle()"
-          >(Vælg billede)</span
-        ></label>
+        <label
+          >Kunsterbillede URL
+          <span class="cursor-pointer underline" @click="imageSelector.toggle()"
+            >(Vælg billede)</span
+          ></label
+        >
         <input
           v-model="editArtist.image"
           type="text"
@@ -187,9 +196,12 @@ const update = async () => {
         />
       </div>
       <div class="input">
-        <label>Header billede URL <span class="cursor-pointer underline" @click="imageSelector.toggle()"
-          >(Vælg billede)</span
-        ></label>
+        <label
+          >Header billede URL
+          <span class="cursor-pointer underline" @click="imageSelector.toggle()"
+            >(Vælg billede)</span
+          ></label
+        >
         <input
           v-model="editArtist.header"
           type="text"
@@ -238,6 +250,38 @@ const update = async () => {
           />
         </div>
       </div>
+      <div class="input" v-if="editArtist.genre.styles.length">
+        <label>Genrer</label>
+        <ul class="grid grid-cols-2 gap-4">
+          <li
+            v-for="(style, index) in editArtist.genre.styles"
+            class="py-2 px-6 border-2 border-white flex items-center justify-between font-body"
+          >
+            <span>{{ style }}</span
+            ><TrashIcon
+              class="h-4 w-4 cursor-pointer"
+              @click="editArtist.genre.styles.splice(index, 1)"
+            />
+          </li>
+        </ul>
+      </div>
+      <div class="input">
+      <label>Tilføj genre</label>
+      <input v-model="style" type="text" placeholder="Indtast navn på genre" />
+      <BaseButton
+        @click.prevent="
+          if (style) {
+            editArtist.genre.styles.push(style);
+            style = null;
+          }
+        "
+        >Tilføj</BaseButton
+      >
+    </div>
+    <div class="checkbox">
+      <input v-model="editArtist.cancelled" type="checkbox" />
+      <label>Marker som aflyst</label>
+    </div>
       <div class="checkbox">
         <input v-model="editArtist.public" type="checkbox" />
         <label>Offentliggør</label>

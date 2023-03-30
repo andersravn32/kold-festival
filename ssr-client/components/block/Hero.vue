@@ -40,19 +40,23 @@ const updateTime = () => {
 onMounted(() => {
   updateTime();
   setInterval(updateTime, 1000);
-})
-
+});
 </script>
 <template>
   <section class="block-hero gradient-divider">
     <video
       class="hero-video"
-      v-if="data.bg.src"
+      v-if="data.bg.src && data.bg.src.includes('.mp4')"
       :src="data.bg.src"
       autoplay
       muted
       loop
     ></video>
+    <div
+      class="hero-video bg-cover bg-center"
+      v-if="data.bg.src && !data.bg.src.includes('.mp4')"
+      :style="{ 'background-image': `url(${data.bg.src})` }"
+    ></div>
     <BaseGradient class="hero-gradient">
       <img
         class="hero-logo"
@@ -61,8 +65,14 @@ onMounted(() => {
         :src="data.logo.src"
         :alt="data.logo.alt"
       />
-      <h1 class="hero-title" v-if="data.title && !data.title.html">{{ data.title }}</h1>
-      <h1 class="hero-title" v-if="data.title && data.title.html" v-html="data.title.html"></h1>
+      <h1 class="hero-title" v-if="data.title && !data.title.html">
+        {{ data.title }}
+      </h1>
+      <h1
+        class="hero-title"
+        v-if="data.title && data.title.html"
+        v-html="data.title.html"
+      ></h1>
 
       <h3 class="hero-countdown" v-if="data.countdown">
         <span>{{ countdown.days }}D</span><span>/</span
@@ -91,7 +101,7 @@ onMounted(() => {
   @apply absolute w-full h-full object-cover -z-10;
 }
 
-.hero-title{
+.hero-title {
   @apply flex flex-col text-center;
 }
 
