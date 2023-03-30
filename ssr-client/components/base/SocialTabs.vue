@@ -20,7 +20,7 @@ const FbIcon = "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/publi
 <style>
 
     #SocialSideTab {
-        @apply hidden md:fixed md:flex bottom-12 -translate-y-1/2 z-50 w-20 bg-accent h-fit transition-transform duration-150 top-1/2 justify-end -translate-x-4 hover:translate-x-0;
+        @apply hidden md:fixed md:flex bottom-12 -translate-y-1/2 z-50 w-20 bg-accent h-fit transition-transform duration-150 top-1/2 justify-end -translate-x-8 hover:-translate-x-4;
     }
 
     .socialItem {
@@ -28,14 +28,15 @@ const FbIcon = "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/publi
     }
 
     .socialLink {
-        @apply w-16 h-16 grid place-content-center;
+        @apply w-12 h-12 grid place-content-center;
     }
 
     .socialTabIcon {
-        @apply h-12 transition-all duration-150;
+        @apply h-8 transition-all duration-150;
     }
 
     .socialItem:hover .socialTabIcon {
         filter: invert(36%) sepia(100%) saturate(3918%) hue-rotate(215deg) brightness(94%) contrast(96%);
+        @apply h-10
     }
 </style>

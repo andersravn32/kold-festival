@@ -22,13 +22,13 @@ defineEmits(["toggleScroll"]);
                     </NuxtLink>
                 </li>
                 <li>
-                    <button @click="showNavmenu = !showNavmenu" class="text-white relative z-[100]">
+                    <button @click="showNavmenu = !showNavmenu; $emit('toggleScroll');" class="text-white relative z-[100]">
                         <MenuIcon :showMenu="showNavmenu" />
                     </button>
                 </li>
             </ul>
             <Transition name="bubble">
-              <BaseNavmenu v-if="showNavmenu" @close="showNavmenu = !showNavmenu" />
+              <BaseNavmenu v-if="showNavmenu" @close="showNavmenu = !showNavmenu; $emit('toggleScroll');" />
             </Transition>
         </nav>
     </header>

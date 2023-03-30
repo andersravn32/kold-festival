@@ -38,7 +38,7 @@ defineEmits(["close"]);
 }
 
 #navmenu ul li {
-  @apply flex justify-center items-center text-4xl m-0;
+  @apply flex justify-center items-center text-4xl xl:text-6xl m-0;
 }
 
 </style>
