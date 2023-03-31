@@ -1,3 +1,13 @@
+<script setup>
+definePageMeta({
+  hidden: false,
+  name: "Partnere",
+  editable: false,
+});
+const bg =
+  "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere";
+</script>
+
 <template>
   <div id="samarbejdspartnere">
     <BasePageHeader :bg="bg">
@@ -19,20 +29,6 @@
     </section>
   </div>
 </template>
-
-<script setup>
-/* Meta */
-definePageMeta({
-  //Disable duplicate
-  hid: "Partnere",
-  //Page Title
-  name: "Partnere",
-  //Page description
-  content: "Default description for the page",
-});
-const bg =
-  "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere";
-</script>
 
 <style>
 .partnerSection {
