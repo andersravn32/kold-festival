@@ -2,7 +2,7 @@
 definePageMeta({
   hidden: false,
   name: "Partnere",
-  editable: false
+  editable: false,
 });
 const bg =
   "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere";

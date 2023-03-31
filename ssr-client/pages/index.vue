@@ -2,8 +2,8 @@
 definePageMeta({
   name: "Hjem",
   hidden: false,
-  editable: true
-})
+  editable: true,
+});
 </script>
 
 <template>
@@ -13,11 +13,11 @@ definePageMeta({
 </template>
 
 <style>
-#page-index .blocks{
+#page-index .blocks {
   @apply flex flex-col space-y-8;
 }
 
-#page-index #block-39 .block-container{
+#page-index #block-39 .block-container {
   @apply gap-4 container mx-auto;
 }
 </style>

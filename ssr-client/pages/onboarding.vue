@@ -1,14 +1,11 @@
 <script setup>
 const user = useSupabaseUser();
-const router = useRouter();
 
 definePageMeta({
+  name: "Onboarding",
+  editable: false,
   hidden: true,
-})
-
-if (!user.value) {
-  router.push("/");
-}
+});
 </script>
 
 <template>
