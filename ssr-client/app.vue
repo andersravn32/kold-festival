@@ -1,5 +1,11 @@
 <script setup>
+import { UserIcon } from "@heroicons/vue/24/outline";
+
 const account = useAccount();
+const sidebar = useSidebar();
+const imageSelector = useImageSelector();
+const modal = useModal();
+
 if (!account.profile.value || !account.user.value) {
   await account.update();
 }
@@ -15,13 +21,46 @@ if (!account.profile.value || !account.user.value) {
 </script>
 
 <template>
-  <NuxtLayout>
+  <div>
+    <!-- Sidebar -->
+    <BaseSidebar
+      v-if="sidebar.show.value && account.user.value && account.profile.value"
+    />
+
+    <!-- Sidebar toggle button -->
+    <button
+      v-if="!sidebar.show.value && account.user.value && account.profile.value"
+      @click="sidebar.toggle()"
+      class="fixed bottom-4 right-4 p-4 bg-indigo-500 rounded-full z-20"
+    >
+      <UserIcon class="h-6 w-6 text-white" />
+    </button>
+
+    <!-- Modal component and overlay -->
+    <Transition name="fade">
+      <BaseOverlay v-if="modal.show.value">
+        <BaseModal />
+      </BaseOverlay>
+    </Transition>
+
+    <!-- Image selector overlay -->
+    <Transition name="fade">
+      <BaseImageSelector
+        v-if="
+          imageSelector.show.value &&
+          account.user.value &&
+          account.profile.value
+        "
+      />
+    </Transition>
+
+    <BaseNavbar v-if="!sidebar.show.value" />
     <NuxtPage />
-  </NuxtLayout>
+    <BaseFooter />
+  </div>
 </template>
 
 <style>
-
 .page-enter-active,
 .page-leave-active {
   transition: all 0.3s;
@@ -31,5 +70,4 @@ if (!account.profile.value || !account.user.value) {
   opacity: 0;
   filter: blur(0.2rem);
 }
-
 </style>
