@@ -6,7 +6,7 @@ const imageSelector = useImageSelector();
 const account = useAccount();
 
 const toggleScroll = () => {
-  document.querySelector('body').classList.toggle('overflow-y-hidden');
+  document.querySelector("body").classList.toggle("overflow-y-hidden");
 };
 </script>
 
@@ -49,8 +49,11 @@ const toggleScroll = () => {
       </button>
     </Transition>
 
-    <button v-if="!sidebar.show.value && account.user.value && account.profile.value" @click="sidebar.toggle()"
-      class="fixed bottom-4 right-4 p-4 bg-indigo-500 rounded-full z-20">
+    <button
+      v-if="!sidebar.show.value && account.user.value && account.profile.value"
+      @click="sidebar.toggle()"
+      class="fixed bottom-4 right-4 p-4 bg-indigo-500 rounded-full z-20"
+    >
       <UserIcon class="h-6 w-6 text-white" />
     </button>
     <BaseNavbar @toggle-scroll="toggleScroll" v-if="!sidebar.show.value" />

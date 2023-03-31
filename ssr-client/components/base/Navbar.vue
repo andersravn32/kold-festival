@@ -1,5 +1,5 @@
 <script setup>
-import MenuIcon from '../svg/MenuIcon.vue';
+import MenuIcon from "../svg/MenuIcon.vue";
 
 // Navmenu state
 const showNavmenu = ref(false);
@@ -8,30 +8,42 @@ defineEmits(["toggleScroll"]);
 </script>
 
 <template>
-    <header>
-        <nav id="navbar">
-            <NuxtLink to="/">
-                <img class="logo"
-                    src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/logo.svg"
-                    alt="KOLD Icon" />
-            </NuxtLink>
-            <ul>
-                <li class="text-xl sm:text-2xl">
-                    <NuxtLink to="/program">
-                        Program
-                    </NuxtLink>
-                </li>
-                <li>
-                    <button @click="showNavmenu = !showNavmenu; $emit('toggleScroll');" class="text-white relative z-[100]">
-                        <MenuIcon :showMenu="showNavmenu" />
-                    </button>
-                </li>
-            </ul>
-            <Transition name="bubble">
-              <BaseNavmenu v-if="showNavmenu" @close="showNavmenu = !showNavmenu; $emit('toggleScroll');" />
-            </Transition>
-        </nav>
-    </header>
+  <header>
+    <nav id="navbar">
+      <NuxtLink to="/">
+        <img
+          class="logo"
+          src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/logo.svg"
+          alt="KOLD Icon"
+        />
+      </NuxtLink>
+      <ul>
+        <li class="text-xl sm:text-2xl">
+          <NuxtLink to="/program"> Program </NuxtLink>
+        </li>
+        <li>
+          <button
+            @click="
+              showNavmenu = !showNavmenu;
+              $emit('toggleScroll');
+            "
+            class="text-white relative z-[100]"
+          >
+            <MenuIcon :showMenu="showNavmenu" />
+          </button>
+        </li>
+      </ul>
+      <Transition name="bubble">
+        <BaseNavmenu
+          v-if="showNavmenu"
+          @close="
+            showNavmenu = !showNavmenu;
+            $emit('toggleScroll');
+          "
+        />
+      </Transition>
+    </nav>
+  </header>
 </template>
 
 <style>
