@@ -1,4 +1,6 @@
 <script setup>
+import { ArrowUturnLeftIcon } from "@heroicons/vue/24/solid";
+
 // Import supabase client
 const supabase = useSupabaseClient();
 
@@ -53,6 +55,7 @@ const signin = async () => {
       </div>
       <input v-model="email" type="email" placeholder="Indtast din e-mail" />
       <BaseButton :loading="loading">Log på </BaseButton>
+      <NuxtLink class="bg-indigo-600 px-6 py-2 flex items-center justify-center font-header font-bold transition-all duration-150 text-white hover:bg-indigo-600/75 cursor-pointer;" to="/"><ArrowUturnLeftIcon class="h-6 w-6 text-white"/>Tilbage</NuxtLink>
     </form>
   </div>
 </template>

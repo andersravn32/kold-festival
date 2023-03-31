@@ -1,12 +1,13 @@
 <script setup>
 definePageMeta({
   hidden: true,
+  layout: 'signin'
 })
 </script>
 
 <template>
   <section id="page-signin">
-    <BaseGradient class="flex items-center justify-center">
+    <BaseGradient class="flex flex-col items-center justify-center">
       <FormSignin />
     </BaseGradient>
   </section>
