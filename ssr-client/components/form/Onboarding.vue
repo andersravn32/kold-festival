@@ -3,6 +3,7 @@ const router = useRouter();
 const supabase = useSupabaseClient();
 const user = useSupabaseUser();
 const profile = ref(null);
+const account = useAccount();
 
 // Form input
 const firstName = ref("");
@@ -36,6 +37,9 @@ const update = async () => {
   if (!(req.status == 204)) {
     return;
   }
+
+  // Await update of account info
+  await account.update();
 
   // Redirect to index
   router.push("/");
