@@ -6,12 +6,9 @@ import {
 } from "@heroicons/vue/24/solid";
 /* Meta */
 definePageMeta({
-//Disable duplicate
-  hid: 'Kontakt',
-//Page Title
-  name: "Kontakt",
-//Page description
-  content: 'Default description for the page'
+  hidden: false,
+  editable: false,
+  name: "Kontakt"
 });
 
 </script>
