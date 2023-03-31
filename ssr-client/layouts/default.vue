@@ -56,6 +56,7 @@ const toggleScroll = () => {
     >
       <UserIcon class="h-6 w-6 text-white" />
     </button>
+    
     <BaseNavbar @toggle-scroll="toggleScroll" v-if="!sidebar.show.value" />
     <slot />
     <BaseFooter />
