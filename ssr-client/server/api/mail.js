@@ -10,11 +10,6 @@ export default defineEventHandler(async event => {
 
     const client = new MailtrapClient({ endpoint: ENDPOINT, token: TOKEN });
 
-    const recipients = [
-        { email: "lkr97km@hotmail.dk"},
-        { email: "dirt3forfree@hotmail.com"},
-    ];
-
     const sender = {
         email: "mailtrap@koldfestival.dk",
         name: "Koldfestival formular",
@@ -24,7 +19,7 @@ export default defineEventHandler(async event => {
         client
             .send({
                 from: sender,
-                to: recipients,
+                to: body.receivers,
                 subject: `Formular fra ${body.firstName}`,
                 html: `
                     <!doctype html>

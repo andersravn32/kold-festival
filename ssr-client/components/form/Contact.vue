@@ -2,6 +2,8 @@
 
 import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 
+const supabase = useSupabaseClient()
+
 const email = ref('')
 const message = ref('')
 const firstName = ref('')
@@ -20,12 +22,16 @@ const sendMail = async ()=> {
     return alert('Indtast en valid email adresse')
   }
 
+  const receivers = await supabase.from('mails').select('Email')
+
+  
   sending.value = true
 
     const data = {
     sender: email.value,
     message: message.value,
     firstName: firstName.value,
+    receivers: receivers.data
   }
 
   await useFetch('/api/mail', {
