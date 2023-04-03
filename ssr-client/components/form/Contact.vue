@@ -76,7 +76,7 @@ const send = async () => {
 </script>
 
 <template>
-  <Transition name="form" mode="out-in">
+<!--   <Transition name="form" mode="out-in">
   <form v-if="!response" id="form-contact" @submit.prevent="send">
     <div class="grid grid-cols-2 gap-4">
       <div class="input">
@@ -129,7 +129,30 @@ const send = async () => {
     </p>
     <BaseButton @click="response = null">Send ny besked</BaseButton>
   </div>
-  </Transition>
+  </Transition> -->
+
+  <Transition name="form" mode="out-in" class="container">
+  <form v-if="!response" id="form-contact" @submit.prevent="submit" class=" flex flex-col space-y-4 px-8">
+    <div class="grid md:grid-cols-2 gap-4">
+        <input v-model="formData.firstName" class="normal" type="text" placeholder="Fornavn" />
+        <input v-model="formData.lastName" class="normal" type="text" placeholder="Efternavn" />
+    </div>
+    <input class="normal" :class="{sendingEmail: sending}" v-model="formData.email" type="email" placeholder="E-mail adresse">
+    <textarea class="normal messageBox" v-model="formData.message" placeholder="Indtast din besked"></textarea>
+    <VueHcaptcha
+      sitekey="2d41a769-885b-43e5-a2e8-e159f5bb738d"
+      @verify="(e) => (formData.captcha = e)"
+      ref="hcaptcha"
+    ></VueHcaptcha>
+    <button class="submitBtn" :class="{ 'submitBtn-loading': sending}" type="submit" @click.prevent="sendMail">
+      <p :class="{'text-hidden': sending}">Send besked</p></button>
+  </form>
+
+  <div class="text-zinc-50 flex flex-col justify-center items-center gap-12 my-8" v-else>
+    <p class=" text-center">{{ response.msg }}</p>-
+    <BaseButton @click="response = null">Send ny besked</BaseButton>
+  </div>
+</Transition>
 </template>
 
 <style>
