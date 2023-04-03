@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
   if (!captcha.success) {
     return {
       status: 401,
-      msg: "Udfyld venligst captcha",
+      msg: "Der opstod en fejl med hcaptcha",
     };
   }
 
@@ -39,9 +39,7 @@ export default defineEventHandler(async (event) => {
                         <div style="display: block; margin: auto; max-width: 600px;" class="main">
                         <h1 style="font-size: 18px; font-weight: bold; margin-top: 20px">Ny forespørgsel fra kontaktformular:</h1>
                         <p>${body.message}</p>
-                        <p><strong>Detaljer:</strong></p>
-                        <p>Fornavn: ${body.firstName}</p>
-                        <p>Efternavn: ${body.lastName}</p>
+                        <p><i>Afsender:</i> ${body.firstName} ${body.lastName}</p>
                         <p><strong>Afsender kan kontaktes her:</strong></p>
                         <p>${body.email}</p>
                         </div>
