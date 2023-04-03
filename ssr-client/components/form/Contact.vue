@@ -1,128 +1,140 @@
 <script setup>
+import VueHcaptcha from "@hcaptcha/vue3-hcaptcha";
 
-import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
+const supabase = useSupabaseClient();
 
-const supabase = useSupabaseClient()
+const formData = ref({
+  sender: null,
+  message: null,
+  firstName: null,
+  receivers: [],
+  captcha: null,
+});
 
-const email = ref('')
-const message = ref('')
-const firstName = ref('')
-const lastName = ref('')
+const loading = ref(false);
+const response = ref(null);
 
-const sending = ref(false)
-const confirmed = ref(false)
-
-const sendMail = async ()=> {
-
-  const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-  if(!email.value || !message.value || !firstName.value) {
-    return alert('Udfyld venligst alle felter')
-  } else if (!email.value.match(validRegex)) {
-    return alert('Indtast en valid email adresse')
+const send = async () => {
+  /*   // Loading check
+  if (loading.value) {
+    return;
   }
 
-  const receivers = await supabase.from('mails').select('Email')
+  // Captcha check
+  if (!formData.value.captcha) {
+    return;
+  } */
 
-  
-  sending.value = true
+  // Email check
+  const validRegex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-    const data = {
-    sender: email.value,
-    message: message.value,
-    firstName: firstName.value,
-    receivers: receivers.data
+  // Ensure all values are present
+  if (
+    !formData.value.email ||
+    !formData.value.message ||
+    !formData.value.firstName
+  ) {
+    return alert("Udfyld venligst alle felter");
   }
 
-  await useFetch('/api/mail', {
-    method: 'post',
-    body: data
+  // Ensure validity of email
+  if (!formData.value.email.match(validRegex)) {
+    return alert("Indtast en valid email adresse");
+  }
+
+  // Update loading state
+  loading.value = true;
+
+  // Fetch receiving email addresses from supabase
+  const receiverRequest = await supabase.from("mails").select("email");
+
+  // Set receivers
+  formData.value.receivers = receiverRequest.data;
+
+  // Send request to backend API
+  const { data } = await useFetch("/api/mail", {
+    method: "POST",
+    body: formData.value,
   });
 
-  email.value = ''
-  message.value = ''
-  firstName.value = ''
-  lastName.value = ''
-  sending.value = false
-  confirmed.value = true
-}
+  // Set response
+  response.value = data.value;
+
+  // Update loading state
+  loading.value = false;
+
+  // Reset form data
+  formData.value = {
+    sender: null,
+    message: null,
+    firstName: null,
+    receivers: [],
+    captcha: null,
+  };
+};
 </script>
 
 <template>
-  <Transition name="form" mode="out-in" class="container">
-  <form v-if="!confirmed" id="form-contact" @submit.prevent="submit" class=" flex flex-col space-y-4 px-8">
-    <div class="grid md:grid-cols-2 gap-4">
-        <input v-model="firstName" class="normal" type="text" placeholder="Fornavn" />
-        <input v-model="lastName" class="normal" type="text" placeholder="Efternavn" />
+  <form v-if="!response" id="form-contact" @submit.prevent="send">
+    <div class="grid grid-cols-2 gap-4">
+      <div class="input">
+        <label>Fornavn:</label>
+        <input
+          type="text"
+          v-model="formData.firstName"
+          placeholder="Indtast fornavn"
+        />
+      </div>
+      <div class="input">
+        <label>Efternavn:</label>
+        <input
+          type="text"
+          v-model="formData.lastName"
+          placeholder="Indtast efternavn"
+        />
+      </div>
     </div>
-    <input class="normal" :class="{sendingEmail: sending}" v-model="email" type="email" placeholder="E-mail adresse">
-    <textarea class="normal messageBox" v-model="message" placeholder="Indtast din besked"></textarea>
-    <VueHcaptcha sitekey="2d41a769-885b-43e5-a2e8-e159f5bb738d"></VueHcaptcha>
-    <button class="submitBtn" :class="{ 'submitBtn-loading': sending}" type="submit" @click.prevent="sendMail">
-      <p :class="{'text-hidden': sending}">Send besked</p></button>
+    <div class="input">
+      <label>Email:</label>
+      <input
+        type="email"
+        v-model="formData.email"
+        placeholder="Indtast email"
+      />
+    </div>
+    <div class="input">
+      <label>Forespørgsel:</label>
+      <textarea
+        v-model="formData.message"
+        class="h-32 resize-none"
+        placeholder="Skriv din forespørsel"
+      ></textarea>
+    </div>
+    <VueHcaptcha
+      sitekey="2d41a769-885b-43e5-a2e8-e159f5bb738d"
+      @verify="(e) => (formData.captcha = e)"
+    ></VueHcaptcha>
+    <BaseButton :loading="loading">Send forespørgsel</BaseButton>
   </form>
 
-  <div class="text-zinc-50 flex flex-col justify-center items-center gap-12 my-8" v-else>
-    <p class=" text-center">Tak for din besked! Vi vender tilbage hurtigst muligt</p>
-    <BaseButton @click="confirmed = !confirmed">Send ny besked</BaseButton>
+  <div
+    v-if="response"
+    class="text-zinc-50 flex flex-col justify-center items-center gap-12 my-8"
+  >
+    <p class="text-center">
+      {{ response.msg }}
+    </p>
+    <BaseButton @click="response = null">Send ny besked</BaseButton>
   </div>
-</Transition>
 </template>
 
 <style>
-
-.form-enter-active,
-.form-leave-active {
-  transition: all 0.5s ease-in-out;
-}
-.form-enter-from,
-.form-leave-to {
-  opacity: 0;
+#form-contact {
+  @apply flex flex-col space-y-4;
 }
 
-.messageBox {
-  @apply h-44;
+#form-contact .input {
+  @apply flex flex-col space-y-2;
 }
-
-.submitBtn {
-  @apply bg-indigo-500 px-6 py-2 relative font-header font-bold transition-all duration-150 text-white hover:bg-indigo-600/75;
-}
-
-.normal {
-  @apply bg-midnight duration-200 transition-all
-}
-
-.text-hidden {
-  @apply invisible;
-}
-
-.submitBtn-loading{
-    @apply bg-indigo-600/75 cursor-not-allowed;
-}
-
-.submitBtn-loading::after {
-  content: "";
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  border: 4px solid transparent;
-  border-top-color: #ffffff;
-  border-radius: 50%;
-  animation: button-loading-spinner 0.6s ease infinite;
-}
-
-@keyframes button-loading-spinner {
-  from {
-    transform: rotate(0turn);
-  }
-  to {
-    transform: rotate(1turn);
-  }
-}
-
 </style>
