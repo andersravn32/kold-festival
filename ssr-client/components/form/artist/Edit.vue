@@ -1,5 +1,5 @@
 <script setup>
-import { TrashIcon } from '@heroicons/vue/24/solid';
+import { TrashIcon } from "@heroicons/vue/24/solid";
 
 const supabase = useSupabaseClient();
 const sidebar = useSidebar();
@@ -52,7 +52,7 @@ const update = async () => {
       body: editArtist.value.body,
       socials: editArtist.value.socials,
       genre: editArtist.value.genre,
-      cancelled: editArtist.value.cancelled
+      cancelled: editArtist.value.cancelled,
     })
     .eq("id", editArtist.value.id);
 
@@ -99,6 +99,10 @@ const update = async () => {
 
   modal.toggle();
   sidebar.toggle();
+
+  setTimeout(() => {
+    location.reload();
+  }, 3000);
 };
 </script>
 
@@ -266,22 +270,26 @@ const update = async () => {
         </ul>
       </div>
       <div class="input">
-      <label>Tilføj genre</label>
-      <input v-model="style" type="text" placeholder="Indtast navn på genre" />
-      <BaseButton
-        @click.prevent="
-          if (style) {
-            editArtist.genre.styles.push(style);
-            style = null;
-          }
-        "
-        >Tilføj</BaseButton
-      >
-    </div>
-    <div class="checkbox">
-      <input v-model="editArtist.cancelled" type="checkbox" />
-      <label>Marker som aflyst</label>
-    </div>
+        <label>Tilføj genre</label>
+        <input
+          v-model="style"
+          type="text"
+          placeholder="Indtast navn på genre"
+        />
+        <BaseButton
+          @click.prevent="
+            if (style) {
+              editArtist.genre.styles.push(style);
+              style = null;
+            }
+          "
+          >Tilføj</BaseButton
+        >
+      </div>
+      <div class="checkbox">
+        <input v-model="editArtist.cancelled" type="checkbox" />
+        <label>Marker som aflyst</label>
+      </div>
       <div class="checkbox">
         <input v-model="editArtist.public" type="checkbox" />
         <label>Offentliggør</label>
