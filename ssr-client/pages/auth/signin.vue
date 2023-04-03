@@ -1,7 +1,6 @@
 <script setup>
 definePageMeta({
   hidden: true,
-  layout: 'signin'
 })
 </script>
 
