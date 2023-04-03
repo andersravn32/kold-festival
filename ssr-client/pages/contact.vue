@@ -19,8 +19,8 @@ definePageMeta({
         Udfyld den nedenstående formular for at sende os en direkte besked
       </h2></BasePageHeader
     >
-
-    <FormContact class="max-w-2xl mx-auto p-4" />
+    
+    <FormContact />
 
     <div class="contactContainer">
       <div class="contactCard">
