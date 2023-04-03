@@ -5,6 +5,7 @@ const account = useAccount();
 const sidebar = useSidebar();
 const imageSelector = useImageSelector();
 const modal = useModal();
+const router = useRouter();
 
 if (!account.profile.value || !account.user.value) {
   await account.update();
@@ -21,7 +22,10 @@ if (!account.profile.value || !account.user.value) {
 </script>
 
 <template>
-  <div>
+  <div v-if="router.currentRoute.value.name == 'auth-signin'">
+    <NuxtPage />
+  </div>
+  <div v-if="router.currentRoute.value.name != 'auth-signin'">
     <!-- Sidebar -->
     <BaseSidebar
       v-if="sidebar.show.value && account.user.value && account.profile.value"
