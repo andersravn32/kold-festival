@@ -23,6 +23,12 @@ if (!account.profile.value || !account.user.value) {
 
 <template>
   <div v-if="router.currentRoute.value.name == 'auth-signin'">
+    <!-- Modal component and overlay -->
+    <Transition name="fade">
+      <BaseOverlay v-if="modal.show.value">
+        <BaseModal />
+      </BaseOverlay>
+    </Transition>
     <NuxtPage />
   </div>
   <div v-if="router.currentRoute.value.name != 'auth-signin'">

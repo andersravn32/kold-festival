@@ -5,7 +5,7 @@ const modal = useModal();
 
 <template>
   <div class="modal">
-    <button class="absolute top-4 right-4" @click="modal.toggle()">
+    <button class="absolute top-4 right-4" @mousedown="modal.toggle()">
       <XMarkIcon class="h-6 w-6" />
     </button>
     <component v-if="modal.getComponent()" :is="modal.getComponent()" @close="modal.toggle()" />

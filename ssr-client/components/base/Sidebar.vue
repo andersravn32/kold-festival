@@ -31,7 +31,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="sidebar-overlay" @click="handleClick">
+  <div class="sidebar-overlay" @mousedown="handleClick">
     <div class="sidebar-overlay-inner">
       <aside v-if="ready" class="sidebar">
         <div
