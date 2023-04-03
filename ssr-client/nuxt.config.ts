@@ -9,7 +9,12 @@ export default defineNuxtConfig({
     },
   },
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' }
+    pageTransition: { name: 'page', mode: 'out-in' },
+    head: {
+      htmlAttrs: {
+        lang: 'da'
+      }
+    }
   },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase", "@nuxt/image-edge"],
   build: {

@@ -17,8 +17,8 @@ defineProps(['cancelled_artist'])
 
 <style>
 
-#cancelled {
-    @apply container mx-auto font-header flex flex-col justify-center items-center text-zinc-50 text-center p-4 min-w-[24rem] bg-indigo-500/75 mb-8
-}
+    #cancelled {
+        @apply container mx-auto font-header flex flex-col justify-center items-center text-zinc-50 text-center p-4 min-w-[24rem] bg-indigo-500/75 mb-8
+    }
 
 </style>
