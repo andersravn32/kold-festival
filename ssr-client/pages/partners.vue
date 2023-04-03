@@ -4,8 +4,18 @@ definePageMeta({
   name: "Partnere",
   editable: false,
 });
+
+const supabase = useSupabaseClient();
+
 const bg =
   "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere";
+
+
+const { data } = await supabase.from('partnere').select()
+
+const partnere = data
+
+
 </script>
 
 <template>

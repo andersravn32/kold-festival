@@ -1,7 +1,6 @@
 <script setup>
-/* Imports */
 import { PhoneIcon, EnvelopeIcon } from "@heroicons/vue/24/solid";
-/* Meta */
+
 definePageMeta({
   hidden: false,
   editable: false,
@@ -20,7 +19,7 @@ definePageMeta({
       </h2></BasePageHeader
     >
 
-    <FormContact class="max-w-2xl mx-auto p-4" />
+    <FormContact />
 
     <div class="contactContainer">
       <div class="contactCard">

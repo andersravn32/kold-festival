@@ -33,7 +33,7 @@ const update = () => {
             <div class="flex flex-col space-y-2" v-for="(column, index) in data.html" :key="index">
                 <label class="flex items-center justify-between"><span>Kolonne {{ index }} indhold</span><span
                         @click="data.html.splice(index, 1)">Slet</span></label>
-                <textarea class="h-32" v-model="data.html[index]" @change="update">{{
+                <textarea class="h-32 focus:h-64 duration-150 transition-all" v-model="data.html[index]" @change="update">{{
                     column
                 }}</textarea>
             </div>

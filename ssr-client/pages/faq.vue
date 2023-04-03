@@ -13,6 +13,14 @@ definePageMeta({
 </template>
 
 <style>
+#page-faq .block-content {
+  @apply px-8;
+}
+
+#page-faq #block-40{
+  @apply p-0;
+}
+
 #page-faq .block-accordion {
   @apply w-full max-w-4xl mx-auto my-4;
 }
@@ -28,4 +36,5 @@ definePageMeta({
 #page-faq .block-header p {
   @apply font-body font-bold uppercase;
 }
+
 </style>
