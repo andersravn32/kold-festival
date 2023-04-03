@@ -19,6 +19,10 @@ const handleClick = (e) => {
   }
 };
 
+const reload = () => {
+  return location.reload();
+}
+
 // Ready state
 const ready = ref(false);
 onMounted(async () => {
@@ -48,7 +52,7 @@ onMounted(async () => {
           </button>
         </div>
         <div v-if="sidebar.getComponent()" class="sidebar-content">
-          <component :is="sidebar.getComponent()" @done="sidebar.toggle()" />
+          <component :is="sidebar.getComponent()" @done="reload" />
         </div>
         <div v-if="!sidebar.getComponent()" class="sidebar-content space-y-4">
           <div>
