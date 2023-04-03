@@ -14,15 +14,15 @@ definePageMeta({
 
 <style>
 #page-faq .block-content {
-  @apply px-8;
+  @apply flex justify-center;
 }
 
-#page-faq #block-40{
-  @apply p-0;
+#page-faq #block-40 .block-header{
+  @apply w-full;
 }
 
 #page-faq .block-accordion {
-  @apply w-full max-w-4xl mx-auto my-4;
+  @apply w-full max-w-4xl mx-8 my-4;
 }
 
 #page-faq .block-header {
