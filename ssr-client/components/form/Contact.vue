@@ -12,16 +12,17 @@ const formData = ref({
 
 const loading = ref(false);
 const response = ref(null);
+const hcaptcha = ref(null)
 
 const send = async () => {
-  /*   // Loading check
+    // Loading check
   if (loading.value) {
     return;
   }
 
   // Captcha check
-  if (!formData.value.captcha) {
-    return;
+/*   if (!formData.value.captcha) {
+    return hcaptcha.value.execute();
   } */
 
   // Email check
@@ -75,6 +76,7 @@ const send = async () => {
 </script>
 
 <template>
+  <TransitionGroup name="form" mode="out-in">
   <form v-if="!response" id="form-contact" @submit.prevent="send">
     <div class="grid grid-cols-2 gap-4">
       <div class="input">
@@ -113,6 +115,7 @@ const send = async () => {
     <VueHcaptcha
       sitekey="2d41a769-885b-43e5-a2e8-e159f5bb738d"
       @verify="(e) => (formData.captcha = e)"
+      ref="hcaptcha"
     ></VueHcaptcha>
     <BaseButton :loading="loading">Send forespørgsel</BaseButton>
   </form>
@@ -126,9 +129,21 @@ const send = async () => {
     </p>
     <BaseButton @click="response = null">Send ny besked</BaseButton>
   </div>
+  </TransitionGroup>
 </template>
 
 <style>
+
+.form-enter-active,
+.form-leave-active {
+  transition: all 0.5s ease;
+}
+.form-enter-from,
+.form-leave-to {
+  opacity: 0;
+}
+
+
 #form-contact {
   @apply flex flex-col space-y-4 w-full max-w-2xl mx-auto my-4 px-8;
 }
