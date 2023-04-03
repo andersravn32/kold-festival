@@ -76,7 +76,7 @@ const send = async () => {
 </script>
 
 <template>
-  <TransitionGroup name="form" mode="out-in">
+  <Transition name="form" mode="out-in">
   <form v-if="!response" id="form-contact" @submit.prevent="send">
     <div class="grid grid-cols-2 gap-4">
       <div class="input">
@@ -129,7 +129,7 @@ const send = async () => {
     </p>
     <BaseButton @click="response = null">Send ny besked</BaseButton>
   </div>
-  </TransitionGroup>
+  </Transition>
 </template>
 
 <style>
