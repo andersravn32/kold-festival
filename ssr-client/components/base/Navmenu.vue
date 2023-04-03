@@ -10,13 +10,13 @@ defineEmits(["close"]);
         <NuxtLink class="link" to="/" @click="$emit('close')">Hjem</NuxtLink>
       </li>
       <li>
-        <NuxtLink class="link" to="/about" @click="$emit('close')">Om os</NuxtLink>
+        <NuxtLink class="link" to="/program" @click="$emit('close')">Program</NuxtLink>
       </li>
       <li>
         <NuxtLink class="link" to="/faq" @click="$emit('close')">F.A.Q</NuxtLink>
       </li>
       <li>
-        <NuxtLink class="link" to="/program" @click="$emit('close')">Program</NuxtLink>
+        <NuxtLink class="link" to="/about" @click="$emit('close')">Om os</NuxtLink>
       </li>
       <li>
         <NuxtLink class="link" to="/partners" @click="$emit('close')">Partnere</NuxtLink>
