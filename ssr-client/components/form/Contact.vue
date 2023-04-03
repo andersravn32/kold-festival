@@ -14,7 +14,7 @@ const loading = ref(false);
 const response = ref(null);
 
 const send = async () => {
-  /*   // Loading check
+  // Loading check
   if (loading.value) {
     return;
   }
@@ -22,7 +22,7 @@ const send = async () => {
   // Captcha check
   if (!formData.value.captcha) {
     return;
-  } */
+  }
 
   // Email check
   const validRegex =
