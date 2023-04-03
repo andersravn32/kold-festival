@@ -26,10 +26,10 @@ const mouseleave = (e) => {
   >
     <div
       v-if="hover"
-      class="absolute w-full h-full flex justify-end items-start"
+      class="absolute w-full h-full flex justify-end items-start pointer-events-none"
     >
       <div
-        class="sticky w-fit top-1/2 -translate-y-1/2 bg-indigo-500 z-[99] flex flex-col text-xs text-white font-body"
+        class="sticky w-fit top-1/2 -translate-y-1/2 bg-indigo-500 z-[99] flex flex-col text-xs text-white font-body pointer-events-auto"
       >
         <span
           class="edit-selector"
