@@ -130,7 +130,7 @@ const send = async () => {
 
 <style>
 #form-contact {
-  @apply flex flex-col space-y-4 w-full max-w-4xl mx-auto;
+  @apply flex flex-col space-y-4 w-full max-w-2xl mx-auto my-4 px-8;
 }
 
 #form-contact .input {
