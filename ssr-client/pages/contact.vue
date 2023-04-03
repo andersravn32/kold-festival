@@ -1,7 +1,6 @@
 <script setup>
-/* Imports */
 import { PhoneIcon, EnvelopeIcon } from "@heroicons/vue/24/solid";
-/* Meta */
+
 definePageMeta({
   hidden: false,
   editable: false,
@@ -19,7 +18,7 @@ definePageMeta({
         Udfyld den nedenstående formular for at sende os en direkte besked
       </h2></BasePageHeader
     >
-    
+
     <FormContact />
 
     <div class="contactContainer">
