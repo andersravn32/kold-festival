@@ -21,7 +21,7 @@ const props = defineProps({
 
 <style>
 .block-container {
-  @apply flex flex-col gap-8 items-center justify-center container px-8 lg:flex-row;
+  @apply container flex flex-col gap-8 items-center justify-center px-8 mx-auto lg:flex-row;
 }
 
 .block-container-column {
