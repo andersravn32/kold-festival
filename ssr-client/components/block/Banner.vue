@@ -21,7 +21,7 @@ onMounted(() => {
         animation: timeline,
         trigger: ".block-banner-inner",
         scrub: 1,
-        start: "top 90% ",
+        start: "top 95% ",
         end: "bottom 40%",
         toggleActions: "restart none reset none",
     });
@@ -33,7 +33,9 @@ onMounted(() => {
         <div class="block-banner-inner">
             <span class="opacity-50">{{ data.word }}</span>
             <span class="opacity-50">{{ data.word }}</span>
+            <span class="opacity-50">{{ data.word }}</span>
             <span>{{ data.word }}</span>
+            <span class="opacity-50">{{ data.word }}</span>
             <span class="opacity-50">{{ data.word }}</span>
             <span class="opacity-50">{{ data.word }}</span>
         </div>
