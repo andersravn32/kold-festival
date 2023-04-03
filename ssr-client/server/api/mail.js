@@ -23,12 +23,12 @@ export default defineEventHandler(async (event) => {
     email: "mailtrap@koldfestival.dk",
     name: "KOLD Festival - Forespørgsel",
   };
-
+  
   try {
     const mail = await client.send({
       from: sender,
       to: body.receivers,
-      subject: `Formular fra ${body.firstName}`,
+      subject: `Forespørgsel fra ${body.firstName}`,
       html: `
                     <!doctype html>
                     <html>
@@ -39,8 +39,11 @@ export default defineEventHandler(async (event) => {
                         <div style="display: block; margin: auto; max-width: 600px;" class="main">
                         <h1 style="font-size: 18px; font-weight: bold; margin-top: 20px">Ny forespørgsel fra kontaktformular:</h1>
                         <p>${body.message}</p>
-                        <p><strong>Besvar på følgende email:</strong></p>
-                        <p>${body.sender}</p>
+                        <p><strong>Detaljer:</strong></p>
+                        <p>Fornavn: ${body.firstName}</p>
+                        <p>Efternavn: ${body.lastName}</p>
+                        <p><strong>Afsender kan kontaktes her:</strong></p>
+                        <p>${body.email}</p>
                         </div>
                     </body>
                     </html>
