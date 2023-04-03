@@ -41,6 +41,6 @@ defineProps({
 }
 
 .partner-name {
-  @apply absolute bottom-0 left-0 right-0 font-bold font-header text-xl text-center uppercase text-white z-40 p-8;
+  @apply absolute bottom-0 left-0 right-0 font-bold font-header text-xl text-center uppercase text-white z-20 p-8;
 }
 </style>
