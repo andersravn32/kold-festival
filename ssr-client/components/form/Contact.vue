@@ -4,7 +4,6 @@ import VueHcaptcha from "@hcaptcha/vue3-hcaptcha";
 const supabase = useSupabaseClient();
 
 const formData = ref({
-  sender: null,
   message: null,
   firstName: null,
   receivers: [],
@@ -131,7 +130,7 @@ const send = async () => {
 
 <style>
 #form-contact {
-  @apply container flex flex-col space-y-4 p-4 px-8;
+  @apply flex flex-col space-y-4 w-full max-w-4xl mx-auto;
 }
 
 #form-contact .input {
