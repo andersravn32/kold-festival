@@ -14,7 +14,7 @@ definePageMeta({
 
 <style>
 #page-faq .block-content {
-  @apply px-4;
+  @apply px-8;
 }
 
 #page-faq #block-40{
@@ -36,4 +36,5 @@ definePageMeta({
 #page-faq .block-header p {
   @apply font-body font-bold uppercase;
 }
+
 </style>
