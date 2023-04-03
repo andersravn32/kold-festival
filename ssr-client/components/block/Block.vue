@@ -59,7 +59,7 @@ const mouseleave = (e) => {
 
 <style>
 .block-content {
-  @apply p-0 relative my-4;
+  @apply p-0 relative;
 }
 
 .edit-selector {
