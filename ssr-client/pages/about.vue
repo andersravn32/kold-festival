@@ -28,4 +28,8 @@ definePageMeta({
 #page-about .block-container p {
   @apply text-white font-body;
 }
+
+#page-about .block-content:nth-child(odd) .block-container {
+  @apply flex-col-reverse lg:flex-row;
+}
 </style>
