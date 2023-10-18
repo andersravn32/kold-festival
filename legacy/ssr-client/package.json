@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "start": "node .output/server/index.js",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/image-edge": "^1.0.0-27919678.2f5b64b",
+    "@nuxtjs/supabase": "^0.3.0",
+    "@nuxtjs/tailwindcss": "^6.3.0",
+    "nuxt": "^3.1.0"
+  },
+  "dependencies": {
+    "@hcaptcha/vue3-hcaptcha": "^1.2.1",
+    "@heroicons/vue": "^2.0.14",
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/recaptcha": "^1.1.2",
+    "gsap": "^3.11.4",
+    "hcaptcha": "^0.1.1",
+    "mailtrap": "^3.1.0",
+    "nuxt-mail": "^3.1.21"
+  }
+}

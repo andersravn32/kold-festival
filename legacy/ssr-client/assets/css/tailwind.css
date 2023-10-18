@@ -1,0 +1,90 @@
+@import url("https://use.typekit.net/zsa2ahk.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  @apply bg-midnight delay-200;
+  font-display: swap;
+}
+
+h1,h2,h3,h4,h5,h6{
+  @apply font-header text-zinc-100 font-bold uppercase;
+}
+
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gradient-to-t bg-midnight/50 to-indigo-600/50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-indigo-500;
+}
+
+.gradient-backdrop {
+  @apply h-full w-full bg-blue-600/50 backdrop-blur-sm;
+}
+
+.gradient-cancelled {
+  @apply h-full w-full bg-gradient-to-b from-blue-600/50 to-red-600/50 backdrop-blur-sm;
+}
+
+@layer components {
+  .gradient-divider{
+    @apply relative;
+  }
+  .gradient-divider::after{
+    @apply content-[''] absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-midnight to-transparent;
+  }
+}
+
+
+input, textarea, select{
+  @apply bg-transparent py-2 px-6 resize-none text-white border-2 border-zinc-100/75 outline-none font-body;
+}
+
+select option{
+  @apply text-black;
+}
+
+label{
+  @apply font-body text-white;
+}
+
+.btn{
+  @apply bg-indigo-500 px-6 py-2 font-header font-bold transition-all duration-150 text-zinc-100 hover:text-zinc-100/75;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  @apply transition-all duration-300;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  @apply opacity-0;
+}
+
+
+.bubble-enter-active,
+.bubble-leave-active {
+  @apply transition-all duration-500;
+  clip-path: circle(200% at 100% 0%);
+}
+
+.bubble-enter-from,
+.bubble-leave-to {
+  @apply delay-200;
+  clip-path: circle(0.1% at 100% 0%);
+}
+
+
+/* Link hover and active */
+.router-link-active {
+  @apply text-zinc-50
+}

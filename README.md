@@ -1,1 +1,0 @@
-# KOLD Festival
