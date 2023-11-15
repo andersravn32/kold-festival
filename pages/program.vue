@@ -53,6 +53,9 @@ const update = () => {
     })
     .filter((artist) => {
       return artist.type == "concert";
+    })
+    .sort((x, y) => {
+      return x.time.split(':')[0] - y.time.split(':')[0]
     });
 
   talks.value = artists.value
@@ -61,6 +64,10 @@ const update = () => {
     })
     .filter((artist) => {
       return artist.type == "talk";
+    })
+    .sort((x, y) => {
+      if(!x.time || !y.time) return
+      return x.time.split(':')[0] - y.time.split(':')[0]
     });
 
   // Set artist columns state
