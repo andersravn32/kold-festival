@@ -251,7 +251,7 @@ const create = async () => {
       <label>Marker som aflyst</label>
     </div>
     <div class="checkbox">
-      <input v-model="artist.public" type="checkbox" />
+      <input v-model="artist.public" :checked="!!artist.public" type="checkbox" />
       <label>Offentliggør</label>
     </div>
     <BaseButton :loading="loading">Opret ny kunstner</BaseButton>

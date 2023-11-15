@@ -291,7 +291,7 @@ const update = async () => {
         <label>Marker som aflyst</label>
       </div>
       <div class="checkbox">
-        <input v-model="editArtist.public" type="checkbox" />
+        <input v-model="editArtist.public" :checked="!!editArtist.public" type="checkbox" />
         <label>Offentliggør</label>
       </div>
       <BaseButton :loading="loading">Gem ændringer</BaseButton>
