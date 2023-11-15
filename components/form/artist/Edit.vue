@@ -52,6 +52,7 @@ const update = async () => {
       body: editArtist.value.body,
       socials: editArtist.value.socials,
       genre: editArtist.value.genre,
+      public: editArtist.value.public,
       cancelled: editArtist.value.cancelled,
     })
     .eq("id", editArtist.value.id);
