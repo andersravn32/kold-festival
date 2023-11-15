@@ -17,7 +17,7 @@ const artist = ref({
   image: null,
   header: null,
   body: null,
-  public: null,
+  public: false,
   socials: {
     facebook: null,
     instagram: null,
