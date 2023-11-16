@@ -30,7 +30,7 @@ defineEmits(["close"]);
 
 <style>
 #navmenu {
-  @apply bg-midnight fixed top-0 bottom-0 left-0 right-0 z-30 flex items-center justify-center;
+  @apply bg-midnight fixed top-0 bottom-0 left-0 right-0 z-[90] flex items-center justify-center;
 }
 
 #navmenu ul {

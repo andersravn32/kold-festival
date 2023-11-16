@@ -15,7 +15,7 @@ const { data, error } = await supabase
   .order("id", { ascending: true });
 
 const artists = data.filter((artist) => {
-  return artist.date.split("-")[0] == props.data.year;
+  return artist.public && artist.date.split("-")[0] == props.data.year;
 });
 </script>
 
