@@ -14,8 +14,7 @@ definePageMeta({
 //Import Artists
 const { data } = await supabase.from("artists").select("*");
 const artists = ref(data);
-
-artists.value = artists.value.map((artist) => {
+artists.value = artists.value.filter(a => a.public).map((artist) => {
   return {
     ...artist,
     dateShort: new Intl.DateTimeFormat("da-DK", {
