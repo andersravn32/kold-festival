@@ -17,6 +17,7 @@ const { data, error } = await supabase
 const artists = data.filter((artist) => {
   return artist.public && artist.date.split("-")[0] == props.data.year;
 });
+
 </script>
 
 <template>
