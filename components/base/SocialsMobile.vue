@@ -24,7 +24,7 @@ const FbIcon = "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/publi
     }
 
     .socialItemMobile {
-       @apply flex justify-center items-center transition-all duration-150 bg-blue-600 w-full hover:bg-white;
+        @apply flex justify-center items-center transition-all duration-150 bg-blue-600 w-full hover:bg-white;
     }
 
     .socialLinkMobile {

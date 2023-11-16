@@ -10,6 +10,25 @@ const modal = useModal();
 const { data } = await supabase.from("artists").select().order("created_at");
 const artists = ref(data);
 
+const locations = ref([])
+
+async function getLocations() {
+  const { data, error } = await supabase
+  .from("artists")
+  .select("*");
+
+  const allLocations = data.map(artist => artist.location)
+  const removeDoubles = allLocations.filter((location, index) => allLocations.indexOf(location) === index)
+
+  if(!error){
+    locations.value = removeDoubles
+    console.log(locations.value)
+  }
+}
+
+getLocations()
+
+
 const loading = ref(false);
 
 const style = ref(null);
@@ -95,6 +114,7 @@ const update = async () => {
       ]
     )
   );
+
   // Update loading state
   loading.value = false;
 
@@ -135,7 +155,7 @@ const update = async () => {
       <h2 class="text-2xl">Rediger kunstner</h2>
       <div class="grid grid-cols-2 gap-4">
         <div class="input">
-          <label>Navn</label>
+          <label>Navn *</label>
           <input
             v-model="editArtist.name"
             type="text"
@@ -159,7 +179,7 @@ const update = async () => {
           />
         </div>
         <div class="input">
-          <label>Type</label>
+          <label>Type *</label>
           <select v-model="editArtist.type">
             <option value="">Vælg venligst</option>
             <option value="concert">Koncert</option>
@@ -167,29 +187,38 @@ const update = async () => {
           </select>
         </div>
         <div class="input">
-          <label>Dato</label>
+          <label>Dato *</label>
           <input v-model="editArtist.date" type="date" />
         </div>
         <div class="input">
           <label>Tidspunkt</label>
           <input
             v-model="editArtist.time"
-            type="text"
-            placeholder="f.eks. kl 20.00"
+            type="time"
+            placeholder="20.00"
           />
         </div>
-        <div class="input">
+        <div class="input col-span-2">
           <label>Lokation</label>
+          <div class="grid grid-cols-2 gap-4">
           <input
             v-model="editArtist.location"
             type="text"
             placeholder="Indtast lokation"
           />
+          <select v-if="locations.length" v-model="editArtist.location">
+            <option disabled selected value="">Vælg fra liste</option>
+            <option
+            v-for="(location, key) in locations" 
+            :key={key}
+            :value="location">{{ location }}</option>
+          </select>
+        </div>
         </div>
       </div>
       <div class="input">
         <label
-          >Kunsterbillede URL
+          >Kunsterbillede URL *
           <span class="cursor-pointer underline" @click="imageSelector.toggle()"
             >(Vælg billede)</span
           ></label
@@ -202,7 +231,7 @@ const update = async () => {
       </div>
       <div class="input">
         <label
-          >Header billede URL
+          >Header billede URL *
           <span class="cursor-pointer underline" @click="imageSelector.toggle()"
             >(Vælg billede)</span
           ></label
@@ -279,8 +308,8 @@ const update = async () => {
         />
         <BaseButton
           @click.prevent="
-            if (style) {
-              editArtist.genre.styles.push(style);
+            if (style && !editArtist.genre.styles.includes(style.toUpperCase())) {
+              editArtist.genre.styles.push(style.toUpperCase());
               style = null;
             }
           "
@@ -303,6 +332,7 @@ const update = async () => {
 <style>
 #form-artist-edit .input {
   @apply flex flex-col space-y-2;
+  color-scheme: dark;
 }
 
 #form-artist-edit .checkbox {
