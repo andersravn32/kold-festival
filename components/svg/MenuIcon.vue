@@ -19,7 +19,7 @@ defineProps(['showMenu'])
 <style scoped>
 
 .ham {
-  @apply cursor-pointer duration-300 h-24 w-24 transition-all text-zinc-100/75 hover:text-zinc-100;
+  @apply cursor-pointer duration-300 h-16 w-16 sm:h-24 sm:w-24 transition-all text-zinc-100/75 hover:text-zinc-100;
   -webkit-tap-highlight-color: transparent;
   -moz-user-select: none;
   -webkit-user-select: none;

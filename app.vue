@@ -63,7 +63,6 @@ if (!account.profile.value || !account.user.value) {
         "
       />
     </Transition>
-
     <BaseNavbar v-if="!sidebar.show.value" />
     <div v-if="!account.user.value && !account.profile.value">
       <BaseCTA />

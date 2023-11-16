@@ -1,5 +1,5 @@
 <template>
-    <a @click="GA4_Event_Ticket()" href="https://tix.dk/da/musikkolding/buyingflow/tickets/15815/23040" target="_blank" class="mainCTA">
+    <a @click="GA4_Event_Ticket()" href="https://tix.dk/da/musikkolding/buyingflow/tickets/19199/37735/" target="_blank" class="mainCTA">
         Køb billet
     </a>
 </template>
@@ -17,7 +17,7 @@ const GA4_Event_Ticket = ()=> {
 
 <style>
 .mainCTA {
-    @apply fixed bottom-0 left-0 right-0 p-2 md:p-4 text-3xl md:text-4xl text-center font-header uppercase text-zinc-100 bg-accent font-bold z-[100] transition-all duration-150;
+    @apply fixed bottom-0 left-0 right-0 p-2 md:p-4 text-3xl md:text-4xl text-center font-header uppercase text-zinc-100 bg-accent font-bold z-30 transition-all duration-150;
 }
 
 .mainCTA:hover {

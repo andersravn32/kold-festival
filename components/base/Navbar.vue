@@ -18,7 +18,7 @@ defineEmits(["toggleScroll"]);
         />
       </NuxtLink>
       <ul>
-        <li class="text-xl sm:text-2xl">
+        <li class="text-lg sm:text-2xl">
           <NuxtLink to="/program"> Program </NuxtLink>
         </li>
         <li>
@@ -48,11 +48,11 @@ defineEmits(["toggleScroll"]);
 
 <style>
 #navbar {
-  @apply fixed top-0 inset-x-0 p-4 z-30 flex items-center justify-between bg-gradient-to-b from-blue-900/50 to-transparent;
+  @apply fixed top-0 inset-x-0 p-4 px-6 sm:px-4 z-50 flex items-center justify-between bg-gradient-to-b from-blue-900/50 to-transparent;
 }
 
 #navbar .logo {
-  @apply h-24 w-24 hover:rotate-90 transition-transform duration-300;
+  @apply h-16 w-16 sm:h-24 sm:w-24 hover:rotate-90 transition-transform duration-300;
 }
 
 #navbar ul {

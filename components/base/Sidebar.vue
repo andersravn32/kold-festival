@@ -57,7 +57,7 @@ onMounted(async () => {
         <div v-if="!sidebar.getComponent()" class="sidebar-content space-y-4">
           <div>
             <h2 class="text-2xl">
-              Velkommen {{ account.profile.value.firstName }}
+              Velkommen
             </h2>
             <p>Vælg venligst hvad du ønsker at administrere</p>
           </div>
@@ -72,7 +72,7 @@ onMounted(async () => {
             >Rediger kunstner info</BaseButton
           >
         </div>
-        <User :user="account.user.value" :profile="account.profile.value" />
+        <!-- <User :user="account.user.value" :profile="account.profile.value" /> -->
       </aside>
     </div>
   </div>

@@ -30,6 +30,7 @@ artists.value = artists.value.filter(a => a.public).map((artist) => {
 const festivalYears = ref([]);
 artists.value.forEach((artist) => {
   if (!festivalYears.value.includes(artist.date.split("-")[0])) {
+    if(!artist.public) return
     return festivalYears.value.push(artist.date.split("-")[0]);
   }
 });
@@ -48,18 +49,26 @@ const update = () => {
 
   concerts.value = artists.value
     .filter((artist) => {
-      return artist.date.split("-")[0] == selectedYear.value;
+      return artist.public && artist.date.split("-")[0] == selectedYear.value;
     })
     .filter((artist) => {
       return artist.type == "concert";
+    })
+    .sort((x, y) => {
+      if(!x.time || !y.time) return
+      return x.time.split(':')[0] - y.time.split(':')[0]
     });
 
   talks.value = artists.value
     .filter((artist) => {
-      return artist.date.split("-")[0] == selectedYear.value;
+      return artist.public && artist.date.split("-")[0] == selectedYear.value;
     })
     .filter((artist) => {
       return artist.type == "talk";
+    })
+    .sort((x, y) => {
+      if(!x.time || !y.time) return
+      return x.time.split(':')[0] - y.time.split(':')[0]
     });
 
   // Set artist columns state
