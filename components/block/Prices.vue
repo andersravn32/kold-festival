@@ -12,7 +12,7 @@ const props = defineProps({
 
 <template>
   <div 
-    class="block-prices grid md:grid-cols-2"
+    class="block-prices grid"
     :class="`md:grid-cols-${(data.prices.length <= 1) ? '1' : '2'} xl:grid-cols-${(data.prices.length <= 2) ? String(data.prices.length + 1) : '4'}`"
     >
     <BasePrice 
