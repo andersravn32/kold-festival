@@ -17,7 +17,7 @@ export const useAccount = () => {
     const { data } = await supabase
       .from("profiles")
       .select("*")
-      .eq("id", '7256fac4-206c-41d4-910e-9df177c16e10'); // user.value.id
+      .eq("id", user.value.id); // 
 
     // If no data was fetched, return nothing
     if (!data) {
