@@ -31,7 +31,7 @@ const props = defineProps({
 <template>
   <a class="price" :class="{'disabled': disabled }" :href="(link) ? link : 'https://tix.dk/da/musikkolding/buyingflow/tickets/19199/37735/'" target="_blank">
     <span v-if="disabled" class="disabledBanner">
-      <p class="cancelled-text">TBA</p>
+      <p class="cancelled-text-price">TBA</p>
     </span>
     <div>
       <h3 v-if="title" class="text-4xl text-center" :class="{'opacity-70': disabled }">{{ title }}</h3>
@@ -59,8 +59,8 @@ const props = defineProps({
   @apply absolute z-10 h-full w-full transition-all duration-150 ease-in-out overflow-hidden;
 }
 
-.cancelled-text {
-  @apply font-header font-bold absolute translate-x-1/2 right-12 top-6 rotate-45 text-center bg-accent text-zinc-50 text-xs md:text-lg py-2 w-[1000px] mx-auto ;
+.cancelled-text-price {
+  @apply font-header font-bold absolute translate-x-1/2 right-12 top-6 rotate-45 text-center bg-accent text-zinc-50 text-xs md:text-lg py-2 w-[1000px] mx-auto;
 }
 
 .price h4{
