@@ -7,19 +7,25 @@ const props = defineProps({
     required: true,
   },
 });
+
 </script>
 
 <template>
-  <div class="block-prices">
-    <BasePrice title="Partout" :price="300" :studentPrice="175" />
-    <BasePrice title="Fredag" :price="175" :studentPrice="100" />
-    <BasePrice
-      title="Lørdag"
-      subtitle="(OBS) Gælder ikke Ude af Kontrol"
-      :price="175"
-      :studentPrice="100"
-    ></BasePrice>
-    <div class="price bg-blue-600/50 text-center">
+  <div 
+    class="block-prices grid md:grid-cols-2"
+    :class="`md:grid-cols-${(data.prices.length <= 1) ? '1' : '2'} xl:grid-cols-${(data.prices.length <= 2) ? String(data.prices.length + 1) : '4'}`"
+    >
+    <BasePrice 
+    v-if="data.prices"
+    v-for="(price, i) in data.prices"
+    :key="i"    
+    :title="price.title" 
+    :subtitle="price.subtitle"
+    :price="price.price" 
+    :link="price.link"
+    :disabled="price.disabled"
+    />
+    <div class="price bg-blue-600/50 text-center col-auto">
       <InformationCircleIcon class="w-32 h-32" />
       <h3>Vær opmærksom på..</h3>
       <p class="font-body">
@@ -32,6 +38,6 @@ const props = defineProps({
 
 <style>
 .block-prices {
-  @apply container mx-auto grid md:grid-cols-2 xl:grid-cols-4 gap-4 px-8;
+  @apply container mx-auto gap-4 px-8;
 }
 </style>
