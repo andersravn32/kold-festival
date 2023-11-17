@@ -72,7 +72,7 @@ onMounted(async () => {
             >Rediger kunstner info</BaseButton
           >
         </div>
-        <!-- <User :user="account.user.value" :profile="account.profile.value" /> -->
+        <User :user="account.user.value" :profile="account.profile.value" />
       </aside>
     </div>
   </div>
