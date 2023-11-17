@@ -97,4 +97,8 @@ const update = () => {
 #form-block-data-hero {
   @apply flex flex-col space-y-2;
 }
+
+#form-block-data-hero .input {
+  color-scheme: dark;
+}
 </style>
