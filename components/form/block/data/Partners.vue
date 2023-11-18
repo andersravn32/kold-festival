@@ -14,7 +14,7 @@ async function updateList() {
     sortableList.forEach(async (item, index) => {
         const currentPartner = partners.value.find(partner => partner.name === item.dataset.name)
         const { error } = await supabase
-            .from('countries')
+            .from('partnere')
             .update({ order: (index + 1) })
             .eq('name', currentPartner.name)
     })
