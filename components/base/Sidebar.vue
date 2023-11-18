@@ -2,6 +2,7 @@
 import FormBlockCreate from "../form/block/Create.vue";
 import FormArtistCreate from "../form/artist/Create.vue";
 import FormArtistEdit from "../form/artist/Edit.vue";
+import FormBlockDataPartners from '../form/block/data/Partners.vue'
 import { XMarkIcon, ArrowLeftIcon } from "@heroicons/vue/24/outline";
 
 // Import account from composable
@@ -70,6 +71,9 @@ onMounted(async () => {
           >
           <BaseButton @click="sidebar.setComponent(FormArtistEdit)"
             >Rediger kunstner info</BaseButton
+          >
+          <BaseButton @click="sidebar.setComponent(FormBlockDataPartners)"
+            >Rediger partnere</BaseButton
           >
         </div>
         <User :user="account.user.value" :profile="account.profile.value" />
