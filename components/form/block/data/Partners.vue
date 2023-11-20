@@ -74,7 +74,7 @@ function dragEnd(e) {
             <!-- <XMarkIcon class="h-6 w-6 cursor-pointer hover:text-red-600" /> -->
         </div>
     </div>
-    <BaseButton @click.prevent="data.prices.push(newPrice)">Tilføj ny partner</BaseButton>
+    <!-- <BaseButton @click.prevent="data.prices.push(newPrice)">Tilføj ny partner</BaseButton> -->
   </div>
 </template>
 
