@@ -34,6 +34,10 @@ h1,h2,h3,h4,h5,h6{
   @apply h-full w-full bg-gradient-to-b from-blue-600/50 to-red-600/50 backdrop-blur-sm;
 }
 
+.sidebar-overlay.open + body{
+  overflow-y: hidden
+}
+
 @layer components {
   .gradient-divider{
     @apply relative;

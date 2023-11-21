@@ -5,6 +5,7 @@ const editData = ref(null);
 export const useSidebar = () => {
   const toggle = () => {
     show.value = !show.value;
+    (show.value) ? document.body.classList.add('overflow-hidden') : document.body.classList.remove('overflow-hidden')
     if (!show.value) {
       component.value = null;
       editData.value = null;

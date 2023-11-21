@@ -23,7 +23,7 @@ const artists = data.filter((artist) => {
 <template>
   <section class="flex flex-col justify-center items-center gap-8">
     <!-- <BaseCancelled v-if="cancelled.length" :cancelled_artist="cancelled" /> -->
-    <article v-if="artists.length" class="block-artist-grid">
+    <article v-if="artists.length" class="block-artist-grid" :class="(artists.length >= 3) ? 'grid' : 'flex justify-center items-center flex-col md:flex-row'">
       <div v-if="error">
         {{ error }}
       </div>
@@ -46,7 +46,7 @@ const artists = data.filter((artist) => {
 
 <style>
 .block-artist-grid {
-  @apply grid gap-16 container mx-auto px-8;
+  @apply gap-16 container mx-auto px-8;
   @apply grid-cols-1 lg:grid-cols-2 xl:grid-cols-3;
 }
 
