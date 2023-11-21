@@ -5,13 +5,13 @@ export const useAccount = () => {
   const supabase = useSupabaseClient();
 
   // Assign account user to supabase user
-  user.value = useSupabaseUser().value;
+  user.value = { id: "adhajdhjahd" }; //useSupabaseUser().value
 
   const update = async () => {
     // If no data was loaded, return nothing
-    if (!user.value) {
+    /* if (!user.value) {
       return;
-    }
+    } */
 
     // Fetch profile data from supabase
     const { data } = await supabase
@@ -20,12 +20,12 @@ export const useAccount = () => {
       .eq("id", user.value.id); // 
 
     // If no data was fetched, return nothing
-    if (!data) {
+    /* if (!data) {
       return;
-    }
+    } */
 
     // Assign account profile data to fetched data
-    profile.value = data[0];
+    profile.value = { firstName: "Lasse", Email: "hkadk@ajdhk.dk" }; //data[0]
   };
 
   const signout = async () => {

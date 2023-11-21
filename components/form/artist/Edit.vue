@@ -47,6 +47,8 @@ artists.value.forEach((artist) => {
   }
 });
 
+festivalYears.value.reverse()
+
 const update = async () => {
   if (loading.value) {
     return;
