@@ -4,10 +4,12 @@ definePageMeta({
   hidden: false,
   editable: true,
 });
+
+const sidebar = useSidebar()
 </script>
 
 <template>
-  <section id="page-index">
+  <section id="page-index" :class="{'overflow-y-hidden': sidebar.show}">
     <BlockContent />
   </section>
 </template>

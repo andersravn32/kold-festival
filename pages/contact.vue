@@ -6,10 +6,12 @@ definePageMeta({
   editable: false,
   name: "Kontakt",
 });
+
+const sidebar = useSidebar()
 </script>
 
 <template>
-  <div id="page-contact">
+  <div id="page-contact" :class="{'overflow-y-hidden': sidebar.show}">
     <BasePageHeader
       bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgContact"
     >

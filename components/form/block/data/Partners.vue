@@ -39,10 +39,6 @@ function dragOver(e) {
     sortableList.insertBefore(draggingItem, nextSibling)
 }
 
-function dragEnter(e) {
-
-}
-
 function dragEnd(e) {
     e.target.classList.remove('dragging')
     updateList()
@@ -63,14 +59,12 @@ function dragEnd(e) {
             :data-name="partner.name"
             draggable="true"
             :ondragstart="dragStart"
-            :ondragenter="dragEnter"
             :ondragover="dragOver"
             :ondragend="dragEnd"
         >
             <img :src="partner.logo" class="w-6 object-cover">
             <p class="text-lg">{{ partner.name }}</p>
-            <p class="ml-auto">{{ partner.order }}</p>
-            <Bars3Icon class="h-6 w-6" />
+            <Bars3Icon class="h-6 w-6 ml-auto" />
             <!-- <XMarkIcon class="h-6 w-6 cursor-pointer hover:text-red-600" /> -->
         </div>
     </div>

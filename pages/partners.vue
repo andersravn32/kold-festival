@@ -11,15 +11,15 @@ const bg =
   "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere";
 
 
-const { data } = await supabase.from('partnere').select()
+const { data } = await supabase.from('partnere').select().order('order', { ascending: true })
 
 const partnere = data
 
-
+const sidebar = useSidebar()
 </script>
 
 <template>
-  <div id="samarbejdspartnere">
+  <div id="samarbejdspartnere" :class="{'overflow-y-hidden': sidebar.show}">
     <BasePageHeader :bg="bg">
       <h1 class="text-4xl lg:text-6xl uppercase leading-[0.9]">Partnere</h1>
       <h2 class="text-lg lg:text-xl text-center font-body">
