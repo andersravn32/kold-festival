@@ -98,14 +98,12 @@ const update = () => {
   });
 };
 
-const sidebar = useSidebar()
-
 onMounted(() => {
   update();
 });
 </script>
 <template>
-  <section :class="{'overflow-y-hidden': sidebar.show}">
+  <section>
     <BasePageHeader
       id="program-header"
       bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere"

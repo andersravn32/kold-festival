@@ -19,6 +19,15 @@ if (!account.profile.value || !account.user.value) {
   );
   document.head.appendChild(externalScript);
 }); */
+
+/* useHead({
+  bodyAttrs: {
+    class: [
+      (!sidebar.show ? "overflow-hidden" : ""),
+    ].join(" "),
+  },
+}); */
+
 </script>
 
 <template>
