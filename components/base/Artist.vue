@@ -62,7 +62,7 @@ const { name, subartist, artistCover } = defineProps({
 }
 
 .artist-name {
-  @apply font-bold font-header text-2xl md:text-4xl lg:text-5xl text-center uppercase text-white z-40 p-8;
+  @apply font-bold font-header text-2xl md:text-4xl lg:text-4xl text-center uppercase text-white z-40 p-8;
 }
 
 .sub-name {

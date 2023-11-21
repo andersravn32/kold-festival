@@ -38,11 +38,12 @@ const shuffle = (array) => {
 
 // Suggested array, contains artist info
 const suggested = shuffle(
-  artists.filter((artist) => {
-    return !(artist.identifier == router.currentRoute.value.params.identifier);
+  artists.filter((otherArtist) => {
+    return (otherArtist.identifier !== router.currentRoute.value.params.identifier && otherArtist.date.split("-")[0] === artist.date.split("-")[0] && otherArtist.public);
   })
 );
-suggested.length = 3;
+suggested.length = (suggested.length > 4) ? 3 : suggested.length;
+
 </script>
 
 <template>
