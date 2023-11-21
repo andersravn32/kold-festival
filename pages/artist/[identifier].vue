@@ -38,11 +38,12 @@ const shuffle = (array) => {
 
 // Suggested array, contains artist info
 const suggested = shuffle(
-  artists.filter((artist) => {
-    return !(artist.identifier == router.currentRoute.value.params.identifier);
+  artists.filter((otherArtist) => {
+    return (otherArtist.identifier !== router.currentRoute.value.params.identifier && otherArtist.date.split("-")[0] === artist.date.split("-")[0] && otherArtist.public);
   })
 );
-suggested.length = 3;
+suggested.length = (suggested.length > 4) ? 3 : suggested.length;
+
 </script>
 
 <template>
@@ -65,26 +66,26 @@ suggested.length = 3;
         >
           <h2>Socials</h2>
           <ul>
-            <li v-if="artist.socials.website">
+            <li class=" hover:underline" v-if="artist.socials.website">
               <GlobeAltIcon class="h-6 w-6" /><a
                 :href="artist.socials.website"
                 target="_blank"
                 >Hjemmeside</a
               >
             </li>
-            <li v-if="artist.socials.facebook">
+            <li class=" hover:underline" v-if="artist.socials.facebook">
               <img
                 class="h-6 w-6"
                 src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/facebook.svg"
                 alt="Facebook Icon"
               /><a :href="artist.socials.facebook" target="_blank">Facebook</a>
             </li>
-            <li v-if="artist.socials.instagram">
+            <li class=" hover:underline" v-if="artist.socials.instagram">
               <img
                 class="h-6 w-6"
                 src="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/instafram.svg"
                 alt="Instagram Icon"
-              /><a :href="artist.socials.website" target="_blank">Instagram</a>
+              /><a :href="artist.socials.instagram" target="_blank">Instagram</a>
             </li>
           </ul>
         </div>
@@ -97,7 +98,7 @@ suggested.length = 3;
           </p>
           <p class="bg-red-600 py-1 px-4 w-fit rounded-full" v-if="artist.cancelled">Aflyst</p>
         </div>
-        <div class="artist-location">
+        <div v-if="artist.location" class="artist-location">
           <h2>Venue</h2>
           <p class="flex space-x-2">
             <MapPinIcon class="h-6 w-6" />
@@ -118,7 +119,7 @@ suggested.length = 3;
         <iframe
           v-if="artist.socials && artist.socials.spotify"
           style="border-radius: 12px"
-          :src="artist.socials.spotify"
+          :src="'https://open.spotify.com/embed/artist/' + artist.socials.spotify.split('/').pop() + '?utm_source=generator' + '&theme=0'"
           width="100%"
           height="80"
           frameBorder="0"

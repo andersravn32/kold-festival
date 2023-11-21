@@ -22,7 +22,6 @@ async function getLocations() {
 
   if(!error){
     locations.value = removeDoubles
-    console.log(locations.value)
   }
 }
 
@@ -47,6 +46,8 @@ artists.value.forEach((artist) => {
   }
 });
 
+festivalYears.value.reverse()
+
 const update = async () => {
   if (loading.value) {
     return;
@@ -61,7 +62,7 @@ const update = async () => {
     .update({
       name: editArtist.value.name,
       subtitle: editArtist.value.subtitle,
-      identifier: editArtist.value.identifier,
+      identifier: (editArtist.value.name) ? editArtist.value.name.toLowerCase().split(' ').join('-') : null,
       type: editArtist.value.type,
       date: editArtist.value.date,
       time: editArtist.value.time,
@@ -154,7 +155,7 @@ const update = async () => {
     <div v-if="editArtist" class="flex flex-col space-y-4">
       <h2 class="text-2xl">Rediger kunstner</h2>
       <div class="grid grid-cols-2 gap-4">
-        <div class="input">
+        <div class="input col-span-2">
           <label>Navn *</label>
           <input
             v-model="editArtist.name"
@@ -162,7 +163,7 @@ const update = async () => {
             placeholder="Indtast kunsternavn"
           />
         </div>
-        <div class="input">
+        <div class="input col-span-2">
           <label>Undertitel</label>
           <input
             v-model="editArtist.subtitle"
@@ -170,15 +171,7 @@ const update = async () => {
             placeholder="Indtast undertitel"
           />
         </div>
-        <div class="input">
-          <label>Identifikation</label>
-          <input
-            v-model="editArtist.identifier"
-            type="text"
-            placeholder="F.eks ude-af-kontrol"
-          />
-        </div>
-        <div class="input">
+        <div class="input col-span-2">
           <label>Type *</label>
           <select v-model="editArtist.type">
             <option value="">Vælg venligst</option>

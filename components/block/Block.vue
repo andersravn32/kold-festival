@@ -6,9 +6,9 @@ const account = useAccount();
 const hover = ref(false);
 
 const mouseenter = (e) => {
-  if (!(account.profile.value && account.user.value)) {
+  /* if (!(account.profile.value && account.user.value)) {
     return;
-  }
+  } */
   hover.value = true;
 };
 

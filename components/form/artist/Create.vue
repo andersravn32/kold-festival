@@ -60,6 +60,8 @@ const create = async () => {
   // Update loading state
   loading.value = true;
 
+  artist.value.identifier = (artist.value.name) ? artist.value.name.toLowerCase().split(' ').join('-') : null
+
   // Insert artists and select new rows
   const request = await supabase.from("artists").insert(artist.value);
 
@@ -113,7 +115,7 @@ const create = async () => {
   <form id="form-artist-create" @submit.prevent="create">
     <h2 class="text-2xl">Opret ny kunster</h2>
     <div class="grid grid-cols-2 gap-4">
-      <div class="input">
+      <div class="input col-span-2">
         <label>Navn *</label>
         <input
           v-model="artist.name"
@@ -121,7 +123,7 @@ const create = async () => {
           placeholder="Indtast kunsternavn"
         />
       </div>
-      <div class="input">
+      <div class="input col-span-2">
         <label>Undertitel</label>
         <input
           v-model="artist.subtitle"
@@ -129,15 +131,7 @@ const create = async () => {
           placeholder="Indtast undertitel"
         />
       </div>
-      <div class="input">
-        <label>Identifikation</label>
-        <input
-          v-model="artist.identifier"
-          type="text"
-          placeholder="F.eks ude-af-kontrol"
-        />
-      </div>
-      <div class="input">
+      <div class="input col-span-2">
         <label>Type *</label>
         <select v-model="artist.type">
           <option value="">Vælg venligst</option>
