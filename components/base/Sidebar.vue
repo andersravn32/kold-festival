@@ -32,8 +32,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="sidebar-overlay" @mousedown="handleClick">
-    <div class="sidebar-overlay-inner">
+  <div class="sidebar-overlay" :class="{ 'open': sidebar.show }" @mousedown="handleClick">
+    <div class="sidebar-overlay-inner overflow-scroll">
       <aside v-if="ready" class="sidebar">
         <div
           class="flex items-end text-white"
@@ -76,7 +76,7 @@ onMounted(async () => {
             >Rediger partnere</BaseButton
           >
         </div>
-        <User :user="account.user.value" :profile="account.profile.value" />
+        <!-- <User :user="account.user.value" :profile="account.profile.value" /> -->
       </aside>
     </div>
   </div>
@@ -87,8 +87,20 @@ onMounted(async () => {
   @apply top-0 bottom-0 left-0 right-0 fixed bg-black/75 z-40;
 }
 
+.sidebar-overlay::-webkit-scrollbar {
+  @apply w-2;
+}
+
+.sidebar-overlay::-webkit-scrollbar-track {
+  @apply bg-gradient-to-t bg-midnight/50 to-indigo-600/50;
+}
+
+.sidebar-overlay::-webkit-scrollbar-thumb {
+  @apply bg-indigo-500;
+}
+
 .sidebar-overlay-inner {
-  @apply h-full w-full relative;
+  @apply h-full w-full relative pointer-events-auto;
 }
 
 .sidebar {
