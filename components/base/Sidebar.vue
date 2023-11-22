@@ -72,11 +72,8 @@ onMounted(async () => {
           <BaseButton @click="sidebar.setComponent(FormArtistEdit)"
             >Rediger kunstner info</BaseButton
           >
-          <BaseButton @click="sidebar.setComponent(FormBlockDataPartners)"
-            >Rediger partnere</BaseButton
-          >
         </div>
-        <!-- <User :user="account.user.value" :profile="account.profile.value" /> -->
+        <User :user="account.user.value" :profile="account.profile.value" />
       </aside>
     </div>
   </div>
