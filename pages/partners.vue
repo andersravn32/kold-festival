@@ -13,7 +13,7 @@ const bg =
 
 const { data } = await supabase.from('partnere').select().order('order', { ascending: true })
 
-const partnere = data
+const partnere = ref(data)
 </script>
 
 <template>
