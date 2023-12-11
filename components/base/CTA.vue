@@ -1,5 +1,5 @@
 <template>
-    <a @click="GA4_Event_Ticket()" href="https://tix.dk/da/musikkolding/buyingflow/tickets/19199/37735/" target="_blank" class="mainCTA">
+    <a @click="GA4_Event_Ticket()" href="https://tix.dk/da/musikkolding/buyingflow/tickets/19716/38694/" target="_blank" class="mainCTA">
         Køb billet
     </a>
 </template>
