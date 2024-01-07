@@ -96,6 +96,21 @@ const update = () => {
       );
     }
   });
+
+  artistCols.value.sort((a, b) => {
+  const numberA = a.match(/\d+/g).join('')
+  const numberB = b.match(/\d+/g).join('')
+  
+  return numberA - numberB
+  })
+
+  talks.value.sort((a, b) => {
+  const numberA = a.match(/\d+/g).join('')
+  const numberB = b.match(/\d+/g).join('')
+  
+  return numberA - numberB
+  })
+
 };
 
 onMounted(() => {
