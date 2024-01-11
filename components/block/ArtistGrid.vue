@@ -12,7 +12,7 @@ const props = defineProps({
 const { data, error } = await supabase
   .from("artists")
   .select("*")
-  .order("id", { ascending: true });
+  .order("order", { ascending: true });
 
 const artists = data.filter((artist) => {
   return artist.public && artist.date.split("-")[0] == props.data.year;

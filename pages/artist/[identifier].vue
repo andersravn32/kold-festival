@@ -115,6 +115,9 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
         </div>
       </div>
       <article class="artist-body">
+<!--         <div class=" w-full h-64 overflow-hidden">
+          <img :src="artist.header" class="w-full h-auto -translate-y-1/4">
+        </div> -->
         <div class="artist-body-inner" v-html="artist.body"></div>
         <iframe
           v-if="artist.socials && artist.socials.spotify"
