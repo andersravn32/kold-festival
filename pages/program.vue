@@ -61,6 +61,7 @@ const update = () => {
       return (x.time.split(':')[0] + x.time.split(':')[1]) - (y.time.split(':')[0] + y.time.split(':')[1])
     })
     .sort((x,y) => {
+      if(!x.time || !y.time) return
       return sortingTimes.indexOf(x.time.split(':')[0]) - sortingTimes.indexOf(y.time.split(':')[0])
     });
 
@@ -76,6 +77,7 @@ const update = () => {
       return (x.time.split(':')[0] + x.time.split(':')[1]) - (y.time.split(':')[0] + y.time.split(':')[1])
     })
     .sort((x,y) => {
+      if(!x.time || !y.time) return
       return sortingTimes.indexOf(x.time.split(':')[0]) - sortingTimes.indexOf(y.time.split(':')[0])
     });
 
