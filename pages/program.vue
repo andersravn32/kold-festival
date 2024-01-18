@@ -126,6 +126,8 @@ const update = () => {
 onMounted(() => {
   update();
 });
+
+fbq('track', 'PageView');
 </script>
 <template>
   <section>

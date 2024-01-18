@@ -44,6 +44,8 @@ const suggested = shuffle(
 );
 suggested.length = (suggested.length > 4) ? 3 : suggested.length;
 
+fbq('track', 'PageView');
+
 </script>
 
 <template>
