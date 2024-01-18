@@ -4,6 +4,8 @@ definePageMeta({
   hidden: false,
   editable: true
 })
+
+fbq('track', 'PageView');
 </script>
 
 <template>

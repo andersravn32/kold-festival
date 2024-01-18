@@ -6,6 +6,8 @@ definePageMeta({
   editable: false,
   name: "Kontakt",
 });
+
+fbq('track', 'PageView');
 </script>
 
 <template>
