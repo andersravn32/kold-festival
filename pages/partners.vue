@@ -15,7 +15,6 @@ const { data } = await supabase.from('partnere').select().order('order', { ascen
 
 const partnere = ref(data)
 
-fbq('track', 'PageView');
 </script>
 
 <template>
