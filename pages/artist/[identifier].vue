@@ -146,7 +146,6 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
         />
       </div>
     </section>
-    <script>fbq('track', 'PageView');</script>
   </div>
 </template>
 
