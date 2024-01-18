@@ -16,7 +16,7 @@ export default defineNuxtConfig({
       }
     }
   },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase", "@nuxt/image-edge"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase", "@nuxt/image-edge", '@zadigetvoltaire/nuxt-gtm'],
   build: {
     transpile: ["gsap"],
   },
@@ -39,4 +39,7 @@ export default defineNuxtConfig({
       },
     },
   },
+  gtm: {
+    id: 'GTM-K7MZ8GFW'
+  }
 });
