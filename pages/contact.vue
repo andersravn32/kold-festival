@@ -7,7 +7,6 @@ definePageMeta({
   name: "Kontakt",
 });
 
-fbq('track', 'PageView');
 </script>
 
 <template>
