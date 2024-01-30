@@ -23,6 +23,7 @@
     "gsap": "^3.11.4",
     "hcaptcha": "^0.1.1",
     "mailtrap": "^3.1.0",
-    "nuxt-mail": "^3.1.21"
+    "nuxt-mail": "^3.1.21",
+    "nuxt-ssr-cache": "^1.5.2"
   }
 }

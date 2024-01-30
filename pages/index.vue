@@ -1,8 +1,9 @@
 <script setup>
+
 definePageMeta({
   name: "Hjem",
   hidden: false,
-  editable: true,
+  editable: true
 });
 
 </script>
