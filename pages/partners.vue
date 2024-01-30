@@ -8,7 +8,7 @@ definePageMeta({
 const supabase = useSupabaseClient();
 
 const bg =
-  "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere";
+  "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere.webp";
 
 
 const { data } = await supabase.from('partnere').select().order('order', { ascending: true })

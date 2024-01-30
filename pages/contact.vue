@@ -12,7 +12,7 @@ definePageMeta({
 <template>
   <div id="page-contact">
     <BasePageHeader
-      bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgContact"
+      bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgContact.webp"
     >
       <h1 class="text-4xl lg:text-6xl uppercase leading-[0.9]">Kontakt</h1>
       <h2 class="lg:text-xl text-center font-body">
