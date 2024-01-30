@@ -14,7 +14,7 @@ definePageMeta({
 });
 
 //Import Artists
-const { data } = await supabase.from("artists").select("*");
+const { data } = await supabase.from("artists").select('name, public, date, type, time, identifier, name, location');
 const artists = ref(data);
 artists.value = artists.value.filter(a => a.public).map((artist) => {
   return {
@@ -132,7 +132,7 @@ onMounted(() => {
   <section>
     <BasePageHeader
       id="program-header"
-      bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere"
+      bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere.webp"
     >
       <h1 class="text-4xl lg:text-6xl uppercase leading-[0.9]">Program</h1>
       <h2 class="lg:text-xl text-center font-body">

@@ -7,7 +7,7 @@ defineEmits(["close"]);
   <div id="navmenu">
     <ul>
       <li>
-        <NuxtLink class="link" to="/" @click="$emit('close')">Hjem</NuxtLink>
+        <NuxtLink class="link" to="/" @click="$emit('close')">Forside</NuxtLink>
       </li>
       <li>
         <NuxtLink class="link" to="/program" @click="$emit('close')">Program</NuxtLink>

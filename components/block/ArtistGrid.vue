@@ -11,7 +11,7 @@ const props = defineProps({
 
 const { data, error } = await supabase
   .from("artists")
-  .select("*")
+  .select('name, subtitle, image, cancelled, identifier, date, public')
   .order("order", { ascending: true });
 
 const artists = data.filter((artist) => {
