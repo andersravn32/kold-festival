@@ -141,7 +141,7 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
           :key="index"
           :name="artist.name"
           :subartist="artist.subtitle"
-          :artist-cover="artist.header"
+          :artist-cover="artist.image"
           @click="router.push(`/artist/${artist.identifier}`)"
         />
       </div>
