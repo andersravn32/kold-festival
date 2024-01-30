@@ -1,8 +1,9 @@
 <script setup>
+
 definePageMeta({
   hidden: false,
   name: "Partnere",
-  editable: false,
+  editable: false
 });
 
 const supabase = useSupabaseClient();

@@ -12,7 +12,7 @@ const router = useRouter();
 definePageMeta({
   name: "Kunstner",
   hidden: true,
-  editable: false,
+  editable: false
 });
 
 const { data } = await supabase.from("artists").select("*");

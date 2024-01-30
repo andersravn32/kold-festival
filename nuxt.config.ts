@@ -16,7 +16,7 @@ export default defineNuxtConfig({
       }
     }
   },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase", "@nuxt/image-edge", '@zadigetvoltaire/nuxt-gtm'],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase", "@nuxt/image-edge", '@zadigetvoltaire/nuxt-gtm', 'nuxt-ssr-cache'],
   build: {
     transpile: ["gsap"],
   },
@@ -41,5 +41,16 @@ export default defineNuxtConfig({
   },
   gtm: {
     id: 'GTM-K7MZ8GFW'
-  }
+  },
+  cache: {
+    useHostPrefix: false,
+    pages: [
+      '/',
+    ],
+    store: {
+      type: 'memory',
+      max: 600,
+      ttl: 60,
+    },
+  },
 });

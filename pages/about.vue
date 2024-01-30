@@ -1,4 +1,5 @@
 <script setup>
+
 definePageMeta({
   name: "Om os",
   hidden: false,

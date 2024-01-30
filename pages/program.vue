@@ -10,7 +10,7 @@ const router = useRouter();
 definePageMeta({
   name: "Program",
   hidden: true,
-  editable: false,
+  editable: false
 });
 
 //Import Artists
