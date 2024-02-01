@@ -37,7 +37,7 @@ artists.value.forEach((artist) => {
   }
 });
 
-const selectedYear = ref(festivalYears.value.reverse()[0]);
+const selectedYear = ref(festivalYears.value[0]);
 
 const concerts = ref([]);
 const artistCols = ref([]);
