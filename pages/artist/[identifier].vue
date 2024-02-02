@@ -3,7 +3,8 @@ import {
   GlobeAltIcon,
   MapPinIcon,
   CalendarIcon,
-  MusicalNoteIcon
+  MusicalNoteIcon,
+  ClockIcon
 } from "@heroicons/vue/24/solid";
 import { format } from 'date-fns'
 import { da } from 'date-fns/locale'
@@ -57,6 +58,28 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
 
     <section id="artist">
       <div class="artist-info">
+        <div v-if="artist.location" class="artist-location">
+          <h2>Venue</h2>
+          <p class="flex space-x-2">
+            <MapPinIcon class="h-6 w-6" />
+            <span>{{ artist.location }}</span>
+          </p>
+        </div>
+        <div class="artist-date">
+          <h2>Dato</h2>
+          <p>
+            <CalendarIcon class="h6 w-6" />
+            <span :class="(artist.cancelled) ? 'line-through' : ''">{{ artist.date ? format(artist.date, 'PPP', { locale: da } ) : artist.date }}</span>
+          </p>
+          <p class="bg-red-600 py-1 px-4 w-fit rounded-full" v-if="artist.cancelled">Aflyst</p>
+        </div>
+        <div class="artist-time">
+          <h2>Tidspunkt</h2>
+          <p>
+            <ClockIcon class="h6 w-6" />
+            <span :class="(artist.cancelled) ? 'line-through' : ''">{{ 'kl. ' + artist.time }}</span>
+          </p>
+        </div>
         <div
           v-if="
             artist.socials &&
@@ -90,22 +113,6 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
               /><a :href="artist.socials.instagram" target="_blank">Instagram</a>
             </li>
           </ul>
-        </div>
-
-        <div class="artist-date">
-          <h2>Dato</h2>
-          <p>
-            <CalendarIcon class="h6 w-6" />
-            <span :class="(artist.cancelled) ? 'line-through' : ''">{{ artist.date ? format(artist.date, 'PPP', { locale: da } ) : artist.date }}</span>
-          </p>
-          <p class="bg-red-600 py-1 px-4 w-fit rounded-full" v-if="artist.cancelled">Aflyst</p>
-        </div>
-        <div v-if="artist.location" class="artist-location">
-          <h2>Venue</h2>
-          <p class="flex space-x-2">
-            <MapPinIcon class="h-6 w-6" />
-            <span>{{ artist.location }}</span>
-          </p>
         </div>
         <div v-if="artist.genre.styles.length" class="artist-genre">
           <h2 class="flex">Genre</h2>
@@ -189,6 +196,18 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
 }
 
 .artist-date p {
+  @apply flex items-center space-x-2;
+}
+
+.artist-time {
+  @apply flex flex-col space-y-2;
+}
+
+.artist-time h2 {
+  @apply text-2xl;
+}
+
+.artist-time p {
   @apply flex items-center space-x-2;
 }
 
