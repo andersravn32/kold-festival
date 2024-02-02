@@ -68,7 +68,7 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
         <div v-if="artist.date" class="artist-date">
           <h2>Dato</h2>
           <p>
-            <CalendarIcon class="h6 w-6" />
+            <CalendarIcon class="h-6 w-6" />
             <span :class="(artist.cancelled) ? 'line-through' : ''">{{ artist.date ? format(artist.date, 'PPP', { locale: da } ) : artist.date }}</span>
           </p>
           <p class="bg-red-600 py-1 px-4 w-fit rounded-full" v-if="artist.cancelled">Aflyst</p>
@@ -76,7 +76,7 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
         <div v-if="artist.time" class="artist-time">
           <h2>Tidspunkt</h2>
           <p>
-            <ClockIcon class="h6 w-6" />
+            <ClockIcon class="h-6 w-6" />
             <span :class="(artist.cancelled) ? 'line-through' : ''">{{ 'kl. ' + artist.time }}</span>
           </p>
         </div>
@@ -172,7 +172,7 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
 }
 
 .artist-socials {
-  @apply flex flex-col space-y-2;
+  @apply flex flex-col space-y-1;
 }
 
 .artist-socials h2 {
@@ -180,7 +180,7 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
 }
 
 .artist-socials ul {
-  @apply flex flex-col space-y-2;
+  @apply flex flex-col space-y-1;
 }
 
 .artist-socials li {
@@ -188,7 +188,7 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
 }
 
 .artist-date {
-  @apply flex flex-col space-y-2;
+  @apply flex flex-col space-y-1;
 }
 
 .artist-date h2 {
@@ -200,7 +200,7 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
 }
 
 .artist-time {
-  @apply flex flex-col space-y-2;
+  @apply flex flex-col space-y-1;
 }
 
 .artist-time h2 {
@@ -211,12 +211,20 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
   @apply flex items-center space-x-2;
 }
 
+.artist-location {
+  @apply flex flex-col space-y-1;
+}
+
 .artist-location h2 {
   @apply text-2xl;
 }
 
 .artist-location p {
   @apply flex items-center space-x-2;
+}
+
+.artist-genre {
+  @apply flex flex-col space-y-2;
 }
 
 .artist-genre h2 {
