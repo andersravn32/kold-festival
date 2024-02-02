@@ -65,7 +65,7 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
             <span>{{ artist.location }}</span>
           </p>
         </div>
-        <div class="artist-date">
+        <div v-if="artist.date" class="artist-date">
           <h2>Dato</h2>
           <p>
             <CalendarIcon class="h6 w-6" />
@@ -73,7 +73,7 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
           </p>
           <p class="bg-red-600 py-1 px-4 w-fit rounded-full" v-if="artist.cancelled">Aflyst</p>
         </div>
-        <div class="artist-time">
+        <div v-if="artist.time" class="artist-time">
           <h2>Tidspunkt</h2>
           <p>
             <ClockIcon class="h6 w-6" />
