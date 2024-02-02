@@ -41,6 +41,9 @@ onMounted(() => {
   updateTime();
   setInterval(updateTime, 1000);
 });
+
+
+
 </script>
 <template>
   <section class="block-hero gradient-divider">
@@ -74,12 +77,12 @@ onMounted(() => {
         v-html="data.title.html"
       ></h1>
 
-      <h3 class="hero-countdown" v-if="data.countdown">
+      <!-- <h3 class="hero-countdown" v-if="data.countdown">
         <span>{{ countdown.days }}D</span><span>/</span
         ><span>{{ countdown.hours }}T</span><span>/</span
         ><span>{{ countdown.minutes }}M</span><span>/</span
         ><span>{{ countdown.seconds }}S</span>
-      </h3>
+      </h3> -->
     </BaseGradient>
   </section>
 </template>

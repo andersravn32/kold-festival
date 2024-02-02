@@ -5,6 +5,8 @@ import {
   CalendarIcon,
   MusicalNoteIcon
 } from "@heroicons/vue/24/solid";
+import { format } from 'date-fns'
+import { da } from 'date-fns/locale'
 
 const supabase = useSupabaseClient();
 const router = useRouter();
@@ -94,7 +96,7 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
           <h2>Dato</h2>
           <p>
             <CalendarIcon class="h6 w-6" />
-            <span :class="(artist.cancelled) ? 'line-through' : ''">{{ artist.date }}</span>
+            <span :class="(artist.cancelled) ? 'line-through' : ''">{{ artist.date ? format(artist.date, 'PPP', { locale: da } ) : artist.date }}</span>
           </p>
           <p class="bg-red-600 py-1 px-4 w-fit rounded-full" v-if="artist.cancelled">Aflyst</p>
         </div>
