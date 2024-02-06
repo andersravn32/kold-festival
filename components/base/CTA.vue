@@ -1,6 +1,6 @@
 <template>
-    <a @click="GA4_Event_Ticket()" href="https://tix.dk/da/musikkolding/buyingflow/tickets/19716/38694/" target="_blank" class="mainCTA">
-        Køb billet
+    <a @click="GA4_Event_Ticket()" href="https://musik.kolding.dk/" target="_blank" class="mainCTA">
+        Tak for i år!
     </a>
 </template>
 
@@ -8,10 +8,10 @@
 
 const GA4_Event_Ticket = ()=> {
     //Create dataLayer if its doesn't exist
-    dataLayer = window.dataLayer || [];
+    /* dataLayer = window.dataLayer || []; */
 
     //Pushing CTA event to dataLayer
-    dataLayer.push({'event' : 'View_tickets'});
+    /* dataLayer.push({'event' : 'View_tickets'}); */
 }
 </script>
 
