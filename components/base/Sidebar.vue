@@ -2,6 +2,8 @@
 import FormBlockCreate from "../form/block/Create.vue";
 import FormArtistCreate from "../form/artist/Create.vue";
 import FormArtistEdit from "../form/artist/Edit.vue";
+import FormMainButton from "../form/general/data/MainButton.vue"
+import FormGeneralEdit from "../form/general/Edit.vue"
 import FormBlockDataPartners from '../form/block/data/Partners.vue'
 import { XMarkIcon, ArrowLeftIcon } from "@heroicons/vue/24/outline";
 
@@ -62,16 +64,21 @@ onMounted(async () => {
             </h2>
             <p>Vælg venligst hvad du ønsker at administrere</p>
           </div>
-
+          <p>Generelt</p>
           <BaseButton @click="sidebar.component.value = FormBlockCreate"
             >Opret nyt indhold</BaseButton
           >
+          <BaseButton @click="sidebar.setComponent(FormMainButton)"
+            >Rediger køb knap</BaseButton
+          >
+          <p>Festivals indhold</p>
           <BaseButton @click="sidebar.setComponent(FormArtistCreate)"
             >Tilføj ny kunstner</BaseButton
           >
           <BaseButton @click="sidebar.setComponent(FormArtistEdit)"
             >Rediger kunstner info</BaseButton
           >
+          
         </div>
         <User :user="account.user.value" :profile="account.profile.value" />
       </aside>

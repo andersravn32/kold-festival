@@ -1,10 +1,12 @@
-<template>
-    <a @click="GA4_Event_Ticket()" href="https://tix.dk/da/musikkolding/buyingflow/tickets/19716/38694/" target="_blank" class="mainCTA">
-        Køb billet
-    </a>
-</template>
-
 <script setup>
+
+const supabase = useSupabaseClient();
+
+const { data } = await supabase
+  .from("general")
+  .select("data")
+  .eq("element", "mainButton")
+  .single();
 
 const GA4_Event_Ticket = ()=> {
     //Create dataLayer if its doesn't exist
@@ -14,6 +16,15 @@ const GA4_Event_Ticket = ()=> {
     dataLayer.push({'event' : 'View_tickets'});
 }
 </script>
+
+<template>
+    <a v-if="data.data.link && data.data.title" @click="GA4_Event_Ticket()" :href="data.data.link" target="_blank" class="mainCTA">
+        {{ data.data.title }}
+    </a>
+    <p v-if="data.data.title" class="mainCTA pointer-events-none">
+        {{ data.data.title }}
+    </p>
+</template>
 
 <style>
 .mainCTA {
