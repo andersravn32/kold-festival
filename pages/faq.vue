@@ -1,9 +1,11 @@
 <script setup>
+
 definePageMeta({
   name: "F.A.Q",
   hidden: false,
-  editable: true,
+  editable: true
 });
+
 </script>
 
 <template>

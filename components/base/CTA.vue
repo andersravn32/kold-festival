@@ -10,10 +10,10 @@ const { data } = await supabase
 
 const GA4_Event_Ticket = ()=> {
     //Create dataLayer if its doesn't exist
-    dataLayer = window.dataLayer || [];
+    /* dataLayer = window.dataLayer || []; */
 
     //Pushing CTA event to dataLayer
-    dataLayer.push({'event' : 'View_tickets'});
+    /* dataLayer.push({'event' : 'View_tickets'}); */
 }
 </script>
 

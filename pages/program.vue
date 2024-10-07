@@ -1,4 +1,6 @@
 <script setup>
+import { sortingTimes } from '../utils/constants'
+
 // Define supabase instance from composable
 const supabase = useSupabaseClient();
 
@@ -8,11 +10,11 @@ const router = useRouter();
 definePageMeta({
   name: "Program",
   hidden: true,
-  editable: false,
+  editable: false
 });
 
 //Import Artists
-const { data } = await supabase.from("artists").select("*");
+const { data } = await supabase.from("artists").select('name, public, date, type, time, identifier, name, location');
 const artists = ref(data);
 artists.value = artists.value.filter(a => a.public).map((artist) => {
   return {
@@ -35,7 +37,7 @@ artists.value.forEach((artist) => {
   }
 });
 
-const selectedYear = ref(festivalYears.value.reverse()[0]);
+const selectedYear = ref(festivalYears.value[0]);
 
 const concerts = ref([]);
 const artistCols = ref([]);
@@ -56,7 +58,11 @@ const update = () => {
     })
     .sort((x, y) => {
       if(!x.time || !y.time) return
-      return x.time.split(':')[0] - y.time.split(':')[0]
+      return (x.time.split(':')[0] + x.time.split(':')[1]) - (y.time.split(':')[0] + y.time.split(':')[1])
+    })
+    .sort((x,y) => {
+      if(!x.time || !y.time) return
+      return sortingTimes.indexOf(x.time.split(':')[0]) - sortingTimes.indexOf(y.time.split(':')[0])
     });
 
   talks.value = artists.value
@@ -68,7 +74,11 @@ const update = () => {
     })
     .sort((x, y) => {
       if(!x.time || !y.time) return
-      return x.time.split(':')[0] - y.time.split(':')[0]
+      return (x.time.split(':')[0] + x.time.split(':')[1]) - (y.time.split(':')[0] + y.time.split(':')[1])
+    })
+    .sort((x,y) => {
+      if(!x.time || !y.time) return
+      return sortingTimes.indexOf(x.time.split(':')[0]) - sortingTimes.indexOf(y.time.split(':')[0])
     });
 
   // Set artist columns state
@@ -96,17 +106,33 @@ const update = () => {
       );
     }
   });
+
+  artistCols.value.sort((a, b) => {
+  const numberA = a.match(/\d+/g).join('')
+  const numberB = b.match(/\d+/g).join('')
+  
+  return numberA - numberB
+  })
+
+  talks.value.sort((a, b) => {
+  const numberA = a.match(/\d+/g).join('')
+  const numberB = b.match(/\d+/g).join('')
+  
+  return numberA - numberB
+  })
+
 };
 
 onMounted(() => {
   update();
 });
+
 </script>
 <template>
   <section>
     <BasePageHeader
       id="program-header"
-      bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere"
+      bg="https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere.webp"
     >
       <h1 class="text-4xl lg:text-6xl uppercase leading-[0.9]">Program</h1>
       <h2 class="lg:text-xl text-center font-body">

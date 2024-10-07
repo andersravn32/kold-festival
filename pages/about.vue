@@ -1,9 +1,11 @@
 <script setup>
+
 definePageMeta({
   name: "Om os",
   hidden: false,
   editable: true
 })
+
 </script>
 
 <template>

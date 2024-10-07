@@ -1,19 +1,21 @@
 <script setup>
+
 definePageMeta({
   hidden: false,
   name: "Partnere",
-  editable: false,
+  editable: false
 });
 
 const supabase = useSupabaseClient();
 
 const bg =
-  "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere";
+  "https://ddcpzvjlsezychixcvnh.supabase.co/storage/v1/object/public/public/bgPartnere.webp";
 
 
 const { data } = await supabase.from('partnere').select().order('order', { ascending: true })
 
 const partnere = ref(data)
+
 </script>
 
 <template>

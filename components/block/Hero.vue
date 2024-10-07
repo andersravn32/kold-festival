@@ -41,12 +41,15 @@ onMounted(() => {
   updateTime();
   setInterval(updateTime, 1000);
 });
+
+
+
 </script>
 <template>
   <section class="block-hero gradient-divider">
     <video
       class="hero-video"
-      v-if="data.bg.src && data.bg.src.includes('.mp4')"
+      v-if="data.bg.src && data.bg.src.includes('.mp4') || data.bg.src.includes('.webm')"
       :src="data.bg.src"
       autoplay
       muted
@@ -54,7 +57,7 @@ onMounted(() => {
     ></video>
     <div
       class="hero-video bg-cover bg-center"
-      v-if="data.bg.src && !data.bg.src.includes('.mp4')"
+      v-if="data.bg.src && !data.bg.src.includes('.webm') || !data.bg.src.includes('.mp4')"
       :style="{ 'background-image': `url(${data.bg.src})` }"
     ></div>
     <BaseGradient class="hero-gradient">
@@ -74,12 +77,12 @@ onMounted(() => {
         v-html="data.title.html"
       ></h1>
 
-      <h3 class="hero-countdown" v-if="data.countdown">
+      <!-- <h3 class="hero-countdown" v-if="data.countdown">
         <span>{{ countdown.days }}D</span><span>/</span
         ><span>{{ countdown.hours }}T</span><span>/</span
         ><span>{{ countdown.minutes }}M</span><span>/</span
         ><span>{{ countdown.seconds }}S</span>
-      </h3>
+      </h3> -->
     </BaseGradient>
   </section>
 </template>

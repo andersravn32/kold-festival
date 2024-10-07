@@ -3,8 +3,11 @@ import {
   GlobeAltIcon,
   MapPinIcon,
   CalendarIcon,
-  MusicalNoteIcon
+  MusicalNoteIcon,
+  ClockIcon
 } from "@heroicons/vue/24/solid";
+import { format } from 'date-fns'
+import { da } from 'date-fns/locale'
 
 const supabase = useSupabaseClient();
 const router = useRouter();
@@ -12,7 +15,7 @@ const router = useRouter();
 definePageMeta({
   name: "Kunstner",
   hidden: true,
-  editable: false,
+  editable: false
 });
 
 const { data } = await supabase.from("artists").select("*");
@@ -55,6 +58,28 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
 
     <section id="artist">
       <div class="artist-info">
+        <div v-if="artist.location" class="artist-location">
+          <h2>Venue</h2>
+          <p class="flex space-x-2">
+            <MapPinIcon class="h-6 w-6" />
+            <span>{{ artist.location }}</span>
+          </p>
+        </div>
+        <div v-if="artist.date" class="artist-date">
+          <h2>Dato</h2>
+          <p>
+            <CalendarIcon class="h-6 w-6" />
+            <span :class="(artist.cancelled) ? 'line-through' : ''">{{ artist.date ? format(artist.date, 'PPP', { locale: da } ) : artist.date }}</span>
+          </p>
+          <p class="bg-red-600 py-1 px-4 w-fit rounded-full" v-if="artist.cancelled">Aflyst</p>
+        </div>
+        <div v-if="artist.time" class="artist-time">
+          <h2>Tidspunkt</h2>
+          <p>
+            <ClockIcon class="h-6 w-6" />
+            <span :class="(artist.cancelled) ? 'line-through' : ''">{{ 'kl. ' + artist.time }}</span>
+          </p>
+        </div>
         <div
           v-if="
             artist.socials &&
@@ -89,22 +114,6 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
             </li>
           </ul>
         </div>
-
-        <div class="artist-date">
-          <h2>Dato</h2>
-          <p>
-            <CalendarIcon class="h6 w-6" />
-            <span :class="(artist.cancelled) ? 'line-through' : ''">{{ artist.date }}</span>
-          </p>
-          <p class="bg-red-600 py-1 px-4 w-fit rounded-full" v-if="artist.cancelled">Aflyst</p>
-        </div>
-        <div v-if="artist.location" class="artist-location">
-          <h2>Venue</h2>
-          <p class="flex space-x-2">
-            <MapPinIcon class="h-6 w-6" />
-            <span>{{ artist.location }}</span>
-          </p>
-        </div>
         <div v-if="artist.genre.styles.length" class="artist-genre">
           <h2 class="flex">Genre</h2>
           <ul class="flex gap-2 flex-wrap">
@@ -115,6 +124,9 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
         </div>
       </div>
       <article class="artist-body">
+<!--         <div class=" w-full h-64 overflow-hidden">
+          <img :src="artist.header" class="w-full h-auto -translate-y-1/4">
+        </div> -->
         <div class="artist-body-inner" v-html="artist.body"></div>
         <iframe
           v-if="artist.socials && artist.socials.spotify"
@@ -138,7 +150,7 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
           :key="index"
           :name="artist.name"
           :subartist="artist.subtitle"
-          :artist-cover="artist.header"
+          :artist-cover="artist.image"
           @click="router.push(`/artist/${artist.identifier}`)"
         />
       </div>
@@ -160,7 +172,7 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
 }
 
 .artist-socials {
-  @apply flex flex-col space-y-2;
+  @apply flex flex-col space-y-1;
 }
 
 .artist-socials h2 {
@@ -168,7 +180,7 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
 }
 
 .artist-socials ul {
-  @apply flex flex-col space-y-2;
+  @apply flex flex-col space-y-1;
 }
 
 .artist-socials li {
@@ -176,7 +188,7 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
 }
 
 .artist-date {
-  @apply flex flex-col space-y-2;
+  @apply flex flex-col space-y-1;
 }
 
 .artist-date h2 {
@@ -187,12 +199,32 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
   @apply flex items-center space-x-2;
 }
 
+.artist-time {
+  @apply flex flex-col space-y-1;
+}
+
+.artist-time h2 {
+  @apply text-2xl;
+}
+
+.artist-time p {
+  @apply flex items-center space-x-2;
+}
+
+.artist-location {
+  @apply flex flex-col space-y-1;
+}
+
 .artist-location h2 {
   @apply text-2xl;
 }
 
 .artist-location p {
   @apply flex items-center space-x-2;
+}
+
+.artist-genre {
+  @apply flex flex-col space-y-2;
 }
 
 .artist-genre h2 {
