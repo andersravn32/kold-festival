@@ -20,8 +20,10 @@ const props = defineProps({
 // Store component loading state
 const loading = ref(false);
 
+const text = ref("");
+
 const element = ref({
-  ...props.data,
+  ...props,
   ...data
 });
 
@@ -31,6 +33,14 @@ const element = ref({
   });
 }; */
 
+function promptUser(string) {
+  text.value = string
+
+  setTimeout(() => {
+    text.value = "";
+  }, 10000);
+}
+
 // Define component emits
 const emit = defineEmits(['done']);
 
@@ -38,14 +48,21 @@ const edit = async () => {
     // Update loading state
     loading.value = true;
 
-    console.log(element.value.data)
+    const { error } = await supabase
+    .from("general")
+    .update({ data: element.value.data })
+    .eq('id', data.id)
 
-    const { data, error } = await supabase.from("general").update({
-        data: element.value.data
-    }).eq("id", element.value.id).select();
-
-    // Update loading state
-    loading.value = false;
+    if(error) {
+      console.error(error)
+      loading.value = false;
+      promptUser("An error happened, please try again")
+      return
+    } else {
+      // Update loading state
+      loading.value = false;
+      promptUser("Succesfully updated button")
+    }
 
     // Return done event with either data or error
     /* return emit('done', data || error); */
@@ -70,6 +87,7 @@ const edit = async () => {
             <label>Offentliggør</label>
         </div> -->
         <BaseButton :loading="loading">Gem ændringer</BaseButton>
+        <p>{{ text }}</p>
     </form>
     
   </div>

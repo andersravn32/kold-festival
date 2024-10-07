@@ -65,10 +65,10 @@ if (!account.profile.value || !account.user.value) {
       />
     </Transition>
     <BaseNavbar v-if="!sidebar.show.value" />
-    <BaseCTA />
     <div v-if="!account.user.value && !account.profile.value">
       <BaseSocialsMobile />
       <BaseSocialTabs />
+      <BaseCTA />
     </div>
     <NuxtPage />
     <BaseFooter />

@@ -5,7 +5,7 @@ export const useAccount = () => {
   const supabase = useSupabaseClient();
 
   // Assign account user to supabase user
-  user.value = { id: "ee6463ff-28c8-4a9c-9947-7d07cc746702", email: "lkj@wemarket.dk" } /* useSupabaseUser().value; */
+  user.value = useSupabaseUser().value;
 
   const update = async () => {
     // If no data was loaded, return nothing
@@ -25,7 +25,7 @@ export const useAccount = () => {
     }
 
     // Assign account profile data to fetched data
-    profile.value = { firstName: "Lasse", lastName: "Kjellerup" } /* data[0]; */
+    profile.value = data[0];
   };
 
   const signout = async () => {
