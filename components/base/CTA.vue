@@ -28,7 +28,7 @@ const GA4_Event_Ticket = ()=> {
 
 <style>
 .mainCTA {
-    @apply fixed bottom-0 left-0 right-0 p-2 md:p-4 text-3xl md:text-4xl text-center font-header uppercase text-zinc-100 bg-accent font-bold z-30 transition-all duration-150;
+    @apply fixed bottom-0 left-0 right-0 p-2 md:p-4 text-2xl sm:text-3xl md:text-4xl text-center font-header uppercase text-zinc-100 bg-accent font-bold z-30 transition-all duration-150;
 }
 
 .mainCTA:hover {

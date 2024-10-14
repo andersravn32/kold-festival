@@ -14,7 +14,7 @@ definePageMeta({
 });
 
 //Import Artists
-const { data } = await supabase.from("artists").select('name, public, date, type, time, identifier, name, location');
+const { data } = await supabase.from("artists").select('name, public, date, type, time, identifier, name, location').order('date', { ascending: false });
 const artists = ref(data);
 artists.value = artists.value.filter(a => a.public).map((artist) => {
   return {
@@ -108,15 +108,15 @@ const update = () => {
   });
 
   artistCols.value.sort((a, b) => {
-  const numberA = a.match(/\d+/g).join('')
-  const numberB = b.match(/\d+/g).join('')
+  const numberA = new Date(a)
+  const numberB = new Date(b)
   
   return numberA - numberB
   })
 
   talks.value.sort((a, b) => {
-  const numberA = a.match(/\d+/g).join('')
-  const numberB = b.match(/\d+/g).join('')
+  const numberA = new Date(a)
+  const numberB = new Date(b)
   
   return numberA - numberB
   })
