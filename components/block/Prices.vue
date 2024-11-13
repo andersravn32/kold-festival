@@ -8,6 +8,13 @@ const props = defineProps({
   },
 });
 
+const gridStarts = {
+    1: 'lg:col-start-1',
+    2: 'lg:col-start-2',
+    3: 'lg:col-start-3',
+    4: 'lg:col-start-4'
+  }
+
 </script>
 
 <template>
@@ -25,7 +32,7 @@ const props = defineProps({
     :link="price.link"
     :disabled="price.disabled"
     />
-    <div class="price bg-blue-600/50 text-center col-auto">
+    <div :class="`price bg-blue-600/50 text-center ${gridStarts[data.prices.length % 4 + 1]} lg:col-end-5`">
       <InformationCircleIcon class="w-32 h-32" />
       <h3>Vær opmærksom på..</h3>
       <p class="font-body">
