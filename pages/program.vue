@@ -1,5 +1,7 @@
 <script setup>
 import { sortingTimes } from '../utils/constants'
+import { format } from 'date-fns'
+import { da } from 'date-fns/locale';
 
 // Define supabase instance from composable
 const supabase = useSupabaseClient();
@@ -84,26 +86,18 @@ const update = () => {
   // Set artist columns state
   concerts.value.forEach((artist) => {
     if (
-      !artistCols.value.includes(
-        artist.dateShort.substring(0, artist.dateShort.length - 6)
-      )
+      !artistCols.value.includes(artist.date)
     ) {
-      artistCols.value.push(
-        artist.dateShort.substring(0, artist.dateShort.length - 6)
-      );
+      artistCols.value.push(artist.date); //artist.dateShort.substring(0, artist.dateShort.length - 6)
     }
   });
 
   // Set talk columns state
   talks.value.forEach((artist) => {
     if (
-      !talkCols.value.includes(
-        artist.dateShort.substring(0, artist.dateShort.length - 6)
-      )
+      !talkCols.value.includes(artist.date)
     ) {
-      talkCols.value.push(
-        artist.dateShort.substring(0, artist.dateShort.length - 6)
-      );
+      talkCols.value.push(artist.date);
     }
   });
 
@@ -147,7 +141,7 @@ onMounted(() => {
       <BaseTabs>
         <BaseTab title="Musik" class="grid space-y-8 lg:grid-cols-2 lg:space-y-0 gap-8">
           <div v-for="column in artistCols" class="flex flex-col space-y-4">
-            <h2 class="text-xl">{{ column }}</h2>
+            <h2 class="text-xl">{{ format(column, 'EEE d MMM', { locale: da }) }}</h2>
             <ul class="flex flex-col space-y-4 divide-y-2 divide-white/25">
               <li class="tabel-placement font-header font-bold">
                 <span>Navn</span>
@@ -156,12 +150,7 @@ onMounted(() => {
               </li>
               <li
                 v-for="artist in concerts.filter((artist) => {
-                  return (
-                    artist.dateShort.substring(
-                      0,
-                      artist.dateShort.length - 6
-                    ) == column
-                  );
+                  return (artist.date == column);
                 })"
                 class="tabel-placement pt-4 items-center"
               >
@@ -178,7 +167,7 @@ onMounted(() => {
         </BaseTab>
         <BaseTab title="Talks" class="grid md:grid-cols-2 gap-8">
           <div v-for="column in talkCols" class="flex flex-col space-y-4">
-            <h2 class="text-xl">{{ column }}</h2>
+            <h2 class="text-xl">{{ format(column, 'EEE d MMM', { locale: da }) }}</h2>
             <ul class="flex flex-col space-y-4 divide-y-2 divide-white/25">
               <li class="tabel-placement font-header font-bold">
                 <span>Navn</span>
@@ -187,12 +176,7 @@ onMounted(() => {
               </li>
               <li
                 v-for="artist in talks.filter((artist) => {
-                  return (
-                    artist.dateShort.substring(
-                      0,
-                      artist.dateShort.length - 6
-                    ) == column
-                  );
+                  return (artist.date == column);
                 })"
                 class="tabel-placement pt-4 items-center"
               >
