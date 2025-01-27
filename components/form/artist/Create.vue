@@ -159,13 +159,18 @@ const create = async () => {
           type="text"
           placeholder="Indtast lokation"
         />
-      <select v-if="locations.length" v-model="artist.location">
-          <option disabled selected value="">Vælg fra liste</option>
-          <option
-          v-for="(location, key) in locations" 
-          :key={key}
-          :value="location">{{ location }}</option>
-      </select>
+        <select v-if="locations.length" v-model="artist.location">
+            <option disabled selected value="">Vælg fra liste</option>
+            <option
+            v-for="(location, key) in locations" 
+            :key={key}
+            :value="location">{{ location }}</option>
+        </select>
+        <input
+          v-model="artist.location"
+          type="text"
+          placeholder="Google maps link"
+        />
       </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 <script setup>
-import { TrashIcon } from "@heroicons/vue/24/solid";
+import { TrashIcon, MapIcon } from "@heroicons/vue/24/solid";
 
 const supabase = useSupabaseClient();
 const sidebar = useSidebar();
@@ -27,6 +27,18 @@ async function getLocations() {
 
 getLocations()
 
+function GoogleMapsURLToEmbedURL(GoogleMapsURL)
+{
+    var coords = /\@([0-9\.\,\-a-zA-Z]*)/.exec(GoogleMapsURL);
+    if(coords!=null)
+    {
+        var coordsArray = coords[1].split(',');
+        if(!coordsArray[0] || !coordsArray[1]) return null
+        return "https://maps.google.com/maps?q="+coordsArray[0]+","+coordsArray[1]+"&output=embed"
+    } else {
+      return null
+    }
+}
 
 const loading = ref(false);
 
@@ -74,6 +86,7 @@ const update = async () => {
       genre: editArtist.value.genre,
       public: editArtist.value.public,
       cancelled: editArtist.value.cancelled,
+      location_maps: editArtist.value.location_maps
     })
     .eq("id", editArtist.value.id);
 
@@ -206,6 +219,22 @@ const update = async () => {
             :key={key}
             :value="location">{{ location }}</option>
           </select>
+          <div class=" col-span-full relative">
+            <input
+              v-model="editArtist.location_maps"
+              type="text"
+              placeholder="Google maps link"
+              class="w-full"
+            />
+            <MapIcon 
+            class="w-6 absolute right-4 top-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-50"
+            :class="{ 'opacity-0': editArtist.location_maps && editArtist.location_maps.length > 50 }"
+            />
+          </div>
+          <div class="col-span-full overflow-hidden">
+            <iframe v-if="editArtist.location_maps && editArtist.location_maps.length > 0 && GoogleMapsURLToEmbedURL(editArtist.location_maps) !== null" :src="GoogleMapsURLToEmbedURL(editArtist.location_maps)" width="600" height="200" class="w-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> 
+            </iframe>
+          </div>
         </div>
         </div>
       </div>

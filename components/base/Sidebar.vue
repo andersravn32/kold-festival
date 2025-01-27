@@ -8,10 +8,10 @@ import FormBlockDataPartners from '../form/block/data/Partners.vue'
 import { XMarkIcon, ArrowLeftIcon } from "@heroicons/vue/24/outline";
 
 // Import account from composable
-const account = useAccount();
+/* const account = useAccount();
 if (!account.user.value || !account.profile.value) {
   await account.update();
-}
+} */
 
 // Import sidebar data
 const sidebar = useSidebar();
@@ -80,7 +80,7 @@ onMounted(async () => {
           >
           
         </div>
-        <User :user="account.user.value" :profile="account.profile.value" />
+       <!--  <User :user="account.user.value" :profile="account.profile.value" /> -->
       </aside>
     </div>
   </div>
