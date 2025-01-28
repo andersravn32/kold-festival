@@ -4,7 +4,8 @@ import {
   MapPinIcon,
   CalendarIcon,
   MusicalNoteIcon,
-  ClockIcon
+  ClockIcon,
+  ChevronRightIcon
 } from "@heroicons/vue/24/solid";
 import { format } from 'date-fns'
 import { da } from 'date-fns/locale'
@@ -60,10 +61,19 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
       <div class="artist-info">
         <div v-if="artist.location" class="artist-location">
           <h2>Venue</h2>
-          <p class="flex space-x-2">
-            <MapPinIcon class="h-6 w-6" />
-            <span>{{ artist.location }}</span>
-          </p>
+          <div class="w-full flex lg:flex-col justify-between items-center lg:items-start">
+            <p class="flex space-x-2">
+              <MapPinIcon class="h-6 w-6" />
+              <span>{{ artist.location }}</span>
+            </p>
+            <a 
+            v-if="artist.location_maps"
+            class="flex items-center gap-4 group py-2 lg:mt-4 text-lg w-fit rounded-full px-4 overflow-hidden relative" :href="artist.location_maps" target="_blank">
+              <p class="group-hover:underline">Find vej</p>
+              <ChevronRightIcon class=" w-6" />
+              <div class=" bg-gradient-to-r from-indigo-600 to-blue-600 absolute top-0 left-0 -z-10 w-[200%] h-full transition-all duration-500 group-hover:-left-1/2"></div>
+            </a>
+          </div>
         </div>
         <div v-if="artist.date" class="artist-date">
           <h2>Dato</h2>
@@ -164,11 +174,11 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
 }
 
 #artist {
-  @apply max-w-6xl mx-auto grid space-y-8 lg:space-y-0 lg:grid-cols-4 gap-4 p-4 my-8 ;
+  @apply max-w-6xl mx-auto lg:grid space-y-8 lg:space-y-0 lg:grid-cols-4 gap-4 p-4 my-8 ;
 }
 
 .artist-info {
-  @apply flex flex-col space-y-4 font-body col-span-1;
+  @apply flex flex-col space-y-4 font-body col-span-full w-full lg:col-span-1;
 }
 
 .artist-socials {
@@ -212,7 +222,7 @@ suggested.length = (suggested.length > 4) ? 3 : suggested.length;
 }
 
 .artist-location {
-  @apply flex flex-col space-y-1;
+  @apply flex flex-col space-y-0 lg:space-y-1;
 }
 
 .artist-location h2 {

@@ -23,7 +23,7 @@ export const useAccount = () => {
     if (!data) {
       return;
     }
-
+    
     // Assign account profile data to fetched data
     profile.value = data[0];
   };
