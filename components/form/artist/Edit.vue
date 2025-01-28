@@ -90,6 +90,8 @@ const update = async () => {
     })
     .eq("id", editArtist.value.id);
 
+    console.log(request, request.data)
+
   // Error handling
   if (request.error) {
     modal.setComponent(

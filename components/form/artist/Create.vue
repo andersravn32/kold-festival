@@ -14,6 +14,7 @@ const artist = ref({
   date: new Date().toISOString().split("T")[0],
   time: null,
   location: '',
+  location_maps: '',
   image: null,
   header: null,
   body: null,
@@ -152,27 +153,38 @@ const create = async () => {
         />
       </div>
       <div class="input col-span-2">
-        <label>Lokation</label>
-        <div class="grid grid-cols-2 gap-4">
-        <input
-          v-model="artist.location"
-          type="text"
-          placeholder="Indtast lokation"
-        />
-        <select v-if="locations.length" v-model="artist.location">
+          <label>Lokation</label>
+          <div class="grid grid-cols-2 gap-4">
+          <input
+            v-model="artist.location"
+            type="text"
+            placeholder="Indtast lokation"
+          />
+          <select v-if="locations.length" v-model="artist.location">
             <option disabled selected value="">Vælg fra liste</option>
             <option
             v-for="(location, key) in locations" 
             :key={key}
             :value="location">{{ location }}</option>
-        </select>
-        <input
-          v-model="artist.location"
-          type="text"
-          placeholder="Google maps link"
-        />
-      </div>
-      </div>
+          </select>
+          <div class=" col-span-full relative">
+            <input
+              v-model="artist.location_maps"
+              type="text"
+              placeholder="Google maps link"
+              class="w-full"
+            />
+            <MapIcon 
+            class="w-6 absolute right-4 top-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-50"
+            :class="{ 'opacity-0': artist.location_maps && artist.location_maps.length > 50 }"
+            />
+          </div>
+          <div class="col-span-full overflow-hidden">
+            <iframe v-if="artist.location_maps && artist.location_maps.length > 0 && GoogleMapsURLToEmbedURL(artist.location_maps) !== null" :src="GoogleMapsURLToEmbedURL(artist.location_maps)" width="600" height="200" class="w-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> 
+            </iframe>
+          </div>
+        </div>
+        </div>
     </div>
     <div class="input">
       <label
