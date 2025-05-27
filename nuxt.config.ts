@@ -40,7 +40,7 @@ export default defineNuxtConfig({
     },
   },
   gtm: {
-    id: 'GTM-K7MZ8GFW'
+    id: 'GTM-KHHKBCWB'
   },
   cache: {
     useHostPrefix: false,
