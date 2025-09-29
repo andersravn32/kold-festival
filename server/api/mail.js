@@ -6,8 +6,6 @@ export default defineEventHandler(async (event) => {
 
   const body = await readBody(event);
 
-  console.log(body)
-
   const captcha = await verify(hcaptcha_secret, body.captcha);
   if (!captcha.success) {
     return {

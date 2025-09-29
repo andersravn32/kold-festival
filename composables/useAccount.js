@@ -5,7 +5,7 @@ export const useAccount = () => {
   const supabase = useSupabaseClient();
 
   // Assign account user to supabase user
-  user.value =  useSupabaseUser().value;
+  user.value = useSupabaseUser().value;
 
   const update = async () => {
     // If no data was loaded, return nothing

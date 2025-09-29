@@ -20,8 +20,6 @@ if (!account.profile.value || !account.user.value) {
   document.head.appendChild(externalScript);
 }); */ 
 
-// 
-
 </script>
 
 <template>
@@ -39,7 +37,7 @@ if (!account.profile.value || !account.user.value) {
     <BaseSidebar
       v-if="sidebar.show.value && account.user.value && account.profile.value"
     />
- 
+
     <!-- Sidebar toggle button -->
     <button
       v-if="!sidebar.show.value && account.user.value && account.profile.value"
