@@ -20,7 +20,7 @@ definePageMeta({
       </h2></BasePageHeader
     >
 
-    <FormContact />
+    <!-- <FormContact /> -->
 
     <div class="contactContainer">
       <div class="contactCard">

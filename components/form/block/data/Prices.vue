@@ -40,7 +40,7 @@ const update = () => {
   <div id="form-block-data-hero">
     <div v-if="!data.prices.length" class="h-32 flex items-center flex-col justify-center">
         <h2>Ingen priser tilføjet</h2>
-        <BaseButton @click.prevent="data.value.prices.push(newPrice)">Tilføj pris</BaseButton>
+        <BaseButton @click.prevent="data.prices.push(newPrice)">Tilføj pris</BaseButton>
     </div>
     <div class="flex flex-col space-y-2" v-if="data.prices.length">
             <div class="grid grid-cols-2 gap-4 border p-4" v-for="(price, index) in data.prices" :key="index">
