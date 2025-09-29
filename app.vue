@@ -18,7 +18,9 @@ if (!account.profile.value || !account.user.value) {
     "https://consent.cookiebot.com/uc.js?cbid=40b80dd7-9d04-4fbd-84b7-1836c89950af%27"
   );
   document.head.appendChild(externalScript);
-}); */
+}); */ 
+
+// 
 
 </script>
 
@@ -37,7 +39,7 @@ if (!account.profile.value || !account.user.value) {
     <BaseSidebar
       v-if="sidebar.show.value && account.user.value && account.profile.value"
     />
-
+ 
     <!-- Sidebar toggle button -->
     <button
       v-if="!sidebar.show.value && account.user.value && account.profile.value"

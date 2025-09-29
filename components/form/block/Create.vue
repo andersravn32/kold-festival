@@ -63,7 +63,7 @@ const create = async () => {
             <FormBlockDataHeader v-if="block.type == 'header'" @update="(e) => { block.data = e }" />
             <FormBlockDataArtistGrid v-if="block.type == 'artist-grid'" @update="(e) => { block.data = e }" />
             <FormBlockDataBanner v-if="block.type == 'banner'" @update="(e) => { block.data = e }" />
-            <FormBlockDataPrices v-if="block.type == 'prices'" @update="(e) => { block.data = e }" :key="block.data.prices.length" />
+            <FormBlockDataPrices v-if="block.type == 'prices'" @update="(e) => { block.data = e }" />
 
             <div class="input">
                 <label>På hvilken side skal indholdet placeres?</label>
